@@ -1,4 +1,4 @@
-Fachbericht Projekt 2 EIT
+Laborjournal
 =========================
 
-LaTeX files fuer den Fachbericht des Teams 4.
+Laborjournal Grundlagenlabor 3.
