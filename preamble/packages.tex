@@ -1,0 +1,83 @@
+\usepackage{lipsum}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{MnSymbol}
+\usepackage{wasysym}
+\usetikzlibrary{arrows}
+\usepackage{lmodern}   %Type1-Schriftart f\"ur nicht-englische Texte
+\usepackage{datetime}
+\usepackage{cite}
+\usepackage{lipsum}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{gensymb}
+\usepackage{pbox}
+%\usepackage{draftwatermark}
+%\usepackage[nostamp]{draftwatermark}
+\usepackage[textsize=footnotesize, textwidth = 17mm, german, colorinlistoftodos]{todonotes}
+\usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{matlab-prettifier}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{java}{
+    language            = Java,
+    aboveskip           = 3mm,
+    belowskip           = 3mm,
+    showstringspaces    = false,
+    columns             = flexible,
+    basicstyle          = {\scriptsize\ttfamily},
+    numbers             = left,
+    numberstyle         = \tiny\color{gray},
+    keywordstyle        = \color{blue},
+    commentstyle        = \color{dkgreen},
+    stringstyle         = \color{mauve},
+    breaklines          = true,
+    breakatwhitespace   = true,
+    tabsize             = 3
+}
+\lstdefinestyle{Matlab-editor-2}{%
+  style               = MatlabBaseStyle@mlpr,
+  mllastelementstyle  = \color{black}                    ,
+  mlkeywordstyle      = \color[RGB]{000,000,255}         ,
+  mlcommentstyle      = \color[RGB]{034,139,034}         ,
+  mlstringstyle       = \color[RGB]{160,032,240}         ,
+  mlsyscomstyle       = \color[RGB]{178,140,000}         ,
+  mlsectiontitlestyle = \commentStyle@mlpr      \bfseries,
+  mlsharedvarstyle    = \color[RGB]{000,163,163}         ,
+  mlplaceholderstyle  = \mleditorphstyle,
+  basicstyle          = \ttfamily\scriptsize,
+  numbers             = left,
+}
+
+
+%\SetWatermarkText{\texttt{Entwurf}}
+%\SetWatermarkText{Entwurf}
+%\SetWatermarkLightness{0.9}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{2}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+
+%\renewcommand{\thefootnote}{\roman{footnote}}
+\renewcommand{\thefootnote}{\Roman{footnote}}
