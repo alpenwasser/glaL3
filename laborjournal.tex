@@ -1,0 +1,35 @@
+\documentclass{fhnwreport/fhnwreport}
+
+\input{preamble/packages.tex}
+\input{preamble/hyperref.tex}
+\input{preamble/title.tex}
+\input{preamble/colfigure.tex}
+\input{preamble/enumerate.tex}
+\input{preamble/code.tex}
+
+
+\usepackage{pdfpages}
+
+\begin{document}
+
+\input{titlepage/titlepage.tex}
+
+\includepdf[pages=-]{versuche/computerversuch/computerversuch.pdf}
+
+
+% **************************************************************************** %
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{section}{\listigurename}
+%\listoffigures
+% **************************************************************************** %
+
+
+% **************************************************************************** %
+%\clearpage
+%\phantomsection
+%\addcontentsline{toc}{section}{\bibname}
+%\bibliography{bibliography/bibliography}{\bibliographystyle{bibliography/deIEEEtran.bst}}
+% **************************************************************************** %
+
+\end{document}
