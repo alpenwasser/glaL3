@@ -41,11 +41,12 @@ Messprotokoll:
 
 Mittlere Laufzeit:
 \begin{equation}
-    \overline{t} = \frac{1}{20} \sum_{i=1}^{20} t_i = \SI{7.32}{\milli\second}
+    \overline{t} = \frac{1}{20} \sum_{i=1}^{20} t_i = \SI{7.37}{\milli\second}
 \end{equation}
 Fehler des Mittelwertes:
 \begin{equation}
-    s_{\overline{t}} = \frac{1}{20} \sum_{i=1}^{20} t_i = \SI{0.01}{\milli\second}
+    %s_{\overline{t}} = \frac{1}{20} \sum_{i=1}^{20} t_i = \SI{0.01}{\milli\second}
+    s_{\overline{t}} = \sqrt{ \frac{\sum_{1}^{20}{(t_i-\overline{t})^2}}{20 \cdot 19}} = \SI{0.062}{\milli\second} \\
 \end{equation}
 
 \subsubsection{Wert und Unsicherheit der Schallgeschwindigkeit}
@@ -61,7 +62,7 @@ Berechnung der mittleren Geschwindigkeit:
 
 \begin{gather}
     c = \frac{s}{t} \\
-    \overline{c} = \frac{s}{\overline{t}} = \frac{\SI{2.561}{\meter}}{\SI{7.32}{\milli\second}} = \SI{349.74}{\meter\per\second} \\
+    \overline{c} = \frac{s}{\overline{t}} = \frac{\SI{2.561}{\meter}}{\SI{7.37}{\milli\second}} = \SI{349.74}{\meter\per\second} \\
 \end{gather}
 
 Gauss'sches Fehlerfortpflanzungsgesetz:
@@ -82,17 +83,17 @@ In diesem Fall ist $R(x,y,z,...) := c(s,t) = \frac{s}{t}$. Es ergibt sich die Fo
                             + \left( - \frac{s}{t^2} \biggr\rvert_{\overline{c}} \cdot s_{\overline{t}}\right)^2 } \\
                             = \sqrt{ \left( \frac{1}{\overline{t}} \cdot s_{\overline{s}}\right)^2
                             + \left( - \frac{\overline{s}}{\overline{t}^2} \cdot s_{\overline{t}}\right)^2 } \\
-                            = \sqrt{ \left( \frac{1}{\SI{7.32}{\milli\second}} \cdot \SI{3}{\milli\meter} \right)^2
-                            + \left( - \frac{\SI{2.561}{\meter}}{(\SI{7.32}{\milli\second})^2} \cdot \SI{0.01}{\milli\second}\right)^2 } \\
-                            = \sqrt{ \left( \frac{1}{\SI{0.00732}{\second}} \cdot \SI{0.003}{\meter} \right)^2
-                            + \left( - \frac{\SI{2.561}{\meter}}{(\SI{0.00732}{\second})^2} \cdot \SI{0.00001}{\second}\right)^2 } \\
-                            = \SI{0.64}{\meter\per\second} \text{ (Resultat von Tabellenkalkulationsprogramm)} \\
-                            = \SI{0.63}{\meter\per\second} \text{ (Resultat mittels Eintippen der obigen Zahlen in Taschenrechner)} \\
+                            = \sqrt{ \left( \frac{1}{\SI{7.37}{\milli\second}} \cdot \SI{3}{\milli\meter} \right)^2
+                            + \left( - \frac{\SI{2.561}{\meter}}{(\SI{7.37}{\milli\second})^2} \cdot \SI{0.062}{\milli\second}\right)^2 } \\
+                            = \sqrt{ \left( \frac{1}{\SI{0.00737}{\second}} \cdot \SI{0.003}{\meter} \right)^2
+                            + \left( - \frac{\SI{2.561}{\meter}}{(\SI{0.00737}{\second})^2} \cdot \SI{0.000062}{\second}\right)^2 } \\
+                            = \SI{2.93}{\meter\per\second} \text{ (Resultat von Tabellenkalkulationsprogramm)} \\
+                            = \SI{2.95}{\meter\per\second} \text{ (Resultat mittels Eintippen der obigen Zahlen in Taschenrechner)} \\
 \end{gather*}
 
 Folglich:
 \begin{equation}
-    c_{luft} = \overline{c_{luft}} \pm s_{\overline{c_{luft}}} = \SI[separate-uncertainty = true]{349.7 \pm 0.6}{\meter\per\second}
+    c_{luft} = \overline{c_{luft}} \pm s_{\overline{c_{luft}}} = \SI[separate-uncertainty = true]{350 \pm 3}{\meter\per\second}
 \end{equation}
 
 \clearpage
