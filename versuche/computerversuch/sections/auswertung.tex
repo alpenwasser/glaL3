@@ -49,6 +49,12 @@ Fehler des Mittelwertes:
     s_{\overline{t}} = \sqrt{ \frac{\sum_{1}^{20}{(t_i-\overline{t})^2}}{20 \cdot 19}} = \SI{0.062}{\milli\second} \\
 \end{equation}
 
+Standardabweichung:
+\begin{equation}
+    s_{\overline{t}} = \sqrt{ \frac{\sum_{1}^{20}{(t_i-\overline{t})^2}}{19}} = \SI{0.28}{\milli\second} \\
+\end{equation}
+
+
 \subsubsection{Wert und Unsicherheit der Schallgeschwindigkeit}
 
 Formel f\"ur Schallgeschwindigkeit in trockener Luft um $\SI{0}{\celsius}$:
@@ -62,7 +68,7 @@ Berechnung der mittleren Geschwindigkeit:
 
 \begin{gather}
     c = \frac{s}{t} \\
-    \overline{c} = \frac{s}{\overline{t}} = \frac{\SI{2.561}{\meter}}{\SI{7.37}{\milli\second}} = \SI{349.74}{\meter\per\second} \\
+    \overline{c} = \frac{s}{\overline{t}} = \frac{\SI{2.561}{\meter}}{\SI{7.37}{\milli\second}} = \SI{347.73}{\meter\per\second} \\
 \end{gather}
 
 Gauss'sches Fehlerfortpflanzungsgesetz:
@@ -91,9 +97,18 @@ In diesem Fall ist $R(x,y,z,...) := c(s,t) = \frac{s}{t}$. Es ergibt sich die Fo
                             = \SI{2.95}{\meter\per\second} \text{ (Resultat mittels Eintippen der obigen Zahlen in Taschenrechner)} \\
 \end{gather*}
 
+Ausgerechnet mit vereinfachtem Rezept f\"ur Division:
+\begin{gather*}
+    s_{\overline{c(s,t)}} = \sqrt{ \left( \frac{s_{s}}{s} \right)^2 + \left( \frac{s_{t}}{\overline{c}} \right)^2} \cdot \overline{c(s,t)} \\
+    = \sqrt{ \left( \frac{\SI{0.003}{\meter}}{\SI{2.561}{\meter}} \right)^2 + \left( \frac{\SI{0.06}{\milli\second}}{\SI{7.37}{\milli\second}} \right)^2 } \cdot \overline{c(s,t)} \\
+    = \sqrt{ 0.001^2 + 0.008^2} \cdot \SI{347.7}{\meter\per\second} \\
+    = \SI{2.93}{\meter\per\second} \text{ (Resultat von Tabellenkalkulationsprogramm)}
+\end{gather*}
+
+
 Folglich:
 \begin{equation}
-    c_{luft} = \overline{c_{luft}} \pm s_{\overline{c_{luft}}} = \SI[separate-uncertainty = true]{350 \pm 3}{\meter\per\second}
+    c_{luft} = \overline{c_{luft}} \pm s_{\overline{c_{luft}}} = \SI[separate-uncertainty = true]{347 \pm 3}{\meter\per\second}
 \end{equation}
 
 \clearpage
