@@ -57,12 +57,21 @@ Standardabweichung:
 
 \subsubsection{Wert und Unsicherheit der Schallgeschwindigkeit}
 
-Formel f\"ur Schallgeschwindigkeit in trockener Luft um $\SI{0}{\celsius}$:
-%(Quelle: https://de.wikipedia.org/wiki/Schallgeschwindigkeit, https://en.wikipedia.org/wiki/Speed_of_sound)
+Es   sind   hier  zwei   Vergleichswerte   aufgef\"uhrt. Der   eine  ist   ein
+Tabellenwert    aus   Horst    Kuchling's   \emph{Taschenbuch    der   Physik}
+\cite{ref:kuchling:speedOfSoundTable}.    Der  andere   Wert  errechnet   sich
+aus   einer    Formel   f\"ur    die   Schallgeschwindigkeit    in   trockener
+Luft,   abh\"angig   von  der   Temperatur.  Die   Formel   kann  sowohl   auf
+Wikipedia  \cite{ref:wikipedia:speedOfSound}  wie   auch  in  Kuchling's  Werk
+\cite{ref:kuchling:speedOfSoundFormula} gefunden werden.
 
 \begin{equation}
     c_{luft} = (331.3 + 0.606 \cdot \vartheta) \si{\meter\per\second} = (331.3 + 0.606 \cdot 23) \si{\meter\per\second} = \SI{345.24}{\meter\per\second}
 \end{equation}
+
+Der Tabellenwert  aus Kuchling's Buch ist  $\SI{344}{\meter\per\second}$, also
+ziemlich nahe beim errechneten Wert.
+
 
 Berechnung der mittleren Geschwindigkeit:
 
@@ -210,10 +219,11 @@ Der zugeh\"orige Fehler Betr\"agt:
 \end{center}
 
 \subsubsection{Rechnung mittels Tabellenkalkulation}
-% Anleitung: https://de.wikipedia.org/wiki/Lineare_Regression
 
-Zum Vergleich mit  dem Resultat des Taschenrechners und QtiPlot  sei hier noch
-eine lineare Regression mit Tabellenkalkulationsprogramm durchgef\"uhrt.
+Zum  Vergleich mit  dem  Resultat  des Taschenrechners  und  QtiPlot sei  hier
+noch eine  lineare Regression mit  Tabellenkalkulationsprogramm durchgef\"uhrt
+gem\"ass der Anleitung im  deutschen Wikipedia-Artikel zur linearen Regression
+\cite{ref:wikipedia:lineareRegression}.
 
 \begin{tabular}{rrrrrrrr}
     \toprule
@@ -260,8 +270,9 @@ Das Bestimmtheitsmass betr\"agt:
 \end{equation}
 
 \subsubsection{Taschenrechner}
-Ergebnisse ermittelt mittels TI-89:
-%(Anleitung: http://home2.fvcc.edu/~erady/Classes/Calc-F07/ti89regression.pdf)
+
+Ergebnisse ermittelt mittels TI-89 und Anleitung aus Quelle \cite{ref:ti89:regression}.
+
 \begin{gather*}
     F = k \cdot z + F_0 \\
     k = \SI{0.044312}{\newton\per\meter} \\
@@ -301,6 +312,7 @@ Die  ged\"ampfte Schwingung  eines  Pendels  kann folgendermassen  beschrieben
 werden:
 \begin{equation}
     y(t) = A \cdot exp(-\Gamma \cdot t) \cdot sin(2 \cdot \pi \cdot f \cdot t - \delta) + y_0
+    \label{eq:pendulum}
 \end{equation}
 
 Nun  soll eine  Funktion mittels  QtiPlot  auf die  unten stehenden  Messdaten
@@ -310,6 +322,7 @@ Dabei wird von QtiPlot eine nichtlineare Regression ausgef\"uhrt. Es muss also
 das Minimum der folgenden Funktion gefunden werden:
 
 \begin{equation}
+    \label{eq:chi}
     \chi^2(a_1,a_2,a_3,...,a_N) = \sum_1^N \frac{ [y_i - f(a_1,a_2,a_3,...,a_N) ]^2}{\sigma_i}
 \end{equation}
 
@@ -347,15 +360,16 @@ nicht die bestm\"ogliche Ann\"aherung an die gesuchte Gesetzm\"assigkeit ist.
     \end{tabular}
 \end{center}
 
+\clearpage
 \subsubsection{QtiPlot}
 
-Wichtig beim  Finden einer passenden  Funktion ist insbesondere  das Festlegen
-sinnvoller Startwerte (andernfalls kann es  sein, dass QtiPlot auf das falsche
-Minimum optimiert).
-%TODO: Arbeitsgrundlagen Theorie
+Die Pendelgleichung wurde in QtiPlot folgendermassen definiert:
 
-In diesem  Fall wurden folgende  Startwerte gew\"ahlt (mithilfe von  Tipps des
-Dozenten und etwas pers\"onlichem Herumprobieren):
+\begin{verbatim}
+    A*exp(-G*x)*sin(2*pi*f*x-d)+y0
+\end{verbatim}
+
+Die Startwerte wurden mit folgender Methodik bestimmt:
 \begin{itemize}
     \item
         $A = 1$: Anhand des Funktionswertes des ersten Ausschlages des Pendels
@@ -382,18 +396,221 @@ Dozenten und etwas pers\"onlichem Herumprobieren):
         $\delta =  2 \cdot  \pi \cdot  f \cdot \SI{1}{\second}  = 2  \cdot \pi
         \cdot \frac{1}{\SI{20}{\second}} \cdot \SI{1}{\second} = 0.31$.
     \item
-        Die  Periode wird  aus  den  Peaks der  zwei  ersten Schwingungen  auf
-        ungef\"ahr  20  Sekunden gesch\"atzt,  womit  man  f\"ur die  Frequenz
-        $\frac{1}{\SI{20}{\second}} = \SI{0.05}{\hertz}$ erh\"alt.
+        Die Periode  der Sinus-Schwingung wird  aus den Peaks der  zwei ersten
+        Schwingungen  auf  ungef\"ahr  20   Sekunden  gesch\"atzt,  womit  man
+        f\"ur  die Frequenz  $\frac{1}{\SI{20}{\second}} =  \SI{0.05}{\hertz}$
+        erh\"alt.
     \item
         Der Offset $y_0$ wird vorerst auf null gesetzt.
 \end{itemize}
 
-Somit sind die Startwerte bestimmt, und es kann ein Fit erstellt werden.
+Somit sind die Startwerte bestimmt und werden wie folgt in QtiPlot eingesetzt:
+\begin{verbatim}
+    A = 1
+    G = 0.035
+    f = 0.05
+    d = 0.31
+    y0 = 0
+\end{verbatim}
+
+Dies liefert:
 
 \begin{figure}[th!]
     \centering
     \includegraphics[width=\textwidth]{images/aufgabe4.pdf}
-    \caption{Fit zur Aufgabe \emph{Pendel}}
-    \label{fig:gauss}
+    \caption{Fit zur Aufgabe \emph{Pendel}, mit den gesuchten Gleichungsparametern (siehe Legende)}
+    \label{fig:pendulum}
 \end{figure}
+
+Die  von  QtiPlot bestimmten  Gleichungsparameter  sind  gem\"ass Legende  aus
+Abbildung \ref{fig:pendulum} somit (mit Einheiten erg\"anzt):
+\begin{align*}
+    A      & = \SI[separate-uncertainty  = true]{ 1.2917   \pm 0.040349}{\meter} \\
+    \Gamma & = \SI[separate-uncertainty  = true]{-0.051706 \pm 0.0022245}{\per\second} \\
+    f      & = \SI[separate-uncertainty  = true]{ 0.05331  \pm 0.00030574}{\hertz} \\
+    \delta & = \num[separate-uncertainty = true]{ 0.50337  \pm 0.023222} \\
+    y_0    & = \SI[separate-uncertainty  = true]{ 0.041361 \pm 0.0074445}{\meter}
+\end{align*}
+
+Sinnvoll gerundet und mit Einheiten in Gleichung~\ref{eq:pendulum} eingesetzt:
+\begin{align*}
+    y(t)   & = A \cdot exp(-\Gamma \cdot t) \cdot sin(2 \cdot \pi \cdot f \cdot t - \delta) + y_0 \\
+           & =     \SI[separate-uncertainty = true]{1.29 \pm 0.04}{\meter}
+           \cdot exp\left(\SI[separate-uncertainty = true]{-0.052 \pm 0.002}{\per\second}\right) \\
+           & \cdot sin\left(2\pi \cdot \SI[separate-uncertainty = true]{0.0533 \pm 0.0003}{\hertz} \cdot t - \num[separate-uncertainty = true]{0.50 \pm 0.02}\right) \\
+           & + \SI[separate-uncertainty = true]{0.041 \pm 0.007}{\meter}
+\end{align*}
+
+
+\clearpage
+% **************************************************************************** %
+\subsection{Aufgabe 5: RC-Glied (Tiefpass)}
+% **************************************************************************** %
+
+Es soll das Verhalten eines Tiefpasses untersucht werden:
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=.4\textwidth]{images/rc-glied.png}
+    \caption{Tiefpass. \textbf{Quelle}: Versuchsunterlagen ``Auswertung mit Computer'', p.6}
+    \label{fig:rcGlied}
+\end{figure}
+
+\subsubsection{Versuchsdurchf\"uhrung und Messdaten}
+
+Aus der Aufgabenstellung \"ubernommen:
+
+\begin{quote}
+Am  Eingang des  RC-Tiefpasses wurde  eine sinusf\"ormige  Wechselspannung mit
+konstanter Spannung $U_E = \SI{4}{\volt}_{pp}$  (Peak-Peak = PP) und variabler
+Frequenz angelegt. Sodann  wurde die  Ausgangsspannung $U_A$  (PP-Werte) sowie
+die Phasenverschiebung  $\varphi$ in Funktion  der Frequenz f mit  Hilfe eines
+Kathodenstrahloszilloskopes  (KO) gemessen. Der  Widerstand  R wurde  zu $R  =
+\SI{500}{\ohm}$ bestimmt. Dabei wurde untenstehendes Messprotokoll erstellt.
+\\
+\begin{center}
+        \begin{tabular}{rrrr}
+            \toprule
+            \multicolumn{3}{l}{Messprotokoll ``Tiefpass''} \\
+            \multicolumn{3}{l}{Datum: 1. Okt. 1999} \\
+            \multicolumn{3}{l}{Versuchsleiterin: Ruth Metzler} \\
+            \midrule
+            $f(Hz)$  &  $U_a (V)$    &  $\varphi (\degree)$ & $\varphi (rad)$ \\
+            \midrule
+            100      & 4.000        & -3.24 &  -0.05655 \\
+            500      & 3.800        & -16.9 &  -0.295   \\
+            1000     & 3.300        & -31.3 &  -0.5463  \\
+            1500     & 2.800        & -43.6 &  -0.761   \\
+            5000     & 1.140        & -72.4 &  -1.264   \\
+            10000    & 0.580        & -82.5 &  -1.44    \\
+            100000   & 0.075        & -90.0 &  -1.571   \\
+            1592     & 2.700        & -44.0 &  -0.7679  \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:rc}
+\end{center}
+\end{quote}
+
+\textbf{Anmerkung}: Das Messprotokoll wurde noch um  eine Spalte mit der Phase
+in radians erg\"anzt, welche in QtiPlot f\"ur die Auswertung benutzt wird.
+
+
+\subsubsection{Funktionsgleichungen}
+Ausgangs- und Eingangsspannung verhalten sich wie folgt zueinander:
+\begin{align}
+    U_A & = \frac{X_C}{\sqrt{X_C^2+R^2}} \cdot U_E \\
+                    & = \frac{1}{\omega \cdot C \cdot \sqrt{\frac{1}{(\omega \cdot C)^2} + R^2}} \cdot U_E \\
+                    & = \frac{1}{\sqrt{1+(\omega \cdot C \cdot R)^2}} \cdot U_E
+    \label{eq:rc:uaue}
+\end{align}
+
+F\"ur   die  Phase   zwischen   Aus-  und   Eingangsspannung  gilt   folgender
+Zusammenhang:
+
+\begin{equation}
+    \varphi = arctan(-\omega R C)
+    \label{eq:rc:phi}
+\end{equation}
+
+Diese Gleichungen wurden in QtiPlot als folgende Funktionen definiert:
+
+\begin{verbatim}
+    1/sqrt(1+(2*pi*x*C*R)^2)*Ue
+    atan(-2*pi*x*R*C)
+\end{verbatim}
+
+
+\subsubsection{Startwerte}
+
+Die Startwerte f\"ur $U_E$, $C$ und $R$ wurden folgendermassen festgelegt:
+
+\begin{itemize}
+    \item
+        Der   Widerstand   wurde   gem\"ass    Aufgabenstellung   auf   $R   =
+        \SI{500}{\ohm}$ fixiert  und in den Einstellungen  als \emph{constant}
+        markiert, damit QtiPlot nicht versucht, diesen Wert zu ``optimieren''.
+    \item
+        Die    Eingangsspannung   betr\"agt    gem\"ass   den    Angaben   zur
+        Versuchsdurchf\"uhrung   $\SI{4}{\volt}$. Sie   wurde  ebenfalls   als
+        \emph{constant} definiert.
+    \item
+        Der   Startwert  f\"ur   die  Kapazit\"at   $C$  wurde   mithilfe eines
+        Wertepaares aus der Messwerttabelle gefunden.
+
+        Dazu   wurde   das   Wertepaar   $U_A  =   \SI{2.8}{\volt}$   und   $f
+        =   \SI{1500}{\hertz}$   in  Gleichung   \ref{eq:rc:uaue}   eingesetzt
+        und   die  Gleichung   nach  $C$   aufgel\"ost.
+
+        Also: $\SI{2.8}{\volt}       =      \frac{1}{\sqrt{1+(2\pi       \cdot
+        \SI{1500}{\hertz}    \cdot   C    \cdot   \SI{500}{\ohm})^2}}    \cdot
+        \SI{4}{\volt}$ bzw.  $C  = \SI{0.216}{\micro\farad}$ (die quadratische
+        Gleichung liefert nat\"urlich auch  den betragsgleichen negativen Wert
+        f\"ur $C$,  welcher als  physikalisch unsinnig nicht  weiter verwendet
+        wird).
+
+        Es  sei hier  insbesondere  noch erw\"ahnt,  dass sinnvollerweise  ein
+        Wertepaar  aus dem  mittleren Bereich  des Scatter-Plots  ausgew\"ahlt
+        wird, da dort f\"ur eine  \"Anderung der Frequenz eine viel gr\"ossere
+        \"Anderung  der Ausgangsspannung  erreicht wird. Prinzipiell  kann die
+        Rechnung mit jedem beliebigen  Wertepaar durchgef\"uhrt werden, jedoch
+        ist  bei kleinerem  Hebel zwischen  Frequenz und  Ausgangsspannung die
+        Genauigkeit des  erhaltenen Startwertes f\"ur $C$  geringer, und somit
+        macht die Verwendung  solcher Wertepaare nicht sehr  viel Sinn solange
+        man Wertepaare mit gr\"osserem Hebel zur Verf\"ugung hat (siehe hierzu
+        auch Abbildung \ref{fig:rcglied:spannung}).
+\end{itemize}
+
+In QtiPlot wurden somit folgende Werte als Startwerte eingesetzt:
+
+\begin{verbatim}
+    C = 2.16e-7
+    R = 500 (constant)
+    Ue = 4 (constant)
+\end{verbatim}
+
+F\"ur  den Fit  der  Phase wurden  ebenfalls  diese Werte  f\"ur  $C$ und  $R$
+verwendet,  $U_E$ wurde  daf\"ur nat\"urlich  nicht ben\"otigt,  da es  in der
+Formel f\"ur $\varphi$ nicht vorkommt.
+
+\clearpage
+\subsubsection{QtiPlot}
+
+Der Fit  f\"ur den Zusammenhang  zwischen Ausgangsspannugn $U_A$  und Frequenz
+$f$  ist  in  Abbildung  \ref{fig:rcglied:spannung} zu  sehen. Der  Fit  f\"ur
+Phase  $\varphi$ und  Frequenz  $f$ ist  in Abbildung  \ref{fig:rcglied:phase}
+dargestellt.
+
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=.8\textwidth]{images/aufgabe5-betrag.pdf}
+    \caption{Ausgangsspannung in Abh\"angigkeit der Frequenz}
+    \label{fig:rcglied:spannung}
+\end{figure}
+
+Der aus diesem Fit erhaltene Wert f\"ur die Kapazit\"at betr\"agt:
+\begin{equation*}
+    C = \SI[separate-uncertainty = true]{0.21684 \pm 0.00093107}{\micro\farad}
+\end{equation*}
+
+Gerundet:
+\begin{equation*}
+    C = \SI[separate-uncertainty = true]{216.8 \pm 0.9}{\nano\farad}
+\end{equation*}
+
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=.8\textwidth]{images/aufgabe5-phase.pdf}
+    \caption{Phase $\varphi$ zwischen Ausgans- und Eingangsspannung in Abh\"angigkeit der Frequenz}
+    \label{fig:rcglied:phase}
+\end{figure}
+
+In diesem Fit wurde die Kapazit\"at errechnet auf:
+\begin{equation*}
+    C = \SI[separate-uncertainty = true]{0.19757 \pm 0.0030979}{\micro\farad}
+\end{equation*}
+
+Gerundet:
+\begin{equation*}
+    C = \SI[separate-uncertainty = true]{198 \pm 3}{\nano\farad}
+\end{equation*}
+
+Mehr zu diesen Werten siehe im Abschnitt zur Diskussion der Ergebnisse.
