@@ -1,59 +1,72 @@
-Messung          Laufzeit (ms)         Differenz zu Mittelwert           Quadrat der Differenz
-      1                  6.83                            -0.54                            0.29
-      2                  7.41                             0.04                            0.00
-      3                  7.32                            -0.04                            0.00
-      4                  7.31                            -0.06                            0.00
-      5                  7.23                            -0.13                            0.02
-      6                  7.68                             0.31                            0.10
-      7                  7.33                            -0.04                            0.00
-      8                  7.70                             0.33                            0.11
-      9                  7.93                             0.56                            0.32
-     10                  7.54                             0.17                            0.03
-     11                  7.36                            -0.00                            0.00
-     12                  7.31                            -0.06                            0.00
-     13                  7.56                             0.19                            0.04
-     14                  7.14                            -0.23                            0.05
-     15                  6.94                            -0.42                            0.18
-     16                  7.32                            -0.04                            0.00
-     17                  7.34                            -0.03                            0.00
-     18                  7.28                            -0.08                            0.01
-     19                  7.01                            -0.36                            0.13
-     20                  7.76                             0.39                            0.16
+Messung |    Laufzeit (ms) |    Differenz zu|         Quadrat der
+        |                  |    Mittelwert  |         Differenz
+--------+------------------+----------------+--------------------
+      1 |            6.83  |           -0.54|                0.29
+      2 |            7.41  |            0.04|                0.00
+      3 |            7.32  |           -0.04|                0.00
+      4 |            7.31  |           -0.06|                0.00
+      5 |            7.23  |           -0.13|                0.02
+      6 |            7.68  |            0.31|                0.10
+      7 |            7.33  |           -0.04|                0.00
+      8 |            7.70  |            0.33|                0.11
+      9 |            7.93  |            0.56|                0.32
+     10 |            7.54  |            0.17|                0.03
+     11 |            7.36  |           -0.00|                0.00
+     12 |            7.31  |           -0.06|                0.00
+     13 |            7.56  |            0.19|                0.04
+     14 |            7.14  |           -0.23|                0.05
+     15 |            6.94  |           -0.42|                0.18
+     16 |            7.32  |           -0.04|                0.00
+     17 |            7.34  |           -0.03|                0.00
+     18 |            7.28  |           -0.08|                0.01
+     19 |            7.01  |           -0.36|                0.13
+     20 |            7.76  |            0.39|                0.16
+--------+------------------+----------------+--------------------
 
-Summe:                 147.30
-Mittelwert:              7.37
+Summe:             147.30
+Mittelwert:          7.37
 
-Summe der Fehlerquadrate:                                 1.44
+-----------------------------------------------------------------
+Summe der Fehlerquadrate:                                    1.44
 
-Fehler des Mittelwertes                                                                   0.06    0.061522353661
-Standardabweichung                                                                        0.28    0.275136329844
+Fehler des Mittelwertes                                      0.06
+Fehler des Mittelwerts, mehr Dezimalstellen        0.061522353661
+Standardabweichung                                           0.28
+Standardabweichung, mehr Dezimalstellen            0.275136329844
+-----------------------------------------------------------------
 
-Erwartete Schallgeschwindigkeit (m/s):                                                  345.24
-(siehe englische Wikipedia, "Speed of Sound")
+Erwartete Schallgeschwindigkeit aus Formel (m/s):          345.24
+(siehe englische Wikipedia, "Speed of Sound" 
+und Kuchling, p.332, Formel A 22.5)
+
+-----------------------------------------------------------------
+Laenge der Teststrecke (meter):                              2.56
+Unsicherheit der Teststrecke (meter):                       0.003
 
 
-Laenge der Teststrecke (meter):                                                           2.56
-Uncertainty of test path length (meters):                                                 0.003
+-----------------------------------------------------------------
+Durchschnittsgeschwindigkeit (meter/s)                     347.73
+(aus Messergebnissen)
+-----------------------------------------------------------------
 
-
-Durchschnittsgeschwindigkeit (meter/s)                                                  347.73
-
-
-Gauss'sches Fehlerfortpflanzungsgesetz, alles in einem Schritt (m/s)                      2.93
-
+Unsicherheit aus dem Gauss'schen Fehlerfortpflanzungsgesetz, alle
+Rechenschritte in einem Zug ausgefuehrt (m/s)                2.93
 
 
 Gauss'sches Fehlerfortpflanzungsgesetz, schrittweise:
 
-Erster Term, GFFPG                                                                        0.41
-Zweiter Term, GFFFP                                                                      -2.90
-Quadrat erster Term                                                                       0.17
-Quadrat, zweiter Term                                                                     8.44
-Summe der Quadrate                                                                        8.60
-Quadratwurzel  (m/s)                                                                      2.93    2.933093187589
+Erster Term, GFFPG                                           0.41
+Zweiter Term, GFFFP                                         -2.90
+Quadrat erster Term                                          0.17
+Quadrat, zweiter Term                                        8.44
+Summe der Quadrate                                           8.60
+Quadratwurzel  (m/s)                                         2.93
+Unsicherheit, mehr Dezimalstellen                  2.933093187589
 
 
+-----------------------------------------------------------------
 Gauss'sches Fehlerfortpflanzungsgesetz, Faustformel fuer Division:
 
-Wurzel aus der Summe der relativen Fehlerquadrate                                         0.01
-Multipliziert mit Durchschnittsgeschwindigkeit                                            2.93    2.933093187589
+Wurzel aus der Summe der relativen Fehlerquadrate            0.01
+Multipliziert mit Durchschnittsgeschwindigkeit               2.93 
+Unsicherheit, mehr Dezimalstellen                  2.933093187589

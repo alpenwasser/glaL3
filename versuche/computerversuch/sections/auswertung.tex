@@ -66,6 +66,7 @@ Wikipedia  \cite{ref:wikipedia:speedOfSound}  wie   auch  in  Kuchling's  Werk
 \cite{ref:kuchling:speedOfSoundFormula} gefunden werden.
 
 \begin{equation}
+    \label{eq:schallgeschwTemperatur}
     c_{luft} = (331.3 + 0.606 \cdot \vartheta) \si{\meter\per\second} = (331.3 + 0.606 \cdot 23) \si{\meter\per\second} = \SI{345.24}{\meter\per\second}
 \end{equation}
 
@@ -115,18 +116,13 @@ Ausgerechnet mit vereinfachtem Rezept f\"ur Division:
 \end{gather*}
 
 
-Folglich:
-\begin{equation}
-    c_{luft} = \overline{c_{luft}} \pm s_{\overline{c_{luft}}} = \SI[separate-uncertainty = true]{347 \pm 3}{\meter\per\second}
-\end{equation}
-
 \clearpage
 \subsubsection{QtiPlot}
 \begin{figure}[th!]
     \centering
     \includegraphics[width=\textwidth]{images/aufgabe1.pdf}
     \caption{Messdaten und Auswertung zum Versuch \emph{Schallgeschwindigkeit}}
-    \label{fig:gauss}
+    \label{fig:schallgeschwindigkeit}
 \end{figure}
 
 13 der  20 Messpunkte (also 65\%)  liegen innerhalb des Mittelwerts  $\pm$ die
@@ -189,12 +185,13 @@ Der zugeh\"orige Fehler Betr\"agt:
     \centering
     \includegraphics[width=\textwidth]{images/aufgabe2.pdf}
     \caption{Messdaten mit Fehlerbalken, gewichteter und ungewichteter Mittelwert zum Versuch \emph{Eisengehalt}}
-    \label{fig:gauss}
+    \label{fig:eisengehalt}
 \end{figure}
 
 \clearpage
 % **************************************************************************** %
 \subsection{Aufgabe 3: Federkonstante}
+\label{subsec:federkonstante}
 % **************************************************************************** %
 
 \subsubsection{Daten}
@@ -271,12 +268,13 @@ Das Bestimmtheitsmass betr\"agt:
 
 \subsubsection{Taschenrechner}
 
-Ergebnisse ermittelt mittels TI-89 und Anleitung aus Quelle \cite{ref:ti89:regression}.
+Ergebnisse    ermittelt   mittels    TI-89    und    Anleitung   aus    Quelle
+\cite{ref:ti89:regression} (um Einheiten erg\"anzt).
 
 \begin{gather*}
     F = k \cdot z + F_0 \\
-    k = \SI{0.044312}{\newton\per\meter} \\
-    F_0 = \SI{0.03061}{\newton} \\
+    k = \SI{22.280962}{\newton\per\meter} \\
+    F_0 = \SI{-0.540505}{\newton} \\
     corr = 0.993638 \\
     R^2 = 0.987316
 \end{gather*}
@@ -286,24 +284,25 @@ Ergebnisse ermittelt mittels TI-89 und Anleitung aus Quelle \cite{ref:ti89:regre
     \centering
     \includegraphics[width=.8\textwidth]{images/aufgabe3-1.pdf}
     \caption{Regressionsgerade mit Messpunkten zu Aufgabe \emph{Federkonstante}}
-    \label{fig:gauss}
+    \label{fig:federkonstante1}
 \end{figure}
 \begin{figure}[th!]
     \centering
     \includegraphics[width=.8\textwidth]{images/aufgabe3-2.pdf}
     \caption{Regressionsgerade mit Messpunkten, 95\% Confidence Band, Prediction Band und Residuals zu Aufgabe \emph{Federkonstante}}
-    \label{fig:gauss}
+    \label{fig:federkonstante2}
 \end{figure}
 \begin{figure}[th!]
     \centering
     \includegraphics[width=.8\textwidth]{images/aufgabe3-3.pdf}
     \caption{Regressionsgerade mit Messpunkten, 66\% Confidence Band und Prediction Band zu Aufgabe \emph{Federkonstante}}
-    \label{fig:gauss}
+    \label{fig:federkonstante3}
 \end{figure}
 
 \clearpage
 % **************************************************************************** %
 \subsection{Aufgabe 4: Pendel}
+\label{subsec:pendel}
 % **************************************************************************** %
 
 \subsubsection{Theorie}
@@ -520,6 +519,7 @@ Diese Gleichungen wurden in QtiPlot als folgende Funktionen definiert:
 
 
 \subsubsection{Startwerte}
+\label{subsubsec:rcglied:startwerte}
 
 Die Startwerte f\"ur $U_E$, $C$ und $R$ wurden folgendermassen festgelegt:
 

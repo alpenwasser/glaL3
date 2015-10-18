@@ -1,0 +1,317 @@
+%-------------------------------------------------------------------------------
+\subsection{Schallgeschwindigkeit}
+%-------------------------------------------------------------------------------
+
+Die Diskussion wird sich hier v.a. um zwei Aspekte drehen:
+
+\begin{itemize}
+    \item
+        Den  Vergleich zwischen  Literaturwerten und  den Ergebnissen  aus den
+        Messdaten,
+    \item
+        sowie     den    Vergleich     der    Ergebnisse     der    ``vollen''
+        Fehlerfortpflanzungsrechnung und der vereinfachten Variante.
+\end{itemize}
+
+Zur Rekapitulation nochmals die Ergebnisse zusammengefasst:
+
+\begin{itemize}
+    \item
+        \emph{Literaturwert, Tabelle}: $\SI{344}{\meter\per\second}$
+    \item
+        \emph{Formel}:
+        \begin{equation}
+            \label{eq:schallgeschwTemperatur2}
+            c_{luft} = (331.3 + 0.606 \cdot \vartheta) \si{\meter\per\second} \SI{345.24}{\meter\per\second}
+        \end{equation}
+    \item
+        \emph{Mittlere Geschwindigkeit aus Messresultaten}:
+        \begin{gather*}
+            \overline{c} = \SI{347.73}{\meter\per\second} \\
+        \end{gather*}
+    \item
+        \emph{Unsicherheit, volles Gauss'sches Fehlerfortpflanzungsgesetz}:
+        \begin{equation*}
+            s_{\overline{c(s,t)}} = \SI{2.93}{\meter\per\second}
+        \end{equation*}
+    \item
+        \emph{Unsicherheit, Kurzformel f\"ur Fehlerfortpflanzung in Multiplikation/Division}:
+        \begin{equation*}
+            s_{\overline{c(s,t)}} = \SI{2.93}{\meter\per\second}
+        \end{equation*}
+\end{itemize}
+
+Sinnvoll gerundet erhalten wir aus den Messergebnissen also:
+\begin{equation}
+    \underline{\underline{c_{luft} = \overline{c_{luft}} \pm s_{\overline{c_{luft}}} = \SI[separate-uncertainty = true]{348 \pm 3}{\meter\per\second}}}
+\end{equation}
+
+Es stechen dabei folgende Punkte heraus:
+\begin{itemize}
+    \item
+        Der   Tabellenwert   stimmt  relativ   genau   mit   dem  aus   Formel
+        \ref{eq:schallgeschwTemperatur2} errechneten  Wert \"uberein. Da beide
+        Verfahren  aus der  Fachliteratur stammen,  ist dies  meines Erachtens
+        auch zu erwarten.
+    \item
+        Berechnet man  die Unsicherheit der Schallgeschwindigkeit  mittels der
+        Faustformel  $s_{\overline{c(s,t)}}  = \sqrt{  \left(  \frac{s_{s}}{s}
+        \right)^2   +  \left(   \frac{s_{t}}{\overline{c}}  \right)^2}   \cdot
+        \overline{c(s,t)}$,   ist   die   Differenz   zum   mit   dem   vollen
+        Gauss'schen  Fehlerfortpflanzungsgesetz  ermittelten Werte  in  diesem
+        Falle  bedeutungslos (siehe  auch Anhang~\ref{appendix:aufgabe1}). Die
+        Faustformel ist also hier hinreichend genau.
+        Da  die   Faustformel  im   Allgemeinen  bei   simplen  physikalischen
+        Zusammenh\"angen akzeptable  Ergebnisse liefert,  ist dies  auch nicht
+        weiter erstaunlich  ($c =  \frac{s}{t}$ geh\"ort sicherlich  zu dieser
+        Kategorie von Gesetzm\"assigkeiten).
+    \item
+        Wie bereits erw\"ahnt und in Abbildung \ref{fig:schallgeschwindigkeit}
+        ersichtlich,  liegen  13 der  20  Messpunkte  innerhalb des  Intervals
+        Mittelwert $\pm$ die  Standardabweichung. Dies entspricht einem Anteil
+        von  65\%,  was  ziemlich  nahe   beim  theoretischen  Wert  von  68\%
+        liegt. W\"urde  man die  Anzahl  (korrekt durchgef\"uhrter)  Messungen
+        erh\"ohen, w\"urden sich diese beiden Werte weiter ann\"ahern.
+    \item
+        Bezieht   man   die   Unsicherheit    der   aus   den   Messresultaten
+        bestimmten   Schallgeschwindigkeit    mit   ein,   ist    die   untere
+        Grenze  des   experimentellen  Wertes  ($\SI{345}{\meter\per\second}$)
+        lediglich  $\SI{1}{\meter\per\second}$  h\"oher als  der  Tabellenwert
+        von    \SI{344}{\meter\per\second},    und    der    mittels    Formel
+        \ref{eq:schallgeschwTemperatur2} bestimmte Wert  liegt sogar innerhalb
+        des Unsicherheitsbereichts.
+        F\"ur die verbleibende Differenz vermute ich folgende Gr\"unde:
+        \begin{itemize}
+            \item
+                Die  Werte  aus  der Fachliteratur  haben  keine  Unsicherheit
+                angegeben. Es   ist   also   durchaus  m\"oglich,   dass   bei
+                Ber\"ucksichtigung   dieser    Unsicherheit   die   Intervalle
+                der    Literaturwerte   inklusive    Unsicherheit   mit    den
+                hier   bestimmten    experimentellen   Ergebnissen   inklusive
+                Unsicherheiten \"uberlappen.
+            \item
+                Die Anzahl Messpunkte des Tabellenwertes aus der Fachliteratur
+                ist vermutlich h\"oher.
+            \item
+                Die Werte  aus der  Fachliteratur wurden  m\"oglicherweise mit
+                teureren  (genaueren)  Messaparaten  bestimmt   als  die  hier
+                vorliegenden Daten.
+            \item
+                Die Werte aus der  Fachliteratur wurden m\"oglicherweise unter
+                besser  kontrollierten  Bedingungen   gemessen  als  die  hier
+                vorliegenden Daten.
+            \item
+                Die Werte aus der  Fachliteratur wurden m\"oglicherweise mit
+                anderen Methoden bestimmt als der hier ausgef\"uhrte Versuch.
+        \end{itemize}
+        Alles  in allem  ist das  Resultat  aus diesem  Versuch jedoch  meiner
+        Ansicht nach  ziemlich gut, und  die Resultate sehr plausibel  und von
+        zufriedenstellender Qualit\"at.
+\end{itemize}
+
+\begin{center}
+%\begin{tikzpicture}
+%\begin{axis}[xbar,enlargelimits=0.15]
+%\addplot
+%[draw=blue,pattern=horizontal lines light blue]
+%coordinates
+%    {(10,5) (15,10) (5,15) (24,20) (30,25)};
+%
+%\addplot
+%[draw=black,pattern=horizontal lines dark blue]
+%coordinates
+%    {(3,5) (5,10) (15,15) (20,20) (35,25)};
+%\end{axis}
+%\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}
+\addplot+[only marks,scatter,error bars/.cd,
+    y dir=both,y explicit,
+    x dir=both,x fixed=0.05,
+    error mark=diamond*]
+coordinates {
+    (0,0) +- (0.5,0.1)
+    (0.1,0.1) +- (0.05,0.2)
+    (0.2,0.2) +- (0,0.05)
+    (0.5,0.5) +- (0.1,0.2)
+    (1,1) +- (0.3,0.1)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\clearpage
+%-------------------------------------------------------------------------------
+\subsection{Eisengehalt}
+%-------------------------------------------------------------------------------
+
+Die erhaltenen Werte nochmals zusammengefasst:
+
+\begin{center}
+\begin{tabular}{lrr}
+    \toprule
+                 & ungewichtet & gewichtet \\
+    \midrule
+    Mittelwert       &     $\overline{x} = \SI{20.44}{\percent}$   &     $\overline{x} = \SI{20.37}{\percent}$ \\
+    Unsicherheit     & $s_{\overline{x}} = \SI{0.46}{\percent}$    & $s_{\overline{x}} = \SI{0.36}{\percent}$ \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+Der   Unterschied   zwischen    gewichteten   Resultaten   und   ungewichteten
+Resultaten    ist    hier    beim    Mittelwert    nicht    besonders    gross
+(Abweichungen   im   Promillebereich: $1-\frac{20.37}{20.44}  \approx   0.003$
+btw. $1-\frac{20.44}{20.36}  \approx -0.003$).   Die  relative Abweichung  bei
+der Unsicherheit  ist hingegen  gr\"osser ($1-\frac{0.36}{0.46}  \approx 0.22$
+bzw. $1-\frac{0.46}{0.36} \approx -0.28$). Jedoch ist diese Abweichung im Vergleich
+zum Mittelwert immer noch nicht besonders hoch
+
+Ob diese  Abweichungen von Bedeutung sind, h\"angt schlussendlich nat\"urlich
+davon ab, wof\"ur diese Resultate verwendet werden sollen.
+
+Es ist  ebenfalls eine  gute \"Ubereinstimmung mit  den von  QtiPlot bestimten
+Werten festzustellen (siehe Abbildung \ref{fig:eisengehalt}).
+
+
+\clearpage
+%-------------------------------------------------------------------------------
+\subsection{Federkonstante}
+%-------------------------------------------------------------------------------
+
+Der       Hauptteil        der       Ergebnisse       kann        in       den
+Abbildungen    \ref{fig:federkonstante1},     \ref{fig:federkonstante2}    und
+\ref{fig:federkonstante3}  im  Abschnitt  \ref{subsec:federkonstante}  gesehen
+werden.
+
+Vergleicht  man   die  Ergebnisse   von  QtiPlot   mit  den   Ergebnissen  des
+Taschenrechners, kann  man eine  sehr gute  \"Ubereinstimmung feststellen. Ich
+f\"uhre  dies  darauf  zur\"uck,  dass  vermutlich  sowohl  QtiPlot  wie  auch
+der  TI-89  die gleichen  Algorithmen  zur  Bestimmung der  Regressionsgeraden
+verwenden. Konsequenterweise  ist es  naheliegend, dass  sie aus  den gleichen
+Daten auf das gleiche Ergebnis kommen.
+
+Ein  wesentlicher  Unterschied zwischen  QtiPlot  und  dem Taschenrechner  ist
+jedoch, dass der TI-89 keine Unsicherheiten ausgibt.
+
+Zur  Erg\"anzung und  aus  Neugier  habe ich  noch  eine  Berechnung von  Hand
+bzw.  mit  Tabellenkalkulationsprogramm   durchgef\"uhrt  (siehe  auch  Anhang
+\ref{appendix:aufgabe3}).
+
+Da dieses Verfahren (zumindest soweit ich herausfinden kann) nicht der gleiche
+Algorithmus  ist, wie  er  von  QtiPlot und  dem  TI-89  verwendet wird,  sind
+die  damit erhaltenen  Resultate auch  nicht ganz  identisch. Sie sind  jedoch
+gen\"ugend nahe, dass ich sie als plausibel beurteile und damit zufrieden bin.
+
+\begin{center}
+\begin{tabular}{lrrr}
+    \toprule
+                                    & Handrechnung/Spreadsheet             & TI-89 & QtiPlot                                \\
+    \midrule
+    Federkonstante $k$              & $\SI{22.57}{\newton\per\meter}$ & $\SI{22.3}{\newton\per\meter}$ & $\SI{22.3 \pm 0.9}{\newton\per\meter}$ \\
+    Vorspannung $F_0$               & $\SI{-0.69}{\newton}$           & $\SI{-0.5}{\newton}$           & $\SI{-0.5 \pm 0.5}{\newton}$           \\
+    empirische Korrelation $r_{xy}$ & $0.99364$                       & $0.993638$                     & k.A.                                   \\
+    Bestimmtheitsmass $R^2$         & $0.98732$                       & $0.987316$                     & $0.9873$                               \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+
+\clearpage
+%-------------------------------------------------------------------------------
+\subsection{Pendel}
+%-------------------------------------------------------------------------------
+
+Zur Rekapitulation hier nochmals die Pendelgleichung mit gerundeten Parametern:
+\begin{align*}
+    y(t)   & = A \cdot exp(-\Gamma \cdot t) \cdot sin(2 \cdot \pi \cdot f \cdot t - \delta) + y_0 \\
+           & =     \SI[separate-uncertainty = true]{1.29 \pm 0.04}{\meter}
+           \cdot exp\left(\SI[separate-uncertainty = true]{-0.052 \pm 0.002}{\per\second}\right) \\
+           & \cdot sin\left(2\pi \cdot \SI[separate-uncertainty = true]{0.0533 \pm 0.0003}{\hertz} \cdot t - \num[separate-uncertainty = true]{0.50 \pm 0.02}\right) \\
+           & + \SI[separate-uncertainty = true]{0.041 \pm 0.007}{\meter}
+\end{align*}
+
+Die  Hauptschwierigkeit  bei  dieser  Aufgabe  liegt  darin,  gute  Startwerte
+f\"ur  die nichtlineare  Regression in  QtiPlot zu  finden. Die dazu  benutzte
+Verfahrensweise ist ausf\"uhrlich in Abschnitt \ref{subsec:pendel} erkl\"art.
+
+Interessant  ist  dabei, dass  die  mit  eigentlich ziemlich  groben  Methoden
+ermittelten  Startwerte  gar  nicht  so weit  von  den  anschliessend  mittels
+Iteration von  QtiPlot bestimmten Werten entfernt  liegen. Eine rasche Analyse
+eines Scatter-Plots mittels Augenmass und  einiger kurzer Rechnungen kann also
+je  nach  Datensatz  bereits  ziemlich starke  Aussagen  \"uber  die  gesuchte
+Gesetzm\"assigkeit machen.
+
+Dies kann insbesondere bei der  Beurteilung der Plausibilit\"at der Resultate,
+die von einem Computerprogramm geliefert werden, hilreich oder sogar notwendig
+sein. Im vorliegenden  Falle macht mir das  Resultat einen zufriedenstellenden
+Eindruck.
+
+\begin{center}
+\begin{tabular}{lrr}
+    \toprule
+                                & Startwert                  & Endwert \\
+    \midrule
+    Amplitude $A$               &  $\SI{1}{\meter}$          & $\SI{ 1.29 \pm 0.04}{\meter}$ \\
+    D\"ampfung $\Gamma$         &  $\SI{0.035}{\per\second}$ & $\SI{-0.052 \pm 0.002}{\per\second}$ \\
+    Frequenz $f$                &  $\SI{0.05}{\hertz}$       & $\SI{ 0.0533  \pm 0.0003}{\hertz}$ \\
+    Phasenverschiebung $\delta$ &  $0.31$                    & $\num{0.50  \pm 0.02}$ \\
+    Anfangsauslenkung $y_0$     &  $\SI{0}{\meter}$          & $\SI{ 0.041 \pm 0.007}{\meter}$ \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+
+\clearpage
+%-------------------------------------------------------------------------------
+\subsection{Tiefpass}
+%-------------------------------------------------------------------------------
+
+Auch bei diesem Versuch stellt die Ermittlung von geeigneten Startwerten f\"ur
+die nichtlineare Regression  den haupts\"achlichen Aufwand dar. Da  es sich um
+eine  andere  Gesetzm\"assigkeit  als diejenige  der  vorangegangenen  Aufgabe
+handelt,  sind  die  dazu  benutzten Methoden  auch  anders. Sie  k\"onnen  im
+Abschnitt  \ref{subsubsec:rcglied:startwerte} nachgelesen  werden.  Ein  wenig
+vereinfachend ist in diesem Versuch, dass nur eine Gr\"osse gesch\"atzt werden
+muss.
+
+Aus   den  gegebenen   Daten   lassen  sich   Regressionen   auf  zwei   Wegen
+durchf\"uhren: Einerseits  kann   die  Ausgangsspannung  gegen   die  Frequenz
+dargestellt  werden, andererseits  kann dies  aber  auch mit  der Phase  getan
+werden. Die beiden Varianten liefern nicht genau die gleichen Ergebnisse f\"ur
+die Kapazit\"at $C$.
+
+\begin{center}
+\begin{tabular}{lrrr}
+    \toprule
+                                & Startwert                  & Endwert via Spannung              & Endwert via Phase \\
+    \midrule
+    Kapazit\"at $C$             &  $\SI{216}{\nano\farad}$   & $\SI{216.8 \pm 0.9}{\nano\farad}$ & $\SI{198 \pm 3}{\nano\farad}$ \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+Es stehen folgende Punkte hervor:
+\begin{itemize}
+    \item
+        Der Startwert  liegt erstaunlich nahe beim  mittels des Spannungs-Fits
+        ermittelten Wert f\"ur die Kapazit\"at $C$.
+    \item
+        Der mittels Fit von Phase an Frequenz ermittelte Wert f\"ur $C$ weicht
+        selbst  mit Ber\"ucksichtigung  der angegebenen  Unsicherheit merklich
+        von  den anderen  beiden Werten  ab. Ich  vermute, dass  die Lage  der
+        Messpunkte  f\"ur  den Fit  von  Ausgangsspannung  an Frequenz  besser
+        geeignet ist,  und dass die  Arkustangens-Funktion des Fits  von Phase
+        an   Frequenz  hier  einfach  benachteiligt  ist. Allenfalls  k\"onnte
+        durch die  Erh\"ohung der Anzahl Messpunkte  (nat\"urlich bei besserer
+        Verteilung) Abhilfe geschaffen werden.
+        Es  k\"onnte auch  sein,  dass  der Algorithmus  von  QtiPlot mit  der
+        Arkustangens-Funktion  einfach weniger  gut funktionert,  als mit  der
+        Division und Quadratwurzel des Zusammenhangs zwischen AusgangsApannung
+        und Eingangsspannung  in Abh\"angigkeit  der Frequenz.
+        Letztlich  ist  es  nat\"urlich  auch m\"oglich,  dass  der  Startwert
+        und  das Resultat  des Spannungs-Fits  weniger korrekt  sind, als  das
+        Resultat des Phasen-Fits, allerdings halte  ich dies f\"ur die weniger
+        wahrscheinliche Variante,  da diese  beiden Werte so  nahe beieinander
+        liegen.
+\end{itemize}
+
