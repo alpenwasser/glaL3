@@ -1,3 +1,19 @@
+\textbf{Allgemeine   Anmerkung}: Nicht   alle  benutzten   Verfahren   liefern
+Resultate mit  Unsicherheiten. In den  graphischen Vergleichen  der Ergebnisse
+(siehe Abbildungen
+\ref{fig:schallgeschwindigkeit:results},
+\ref{fig:eisengehalt:results},
+\ref{fig:federkonstante:federkonstante:results},
+\ref{fig:federkonstante:vorspannung:results},
+\ref{fig:pendel:results} und
+\ref{fig:rcglied:results})
+haben   diese   Resultate   sowie  allf\"allige   Startwerte   deshalb   keine
+Unsicherheiten  eingetragen. Dies  bedeutet   nat\"urlich  nicht,  dass  diese
+Resultate  genauer  oder  verl\"asslicher  sind (im  Gegenteil: Da  man  keine
+Angaben  \"uber  die  Unsicherheiten  hat,   sind  diese  Resultate  eher  mit
+gr\"osserer Vorsicht zu geniessen).
+
+
 %-------------------------------------------------------------------------------
 \subsection{Schallgeschwindigkeit}
 %-------------------------------------------------------------------------------
@@ -17,25 +33,25 @@ Zur Rekapitulation nochmals die Ergebnisse zusammengefasst:
 
 \begin{itemize}
     \item
-        \emph{Literaturwert, Tabelle}: $\SI{344}{\meter\per\second}$
+        Literaturwert, Tabelle: $\SI{344}{\meter\per\second}$
     \item
-        \emph{Formel}:
+        Formel:
         \begin{equation}
             \label{eq:schallgeschwTemperatur2}
-            c_{luft} = (331.3 + 0.606 \cdot \vartheta) \si{\meter\per\second} \SI{345.24}{\meter\per\second}
+            c_{luft} = (331.3 + 0.606 \cdot \vartheta) \si{\meter\per\second}  = \SI{345.24}{\meter\per\second} \approx \SI{345}{\meter\per\second}
         \end{equation}
     \item
-        \emph{Mittlere Geschwindigkeit aus Messresultaten}:
+        Mittlere Geschwindigkeit aus Messresultaten:
         \begin{gather*}
             \overline{c} = \SI{347.73}{\meter\per\second} \\
         \end{gather*}
     \item
-        \emph{Unsicherheit, volles Gauss'sches Fehlerfortpflanzungsgesetz}:
+        Unsicherheit, volles Gauss'sches Fehlerfortpflanzungsgesetz:
         \begin{equation*}
             s_{\overline{c(s,t)}} = \SI{2.93}{\meter\per\second}
         \end{equation*}
     \item
-        \emph{Unsicherheit, Kurzformel f\"ur Fehlerfortpflanzung in Multiplikation/Division}:
+        Unsicherheit, Kurzformel f\"ur Fehlerfortpflanzung in Multiplikation/Division:
         \begin{equation*}
             s_{\overline{c(s,t)}} = \SI{2.93}{\meter\per\second}
         \end{equation*}
@@ -45,6 +61,35 @@ Sinnvoll gerundet erhalten wir aus den Messergebnissen also:
 \begin{equation}
     \underline{\underline{c_{luft} = \overline{c_{luft}} \pm s_{\overline{c_{luft}}} = \SI[separate-uncertainty = true]{348 \pm 3}{\meter\per\second}}}
 \end{equation}
+
+Diese  Ergebnisse  sind in  Abbildung  \ref{fig:schallgeschwindigkeit:results}
+graphisch dargestellt.
+
+\begin{figure}[ht!]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=.67\textwidth,
+        height=.3\textwidth,
+        %title = {Schallgeschwindigkeit, Vergleich Literaturwerte mit Experiment},
+        xlabel = {Schallgeschwindigkeit ($\si{\meter\per\second}$)},
+        symbolic y coords = {Tabellenwert,temperaturabh\"angiger Wert,experimenteller Wert},
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (344,Tabellenwert)
+        (345,temperaturabh\"angiger Wert)
+        (348,experimenteller Wert) +- (3,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\caption{graphische Darstellung der Ergebnisse zum Versuch \emph{Schallgeschwindigkeit}}
+\label{fig:schallgeschwindigkeit:results}
+\end{figure}
 
 Es stechen dabei folgende Punkte heraus:
 \begin{itemize}
@@ -67,11 +112,12 @@ Es stechen dabei folgende Punkte heraus:
         Kategorie von Gesetzm\"assigkeiten).
     \item
         Wie bereits erw\"ahnt und in Abbildung \ref{fig:schallgeschwindigkeit}
-        ersichtlich,  liegen  13 der  20  Messpunkte  innerhalb des  Intervals
-        Mittelwert $\pm$ die  Standardabweichung. Dies entspricht einem Anteil
-        von  65\%,  was  ziemlich  nahe   beim  theoretischen  Wert  von  68\%
-        liegt. W\"urde  man die  Anzahl  (korrekt durchgef\"uhrter)  Messungen
-        erh\"ohen, w\"urden sich diese beiden Werte weiter ann\"ahern.
+        auf Seite  \pageref{fig:schallgeschwindigkeit} ersichtlich,  liegen 13
+        der  20  Messpunkte  innerhalb  des  Intervals  Mittelwert  $\pm$  die
+        Standardabweichung. Dies  entspricht   einem  Anteil  von   65\%,  was
+        ziemlich nahe beim theoretischen Wert  von 68\% liegt. W\"urde man die
+        Anzahl (korrekt  durchgef\"uhrter) Messungen erh\"ohen,  w\"urden sich
+        diese beiden Werte weiter ann\"ahern.
     \item
         Bezieht   man   die   Unsicherheit    der   aus   den   Messresultaten
         bestimmten   Schallgeschwindigkeit    mit   ein,   ist    die   untere
@@ -79,7 +125,7 @@ Es stechen dabei folgende Punkte heraus:
         lediglich  $\SI{1}{\meter\per\second}$  h\"oher als  der  Tabellenwert
         von    \SI{344}{\meter\per\second},    und    der    mittels    Formel
         \ref{eq:schallgeschwTemperatur2} bestimmte Wert  liegt sogar innerhalb
-        des Unsicherheitsbereichts.
+        des Unsicherheitsbereichs.
         F\"ur die verbleibende Differenz vermute ich folgende Gr\"unde:
         \begin{itemize}
             \item
@@ -104,12 +150,12 @@ Es stechen dabei folgende Punkte heraus:
                 Die Werte aus der  Fachliteratur wurden m\"oglicherweise mit
                 anderen Methoden bestimmt als der hier ausgef\"uhrte Versuch.
         \end{itemize}
-        Alles  in allem  ist das  Resultat  aus diesem  Versuch jedoch  meiner
-        Ansicht nach  ziemlich gut, und  die Resultate sehr plausibel  und von
-        zufriedenstellender Qualit\"at.
 \end{itemize}
 
-\begin{center}
+Alles  in allem  ist  das  Resultat aus  diesem  Versuch  meiner Ansicht  nach
+ziemlich gut, die Resultate plausibel und von zufriedenstellender Qualit\"at.
+
+%\begin{center}
 %\begin{tikzpicture}
 %\begin{axis}[xbar,enlargelimits=0.15]
 %\addplot
@@ -124,39 +170,69 @@ Es stechen dabei folgende Punkte heraus:
 %\end{axis}
 %\end{tikzpicture}
 
-\begin{tikzpicture}
-\begin{axis}
-\addplot+[only marks,scatter,error bars/.cd,
-    y dir=both,y explicit,
-    x dir=both,x fixed=0.05,
-    error mark=diamond*]
-coordinates {
-    (0,0) +- (0.5,0.1)
-    (0.1,0.1) +- (0.05,0.2)
-    (0.2,0.2) +- (0,0.05)
-    (0.5,0.5) +- (0.1,0.2)
-    (1,1) +- (0.3,0.1)};
-\end{axis}
-\end{tikzpicture}
-\end{center}
+%\begin{tikzpicture}
+%\begin{axis}
+%\addplot+[only marks,scatter,error bars/.cd,
+%    y dir=both,y explicit,
+%    x dir=both,x fixed=0.05,
+%    error mark=diamond*]
+%coordinates {
+%    (0,0) +- (0.5,0.1)
+%    (0.1,0.1) +- (0.05,0.2)
+%    (0.2,0.2) +- (0,0.05)
+%    (0.5,0.5) +- (0.1,0.2)
+%    (1,1) +- (0.3,0.1)};
+%\end{axis}
+%\end{tikzpicture}
+
 
 \clearpage
 %-------------------------------------------------------------------------------
 \subsection{Eisengehalt}
 %-------------------------------------------------------------------------------
 
-Die erhaltenen Werte nochmals zusammengefasst:
+Die   erhaltenen   Werte   tabellarisch   und   graphisch   (siehe   Abbildung
+\ref{fig:eisengehalt:results}) zusammengefasst:
 
 \begin{center}
-\begin{tabular}{lrr}
+\begin{tabular}{lrrr}
     \toprule
-                 & ungewichtet & gewichtet \\
+                     & ungewichtet                   & gewichtet                     & QtiPlot, gewichtet            \\
     \midrule
-    Mittelwert       &     $\overline{x} = \SI{20.44}{\percent}$   &     $\overline{x} = \SI{20.37}{\percent}$ \\
-    Unsicherheit     & $s_{\overline{x}} = \SI{0.46}{\percent}$    & $s_{\overline{x}} = \SI{0.36}{\percent}$ \\
+    Mittelwert       & $\SI{20.44}{\percent}$        & $\SI{20.37}{\percent}$        & $\SI{20.37}{\percent}$        \\
+    Unsicherheit     & $\SI{ 0.46}{\percent}$        & $\SI{ 0.36}{\percent}$        & $\SI{ 0.36}{\percent}$        \\
+    \midrule
+    Gerundet         & $\SI{20.4 \pm 0.5}{\percent}$ & $\SI{20.4 \pm 0.4}{\percent}$ & $\SI{20.4 \pm 0.4}{\percent}$ \\
     \bottomrule
 \end{tabular}
 \end{center}
+
+\vspace*{2em}
+\begin{figure}[ht!]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=.67\textwidth,
+        height=.3\textwidth,
+        %title = {Eisengehalt},
+        xlabel = {Eisengehalt (\%)},
+        symbolic y coords = {ungewichtet,gewichtet, QtiPlot gewichtet},
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (20.4,ungewichtet) +- (0.5,0)
+        (20.4,gewichtet) +- (0.4,0)
+        (20.4,QtiPlot gewichtet) +- (0.4,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\caption{graphische Darstellung der Ergebnisse zum Versuch \emph{Schallgeschwindigkeit}}
+\label{fig:eisengehalt:results}
+\end{figure}
 
 Der   Unterschied   zwischen    gewichteten   Resultaten   und   ungewichteten
 Resultaten    ist    hier    beim    Mittelwert    nicht    besonders    gross
@@ -164,13 +240,14 @@ Resultaten    ist    hier    beim    Mittelwert    nicht    besonders    gross
 btw. $1-\frac{20.44}{20.36}  \approx -0.003$).   Die  relative Abweichung  bei
 der Unsicherheit  ist hingegen  gr\"osser ($1-\frac{0.36}{0.46}  \approx 0.22$
 bzw. $1-\frac{0.46}{0.36} \approx -0.28$). Jedoch ist diese Abweichung im Vergleich
-zum Mittelwert immer noch nicht besonders hoch
+zum Mittelwert immer noch nicht besonders hoch.
 
 Ob diese  Abweichungen von Bedeutung sind, h\"angt schlussendlich nat\"urlich
 davon ab, wof\"ur diese Resultate verwendet werden sollen.
 
 Es ist  ebenfalls eine  gute \"Ubereinstimmung mit  den von  QtiPlot bestimten
-Werten festzustellen (siehe Abbildung \ref{fig:eisengehalt}).
+Werten  festzustellen  (siehe   Abbildungen  \ref{fig:eisengehalt}  auf  Seite
+\pageref{fig:eisengehalt} und \ref{fig:eisengehalt:results}).
 
 
 \clearpage
@@ -178,10 +255,85 @@ Werten festzustellen (siehe Abbildung \ref{fig:eisengehalt}).
 \subsection{Federkonstante}
 %-------------------------------------------------------------------------------
 
-Der       Hauptteil        der       Ergebnisse       kann        in       den
-Abbildungen    \ref{fig:federkonstante1},     \ref{fig:federkonstante2}    und
-\ref{fig:federkonstante3}  im  Abschnitt  \ref{subsec:federkonstante}  gesehen
-werden.
+Die Resultate tabellarisch und graphisch zusammengefasst:
+
+\begin{center}
+\begin{tabular}{lrrr}
+    \toprule
+                                    & Handrechnung/Spreadsheet             & TI-89 & QtiPlot                                \\
+    \midrule
+    Federkonstante $k$              & $\SI{22.6}{\newton\per\meter}$ & $\SI{22.3}{\newton\per\meter}$ & $\SI{22.3 \pm 0.9}{\newton\per\meter}$ \\
+    Vorspannung $F_0$               & $\SI{-0.7}{\newton}$           & $\SI{-0.5}{\newton}$           & $\SI{-0.5 \pm 0.5}{\newton}$           \\
+    empirische Korrelation $r_{xy}$ & $0.99364$                       & $0.993638$                     & k.A.                                   \\
+    Bestimmtheitsmass $R^2$         & $0.98732$                       & $0.987316$                     & $0.9873$                               \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+\vspace*{2em}
+\begin{figure}[ht!]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=.67\textwidth,
+        height=.3\textwidth,
+        %title = {Federkonstante},
+        xlabel = {Federkonstante ($\si{\newton\per\meter}$)},
+        symbolic y coords = {Spreadsheet,TI-89,QtiPlot},
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (22.6,Spreadsheet)
+        (22.3,TI-89)
+        (22.3,QtiPlot) +- (0.9,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\caption{
+    Graphische    Darstellung     der    Federkonstante     zum    Versuch
+    \emph{Federkonstante}. Auch  wenn  die  Methode  mittels  Spreadsheet  und
+    TI-89   keine   Unsicherheiten   liefern,   liegen   sie   innerhalb   des
+    Unsicherheitsbereiches   des  Resultats   von   QtiPlot,   was  ich   also
+    zufriedenstellend beurteile.
+}
+\label{fig:federkonstante:federkonstante:results}
+\end{figure}
+
+\vspace*{2em}
+\begin{figure}[ht!]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=.67\textwidth,
+        height=.3\textwidth,
+        %title = {Vorspannung},
+        xlabel = {Vorspannung ($\si{\newton}$)},
+        symbolic y coords = {Spreadsheet,TI-89,QtiPlot},
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (-0.7,Spreadsheet)
+        (-0.5,TI-89)
+        (-0.5,QtiPlot) +- (0.5,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\caption{
+    Graphische      Darstellung      der     Vorspannung      zum      Versuch
+    \emph{Federkonstante}. Auch  hier  liegen  die  Werte des  TI-89  und  des
+    Spreadsheets  innerhalb  des   Unsicherheitsbereichts  des  Resultats  von
+    QtiPlot.
+}
+\label{fig:federkonstante:vorspannung:results}
+\end{figure}
 
 Vergleicht  man   die  Ergebnisse   von  QtiPlot   mit  den   Ergebnissen  des
 Taschenrechners, kann  man eine  sehr gute  \"Ubereinstimmung feststellen. Ich
@@ -202,21 +354,7 @@ Algorithmus  ist, wie  er  von  QtiPlot und  dem  TI-89  verwendet wird,  sind
 die  damit erhaltenen  Resultate auch  nicht ganz  identisch. Sie sind  jedoch
 gen\"ugend nahe, dass ich sie als plausibel beurteile und damit zufrieden bin.
 
-\begin{center}
-\begin{tabular}{lrrr}
-    \toprule
-                                    & Handrechnung/Spreadsheet             & TI-89 & QtiPlot                                \\
-    \midrule
-    Federkonstante $k$              & $\SI{22.57}{\newton\per\meter}$ & $\SI{22.3}{\newton\per\meter}$ & $\SI{22.3 \pm 0.9}{\newton\per\meter}$ \\
-    Vorspannung $F_0$               & $\SI{-0.69}{\newton}$           & $\SI{-0.5}{\newton}$           & $\SI{-0.5 \pm 0.5}{\newton}$           \\
-    empirische Korrelation $r_{xy}$ & $0.99364$                       & $0.993638$                     & k.A.                                   \\
-    Bestimmtheitsmass $R^2$         & $0.98732$                       & $0.987316$                     & $0.9873$                               \\
-    \bottomrule
-\end{tabular}
-\end{center}
 
-
-\clearpage
 %-------------------------------------------------------------------------------
 \subsection{Pendel}
 %-------------------------------------------------------------------------------
@@ -252,7 +390,7 @@ Eindruck.
                                 & Startwert                  & Endwert \\
     \midrule
     Amplitude $A$               &  $\SI{1}{\meter}$          & $\SI{ 1.29 \pm 0.04}{\meter}$ \\
-    D\"ampfung $\Gamma$         &  $\SI{0.035}{\per\second}$ & $\SI{-0.052 \pm 0.002}{\per\second}$ \\
+    D\"ampfung $\Gamma$         &  $\SI{0.035}{\per\second}$ & $\SI{0.052 \pm 0.002}{\per\second}$ \\
     Frequenz $f$                &  $\SI{0.05}{\hertz}$       & $\SI{ 0.0533  \pm 0.0003}{\hertz}$ \\
     Phasenverschiebung $\delta$ &  $0.31$                    & $\num{0.50  \pm 0.02}$ \\
     Anfangsauslenkung $y_0$     &  $\SI{0}{\meter}$          & $\SI{ 0.041 \pm 0.007}{\meter}$ \\
@@ -260,10 +398,119 @@ Eindruck.
 \end{tabular}
 \end{center}
 
+\begin{figure}[ht!]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        try min ticks=2,
+        width=.67\textwidth,
+        height=.24\textwidth,
+        %title = {Vergleich Startwerte und Endwerte: Amplitude},
+        xlabel = {Amplitude ($\si{\meter}$)},
+        symbolic y coords = {Startwert,Endwert}
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (1,Startwert)
+        (1.29,Endwert) +- (0.04,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[
+        try min ticks=2,
+        width=.67\textwidth,
+        height=.24\textwidth,
+        %title = {Vergleich Startwerte und Endwerte: D\"ampfung},
+        xlabel = {D\"ampfung ($\si{\per\second}$)},
+        symbolic y coords = {Startwert,Endwert}
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (0.035,Startwert)
+        (0.0052,Endwert) +- (0.002,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[
+        try min ticks=2,
+        width=.67\textwidth,
+        height=.24\textwidth,
+        %title = {Vergleich Startwerte und Endwerte: Frequenz},
+        xlabel = {Frequenz ($\si{\hertz}$)},
+        symbolic y coords = {Startwert,Endwert}
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (0.05,Startwert)
+        (0.00533,Endwert) +- (0.0003,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[
+        try min ticks=2,
+        width=.67\textwidth,
+        height=.24\textwidth,
+        %title = {Vergleich Startwerte und Endwerte: Phasenverschiebung},
+        xlabel = {Phasenverschiebung ($\si{\radian}$)},
+        symbolic y coords = {Startwert,Endwert}
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (0.31,Startwert)
+        (0.50,Endwert) +- (0.02,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[
+        try min ticks=2,
+        width=.67\textwidth,
+        height=.24\textwidth,
+        %title = {Vergleich Startwerte und Endwerte: Anfangsauslenkung},
+        xlabel = {Anfangsauslenkung ($\si{\meter}$)},
+        symbolic y coords = {Startwert,Endwert}
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (0,Startwert)
+        (0.041,Endwert) +- (0.007,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\caption{
+    Graphischer Vergleich der Start- und Endwerte.
+}
+\label{fig:pendel:results}
+\end{figure}
+
 
 \clearpage
 %-------------------------------------------------------------------------------
 \subsection{Tiefpass}
+\label{subsec:results:tiefpass}
 %-------------------------------------------------------------------------------
 
 Auch bei diesem Versuch stellt die Ermittlung von geeigneten Startwerten f\"ur
@@ -290,6 +537,37 @@ die Kapazit\"at $C$.
 \end{tabular}
 \end{center}
 
+\vspace*{2em}
+\begin{figure}[th!]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        try min ticks=2,
+        width=.67\textwidth,
+        height=.22\textwidth,
+        %title = {Vergleich Startwerte und Endwerte: Anfangsauslenkung},
+        xlabel = {Kapazit\"at $C$ ($\si{\nano\farad}$)},
+        symbolic y coords = {Spannungs-Fit,Phasen-Fit},
+    ]
+    \addplot+[
+        only marks,error bars/.cd,
+        x dir=both,x explicit,
+        error bar style={line width=0.5pt},
+        ]
+    coordinates {
+        (216.8,Spannungs-Fit) +- (0.9,0)
+        (198,Phasen-Fit)      +- (3  ,0)
+    };
+    \end{axis}
+\end{tikzpicture}
+\caption{
+    Graphischer  Vergleich  der  Werte  f\"ur die  Kapazit\"at  $C$,  bestimmt
+    aus  dem Fit  von Ausgangsspannung  and  Frequenz respektive  dem Fit  von
+    Phasenverschiebung an Frequenz.
+}
+\label{fig:rcglied:results}
+\end{figure}
+
 Es stehen folgende Punkte hervor:
 \begin{itemize}
     \item
@@ -314,4 +592,3 @@ Es stehen folgende Punkte hervor:
         wahrscheinliche Variante,  da diese  beiden Werte so  nahe beieinander
         liegen.
 \end{itemize}
-

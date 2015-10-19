@@ -40,19 +40,19 @@ Messprotokoll:
 \subsubsection{Mittlere Laufzeit und ihre Unsicherheit}
 
 Mittlere Laufzeit:
-\begin{equation}
+\begin{equation*}
     \overline{t} = \frac{1}{20} \sum_{i=1}^{20} t_i = \SI{7.37}{\milli\second}
-\end{equation}
+\end{equation*}
 Fehler des Mittelwertes:
-\begin{equation}
+\begin{equation*}
     %s_{\overline{t}} = \frac{1}{20} \sum_{i=1}^{20} t_i = \SI{0.01}{\milli\second}
     s_{\overline{t}} = \sqrt{ \frac{\sum_{1}^{20}{(t_i-\overline{t})^2}}{20 \cdot 19}} = \SI{0.062}{\milli\second} \\
-\end{equation}
+\end{equation*}
 
 Standardabweichung:
-\begin{equation}
+\begin{equation*}
     s_{\overline{t}} = \sqrt{ \frac{\sum_{1}^{20}{(t_i-\overline{t})^2}}{19}} = \SI{0.28}{\milli\second} \\
-\end{equation}
+\end{equation*}
 
 
 \subsubsection{Wert und Unsicherheit der Schallgeschwindigkeit}
@@ -65,10 +65,10 @@ Luft,   abh\"angig   von  der   Temperatur.  Die   Formel   kann  sowohl   auf
 Wikipedia  \cite{ref:wikipedia:speedOfSound}  wie   auch  in  Kuchling's  Werk
 \cite{ref:kuchling:speedOfSoundFormula} gefunden werden.
 
-\begin{equation}
-    \label{eq:schallgeschwTemperatur}
+\begin{equation*}
+    %\label{eq:schallgeschwTemperatur}
     c_{luft} = (331.3 + 0.606 \cdot \vartheta) \si{\meter\per\second} = (331.3 + 0.606 \cdot 23) \si{\meter\per\second} = \SI{345.24}{\meter\per\second}
-\end{equation}
+\end{equation*}
 
 Der Tabellenwert  aus Kuchling's Buch ist  $\SI{344}{\meter\per\second}$, also
 ziemlich nahe beim errechneten Wert.
@@ -76,44 +76,44 @@ ziemlich nahe beim errechneten Wert.
 
 Berechnung der mittleren Geschwindigkeit:
 
-\begin{gather}
-    c = \frac{s}{t} \\
-    \overline{c} = \frac{s}{\overline{t}} = \frac{\SI{2.561}{\meter}}{\SI{7.37}{\milli\second}} = \SI{347.73}{\meter\per\second} \\
-\end{gather}
+\begin{align*}
+    c            & = \frac{s}{t} \\
+    \overline{c} & = \frac{s}{\overline{t}} = \frac{\SI{2.561}{\meter}}{\SI{7.37}{\milli\second}} = \SI{347.73}{\meter\per\second} \\
+\end{align*}
 
 Gauss'sches Fehlerfortpflanzungsgesetz:
-\begin{equation}
+\begin{equation*}
     s_{\overline{R}} = \sqrt{ \left( \frac{\partial R}{\partial x} \biggr\rvert_{\overline{R}} \cdot s_{\overline{x}}\right)^2
                             + \left( \frac{\partial R}{\partial y} \biggr\rvert_{\overline{R}} \cdot s_{\overline{y}}\right)^2
                             + \left( \frac{\partial R}{\partial z} \biggr\rvert_{\overline{R}} \cdot s_{\overline{z}}\right)^2
                             + ... }
-\end{equation}
+\end{equation*}
 
 In diesem Fall ist $R(x,y,z,...) := c(s,t) = \frac{s}{t}$. Es ergibt sich die Formel:
-\begin{gather*}
-    s_{\overline{c(s,t)}} = \sqrt{ \left( \frac{\partial c}{\partial s} \biggr\rvert_{\overline{c}} \cdot s_{\overline{s}}\right)^2
+\begin{align*}
+    s_{\overline{c(s,t)}} & = \sqrt{ \left( \frac{\partial c}{\partial s} \biggr\rvert_{\overline{c}} \cdot s_{\overline{s}}\right)^2
                             + \left( \frac{\partial c}{\partial t} \biggr\rvert_{\overline{c}} \cdot s_{\overline{t}}\right)^2 } \\
-                            = \sqrt{ \left( \frac{\partial}{\partial s}\frac{s}{t} \biggr\rvert_{\overline{c}} \cdot s_{\overline{s}}\right)^2
+                          & = \sqrt{ \left( \frac{\partial}{\partial s}\frac{s}{t} \biggr\rvert_{\overline{c}} \cdot s_{\overline{s}}\right)^2
                             + \left( \frac{\partial}{\partial t}\frac{s}{t} \biggr\rvert_{\overline{c}} \cdot s_{\overline{t}}\right)^2 } \\
-                            = \sqrt{ \left( \frac{1}{t} \biggr\rvert_{\overline{c}} \cdot s_{\overline{s}}\right)^2
+                          & = \sqrt{ \left( \frac{1}{t} \biggr\rvert_{\overline{c}} \cdot s_{\overline{s}}\right)^2
                             + \left( - \frac{s}{t^2} \biggr\rvert_{\overline{c}} \cdot s_{\overline{t}}\right)^2 } \\
-                            = \sqrt{ \left( \frac{1}{\overline{t}} \cdot s_{\overline{s}}\right)^2
+                          & = \sqrt{ \left( \frac{1}{\overline{t}} \cdot s_{\overline{s}}\right)^2
                             + \left( - \frac{\overline{s}}{\overline{t}^2} \cdot s_{\overline{t}}\right)^2 } \\
-                            = \sqrt{ \left( \frac{1}{\SI{7.37}{\milli\second}} \cdot \SI{3}{\milli\meter} \right)^2
+                          & = \sqrt{ \left( \frac{1}{\SI{7.37}{\milli\second}} \cdot \SI{3}{\milli\meter} \right)^2
                             + \left( - \frac{\SI{2.561}{\meter}}{(\SI{7.37}{\milli\second})^2} \cdot \SI{0.062}{\milli\second}\right)^2 } \\
-                            = \sqrt{ \left( \frac{1}{\SI{0.00737}{\second}} \cdot \SI{0.003}{\meter} \right)^2
+                          & = \sqrt{ \left( \frac{1}{\SI{0.00737}{\second}} \cdot \SI{0.003}{\meter} \right)^2
                             + \left( - \frac{\SI{2.561}{\meter}}{(\SI{0.00737}{\second})^2} \cdot \SI{0.000062}{\second}\right)^2 } \\
-                            = \SI{2.93}{\meter\per\second} \text{ (Resultat von Tabellenkalkulationsprogramm)} \\
-                            = \SI{2.95}{\meter\per\second} \text{ (Resultat mittels Eintippen der obigen Zahlen in Taschenrechner)} \\
-\end{gather*}
+                          & = \SI{2.93}{\meter\per\second} \text{ (Resultat von Tabellenkalkulationsprogramm)} \\
+                          & = \SI{2.95}{\meter\per\second} \text{ (Resultat mittels Eintippen der obigen Zahlen in Taschenrechner)} \\
+\end{align*}
 
 Ausgerechnet mit vereinfachtem Rezept f\"ur Division:
-\begin{gather*}
-    s_{\overline{c(s,t)}} = \sqrt{ \left( \frac{s_{s}}{s} \right)^2 + \left( \frac{s_{t}}{\overline{c}} \right)^2} \cdot \overline{c(s,t)} \\
-    = \sqrt{ \left( \frac{\SI{0.003}{\meter}}{\SI{2.561}{\meter}} \right)^2 + \left( \frac{\SI{0.06}{\milli\second}}{\SI{7.37}{\milli\second}} \right)^2 } \cdot \overline{c(s,t)} \\
-    = \sqrt{ 0.001^2 + 0.008^2} \cdot \SI{347.7}{\meter\per\second} \\
-    = \SI{2.93}{\meter\per\second} \text{ (Resultat von Tabellenkalkulationsprogramm)}
-\end{gather*}
+\begin{align*}
+    s_{\overline{c(s,t)}} & = \sqrt{ \left( \frac{s_{s}}{s} \right)^2 + \left( \frac{s_{t}}{\overline{c}} \right)^2} \cdot \overline{c(s,t)} \\
+                          & = \sqrt{ \left( \frac{\SI{0.003}{\meter}}{\SI{2.561}{\meter}} \right)^2 + \left( \frac{\SI{0.06}{\milli\second}}{\SI{7.37}{\milli\second}} \right)^2 } \cdot \overline{c(s,t)} \\
+                          & = \sqrt{ 0.001^2 + 0.008^2} \cdot \SI{347.7}{\meter\per\second} \\
+                          & = \SI{2.93}{\meter\per\second} \text{ (Resultat von Tabellenkalkulationsprogramm)}
+\end{align*}
 
 
 \clearpage
@@ -157,27 +157,27 @@ besser an 68\% ann\"ahern.
 \subsubsection{Einfacher Mittelwert}
 
 Der einfache Mittelwert ergibt sich als:
-\begin{equation}
+\begin{equation*}
     \overline{x} = \frac{1}{9}\sum_{i=1}^9 x_i = \SI{20.44}{\percent}
-\end{equation}
+\end{equation*}
 
 Mit dem zugeh\"origen Fehler:
-\begin{equation}
+\begin{equation*}
     s_{\overline{x}} = \sqrt{\frac{\sum_1^9(x_i-\overline{x})^2}{9 \cdot 8}} = \SI{0.46}{\percent}
-\end{equation}
+\end{equation*}
 
 
 \subsubsection{Gewichteter Mittelwert}
 
 Der gewichtete Mittelwert errechnet sich gem\"ass:
-\begin{equation}
+\begin{equation*}
     \overline{x} = \frac{\sum_1^9 g_{\overline{x_i}} \cdot x_i}{\sum_1^9 g_{\overline{x_i}}} = \frac{156.24}{7.67} \si{\percent} = \SI{20.37}{\percent}
-\end{equation}
+\end{equation*}
 
 Der zugeh\"orige Fehler Betr\"agt:
-\begin{equation}
+\begin{equation*}
     s_{\overline{x}} = \frac{1}{\sum_1^9 g_{\overline{x_i}}} = \SI{0.36}{\percent}
-\end{equation}
+\end{equation*}
 
 \clearpage
 \subsubsection{QtiPlot}
@@ -246,38 +246,38 @@ gem\"ass der Anleitung im  deutschen Wikipedia-Artikel zur linearen Regression
 \end{tabular}
 
 Die Steigung der Regressionsgeraden errechnet sich als:
-\begin{equation}
+\begin{equation*}
     k = \frac{\sum_{i=1}^{10}(x_i-\overline{x})(y_i-\overline{y})}{\sum_{i=1}^{10}(x_i-\overline{x})^2} = \frac{144.33}{6.4} \si{\newton\per\meter} = \SI{22.57}{\newton\per\meter}
-\end{equation}
+\end{equation*}
 
 Den Achsenabschnitt $F_0$ erh\"alt man aus:
-\begin{equation}
+\begin{equation*}
     F_0 = \overline{y} - k \cdot \overline{x} = \SI{11.16}{\newton} - \SI{22.57}{\newton\per\meter} \cdot \SI{0.52}{\meter} = \SI{-0.69}{\newton}
-\end{equation}
+\end{equation*}
 
 Die empirische Korrelation betr\"agt:
-\begin{equation}
+\begin{equation*}
     r_{xy} = \frac{\sum_{1}^{10}(x_i - \overline{x}) \cdot (y_i - \overline{y})}{\sqrt{\sum_{1}^{10}(x_i-\overline{x})^2 \cdot \sum_{1}^{10}(y_i-\overline{y})^2}}
            = \frac{6.40}{\sqrt{144.33 \cdot 0.29}} = 0.99364
-\end{equation}
+\end{equation*}
 
 Das Bestimmtheitsmass betr\"agt:
-\begin{equation}
+\begin{equation*}
     R^{2} = r_{xy}^2 = 0.98732
-\end{equation}
+\end{equation*}
 
 \subsubsection{Taschenrechner}
 
 Ergebnisse    ermittelt   mittels    TI-89    und    Anleitung   aus    Quelle
 \cite{ref:ti89:regression} (um Einheiten erg\"anzt).
 
-\begin{gather*}
-    F = k \cdot z + F_0 \\
-    k = \SI{22.280962}{\newton\per\meter} \\
-    F_0 = \SI{-0.540505}{\newton} \\
-    corr = 0.993638 \\
-    R^2 = 0.987316
-\end{gather*}
+\begin{align*}
+    F    & = k \cdot z + F_0 \\
+    k    & = \SI{22.280962}{\newton\per\meter} \\
+    F_0  & = \SI{-0.540505}{\newton} \\
+    corr & = 0.993638 \\
+    R^2  & = 0.987316
+\end{align*}
 
 \subsubsection{QtiPlot}
 \begin{figure}[th!]
@@ -387,18 +387,19 @@ Die Startwerte wurden mit folgender Methodik bestimmt:
         ~\cite{ref:wikipedia:periode}   und~\cite{ref:wikipedia:logarithmDekr}
         gefunden werden.
     \item
+        Die Periode  der Sinus-Schwingung wird  aus den Peaks der  zwei ersten
+        Schwingungen  auf  ungef\"ahr  20   Sekunden  gesch\"atzt,  womit  man
+        f\"ur  die Frequenz  $\frac{1}{\SI{20}{\second}} =  \SI{0.05}{\hertz}$
+        erh\"alt.
+    \item
         Der  Nulldurchgang der  ersten Schwingung  liegt ungef\"ahr  bei einer
         Sekunde, wie  man auf dem Scatter-Plot  erkennen kann. Dies entspricht
         der Forderung, dass  $sin(2 \cdot \pi \cdot f  \cdot \SI{1}{\second} -
         \delta) = 0$ ist,  bzw. weil $sin(0) = 0$, muss  gelten:  $2 \cdot \pi
         \cdot f \cdot \SI{1}{\second} -  \delta = 0$. Aufgel\"ost ergibt dies:
-        $\delta =  2 \cdot  \pi \cdot  f \cdot \SI{1}{\second}  = 2  \cdot \pi
-        \cdot \frac{1}{\SI{20}{\second}} \cdot \SI{1}{\second} = 0.31$.
-    \item
-        Die Periode  der Sinus-Schwingung wird  aus den Peaks der  zwei ersten
-        Schwingungen  auf  ungef\"ahr  20   Sekunden  gesch\"atzt,  womit  man
-        f\"ur  die Frequenz  $\frac{1}{\SI{20}{\second}} =  \SI{0.05}{\hertz}$
-        erh\"alt.
+        $\delta  =  2 \cdot  \pi  \cdot  f  \cdot  \SI{1}{\second} =  2  \cdot
+        \pi  \cdot  \frac{1}{T} \cdot  \SI{1}{\second}  =  2 \cdot  \pi  \cdot
+        \frac{1}{\SI{20}{\second}} \cdot \SI{1}{\second} = 0.31$.
     \item
         Der Offset $y_0$ wird vorerst auf null gesetzt.
 \end{itemize}
@@ -518,7 +519,7 @@ Diese Gleichungen wurden in QtiPlot als folgende Funktionen definiert:
 \end{verbatim}
 
 
-\subsubsection{Startwerte}
+\subsubsection{QtiPlot}
 \label{subsubsec:rcglied:startwerte}
 
 Die Startwerte f\"ur $U_E$, $C$ und $R$ wurden folgendermassen festgelegt:
@@ -571,9 +572,6 @@ F\"ur  den Fit  der  Phase wurden  ebenfalls  diese Werte  f\"ur  $C$ und  $R$
 verwendet,  $U_E$ wurde  daf\"ur nat\"urlich  nicht ben\"otigt,  da es  in der
 Formel f\"ur $\varphi$ nicht vorkommt.
 
-\clearpage
-\subsubsection{QtiPlot}
-
 Der Fit  f\"ur den Zusammenhang  zwischen Ausgangsspannugn $U_A$  und Frequenz
 $f$  ist  in  Abbildung  \ref{fig:rcglied:spannung} zu  sehen. Der  Fit  f\"ur
 Phase  $\varphi$ und  Frequenz  $f$ ist  in Abbildung  \ref{fig:rcglied:phase}
@@ -593,7 +591,7 @@ Der aus diesem Fit erhaltene Wert f\"ur die Kapazit\"at betr\"agt:
 
 Gerundet:
 \begin{equation*}
-    C = \SI[separate-uncertainty = true]{216.8 \pm 0.9}{\nano\farad}
+    \underline{\underline{C = \SI[separate-uncertainty = true]{216.8 \pm 0.9}{\nano\farad}}}
 \end{equation*}
 
 \begin{figure}[th!]
@@ -605,7 +603,7 @@ Gerundet:
 
 In diesem Fit wurde die Kapazit\"at errechnet auf:
 \begin{equation*}
-    C = \SI[separate-uncertainty = true]{0.19757 \pm 0.0030979}{\micro\farad}
+    \underline{\underline{C = \SI[separate-uncertainty = true]{0.19757 \pm 0.0030979}{\micro\farad}}}
 \end{equation*}
 
 Gerundet:
@@ -613,4 +611,5 @@ Gerundet:
     C = \SI[separate-uncertainty = true]{198 \pm 3}{\nano\farad}
 \end{equation*}
 
-Mehr zu diesen Werten siehe im Abschnitt zur Diskussion der Ergebnisse.
+Mehr zu diesen Werten ist  im Abschnitt \ref{subsec:results:tiefpass} ab Seite
+\pageref{subsec:results:tiefpass} zu finden.
