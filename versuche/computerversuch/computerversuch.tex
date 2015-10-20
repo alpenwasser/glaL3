@@ -16,6 +16,24 @@
 \input{titlepage/titlepage.tex}
 
 % **************************************************************************** %
+\pagestyle{empty}
+{
+    \renewcommand{\thispagestyle}[1]{}
+    \tableofcontents
+    \vspace{30mm}
+    \subsection*{Versionsgeschichte}
+    \begin{itemize}
+        \item[]
+            \emph{20.10.2015:} \texttt{Version 1}
+    \end{itemize}
+}
+
+\clearpage
+\setcounter{page}{1}
+\pagestyle{headings}
+% **************************************************************************** %
+
+% **************************************************************************** %
 \clearpage
 \section{Arbeitsgrundlagen}
 \label{sec:arbeitsgrundlagen}
@@ -57,11 +75,23 @@
 
 % **************************************************************************** %
 \clearpage
-\section{Anhang}
-\label{sec:appendix}
+\section*{Unterschrift}
+\label{sec:signature}
 % **************************************************************************** %
-\input{sections/appendix.tex}
+\input{sections/signature.tex}
 
+
+% **************************************************************************** %
+\clearpage
+\begin{appendices}
+    %\appendixpage
+    %\addappheadtotoc
+    %\appendix
+    %\section{Anhang}
+    \label{sec:appendix}
+    % ************************************************************************ %
+    \input{sections/appendix.tex}
+\end{appendices}
 
 % **************************************************************************** %
 \clearpage
@@ -69,5 +99,4 @@
 \addcontentsline{toc}{section}{\bibname}
 \bibliography{bibliography/bibliography}{\bibliographystyle{bibliography/deIEEEtran.bst}}
 % **************************************************************************** %
-
 \end{document}
