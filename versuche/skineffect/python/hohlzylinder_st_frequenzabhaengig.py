@@ -20,7 +20,7 @@ init_printing()
 var('mu0 B_abs B_arg B B0 j0 k r r0 w f sigma denom enum')
 mu0   = 4*pi*1e-7
 #sigma = 58.1e6                  # de.wikipedia.org/wiki/Kupfer
-sigma = 52e6
+sigma = 1.25e6
 r     = 30e-3
 r0    = 45e-3
 r1    = 30e-3
@@ -51,7 +51,7 @@ B_arg = lambda w: arg(B(w))
 var('npts expufunc n B_w Bw Babs Barg fmax fmin')
 npts = 1e3
 fmin=1
-fmax=1500
+fmax=7500
 n = np.linspace(1,npts,npts)
 expufunc = np.frompyfunc(exp,1,1)
 Bw = 1*expufunc(n*log(fmax-1)/npts)
@@ -89,9 +89,9 @@ for i in range(len(Barg)):
 # ---------------------------------------------------------#
 # Measurement Values from the actual experiment            #
 # ---------------------------------------------------------#
-frequencies    = np.array([    1,     10,      20,      40,      80,     120,     160,   200,    400,    600,    800,   1000, 1200, 1500])
-phases_degrees = np.array([    2,   19.2,    35.2,    56.7,    76.7,      87,      94,   100,    121,    140,    155,    170,  180,  200])
-voltages       = np.array([ 7e-2, 6.6e-2, 5.78e-2, 4.18e-2, 2.44e-2, 1.69e-2, 1.27e-2,  1e-2, 4.8e-3, 2.9e-3, 1.9e-3, 1.4e-3, 1e-3, 7e-4])
+frequencies    = np.array([       1,      10,      20,      40,      80,     120,     160,     200,     400,     600,    800,    1000,    1200,   1500,   1750,    2000,   2500,   3500,   5000,   7500])
+phases_degrees = np.array([       0,    0.45,    0.95,     1.8,     3.6,     5.4,     7.2,       9,    17.5,    25.4,   32.4,    38.4,    43.5,     50,     54,      58,     64,     71,     78,     88])
+voltages       = np.array([ 6.96e-2, 6.97e-2, 6.97e-2, 6.97e-2, 6.92e-2, 6.91e-2, 6.87e-2, 6.62e-2, 6.27e-2, 6.27e-2, 5.9e-2, 5.45e-2, 5.05e-2, 4.5e-2, 4.1e-2, 3.72e-2, 3.2e-2, 2.4e-2, 1.8e-2, 1.2e-2])
 phases_rad     = np.pi/180*phases_degrees
 
 
