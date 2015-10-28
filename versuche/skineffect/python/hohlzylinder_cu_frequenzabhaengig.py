@@ -23,6 +23,8 @@ mu0   = 4*pi*1e-7
 sigma = 24e6
 r     = 0
 r0    = 45e-3
+r1    = 30e-3
+r2    = 35e-3
 B0    = 6.9e-2                             # adjust this as needed for scaling
 
 
@@ -33,12 +35,12 @@ B0    = 6.9e-2                             # adjust this as needed for scaling
 
 # TODO: Switch from w to f!!!!!
 
-#k = lambda w: sqrt((w*mu0*sigma)/2)*(mpc(1,-1))                     # rad/sec
-k = lambda w: sqrt((2*np.pi*w*mu0*sigma)/2)*(mpc(1,-1))          # degrees/sec
+k = lambda w: sqrt((w*mu0*sigma)/2)*(mpc(1,-1))                     # rad/sec
+#k = lambda w: sqrt((2*np.pi*w*mu0*sigma)/2)*(mpc(1,-1))          # degrees/sec
 
 # Enumerator:
-enum  = lambda w: besselj(0,k(w)*r)
-denom = lambda w: besselj(0,k(w)*r0)
+enum  = lambda w: besselj(0,k(w)*r)  * bessely(2,k(w)*r1) - besselj(2,k(w)*r1) * bessely(0,k(w)*r)
+denom = lambda w: besselj(0,k(w)*r2) * bessely(2,k(w)*r1) - besselj(2,k(w)*r1) * bessely(0,k(w)*r2)
 
 B = lambda w: enum(w) / denom(w) * B0
 
