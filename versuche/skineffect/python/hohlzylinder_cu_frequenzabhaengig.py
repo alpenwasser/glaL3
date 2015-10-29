@@ -51,7 +51,8 @@ B_arg = lambda w: arg(B(w))
 var('npts expufunc n B_w Bw Babs Barg fmax fmin')
 npts = 1e3
 fmin=1
-fmax=1500
+#fmax=1943 # maximum calculable frequency
+fmax = 1500
 n = np.linspace(1,npts,npts)
 expufunc = np.frompyfunc(exp,1,1)
 Bw = 1*expufunc(n*log(fmax-1)/npts)
@@ -76,6 +77,7 @@ Barg      = Bargufunc(Bw) # radians
 Barg = np.unwrap(Barg)
 Barg = 180/np.pi*Barg                              # degrees
 
+
 # ---------------------------------------------------------#
 # Measurement Values from the actual experiment            #
 # ---------------------------------------------------------#
@@ -85,16 +87,32 @@ voltages       = np.array([ 7e-2, 6.6e-2, 5.78e-2, 4.18e-2, 2.44e-2, 1.69e-2, 1.
 phases_rad     = np.pi/180*phases_degrees
 
 
-
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+font = {
+        #'family' : 'monospace',
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+
 subplot(2,1,1)
-plot(Bw,Babs)
-scatter(frequencies,voltages)
+subplot(2,1,1)
+plot(Bw,Babs,color='blue',label='Fitfunktion')
+scatter(frequencies,voltages,color='black',s=64,label='Messwerte')
+xlabel('Frequenz (Hz)',fontdict=font)
+ylabel('Spannung (Volt)',fontdict=font)
+title('Betrag des Magnetfelds in Zylinderspule mit Hohlzylinder aus Kupfer, (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
+legend(fontsize=16)
 xscale('log')
 subplot(2,1,2)
-plot(Bw,-Barg)
-scatter(frequencies,phases_degrees)
+plot(Bw,Barg,color='blue',label='Fitfunktion')
+scatter(frequencies,-phases_degrees,color='black',s=64,label='Messwerte')
+xlabel('Frequenz (Hz)',fontdict=font)
+ylabel('Phase (Grad))',fontdict=font)
+title('Phase des Magnetfelds in Zylinderspule mit Hohlzylinder aus Kupfer (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
+legend(fontsize=16)
 xscale('log')
 show()

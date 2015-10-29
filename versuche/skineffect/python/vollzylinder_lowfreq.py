@@ -81,16 +81,30 @@ phases_degrees =        np.array([    111,    109,    104,    94,  81,    65,  4
 #phases_rad     = np.pi/180*phases_degrees
 
 
-
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+font = {
+        #'family' : 'monospace',
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+
 subplot(2,1,1)
-plot(n,Babs)
-scatter(radii,voltages)
-#xscale('log')
+subplot(2,1,1)
+plot(n,Babs,color='blue',label='Fitfunktion')
+scatter(radii,voltages,color='black',s=64,label='Messwerte')
+xlabel('Radius (m)',fontdict=font)
+ylabel('Spannung (Volt)',fontdict=font)
+title('Betrag des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium, (Frequenz: 30 Hz, horizontal zentriert)',fontdict=font)
+legend(fontsize=16)
 subplot(2,1,2)
-plot(n,Barg)
-scatter(radii,-phases_degrees)
-#xscale('log')
+plot(n,Barg,color='blue',label='Fitfunktion')
+scatter(radii,-phases_degrees,color='black',s=64,label='Messwerte')
+xlabel('Radius (m)',fontdict=font)
+ylabel('Phase (Grad))',fontdict=font)
+title('Phase des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium (Frequenz: 30 Hz, horizontal zentriert)',fontdict=font)
+legend(fontsize=16)
 show()

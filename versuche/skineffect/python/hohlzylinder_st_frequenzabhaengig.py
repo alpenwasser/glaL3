@@ -89,12 +89,29 @@ phases_rad     = np.pi/180*phases_degrees
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+font = {
+        #'family' : 'monospace',
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+
 subplot(2,1,1)
-plot(Bw,Babs)
-scatter(frequencies,voltages)
+subplot(2,1,1)
+plot(Bw,Babs,color='blue',label='Fitfunktion')
+scatter(frequencies,voltages,color='black',s=64,label='Messwerte')
+xlabel('Frequenz (Hz)',fontdict=font)
+ylabel('Spannung (Volt)',fontdict=font)
+title('Betrag des Magnetfelds in Zylinderspule mit Hohlzylinder aus rostfreiem Stahl, (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
+legend(fontsize=16)
 xscale('log')
 subplot(2,1,2)
-plot(Bw,-Barg)
-scatter(frequencies,phases_degrees)
+plot(Bw,Barg,color='blue',label='Fitfunktion')
+scatter(frequencies,-phases_degrees,color='black',s=64,label='Messwerte')
+xlabel('Frequenz (Hz)',fontdict=font)
+ylabel('Phase (Grad))',fontdict=font)
+title('Phase des Magnetfelds in Zylinderspule mit Hohlzylinder aus rostfreiem Stahl (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
+legend(fontsize=16)
 xscale('log')
 show()

@@ -20,7 +20,8 @@ init_printing()
 var('mu0 B_abs B_arg B B0 j0 k r r0 w f sigma denom enum')
 mu0   = 4*pi*1e-7
 #sigma = 37.7e6                 # conductivity of aluminium (de.wikipedia.org)
-sigma = 24e6
+#sigma = 24e6
+sigma = 23.75e6
 r     = 0
 r0    = 45e-3
 B0    = 6.9e-2                             # adjust this as needed for scaling
@@ -74,27 +75,42 @@ Barg      = Bargufunc(Bw) # radians
 Barg = np.unwrap(Barg)
 Barg = 180/np.pi*Barg                              # degrees
 
+
 # ---------------------------------------------------------#
 # Measurement Values from the actual experiment            #
 # ---------------------------------------------------------#
 var('frequencies voltages phases_degrees phases_rad')
 frequencies    = np.array([     1,     5,    10,    15,  20,     30,    40,     60,  80,   100,   120,   160, 200, 250])
 phases_degrees = np.array([   5.4,    26,    50,    69,  85,    111,   132,    166, 196,   220,   243,   283, 320, 350])
-#phases_degrees = np.array([   5.4,    26,    50,    69,  85,    111,   132,    166, 196-360,   220-360,   243-360,   283-360, 320-360, 350-360])
 voltages       = np.array([6.9e-2,6.5e-2,5.7e-2,4.8e-2,4e-2,2.85e-2,2.1e-2,1.25e-2,8e-3,5.4e-3,3.6e-3,1.9e-3,1e-3,6e-4])
 phases_rad     = np.pi/180*phases_degrees
-
 
 
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+font = {
+        #'family' : 'monospace',
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+
 subplot(2,1,1)
-plot(Bw,Babs)
-scatter(frequencies,voltages)
+plot(Bw,Babs,color='blue',label='Fitfunktion')
+scatter(frequencies,voltages,color='black',s=64,label='Messwerte')
 xscale('log')
+xlabel('Frequenz (Hertz)',fontdict=font)
+ylabel('Spannung (Volt)',fontdict=font)
+title('Betrag des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium, (Messpunkt: Zylinderachse, horizontal zentriert)',fontdict=font)
+legend(fontsize=16)
 subplot(2,1,2)
-plot(Bw,-Barg)
-scatter(frequencies,phases_degrees)
+plot(Bw,-Barg,color='blue',label='Fitfunktion')
+scatter(frequencies,phases_degrees,color='black',s=64,label='Messwerte')
 xscale('log')
+xlabel('Frequenz (Hertz)',fontdict=font)
+ylabel('Phase (Grad))',fontdict=font)
+title('Phase des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium (Messpunkt: Zylinderachse, horizontal zentriert)',fontdict=font)
+legend(fontsize=16)
 show()
