@@ -9,6 +9,9 @@ from math import copysign
 
 init_printing()
 
+#mp.dps=27  # precision in decimal places, prec ~= 3.33*dps
+mp.prec=80 # precision in bits
+
 # ---------------------------------------------------------#
 # Measurement in Center, depending on Frequency            #
 # ---------------------------------------------------------#
@@ -52,7 +55,7 @@ var('npts expufunc n B_w Bw Babs Barg fmax fmin')
 npts = 1e3
 fmin=1
 #fmax=1943 # maximum calculable frequency
-fmax = 1500
+fmax = 2500
 n = np.linspace(1,npts,npts)
 expufunc = np.frompyfunc(exp,1,1)
 Bw = 1*expufunc(n*log(fmax-1)/npts)
