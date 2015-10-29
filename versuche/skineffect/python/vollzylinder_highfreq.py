@@ -59,7 +59,7 @@ var('Bargufunc Babsufunc Babs')
 Babsufunc = np.frompyfunc(B_abs,1,1)
 Babs      = Babsufunc(n)
 Bargufunc = np.frompyfunc(B_arg,1,1)
-Barg      = 180/np.pi*Bargufunc(n) # degrees
+Barg      = Bargufunc(n)
 
 
 # ---------------------------------------------------------#
@@ -70,29 +70,8 @@ Barg      = 180/np.pi*Bargufunc(n) # degrees
 # accordingly for a continuous curve.                      #
 # ---------------------------------------------------------#
 
-previous_value = 0
-current_value  = 0
-delta          = 0
-switch_flag    = 0
-
-for i in range(len(Barg)):
-    previous_value = current_value
-    current_value  = Barg[i]
-    delta          = abs(current_value - previous_value)
-    if delta > 100 and i > 2: # disregard delta for
-                              # comparison between
-                              # first element and
-                              # initial value of
-                              # previous_value
-        switch_flag = 1
-    if switch_flag == 1:
-        Barg[i] = Barg[i]+360
-
-
-Barg = Barg - 360 # The initial range in which the values for
-                  # the argument is offset from what we want
-                  # by 360 degrees.
-
+Barg = np.unwrap(Barg)
+Barg = 180/np.pi*Barg-360                          # degrees
 
 # ---------------------------------------------------------#
 # Measurement Values from the actual experiment            #
@@ -101,7 +80,6 @@ radii          = 1e-3 * np.array([    25,  27.5,    30,  32.5,    35,   37.5,   
 voltages       =        np.array([1.5e-3,2.2e-3,3.6e-3,5.9e-3,9.5e-3,1.55e-2,2.5e-2,3.9e-2,5.5e-2,5.75e-2,3.8e-2])
 phases_degrees =        np.array([   215,   183,   152,   125,   100,     73,    47,    24,   5.2,    0.2,     0])
 #phases_rad     = np.pi/180*phases_degrees
-
 
 
 # ---------------------------------------------------------#

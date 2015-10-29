@@ -63,7 +63,7 @@ Babsufunc = np.frompyfunc(B_abs,1,1)
 Babs      = Babsufunc(Bw)
 Bargufunc = np.frompyfunc(B_arg,1,1)
 #Barg      = Bargufunc(Bw) # radians
-Barg      = 180/np.pi*Bargufunc(Bw) # degrees
+Barg      = Bargufunc(Bw) # radians
 
 
 # ---------------------------------------------------------#
@@ -73,18 +73,8 @@ Barg      = 180/np.pi*Bargufunc(Bw) # degrees
 # plotting, so we  will shift the values  larger then zero #
 # accordingly for a continuous curve.                      #
 # ---------------------------------------------------------#
-previous_sign = -1
-current_sign = -1
-switch_flag = 0
-
-for i in range(len(Barg)):
-    previous_sign = current_sign
-    current_sign  = copysign(1,Barg[i])
-    if current_sign != previous_sign:
-        switch_flag = 1
-    if switch_flag == 1:
-        Barg[i] = Barg[i]-360
-
+Barg = np.unwrap(Barg)
+Barg = 180/np.pi*Barg                              # degrees
 
 # ---------------------------------------------------------#
 # Measurement Values from the actual experiment            #

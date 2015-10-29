@@ -59,7 +59,7 @@ var('Bargufunc Babsufunc Babs')
 Babsufunc = np.frompyfunc(B_abs,1,1)
 Babs      = Babsufunc(n)
 Bargufunc = np.frompyfunc(B_arg,1,1)
-Barg      = 180/np.pi*Bargufunc(n) # degrees
+Barg      = Bargufunc(n)
 
 
 # ---------------------------------------------------------#
@@ -69,20 +69,8 @@ Barg      = 180/np.pi*Bargufunc(n) # degrees
 # plotting, so we  will shift the values  larger then zero #
 # accordingly for a continuous curve.                      #
 # ---------------------------------------------------------#
-previous_value = 0
-current_value  = 0
-delta          = 0
-switch_flag    = 0
-
-#for i in range(len(Barg)):
-#    previous_value = current_value
-#    current_value  = Barg[i]
-#    delta          = abs(current_value - previous_value)
-#    if delta > 100:
-#        switch_flag = 1
-#    if switch_flag == 1:
-#        Barg[i] = Barg[i]-360
-
+Barg = np.unwrap(Barg)
+Barg = 180/np.pi*Barg                              # degrees
 
 # ---------------------------------------------------------#
 # Measurement Values from the actual experiment            #
