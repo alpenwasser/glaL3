@@ -8,8 +8,7 @@ from matplotlib.pyplot import *
 
 
 # ************************************************************************** #
-# Magnetic Flow normed  by current, copper coil with  hollow copper cylinder #
-# inserted.                                                                  #
+# Magnetic field inside copper coil with  hollow copper cylinder             #
 # ************************************************************************** #
 
 # All values are in standard SI units unless otherwise noted.
@@ -38,11 +37,38 @@ r2    = 35e-3                                # outer radius of copper cylinder
 B0    = 6.9e-2                             # adjust this as needed for scaling
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
+npts  = 1e3
+fmin  = 1
+fmax  = 2500
+font = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+plot_legend_fontsize    = 16
+plot_color_fit          = 'blue'
+plot_color_measurements = 'black'
+plot_label_measurements = 'Messwerte'
+plot_size_measurements  = 64
+plot_scale_x            = 'log'
+plot_label_fit          = 'Fitfunktion'
+plot_label_x            = 'Frequenz (Hz)'
+plot_1_label_y          = 'gemessene Spannung (mV)'
+plot_2_label_y          = 'Phase (Grad)'
+plot_1_title            = """
+Betrag des Magnetfelds in Zylinderspule mit Hohlzylinder aus \
+Kupfer, (Messpunkt: auf Zylinderachse, horizontal zentriert)
+"""
+plot_2_title            = """
+Phase des Magnetfelds in Zylinderspule mit Hohlzylinder aus \
+Kupfer (Messpunkt: auf Zylinderachse, horizontal zentriert
+"""
 
     # -----------------------------------------------------#
     # NOTE: According to  formula 26 on p.14,  the B-Field #
-    # inside the  copper cylinder  (r<r1) is equal  to the #
-    # B-Field at the inner boundary of the copper cylinder #
+    # inside the  cylinder (r<r1) is equal  to the B-Field #
+    # at  the  inner  boundary   of  the  copper  cylinder #
     # (B(r1)),  therefore  we  set  r to  r1  for  further #
     # calculations.                                        #
     # -----------------------------------------------------#
@@ -82,14 +108,11 @@ B_arg = lambda f: arg(B(f))
 
 
 # ---------------------------------------------------------#
-# Generate points for omega axis                           #
+# Generate points for frequency axis                       #
 # ---------------------------------------------------------#
-npts = 1e3
-fmin=1
-fmax = 2500
 n = np.linspace(1,npts,npts)
 expufunc = np.frompyfunc(exp,1,1)
-frequency_vector = 1*expufunc(n*log(fmax-1)/npts)
+frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
 
 
 # ---------------------------------------------------------#
@@ -109,11 +132,10 @@ B_arg_num = Bargufunc(frequency_vector)
 # accordingly for a continuous curve.                      #
 # ---------------------------------------------------------#
 B_arg_num = np.unwrap(B_arg_num)
-B_arg_num = 180/np.pi*B_arg_num
 
 
 # ---------------------------------------------------------#
-# Measurement Values from the experiment                   #
+# Measurement Values from experiment                       #
 # ---------------------------------------------------------#
 frequencies_measured = np.array([    1,     10,      20,      40,      80,     120,     160,   200,    400,    600,    800,   1000, 1200, 1500])
 phases_degrees       = np.array([    2,   19.2,    35.2,    56.7,    76.7,      87,      94,   100,    121,    140,    155,    170,  180,  200])
@@ -121,29 +143,45 @@ voltages             = np.array([ 7e-2, 6.6e-2, 5.78e-2, 4.18e-2, 2.44e-2, 1.69e
 
 
 # ---------------------------------------------------------#
+# Scale values for improved legibility in plot             #
+# ---------------------------------------------------------#
+B_abs_num = 1e3 * B_abs_num
+voltages  = 1e3 * voltages
+B_arg_num = 180/np.pi*B_arg_num
+
+
+# ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
-font = {
-        'family' : 'serif',
-        'color'  : 'black',
-        'weight' : 'normal',
-        'size'   : 16,
-        }
+fig   = figure(1)
+axes1 = fig.add_subplot(211)
+axes1.plot(frequency_vector,B_abs_num,color=plot_color_fit,label=plot_label_fit)
+axes1.scatter(frequencies_measured,
+        voltages,
+        color=plot_color_measurements,
+        s=plot_size_measurements,
+        label=plot_label_measurements
+        )
+axes1.set_xlim([fmin*0.9,fmax*1.1])
+axes1.set_xscale(plot_scale_x)
+axes1.set_xlabel(plot_label_x,fontdict=font)
+axes1.set_ylabel(plot_1_label_y,fontdict=font)
+axes1.set_title(plot_1_title,fontdict=font)
+axes1.legend(fontsize=plot_legend_fontsize)
 
-subplot(2,1,1)
-plot(frequency_vector,B_abs_num,color='blue',label='Fitfunktion')
-scatter(frequencies_measured,voltages,color='black',s=64,label='Messwerte')
-xlabel('Frequenz (Hz)',fontdict=font)
-ylabel('Spannung (Volt)',fontdict=font)
-title('Betrag des Magnetfelds in Zylinderspule mit Hohlzylinder aus Kupfer, (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
-legend(fontsize=16)
-xscale('log')
-subplot(2,1,2)
-plot(frequency_vector,B_arg_num,color='blue',label='Fitfunktion')
-scatter(frequencies_measured,-phases_degrees,color='black',s=64,label='Messwerte')
-xlabel('Frequenz (Hz)',fontdict=font)
-ylabel('Phase (Grad)',fontdict=font)
-title('Phase des Magnetfelds in Zylinderspule mit Hohlzylinder aus Kupfer (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
-legend(fontsize=16)
-xscale('log')
+axes2 = fig.add_subplot(212)
+axes2.plot(frequency_vector,B_arg_num,color=plot_color_fit,label=plot_label_fit)
+axes2.scatter(frequencies_measured,
+        -phases_degrees,
+        color=plot_color_measurements,
+        s=plot_size_measurements,
+        label=plot_label_measurements
+        )
+axes2.set_xlim([fmin*0.9,fmax*1.1])
+axes2.set_xscale(plot_scale_x)
+axes2.set_xlabel(plot_label_x,fontdict=font)
+axes2.set_ylabel(plot_2_label_y,fontdict=font)
+axes2.set_title(plot_2_title,fontdict=font)
+axes2.legend(fontsize=plot_legend_fontsize)
+
 show()

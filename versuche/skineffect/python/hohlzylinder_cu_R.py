@@ -2,15 +2,13 @@
 
 from sympy import *
 from sympy.external import import_module
-#from numpy import *
 from mpmath import *
 from matplotlib.pyplot import *
-from math import copysign
 #init_printing()     # make things prettier when we print stuff for debugging.
 
 
 # ************************************************************************** #
-# Self-Inductance L of copper coil with hollow copper cylinder inserted.     #
+# Resistance R of copper coil with hollow copper cylinder inserted.          #
 # ************************************************************************** #
 
 # All values are in standard SI units unless otherwise noted.
@@ -20,8 +18,6 @@ from math import copysign
 # precision.   One  can  increase the  number  of  decimal #
 # places or bits, where the number of bits places is ~3.33 #
 # times the number of decimal places.                      #
-# The highest calculable  frequency with default precision #
-# was determined to be 1943 Hz                             #
 # -------------------------------------------------------- #
 #mp.dps=25  # decimal places
 mp.prec=80 # precision in bits
@@ -41,6 +37,25 @@ B0    = 6.9e-2                             # adjust this as needed for scaling
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
 R_0   = 5                                  # resistance of coil, assumed value
+npts  = 1e3
+fmin  = 1
+fmax  = 2500
+font = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+plot_color_fit          = 'blue'
+plot_color_measurements = 'black'
+plot_linewidth          = 1
+plot_scale_x            = 'log'
+plot_label_x            = 'Frequenz (Hz)'
+plot_label_y            = 'Widerstand (Ohm)'
+plot_title              = """
+Ohm\'scher Widerstand Zylinderspule mit Hohlzylinder aus \
+Kupfer, (Messpunkt: auf Zylinderachse, horizontal zentriert)
+"""
 
 
 # ---------------------------------------------------------#
@@ -106,12 +121,9 @@ R = lambda f: -2 * pi * f * im(phi_norm(f)) + R_0
 # ---------------------------------------------------------#
 # Generate points for frequency axis                       #
 # ---------------------------------------------------------#
-npts = 1e3
-fmin=1
-fmax = 2500
-n = np.linspace(1,npts,npts)
-expufunc = np.frompyfunc(exp,1,1)
-frequency_vector = 1*expufunc(n*log(fmax-1)/npts)
+n                = np.linspace(1,npts,npts)
+expufunc         = np.frompyfunc(exp,1,1)
+frequency_vector = fmin*expufunc(n*log(fmax-fin)/npts)
 
 
 # ---------------------------------------------------------#
@@ -124,17 +136,13 @@ R_num   = R_ufunc(frequency_vector)
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
-font = {
-        #'family' : 'monospace',
-        'family' : 'serif',
-        'color'  : 'black',
-        'weight' : 'normal',
-        'size'   : 16,
-        }
+fig  = figure(1)
+axes = fig.add_subplot(111)
+axes.plot(frequency_vector,R_num,linewidth=plot_linewidth,color=plot_color_fit)
+axes.set_xscale(plot_scale_x)
+axes.set_xlim([fmin*0.9,fmax*1.1])
+axes.set_xlabel(plot_label_x,fontdict=font)
+axes.set_ylabel(plot_label_y,fontdict=font)
+axes.set_title(plot_title,fontdict=font)
 
-plot(frequency_vector,R_num,color='blue',label='Fitfunktion')
-xlabel('Frequenz (Hz)',fontdict=font)
-ylabel('Widerstand (Ohm)',fontdict=font)
-title('Ohm\'scher Widerstand Zylinderspule mit Hohlzylinder aus Kupfer, (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
-xscale('log')
 show()

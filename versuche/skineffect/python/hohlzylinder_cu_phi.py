@@ -4,7 +4,6 @@ from sympy import *
 from sympy.external import import_module
 from mpmath import *
 from matplotlib.pyplot import *
-from math import copysign
 #init_printing()     # make things prettier when we print stuff for debugging.
 
 
@@ -20,8 +19,6 @@ from math import copysign
 # precision.   One  can  increase the  number  of  decimal #
 # places or bits, where the number of bits places is ~3.33 #
 # times the number of decimal places.                      #
-# The highest calculable  frequency with default precision #
-# was determined to be 1943 Hz                             #
 # -------------------------------------------------------- #
 #mp.dps=25  # decimal places
 mp.prec=80 # precision in bits
@@ -40,6 +37,35 @@ r2    = 35e-3                                # outer radius of copper cylinder
 B0    = 6.9e-2                             # adjust this as needed for scaling
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
+npts  = 1e3
+fmin  = 1
+fmax  = 2500
+font = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+plot_legend_fontsize    = 16
+plot_color_fit          = 'blue'
+plot_color_measurements = 'black'
+plot_label_measurements = 'Messwerte'
+plot_size_measurements  = 64
+plot_scale_x            = 'log'
+plot_label_fit          = 'Fitfunktion'
+plot_label_x            = 'Frequenz (Hz)'
+plot_1_label_y          = 'magnetischer Fluss, normiert, Betrag' #TODO: unit
+plot_2_label_y          = 'magnetischer Fluss, normiert, Phase (Grad)'
+plot_1_title            = """
+Magnetischer Fluss in Zylinderspule mit Hohlzylinder aus \
+Kupfer, normiert auf Spulenstrom, Betrag (Messpunkt: auf \
+Zylinderachse, horizontal zentriert)
+"""
+plot_2_title            = """
+Magnetischer Fluss in Zylinderspule mit Hohlzylinder aus \
+Kupfer, normiert auf Spulenstrom, Phase (Messpunkt: auf \
+Zylinderachse, horizontal zentriert)
+"""
 
 
 # ---------------------------------------------------------#
@@ -99,19 +125,16 @@ phi_norm = lambda f:(
         )
     )
 
-phi_norm_abs = lambda w: abs(phi_norm(w))
-phi_norm_arg = lambda w: arg(phi_norm(w))
+phi_norm_abs = lambda f: abs(phi_norm(f))
+phi_norm_arg = lambda f: arg(phi_norm(f))
 
 
 # ---------------------------------------------------------#
-# Generate points for omega axis                           #
+# Generate points for freqiency axis                       #
 # ---------------------------------------------------------#
-npts = 1e2
-fmin=1
-fmax = 2500
-n = np.linspace(1,npts,npts)
-expufunc = np.frompyfunc(exp,1,1)
-frequency_vector = 1*expufunc(n*log(fmax-1)/npts)
+n                = np.linspace(1,npts,npts)
+expufunc         = np.frompyfunc(exp,1,1)
+frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
 
 
 # ---------------------------------------------------------#
@@ -134,26 +157,31 @@ phi_norm_arg_num   = np.unwrap(phi_norm_arg_num)
 
 
 # ---------------------------------------------------------#
+# Scale values for improved legibility in plot             #
+# ---------------------------------------------------------#
+phi_norm_arg_num   = 180 / pi * phi_norm_arg_num
+phi_norm_abs_num   = phi_norm_abs_ufunc(frequency_vector)
+phi_norm_abs_num   = 1e3 * phi_norm_abs_num
+
+
+# ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
-font = {
-        #'family' : 'monospace',
-        'family' : 'serif',
-        'color'  : 'black',
-        'weight' : 'normal',
-        'size'   : 16,
-        }
+fig   = figure(1)
+axes1 = fig.add_subplot(211)
+axes1.plot(frequency_vector,phi_norm_abs_num,color=plot_color_fit,label=plot_label_fit)
+axes1.set_xlim([fmin*0.9,fmax*1.1])
+axes1.set_xscale(plot_scale_x)
+axes1.set_xlabel(plot_label_x,fontdict=font)
+axes1.set_ylabel(plot_1_label_y,fontdict=font)
+axes1.set_title(plot_1_title,fontdict=font)
 
-subplot(2,1,1)
-plot(frequency_vector,phi_norm_abs_num,color='blue',label='Fitfunktion')
-xlabel('Frequenz (Hz)',fontdict=font)
-ylabel('Magnetischer Fluss, normiert (Betrag)',fontdict=font) # TODO: Unit
-title('Magnetischer Fluss in Zylinderspule mit Hohlzylinder aus Kupfer, normiert auf Spulenstrom, Betrag (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
-xscale('log')
-subplot(2,1,2)
-plot(frequency_vector,phi_norm_arg_num,color='blue',label='Fitfunktion')
-xlabel('Frequenz (Hz)',fontdict=font)
-ylabel('Magnetischer Fluss, normiert (Phase, rad)',fontdict=font)
-title('Magnetischer Fluss in Zylinderspule mit Hohlzylinder aus Kupfer, normiert auf Spulenstrom, Phase (Messpunkt: auf Zylinderachse, horizontal zentriert)',fontdict=font)
-xscale('log')
+axes2 = fig.add_subplot(212)
+axes2.plot(frequency_vector,phi_norm_arg_num,color=plot_color_fit,label=plot_label_fit)
+axes2.set_xlim([fmin*0.9,fmax*1.1])
+axes2.set_xscale(plot_scale_x)
+axes2.set_xlabel(plot_label_x,fontdict=font)
+axes2.set_ylabel(plot_2_label_y,fontdict=font)
+axes2.set_title(plot_2_title,fontdict=font)
+
 show()

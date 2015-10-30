@@ -4,7 +4,6 @@ from sympy import *
 from sympy.external import import_module
 from mpmath import *
 from matplotlib.pyplot import *
-from math import copysign
 #init_printing()     # make things prettier when we print stuff for debugging.
 
 
@@ -19,8 +18,6 @@ from math import copysign
 # precision.   One  can  increase the  number  of  decimal #
 # places or bits, where the number of bits places is ~3.33 #
 # times the number of decimal places.                      #
-# The highest calculable  frequency with default precision #
-# was determined to be 1943 Hz                             #
 # -------------------------------------------------------- #
 #mp.dps=25  # decimal places
 mp.prec=80 # precision in bits
@@ -39,6 +36,25 @@ r2    = 35e-3                                # outer radius of copper cylinder
 B0    = 6.9e-2                             # adjust this as needed for scaling
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
+npts  = 1e3                                  # number of points for plot curve
+fmin  = 1
+fmax  = 2500
+font = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+plot_color_fit          = 'blue'
+plot_color_measurements = 'black'
+plot_linewidth          = 1
+plot_scale_x            = 'log'
+plot_label_x            = 'Frequenz (Hz)'
+plot_label_y            = 'Selbstinduktion L (mH)'
+plot_title              = """
+Selbstinduktionskoeffizient, Kupferspule mit Hohlzylinder \
+aus Kupfer
+"""
 
 
 # ---------------------------------------------------------#
@@ -104,12 +120,9 @@ L = lambda f: re(phi_norm(f))
 # ---------------------------------------------------------#
 # Generate points for frequency axis                       #
 # ---------------------------------------------------------#
-npts = 1e3
-fmin = 1
-fmax = 2500
-n = np.linspace(1,npts,npts)
-expufunc = np.frompyfunc(exp,1,1)
-frequency_vector = 1*expufunc(n*log(fmax-1)/npts)
+n                = np.linspace(1,npts,npts)
+expufunc         = np.frompyfunc(exp,1,1)
+frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
 
 
 # ---------------------------------------------------------#
@@ -117,23 +130,19 @@ frequency_vector = 1*expufunc(n*log(fmax-1)/npts)
 # ---------------------------------------------------------#
 L_ufunc = np.frompyfunc(L,1,1)
 L_num   = L_ufunc(frequency_vector)
+L_num = 1e3 * L_num                     # improve legibility
 
 
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
-font = {
-        #'family' : 'monospace',
-        'family' : 'serif',
-        'color'  : 'black',
-        'weight' : 'normal',
-        'size'   : 16,
-        }
+fig  = figure(1)
+axes = fig.add_subplot(111)
+axes.plot(frequency_vector,L_num,linewidth=plot_linewidth,color=plot_color_fit)
+axes.set_xscale(plot_scale_x)
+axes.set_xlim([fmin*0.9,fmax*1.1])
+axes.set_xlabel(plot_label_x,fontdict=font)
+axes.set_ylabel(plot_label_y,fontdict=font)
+axes.set_title(plot_title,fontdict=font)
 
-plot(frequency_vector,L_num,color='blue',label='Fitfunktion')
-xlabel('Frequenz (Hz)',fontdict=font)
-ylabel('Selbstinduktion L (Henry)',fontdict=font)
-title('Selbstinduktionskoeffizient, Kupferspule mit Hohlzylinder aus Kupfer',fontdict=font)
-#legend(fontsize=16)
-xscale('log')
 show()
