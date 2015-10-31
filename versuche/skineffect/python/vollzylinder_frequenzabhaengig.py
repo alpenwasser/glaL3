@@ -110,6 +110,7 @@ voltages             = np.array([6.9e-2,6.5e-2,5.7e-2,4.8e-2,4e-2,2.85e-2,2.1e-2
 # Plot the Things                                          #
 # ---------------------------------------------------------#
 fig   = figure(1)
+#axes1 = fig.add_subplot(211,axisbg='black')
 axes1 = fig.add_subplot(211)
 axes1.plot(frequency_vector,B_abs_num,color=plot_color_fit,label=plot_label_fit)
 axes1.scatter(frequencies_measured,
