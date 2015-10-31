@@ -181,7 +181,7 @@ axes21.scatter(radii_measured_low,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes21.set_xlim([rmin_low*0.9,rmax_low*1.1])
+axes21.set_xlim([rmin_low-5,rmax_low*1.1])
 axes21.set_xscale(plot_scale_x)
 axes21.set_xlabel(plot_label_x,fontdict=font)
 axes21.set_ylabel(plot_21_label_y,fontdict=font)
@@ -197,11 +197,11 @@ axes22.scatter(radii_measured_low,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes22.set_xlim([rmin_low*0.9,rmax_low*1.1])
+axes22.set_xlim([rmin_low-5,rmax_low*1.1])
 axes22.set_xscale(plot_scale_x)
 axes22.set_xlabel(plot_label_x,fontdict=font)
 axes22.set_ylabel(plot_12_label_y,fontdict=font)
-axes22.set_title(plot_12_title,fontdict=font)
+axes22.set_title(plot_22_title,fontdict=font)
 axes22.legend(fontsize=plot_legend_fontsize,loc='upper left')
 axes22.xaxis.set_major_locator(loc2)
 
