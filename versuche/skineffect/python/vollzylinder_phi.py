@@ -1,105 +1,132 @@
 #!/usr/bin/env python3
 
 from sympy import *
-from sympy.external import import_module
-#import numpy as numpy
 from mpmath import *
 from matplotlib.pyplot import *
-from math import copysign
-
-init_printing()
-
-# ---------------------------------------------------------#
-# Measurement in Center, depending on Frequency            #
-# ---------------------------------------------------------#
+#init_printing()     # make things prettier when we print stuff for debugging.
 
 
+# ************************************************************************** #
+# Self-Inductance L of copper coil with massive aluminium cylinder inserted  #
+# ************************************************************************** #
+
+# All values are in standard SI units unless otherwise noted.
+
 # ---------------------------------------------------------#
-# Init, Define Variables and Constants                     #
+# Define Variables and Constants                           #
 # ---------------------------------------------------------#
-var('mu0 B_abs B_arg B B0 j0 k r r0 w f sigma denom enum')
-mu0   = 4*pi*1e-7
+mu0   = 4*pi*1e-7                                        # vacuum permeability
 #sigma = 37.7e6                 # conductivity of aluminium (de.wikipedia.org)
-#sigma = 24e6
-sigma = 23.75e6
-r     = 0
-dsp   = 98e-3                                              # inner dia of coil
-rsp   = dsp / 2
-r0    = 45e-3
+sigma = 23.75e6                         # de.wikipedia.org/wiki/Kupfer: 58.1e6
+r     = 0             # radial position of measurement probe. Centered on axis
+dsp   = 98e-3                                               # diameter of coil
+rsp   = dsp / 2                                               # radius of coil
+r0    = 45e-3                                         # radius of alu cylinder
 B0    = 6.9e-2                             # adjust this as needed for scaling
-N0    = 574                                         # number of turns for coil
-l     = 500e-3                                                # length of coil
-R_0   = 1                                                 # resistance of coil # TODO
+N0    = 574                                   # number of turns of copper coil
+l     = 500e-3                                         # length of copper coil
+npts  = 1e3
+fmin  = 1
+fmax  = 250
+font = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 16,
+        }
+plot_color_fit          = 'blue'
+plot_color_measurements = 'black'
+plot_linewidth          = 1
+plot_label_fit          = 'Fitfunktion'
+plot_scale_x            = 'log'
+plot_label_x            = 'Frequenz (Hz)'
+plot_1_label_y          = 'magnetischer Fluss, normiert, Betrag' #TODO: unit
+plot_2_label_y          = 'magnetischer Fluss, normiert, Phase (Grad)'
+plot_1_title            = """
+Magnetischer Fluss in Zylinderspule mit Vollzylinder aus \
+Aluminium, normiert auf Spulenstrom, Betrag (Messpunkt: auf \
+Zylinderachse, horizontal zentriert)
+"""
+plot_2_title            = """
+Magnetischer Fluss in Zylinderspule mit Vollzylinder aus \
+Aluminium, normiert auf Spulenstrom, Phase (Messpunkt: auf \
+Zylinderachse, horizontal zentriert)
+"""
 
 
 # ---------------------------------------------------------#
-# Function for magnetic Field B                            #
+# Functions                                                #
+#                                                          #
+# See formula 23 on p.12 of script for experiment.         #
+#                                                          #
+# NOTE: We use  frequency f  instead of  angular frequency #
+# omega since that is what we actually set on the function #
+# generator.                                               #
 # ---------------------------------------------------------#
-# See formula 21 on p.11 of script for experiment.
+var('f')
 
-# TODO: Switch from w to f!!!!!
+k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
 
-#k = lambda w: sqrt((w*mu0*sigma)/2)*(mpc(1,-1))                     # rad/sec
-k = lambda w: sqrt((2*np.pi*w*mu0*sigma)/2)*(mpc(1,-1))          # degrees/sec
+phi_norm = lambda f:(
+          (mu0 * 2 * pi * r0 * N0**2) / l
+        * (
+              besselj(1,k(f)*r0) / (k(f) * besselj(0,k(f)*r0))
+            + rsp - r0
+        )
+    )
+phi_norm_abs = lambda f: abs(phi_norm(f))
+phi_norm_arg = lambda f: arg(phi_norm(f))
 
-phi_norm = lambda w: (mu0 * 2 * pi * r0 * N0**2) / l * (besselj(1,k(w)*r0) / (k(w) * besselj(0,k(w)*r0)) + rsp - r0)
-phi_norm_abs = lambda w: abs(phi_norm(w))
-phi_norm_arg = lambda w: arg(phi_norm(w))
 
-# Generate points for omega axis of B, store in Bw
-var('npts expufunc n B_w Bw Babs Barg fmax fmin')
-npts = 1e3
-fmin=1
-fmax=250
-n = np.linspace(1,npts,npts)
+# ---------------------------------------------------------#
+# Generate points for frequency axis                       #
+# ---------------------------------------------------------#
+n                = np.linspace(1,npts,npts)
 expufunc         = np.frompyfunc(exp,1,1)
-frequency_vector = 1*expufunc(n*log(fmax-1)/npts)
+frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
 
 
-# Generate B-Field values for that frequency vector
+# ---------------------------------------------------------#
+# Numerically evaluate function                            #
+# ---------------------------------------------------------#
 phi_norm_abs_ufunc = np.frompyfunc(phi_norm_abs,1,1)
-phi_norm_abs_num   = phi_norm_abs_ufunc(frequency_vector)                    # numerical results for normed magnetic flow
+phi_norm_abs_num   = phi_norm_abs_ufunc(frequency_vector)
 phi_norm_arg_ufunc = np.frompyfunc(phi_norm_arg,1,1)
-phi_norm_arg_num   = phi_norm_arg_ufunc(frequency_vector)                    # numerical results for normed magnetic flow
+phi_norm_arg_num   = phi_norm_arg_ufunc(frequency_vector)
+
 
 # ---------------------------------------------------------#
 # Correct Phase                                            #
 # ---------------------------------------------------------#
 phi_norm_arg_num = np.unwrap(phi_norm_arg_num)
 
+
 # ---------------------------------------------------------#
-# Calculated Values Based on Measurements                  #
+# Scale values for improved legibility in plot             #
 # ---------------------------------------------------------#
-frequencies    = np.array([     1,     5,    10,    15,  20,     30,    40,     60,  80,   100,   120,   160, 200, 250])
-phi_abs_measured = phi_norm_abs_ufunc(frequencies)
-phi_arg_measured = phi_norm_arg_ufunc(frequencies)
+phi_norm_arg_num   = 180 / pi * phi_norm_arg_num
+phi_norm_abs_num   = phi_norm_abs_ufunc(frequency_vector)
+phi_norm_abs_num   = 1e3 * phi_norm_abs_num
+
 
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
-font = {
-        #'family' : 'monospace',
-        'family' : 'serif',
-        'color'  : 'black',
-        'weight' : 'normal',
-        'size'   : 16,
-        }
+fig   = figure(1)
+axes1 = fig.add_subplot(211)
+axes1.plot(frequency_vector,phi_norm_abs_num,color=plot_color_fit,label=plot_label_fit)
+axes1.set_xlim([fmin*0.9,fmax*1.1])
+axes1.set_xscale(plot_scale_x)
+axes1.set_xlabel(plot_label_x,fontdict=font)
+axes1.set_ylabel(plot_1_label_y,fontdict=font)
+axes1.set_title(plot_1_title,fontdict=font)
 
-subplot(2,1,1)
-plot(frequency_vector,phi_norm_abs_num)
-scatter(frequencies,phi_abs_measured,color='black',s=64,label='Messwerte')
-xscale('log')
-#xlabel('Frequenz (Hertz)',fontdict=font)
-#ylabel('Spannung (Volt)',fontdict=font)
-#title('Betrag des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium, (Messpunkt: Zylinderachse, horizontal zentriert)',fontdict=font)
-#legend(fontsize=16)
-subplot(2,1,2)
-plot(frequency_vector,phi_norm_arg_num)
-scatter(frequencies,phi_arg_measured,color='black',s=64,label='Messwerte')
-#plot(Bw,-Barg,color='blue',label='Fitfunktion')
-xscale('log')
-#xlabel('Frequenz (Hertz)',fontdict=font)
-#ylabel('Phase (Grad))',fontdict=font)
-#title('Phase des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium (Messpunkt: Zylinderachse, horizontal zentriert)',fontdict=font)
-#legend(fontsize=16)
+axes2 = fig.add_subplot(212)
+axes2.plot(frequency_vector,phi_norm_arg_num,color=plot_color_fit,label=plot_label_fit)
+axes2.set_xlim([fmin*0.9,fmax*1.1])
+axes2.set_xscale(plot_scale_x)
+axes2.set_xlabel(plot_label_x,fontdict=font)
+axes2.set_ylabel(plot_2_label_y,fontdict=font)
+axes2.set_title(plot_2_title,fontdict=font)
+
 show()

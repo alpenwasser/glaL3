@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 
 from sympy import *
-from sympy.external import import_module
-#from numpy import *
 from mpmath import *
 from matplotlib.pyplot import *
-from math import copysign
 import matplotlib.ticker as plticker
 #init_printing()     # make things prettier when we print stuff for debugging.
 
@@ -16,13 +13,9 @@ import matplotlib.ticker as plticker
 
 # All values are in standard SI units unless otherwise noted.
 
-# ---------------------------------------------------------#
-# Measurement in Center, depending on Frequency            #
-# ---------------------------------------------------------#
-
 
 # ---------------------------------------------------------#
-# Init, Define Variables and Constants                     #
+# Define Variables and Constants                           #
 # ---------------------------------------------------------#
 var('mu0 B_abs B_arg B B0 j0 k r r0 w f sigma denom enum')
 mu0   = 4*pi*1e-7
@@ -30,7 +23,7 @@ mu0   = 4*pi*1e-7
 sigma = 18e6                                                   # affects phase
 B0    = 5.5e-2                 # does not affect phase, use for scaling abs(B)
 r0    = 45e-3
-freq = 450                                      # frequency was fixed at 30 Hz
+freq = 450                                     # frequency was fixed at 450 Hz
 npts = 1e2
 rmin=25e-3
 #rmax=50e-3
@@ -81,10 +74,16 @@ B = lambda r: enum(r) / denom * B0
 B_abs = lambda r: abs(B(r))
 B_arg = lambda r: arg(B(r))
 
-# Generate points for omega axis of B, store in Bw
+
+# ---------------------------------------------------------#
+# Generate points for radius axis                          #
+# ---------------------------------------------------------#
 radii = np.linspace(rmin,rmax,npts)
 
-# Generate B-Field values for that frequency vector
+
+# ---------------------------------------------------------#
+# Numerically evaluate function                            #
+# ---------------------------------------------------------#
 Babsufunc = np.frompyfunc(B_abs,1,1)
 B_abs_num = Babsufunc(radii)
 Bargufunc = np.frompyfunc(B_arg,1,1)
