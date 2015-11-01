@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from sympy import *
-from sympy.external import import_module
 from mpmath import *
 from matplotlib.pyplot import *
 #init_printing()     # make things prettier when we print stuff for debugging.
@@ -43,7 +42,7 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
@@ -51,10 +50,7 @@ plot_linewidth          = 1
 plot_scale_x            = 'log'
 plot_label_x            = 'Frequenz (Hz)'
 plot_label_y            = 'Selbstinduktion L (mH)'
-plot_title              = """
-Selbstinduktionskoeffizient, Kupferspule mit Hohlzylinder \
-aus Kupfer
-"""
+plot_title              = "Selbstinduktionskoeffizient, Spule mit Kupferrohr"
 
 
 # ---------------------------------------------------------#
@@ -136,6 +132,9 @@ L_num = 1e3 * L_num                     # improve legibility
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+matplotlib.pyplot.rc('text', usetex=True)
+matplotlib.pyplot.rc('font', family='serif')
+
 fig  = figure(1)
 axes = fig.add_subplot(111)
 axes.plot(frequency_vector,L_num,linewidth=plot_linewidth,color=plot_color_fit)
@@ -145,4 +144,7 @@ axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
 
-show()
+fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig.savefig('plots-pgf/hollow--cu--L.pgf')
+fig.savefig('plots-pdf/hollow--cu--L.pdf')

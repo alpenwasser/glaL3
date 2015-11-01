@@ -1,0 +1,81 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
+%\documentclass{standalone}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{import}
+\usepackage{tikz}
+\usepackage{lipsum}
+\begin{document}
+%\begin{tikzpicture}
+%    \input{plots/hollow--cu--freq--approx2.pgf}
+%\end{tikzpicture}
+%\lipsum[1]
+%\input{hollow--cu--freq--approx.pgf}
+%\lipsum[1]
+    %\resizebox{\textwidth}{!}{\input{plots/hollow--cu--freq--approx3.pgf}}
+    %\scalebox{.5}{\input{plots/hollow--cu--freq--approx.pgf}}
+
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--cu--freq--approx.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--cu--freq--exact.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--cu--freq--phi-norm.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--cu--L.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--cu--R.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--st--freq--approx.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--st--freq--exact-opt.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--st--freq--exact.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--st--freq--phi-norm.pgf}}
+\end{figure}
+\clearpage
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--st--L.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{hollow--st--R.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{massive--alu--freq.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{massive--alu--freq--phi-norm.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{massive--alu--high-freq-approx--high.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{massive--alu--high-freq-approx--low.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{massive--alu--high-freq--exact.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{massive--alu--low-freq--exact.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{massive--alu--L.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{massive--alu--R.pgf}}
+\end{figure}
+\begin{figure}
+    \resizebox{\textwidth}{!}{\input{stuetzpunkte.pgf}}
+\end{figure}
+
+\end{document}

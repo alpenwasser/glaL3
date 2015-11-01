@@ -32,26 +32,17 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
-plot_color_fit          = 'blue'
-plot_color_measurements = 'black'
-plot_linewidth          = 1
-plot_label_fit          = 'Fitfunktion'
-plot_scale_x            = 'log'
-plot_label_x            = 'Frequenz (Hz)'
-plot_1_label_y          = 'magnetischer Fluss, normiert, Betrag' #TODO: unit
-plot_2_label_y          = 'magnetischer Fluss, normiert, Phase (Grad)'
-plot_1_title            = """
-Magnetischer Fluss in Zylinderspule mit Vollzylinder aus \
-Aluminium, normiert auf Spulenstrom, Betrag (Messpunkt: auf \
-Zylinderachse, horizontal zentriert)
-"""
-plot_2_title            = """
-Magnetischer Fluss in Zylinderspule mit Vollzylinder aus \
-Aluminium, normiert auf Spulenstrom, Phase (Messpunkt: auf \
-Zylinderachse, horizontal zentriert)
-"""
+plot_color_fit = 'blue'
+plot_linewidth = 1
+plot_label_fit = 'Fitfunktion'
+plot_scale_x   = 'log'
+plot_label_x   = 'Frequenz (Hz)'
+plot_1_label_y = r"$\displaystyle \biggl| \frac{\Phi}{I} \biggr|$ $\biggl( \displaystyle \frac{Vs}{A} \biggr)$"
+plot_2_label_y = r"$\displaystyle arg\biggl( \frac{\Phi}{I} \biggr)$ (Grad)"
+plot_1_title   = r"Betrag Magn. Fluss normiert auf Spulenstrom, Spule mit Kupferrohr"
+plot_2_title   = r"Phase Magn. Fluss normiert auf Spulenstrom, Spule mit Kupferrohr"
 
 
 # ---------------------------------------------------------#
@@ -112,6 +103,9 @@ phi_norm_abs_num   = 1e3 * phi_norm_abs_num
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+matplotlib.pyplot.rc('text', usetex=True)
+matplotlib.pyplot.rc('font', family='serif')
+
 fig   = figure(1)
 axes1 = fig.add_subplot(211)
 axes1.plot(frequency_vector,phi_norm_abs_num,color=plot_color_fit,label=plot_label_fit)
@@ -129,4 +123,7 @@ axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
 axes2.set_title(plot_2_title,fontdict=font)
 
-show()
+fig.subplots_adjust(bottom=0.1,left=0.125,right=0.925,top=0.95,hspace=0.5)
+
+fig.savefig('plots-pgf/massive--alu--freq--phi-norm.pgf')
+fig.savefig('plots-pdf/massive--alu--freq--phi-norm.pdf')

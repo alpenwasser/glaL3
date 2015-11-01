@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from sympy import *
-from sympy.external import import_module
 from mpmath import *
 from matplotlib.pyplot import *
 #init_printing()     # make things prettier when we print stuff for debugging.
@@ -35,28 +34,20 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
-plot_legend_fontsize    = 16
+plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 64
+plot_size_measurements  = 32
 plot_scale_x            = 'log'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'Frequenz (Hz)'
-plot_1_label_y          = 'magnetischer Fluss, normiert, Betrag' #TODO: unit
-plot_2_label_y          = 'magnetischer Fluss, normiert, Phase (Grad)'
-plot_1_title            = """
-Magnetischer Fluss in Zylinderspule mit Hohlzylinder \
-aus rostfreiem Stahl, normiert auf Spulenstrom, Betrag \
-(Messpunkt: auf Zylinderachse, horizontal zentriert)
-"""
-plot_2_title            = """
-Magnetischer Fluss in Zylinderspule mit Hohlzylinder \
-aus rostfreiem Stahl, normiert auf Spulenstrom, Phase \
-(Messpunkt: auf Zylinderachse, horizontal zentriert)
-"""
+plot_1_label_y          = r"$\displaystyle \biggl| \frac{\Phi}{I} \biggr|$ $\biggl( \displaystyle \frac{Vs}{A} \biggr)$"
+plot_2_label_y          = r"$\displaystyle arg\biggl( \frac{\Phi}{I} \biggr)$ (Grad)"
+plot_1_title            = r"Betrag Magn. Fluss normiert auf Spulenstrom, Spule mit Stahlrohr"
+plot_2_title            = r"Phase Magn. Fluss normiert auf Spulenstrom, Spule mit Stahlrohr"
 
 
 # ---------------------------------------------------------#
@@ -123,9 +114,9 @@ phi_norm_arg = lambda f: arg(phi_norm(f))
 # ---------------------------------------------------------#
 # Generate points for omega axis                           #
 # ---------------------------------------------------------#
+# See also separate file stuetzpunkte.py
 n                = np.linspace(0,npts,npts)
 expufunc         = np.frompyfunc(exp,1,1)
-#frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
 frequency_vector = expufunc((1-n/npts)*log(fmin)) * expufunc(n*log(fmax)/npts)
 
 
@@ -159,6 +150,9 @@ phi_norm_arg_num   = 180 / pi * phi_norm_arg_num
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+matplotlib.pyplot.rc('text', usetex=True)
+matplotlib.pyplot.rc('font', family='serif')
+
 fig   = figure(1)
 axes1 = fig.add_subplot(211)
 axes1.plot(frequency_vector,phi_norm_abs_num,color=plot_color_fit,label=plot_label_fit)
@@ -176,4 +170,7 @@ axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
 axes2.set_title(plot_2_title,fontdict=font)
 
-show()
+fig.subplots_adjust(bottom=0.1,left=0.125,right=0.925,top=0.95,hspace=0.5)
+
+fig.savefig('plots-pgf/hollow--st--freq--phi-norm.pgf')
+fig.savefig('plots-pdf/hollow--st--freq--phi-norm.pdf')

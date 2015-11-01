@@ -16,7 +16,7 @@ from matplotlib.pyplot import *
 # ---------------------------------------------------------#
 # Define Variables and Constants                           #
 # ---------------------------------------------------------#
-npts              = 5e1 # careful: number of points is npts + 1 (starts at 0)
+npts              = 19 # careful: number of points is npts + 1 (starts at 0)
 fmin              = 8e1
 fmax              = 5e4
 highest_frequency = fmin * exp(log(fmax-fmin))
@@ -26,9 +26,9 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
-plot_legend_fontsize       = 16
+plot_legend_fontsize       = 11
 plot_color_old             = 'magenta'
 plot_color_new             = 'blue'
 plot_color_common          = 'black'
@@ -38,11 +38,11 @@ plot_label_vertical_common = r"minimale Frequenz St\"utzpunkt: "
 plot_label_vertical_old    = r"maximale Frequenz St\"utzpunkt, Methode A: "
 plot_label_vertical_new    = r"maximale Frequenz St\"utzpunkt, Methode B: "
 plot_added_text            = r"Verh\"altnis der maximalen Frequenzen Methode A -- Methode B: $\displaystyle \frac{f_{kA}}{f_{kB}}\Bigg|_{k=NPTS} \approx " + str(int(freq_max_ratio)) + "$"
-plot_size_measurements     = 64
+plot_size_measurements     = 24
 plot_scale_x               = 'log'
 plot_label_x               = r"Frequenz des St\"utzpunkts (Hz)"
 plot_1_label_y             = 'k (siehe Formel)'
-plot_1_title               = r"Vergleich St\"utzpunktformeln f\"ur den Frequenzbereich von " + str(fmin) + " Hz bis " + str(highest_frequency) + " Hz, " + str(int(npts+1)) + " Punkte"
+plot_1_title               = r"Vergleich St\"utzpunktformeln f\"ur den Frequenzbereich von " + str(int(fmin)) + " Hz bis " + str(int(highest_frequency)) + " Hz, " + str(int(npts+1)) + " Punkte"
 y_lim_low                  = -2
 y_lim_high                 = npts + 2
 x_lim_low                  = 0.67 * fmin
@@ -65,11 +65,15 @@ plot_label_vertical_new    += str(frequency_vector_new[npts-1]) + " Hz"
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
-
-fig1 = figure(1)
-axes1 = fig1.add_subplot(111)
 matplotlib.pyplot.rc('text', usetex=True)
 matplotlib.pyplot.rc('font', family='serif')
+
+#fig1 = figure(1)
+#fig1 = figure(1,figsize=(9,9))
+#fig1 = figure(1,figsize=(8.26,11.7)) # A4 size in inches
+fig1 = figure(1,figsize=(8.26,10.0))
+axes1 = fig1.add_subplot(111)
+axes1.set_position([0.1,0.1,0.5,0.8])
 axes1.scatter(frequency_vector_old,
         n,
         color=plot_color_old,
@@ -118,7 +122,7 @@ axes1.set_title(plot_1_title,fontdict=font)
 rect = matplotlib.patches.Rectangle([0,0],0,0,color='white',label=plot_added_text)
 handles,legends = axes1.get_legend_handles_labels()
 handles.append(rect)
-axes1.legend(handles=handles,fontsize=plot_legend_fontsize,loc='upper left')
+axes1.legend(handles=handles,fontsize=plot_legend_fontsize,loc='upper left',bbox_to_anchor=(0.0,-0.075))
 
     # ---------------------------------------------------- #
     # This  would be  necessary if  we wanted  to actually #
@@ -127,4 +131,9 @@ axes1.legend(handles=handles,fontsize=plot_legend_fontsize,loc='upper left')
     # ---------------------------------------------------- #
 #axes1.add_patch(rect)
 
-show()
+fig1.subplots_adjust(bottom=0.3,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig1.savefig('plots-pgf/stuetzpunkte.pgf')
+fig1.savefig('plots-pdf/stuetzpunkte.pdf')
+
+#show()

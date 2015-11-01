@@ -28,7 +28,7 @@ sigma = 18e6                                                   # affects phase
 B0    = 5.5e-2                 # does not affect phase, use for scaling abs(B)
 r0    = 45e-3
 freq = 450                                     # frequency was fixed at 450 Hz
-npts = 1e2
+npts = 1e3
 rmin_high=25e-3
 #rmax_high=50e-3
 rmax_high=45e-3
@@ -38,23 +38,23 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
-plot_legend_fontsize    = 16
+plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 64
+plot_size_measurements  = 32
 plot_scale_x            = 'linear'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'radiale Position bezogen auf Zylinderachse (mm)'
 plot_11_label_y          = 'gemessene Spannung (mV)'
 plot_21_label_y          = 'gemessene Spannung (mV)'
 plot_12_label_y          = 'Phase (Grad)'
-plot_11_title            = r"Hochfrequenzn\"aherung: Betrag des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium, (Frequenz: 450 Hz, horizontal zentriert)"
-plot_12_title            = r"Hochfrequenzn\"aherung: Phase des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium (Frequenz: 450 Hz, horizontal zentriert)"
-plot_21_title            = r"Hochfrequenzn\"aherung: Betrag des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium, (Frequenz: 30 Hz, horizontal zentriert)"
-plot_22_title            = r"Hochfrequenzn\"aherung: Phase des Magnetfelds in Zylinderspule mit Vollzylinder aus Aluminium (Frequenz: 30 Hz, horizontal zentriert)"
+plot_11_title            = r"Hochfrequenzn\"aherung: Betrag Magnetfeld Spule mit Vollzylinder (450 Hz)"
+plot_12_title            = r"Hochfrequenzn\"aherung: Phase Magnetfeld Spule mit Vollzylinder (450 Hz)"
+plot_21_title            = r"Hochfrequenzn\"aherung: Betrag Magnetfeld Spule mit Vollzylinder (30 Hz)"
+plot_22_title            = r"Hochfrequenzn\"aherung: Phase Magnetfeld Spule mit Vollzylinder (30 Hz)"
 
 # Set ticker intervals for plots (in millimeters)
 loc1 = plticker.MultipleLocator(base=2.5)
@@ -135,7 +135,6 @@ rmax_low      = 1e3 * rmax_low
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
-
 matplotlib.pyplot.rc('text', usetex=True)
 matplotlib.pyplot.rc('font', family='serif')
 
@@ -205,4 +204,13 @@ axes22.set_title(plot_22_title,fontdict=font)
 axes22.legend(fontsize=plot_legend_fontsize,loc='upper left')
 axes22.xaxis.set_major_locator(loc2)
 
-show()
+fig1.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig1.savefig('plots-pgf/massive--alu--high-freq-approx--high.pgf')
+fig1.savefig('plots-pdf/massive--alu--high-freq-approx--high.pdf')
+
+
+fig2.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig2.savefig('plots-pgf/massive--alu--high-freq-approx--low.pgf')
+fig2.savefig('plots-pdf/massive--alu--high-freq-approx--low.pdf')

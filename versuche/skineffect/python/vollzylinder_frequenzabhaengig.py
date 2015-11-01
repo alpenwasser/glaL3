@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 
 from sympy import *
-from sympy.external import import_module
-#import numpy as numpy
 from mpmath import *
 from matplotlib.pyplot import *
-from math import copysign
+#init_printing()     # make things prettier when we print stuff for debugging.
 
-init_printing()
+
+# ************************************************************************** #
+# Magnetic field inside copper coil with massive alu cylinder                #
+# ************************************************************************** #
+
+# All values are in standard SI units unless otherwise noted.
+
 
 # ---------------------------------------------------------#
-# Measurement in Center, depending on Frequency            #
-# ---------------------------------------------------------#
-
-
-# ---------------------------------------------------------#
-# Init, Define Variables and Constants                     #
+# Define Variables and Constants                           #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7
 #sigma = 37.7e6                 # conductivity of aluminium (de.wikipedia.org)
@@ -30,26 +29,20 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
-plot_legend_fontsize    = 16
+plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 64
+plot_size_measurements  = 32
 plot_scale_x            = 'log'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'Frequenz (Hz)'
 plot_1_label_y          = 'gemessene Spannung (mV)'
 plot_2_label_y          = 'Phase (Grad)'
-plot_1_title            = """
-Betrag des Magnetfelds in Zylinderspule mit Vollzylinder aus \
-Aluminium, (Messpunkt: Zylinderachse, horizontal zentriert)
-"""
-plot_2_title            = """
-Phase des Magnetfelds in Zylinderspule mit Vollzylinder aus \
-Aluminium (Messpunkt: Zylinderachse, horizontal zentriert)
-"""
+plot_1_title            = r"Betrag Magnetfeld, Spule mit Vollzylinder"
+plot_2_title            = r"Phase Magnetfeld, Spule mit Vollzylinder"
 
 
 # ---------------------------------------------------------#
@@ -95,7 +88,6 @@ B_arg_num = Bargufunc(frequency_vector)
 # accordingly for a continuous curve.                      #
 # ---------------------------------------------------------#
 B_arg_num = np.unwrap(B_arg_num)
-B_arg_num = 180/pi*B_arg_num
 
 
 # ---------------------------------------------------------#
@@ -107,8 +99,18 @@ voltages             = np.array([6.9e-2,6.5e-2,5.7e-2,4.8e-2,4e-2,2.85e-2,2.1e-2
 
 
 # ---------------------------------------------------------#
+# Scale values for improved legibility in plot             #
+# ---------------------------------------------------------#
+B_abs_num = 1e3 * B_abs_num
+voltages  = 1e3 * voltages
+B_arg_num = 180/pi*B_arg_num
+
+# ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+matplotlib.pyplot.rc('text', usetex=True)
+matplotlib.pyplot.rc('font', family='serif')
+
 fig   = figure(1)
 #axes1 = fig.add_subplot(211,axisbg='black')
 axes1 = fig.add_subplot(211)
@@ -141,4 +143,7 @@ axes2.set_ylabel(plot_2_label_y,fontdict=font)
 axes2.set_title(plot_2_title,fontdict=font)
 axes2.legend(fontsize=plot_legend_fontsize)
 
-show()
+fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig.savefig('plots-pgf/massive--alu--freq.pgf')
+fig.savefig('plots-pdf/massive--alu--freq.pdf')

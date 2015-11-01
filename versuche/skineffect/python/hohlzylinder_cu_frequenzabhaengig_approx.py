@@ -38,29 +38,30 @@ r_avg = (r1+r2)/2                                 # average radius of cylinder
 d_rohr = r2 - r1                           # wall thickness of copper cylinder
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
-npts  = 1e2
+npts  = 1e3
 fmin  = 1
 fmax  = 2500
 font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
-plot_legend_fontsize    = 16
+plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_ratio        = 'magenta'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 64
+plot_size_measurements  = 32
 plot_scale_x            = 'log'
 plot_label_fit          = r"Fitfunktion (N\"aherung)"
-plot_label_ratio        = r"$\displaystyle \frac{d_{Rohr}}{s_{skin}}$: Sollte $<1$ sein f\"ur G\"ultigkeit der Approximation."
+plot_label_ratio        = r"$\displaystyle \frac{d_{Rohr}}{s_{skin}}$"
+plot_label_ratio_y      = r"$\displaystyle d_{Rohr} \div s_{skin}$"
 plot_label_x            = 'Frequenz (Hz)'
 plot_1_label_y          = 'gemessene Spannung (mV)'
 plot_2_label_y          = 'Phase (Grad)'
-plot_1_title            = r"N\"aherungsl\"osung: Betrag des Magnetfelds in Zylinderspule mit Hohlzylinder aus Kupfer, (Messpunkt: auf Zylinderachse, horizontal zentriert)"
-plot_2_title            = r"N\"aherungsl\"osung: Phase des Magnetfelds in Zylinderspule mit Hohlzylinder aus Kupfer (Messpunkt: auf Zylinderachse, horizontal zentriert)"
+plot_1_title            = r"N\"aherungsl\"osung: Betrag Magnetfeld, Spule mit Kupferrohr"
+plot_2_title            = r"N\"aherungsl\"osung: Phase Magnetfeld, Spule mit Kupferrohr"
 
     # ---------------------------------------------------- #
     # current in copper coil. This is a scaling parameter, #
@@ -182,7 +183,11 @@ axes2.legend(fontsize=plot_legend_fontsize,loc='center left')
 
 axes3 = axes2.twinx()
 axes3.plot(frequency_vector,s_skin_ratio_num,color=plot_color_ratio,label=plot_label_ratio)
-axes3.legend(fontsize=plot_legend_fontsize,loc='upper right')
+axes3.legend(fontsize=plot_legend_fontsize,loc='upper center')
 axes3.set_xlim([fmin*0.9,fmax*1.1])
+axes3.set_ylabel(plot_label_ratio_y,fontdict=font)
 
-show()
+fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig.savefig('plots-pgf/hollow--cu--freq--approx.pgf')
+fig.savefig('plots-pdf/hollow--cu--freq--approx.pdf')

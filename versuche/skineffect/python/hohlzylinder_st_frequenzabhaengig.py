@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 
 from sympy import *
-from sympy.external import import_module
 from mpmath import *
 from matplotlib.pyplot import *
-from math import copysign
 #init_printing()     # make things prettier when we print stuff for debugging.
 
 
@@ -37,28 +35,20 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
-plot_legend_fontsize    = 16
+plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 64
+plot_size_measurements  = 32
 plot_scale_x            = 'log'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'Frequenz (Hz)'
 plot_1_label_y          = 'gemessene Spannung (mV)'
 plot_2_label_y          = 'Phase (Grad)'
-plot_1_title            = """
-Betrag des Magnetfelds in Zylinderspule mit Hohlzylinder aus \
-rostfreiem Stahl, (Messpunkt: auf Zylinderachse, horizontal \
-zentriert)
-"""
-plot_2_title            = """
-Phase des Magnetfelds in Zylinderspule mit Hohlzylinder aus \
-rostfreiem Stahl (Messpunkt: auf Zylinderachse, horizontal \
-zentriert
-"""
+plot_1_title            = r"Exakte L\"osung: Betrag Magnetfeld, Spule mit Stahlrohr"
+plot_2_title            = r"Exakte L\"osung: Phase Magnetfeld, Spule mit Stahlrohr"
 
     # -----------------------------------------------------#
     # NOTE: According to  formula 26 on p.14,  the B-Field #
@@ -156,6 +146,8 @@ B_arg_num_opt = 180/np.pi*B_arg_num_opt
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+matplotlib.pyplot.rc('text', usetex=True)
+matplotlib.pyplot.rc('font', family='serif')
 
 # Figure 1: Range includes all measurement values.
 fig1 = figure(1)
@@ -221,4 +213,14 @@ axes22.set_ylabel(plot_2_label_y,fontdict=font)
 axes22.set_title(plot_2_title,fontdict=font)
 axes22.legend(fontsize=plot_legend_fontsize)
 
-show()
+
+fig1.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig1.savefig('plots-pgf/hollow--st--freq--exact.pgf')
+fig1.savefig('plots-pdf/hollow--st--freq--exact.pdf')
+
+
+fig2.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig2.savefig('plots-pgf/hollow--st--freq--exact-opt.pgf')
+fig2.savefig('plots-pdf/hollow--st--freq--exact-opt.pdf')

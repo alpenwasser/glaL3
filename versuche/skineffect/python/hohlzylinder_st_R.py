@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from sympy import *
-from sympy.external import import_module
 from mpmath import *
 from matplotlib.pyplot import *
 #init_printing()     # make things prettier when we print stuff for debugging.
@@ -26,14 +25,14 @@ from matplotlib.pyplot import *
 # already significant at this precision).                  #
 # -------------------------------------------------------- #
 #mp.dps=25  # decimal places
-mp.prec=320 # precision in bits
+#mp.prec=320 # precision in bits
 
 
 # ---------------------------------------------------------#
 # Init, Define Variables and Constants                     #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7                                        # vacuum permeability
-sigma = 52e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
+sigma = 1.25e6                          # de.wikipedia.org/wiki/Kupfer: 58.1e6
 dsp   = 98e-3                                               # diameter of coil
 rsp   = dsp / 2                                               # radius of coil
 r1    = 30e-3                                # inner radius of copper cylinder
@@ -49,18 +48,14 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
 plot_color_fit = 'blue'
 plot_linewidth = 1
 plot_scale_x   = 'log'
 plot_label_x   = 'Frequenz (Hz)'
 plot_label_y   = 'Widerstand (Ohm)'
-plot_title     = """
-Ohm\'scher Widerstand Zylinderspule mit Hohlzylinder aus \
-rostfreiem Stahl, (Messpunkt: auf Zylinderachse, horizontal \
-zentriert)
-"""
+plot_title     = r"Ohm'scher Widerstand, Spule mit Stahlrohr"
 
 
 # ---------------------------------------------------------#
@@ -141,6 +136,9 @@ R_num   = R_ufunc(frequency_vector)
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+matplotlib.pyplot.rc('text', usetex=True)
+matplotlib.pyplot.rc('font', family='serif')
+
 fig  = figure(1)
 axes = fig.add_subplot(111)
 axes.plot(frequency_vector,R_num,linewidth=plot_linewidth,color=plot_color_fit)
@@ -150,4 +148,7 @@ axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
 
-show()
+fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig.savefig('plots-pgf/hollow--st--R.pgf')
+fig.savefig('plots-pdf/hollow--st--R.pdf')

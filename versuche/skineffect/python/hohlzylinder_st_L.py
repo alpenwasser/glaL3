@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from sympy import *
-from sympy.external import import_module
 from mpmath import *
 from matplotlib.pyplot import *
 #init_printing()     # make things prettier when we print stuff for debugging.
@@ -20,7 +19,7 @@ from matplotlib.pyplot import *
 # places or bits, where the number of bits places is ~3.33 #
 # times the number of decimal places.                      #
 # -------------------------------------------------------- #
-#mp.dps=25  # decimal places
+#mp.dps=154  # decimal places
 mp.prec=512 # precision in bits
 
 
@@ -44,17 +43,14 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 16,
+        'size'   : 11,
         }
 plot_color_fit          = 'blue'
 plot_linewidth          = 1
 plot_scale_x            = 'log'
 plot_label_x            = 'Frequenz (Hz)'
 plot_label_y            = 'Selbstinduktion L (mH)'
-plot_title              = """
-Selbstinduktionskoeffizient, Kupferspule mit Hohlzylinder \
-aus rostfreiem Stahl
-"""
+plot_title              = "Selbstinduktionskoeffizient, Spule mit Stahlrohr"
 
 
 # ---------------------------------------------------------#
@@ -123,26 +119,11 @@ L = lambda f: re(phi_norm(f))
 # ---------------------------------------------------------#
 # Generate points for omega axis                           #
 # ---------------------------------------------------------#
+# See also separate file stuetzpunkte.py
 n                = np.linspace(0,npts,npts)
 expufunc         = np.frompyfunc(exp,1,1)
 logufunc         = np.frompyfunc(log,1,1)
-
-# Old version:
-#frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
-
-# New version:
 frequency_vector = expufunc((1-n/npts)*log(fmin)) * expufunc(n*log(fmax)/npts)
-
-# Debugging section:
-#scatter(frequency_vector,n)
-#xscale('log')
-#frequency_vector1 = expufunc((1-n/npts)*log(fmin))
-#frequency_vector2 = expufunc(n*log(fmax)/npts)
-#print(frequency_vector)
-#scatter(frequency_vector1,n,color='red')
-#scatter(frequency_vector2,n,color='magenta')
-#show()
-#exit()
 
 
 # ---------------------------------------------------------#
@@ -156,6 +137,9 @@ L_num   = 1e3 * L_num           # improve legibility of plot
 # ---------------------------------------------------------#
 # Plot the Things                                          #
 # ---------------------------------------------------------#
+matplotlib.pyplot.rc('text', usetex=True)
+matplotlib.pyplot.rc('font', family='serif')
+
 fig  = figure(1)
 axes = fig.add_subplot(111)
 axes.plot(frequency_vector,L_num,linewidth=plot_linewidth,color=plot_color_fit)
@@ -165,4 +149,7 @@ axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
 
-show()
+fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
+
+fig.savefig('plots-pgf/hollow--st--L.pgf')
+fig.savefig('plots-pdf/hollow--st--L.pdf')
