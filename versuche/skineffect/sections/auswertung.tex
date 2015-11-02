@@ -1,4 +1,210 @@
 % **************************************************************************** %
+\subsection{Vollzylinder}
+\label{sec:ausw:subsec:hohlz}
+% **************************************************************************** %
+
+
+\emph{Anmerkung  zu den  Messprotokollen}: S\"amtliche  Messwerte wurden  nach
+bestem  Wissen  und  Gewissen  zeitlich gef\"uhlsm\"assig  gemittelt  von  den
+Messinstrumenten  abgelesen. Daher ist  die Anzahl  angegebener Stellen  nicht
+immer konsistent.
+
+
+% ---------------------------------------------------------------------------- %
+\subsubsection{Methodik}
+\label{sec:ausw:subsec:methodik}
+% ---------------------------------------------------------------------------- %
+
+Wie im Abschnitt zu den Arbeitsgrundlagen ersichtlich, werden die betrachteten
+Gr\"ossen durch  komplexwertige Funktionen beschrieben (bzw.  deren Betrag und
+Phase). Da \emph{QtiPlot}  f\"ur solche Funktionen keine  Fits erstellen kann,
+ist  hier  eine  alternative  Vorgehensweise gefragt,  n\"amlich  m\"ussen die
+Funktionen von Hand programmiert und gefittet werden (sowohl an die Messpunkte
+f\"ur Phase und Betrag des B-Feldes).
+
+Zur Umsetzung dieses Vorgehens bieten sich diverse L\"osungen an, der Autor hat
+sich hier f\"ur Python entschieden (Matlab w\"are auch eine Variante).
+
+Im Allgemeinen wurde dabei folgendermassen vorgegangen:
+
+\begin{itemize}
+    \item
+        Es gibt zwei Parameter, an denen geschraubt werden kann:
+        \begin{itemize}
+            \item
+                Die  Leitf\"ahigkeit  $\sigma$  des  Materials,  aus  dem  der
+                eingef\"uhrte Zylinder besteht,
+            \item
+                und den Betrag $|B_0|$ des \"ausseren Magnetfelds, welches von
+                der Spule ausgeht.
+        \end{itemize}
+    \item
+        Da   die   Phase   des   B-Felds   im   Leiter   nicht   von   $|B_0|$
+        abh\"angt     (siehe    Gleichung     \ref{eq:vollzylinder:bFeldExact}
+        auf       Seite       \pageref{eq:vollzylinder:bFeldExact}       sowie
+        Gleichung        \ref{eq:hohlzylinder:BExact}         auf        Seite
+        \pageref{eq:hohlzylinder:BExact}), bietet  es  sich an,  zuerst  durch
+        Anpassen  von $\sigma$  einen Fit  f\"ur die  Messpunkte der  Phase zu
+        erstellen.
+    \item
+        Ist dies gelungen, kann man mittels  Tunen von $|B_0|$ die Kurve f\"ur
+        die Messpunkte von $|\hat{B}|$ anpassen.
+    \item
+        Anschliessend kann  man noch iterativ optimieren,  bis die Fitfunktion
+        den Verlauf der Messpunkte zufriedenstellend repr\"asentiert.
+\end{itemize}
+
+
+F\"ur   die   genaue  algorithmische   Implementierung   sei   hier  auf   den
+Python-Quellcode verwiesen. % TODO siehe dropbox github und example im Anhang
+
+% ---------------------------------------------------------------------------- %
+\subsubsection{Frequenzgang}
+\label{sec:ausw:subsec:hohlz:subsubsec:steel}
+% ---------------------------------------------------------------------------- %
+
+
+Die Messdaten f\"ur den Frequenzgang des B-Felds in einem Vollzylinder sind in
+Tabelle \ref{tab:meas:aluFreq} zu sehen.
+
+\begin{table}[h!]
+    \centering
+    \caption{Vollzylinder aus Aluminium, frequenzabh\"angig}
+    \label{tab:meas:aluFreq}
+    \sisetup{math-rm=\mathtt}
+\begin{tabular}{
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
+}
+    \toprule
+    {Frequenz ($\si{\hertz}$)} & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)}  \\
+    \midrule
+                             1 &                                  5.4  &                             69    \\
+                             5 &                                 26    &                             65    \\
+                            10 &                                 50    &                             57    \\
+                            15 &                                 69    &                             48    \\
+                            20 &                                 85    &                             40    \\
+                            30 &                                111    &                             28.5  \\
+                            40 &                                132    &                             21    \\
+                            60 &                                166    &                             12.5  \\
+                            80 &                                196    &                              8    \\
+                           100 &                                220    &                              5.4  \\
+                           120 &                                243    &                              3.6  \\
+                           160 &                                283    &                              1.9  \\
+                           200 &                                320    &                              1    \\
+                           250 &                                350    &                              0.6  \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--freq.pgf}}
+\end{figure}
+
+
+% ---------------------------------------------------------------------------- %
+\clearpage
+\subsubsection{Niedrige Frequenzen}
+\label{sec:ausw:subsec:hohlz:subsubsec:steel}
+% ---------------------------------------------------------------------------- %
+
+\begin{table}
+    \centering
+    \caption{Vollzylinder aus Aluminium, $\SI{30}{\hertz}$}
+    \label{tab:meas:steel}
+    \sisetup{math-rm=\mathtt}
+\begin{tabular}{
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
+}
+    \toprule
+    {Radius ($\si{\milli\meter}$)} & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)}  \\
+    \midrule
+                                 0 &                                111    &                            28.6   \\
+                                 5 &                                109    &                            28.5   \\
+                                10 &                                104    &                            28.7   \\
+                                15 &                                 94    &                            29     \\
+                                20 &                                 81    &                            30     \\
+                                25 &                                 65    &                            33     \\
+                                30 &                                 48.5  &                            38     \\
+                                35 &                                 32    &                            45     \\
+                                40 &                                 16    &                            54     \\
+                                45 &                                 2.7   &                            62     \\
+                                50 &                                 0     &                            37     \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--low-freq--exact.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq-approx--low.pgf}}
+\end{figure}
+
+% ---------------------------------------------------------------------------- %
+\clearpage
+\subsubsection{Hohe Frequenzen}
+\label{sec:ausw:subsec:vollz:subsubsec:steel}
+% ---------------------------------------------------------------------------- %
+
+\begin{table}
+    \centering
+    \caption{Vollzylinder aus Aluminium, $\SI{450}{\hertz}$}
+    \label{tab:meas:steel}
+    \sisetup{math-rm=\mathtt}
+\begin{tabular}{
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
+}
+    \toprule
+    {Radius ($\si{\milli\meter}$)}   & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)}  \\
+    \midrule
+                                25   &                                215    &                           1.5     \\
+                                27.5 &                                183    &                           2.2     \\
+                                30   &                                152    &                           3.6     \\
+                                32.5 &                                125    &                           5.9     \\
+                                35   &                                100    &                           9.5     \\
+                                37.5 &                                73     &                           15.5    \\
+                                40   &                                47     &                           25      \\
+                                42.5 &                                24     &                           39      \\
+                                45   &                                 5.2   &                           55      \\
+                                47.5 &                                0.2    &                           57.5    \\
+                                50   &                                 0     &                           38      \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq--exact.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq-approx--high.pgf}}
+\end{figure}
+
+
+% ---------------------------------------------------------------------------- %
+\subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
+\label{sec:ausw:subsec:vollz:subsubsec:LR}
+% ---------------------------------------------------------------------------- %
+
+
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--L.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--R.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--freq--phi-norm.pgf}}
+\end{figure}
+
+
+% **************************************************************************** %
+\clearpage
 \subsection{Hohlzylinder}
 \label{sec:ausw:subsec:hohlz}
 % **************************************************************************** %
@@ -40,8 +246,33 @@
 \end{tabular}
 \end{table}
 
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--exact.pgf}}
+\end{figure}
+
 
 % ---------------------------------------------------------------------------- %
+\clearpage
+\subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
+\label{sec:ausw:subsec:hohlz:cu:subsubsec:LR}
+% ---------------------------------------------------------------------------- %
+
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--phi-norm.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--L.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--R.pgf}}
+\end{figure}
+
+
+% ---------------------------------------------------------------------------- %
+\clearpage
 \subsubsection{Rostfreier Stahl}
 \label{sec:ausw:subsec:hohlz:subsubsec:steel}
 % ---------------------------------------------------------------------------- %
@@ -78,114 +309,29 @@
 \end{tabular}
 \end{table}
 
-
-% **************************************************************************** %
-\subsection{Vollzylinder}
-\label{sec:ausw:subsec:hohlz}
-% **************************************************************************** %
-
-Es wurde ein Vollzylinder aus Aluminium verwendet.
-
-% ---------------------------------------------------------------------------- %
-\subsubsection{Frequenzgang}
-\label{sec:ausw:subsec:hohlz:subsubsec:steel}
-% ---------------------------------------------------------------------------- %
-
-\begin{table}
-    \centering
-    \caption{Vollzylinder aus Aluminium, frequenzabh\"angig}
-    \label{tab:meas:steel}
-    \sisetup{math-rm=\mathtt}
-\begin{tabular}{
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-}
-    \toprule
-    {Frequenz ($\si{\hertz}$)} & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)}  \\
-    \midrule
-                             1 &                                  5.4  &                             69    \\
-                             5 &                                 26    &                             65    \\
-                            10 &                                 50    &                             57    \\
-                            15 &                                 69    &                             48    \\
-                            20 &                                 85    &                             40    \\
-                            30 &                                111    &                             28.5  \\
-                            40 &                                132    &                             21    \\
-                            60 &                                166    &                             12.5  \\
-                            80 &                                196    &                              8    \\
-                           100 &                                220    &                              5.4  \\
-                           120 &                                243    &                              3.6  \\
-                           160 &                                283    &                              1.9  \\
-                           200 &                                320    &                              1    \\
-                           250 &                                350    &                              0.6  \\
-    \bottomrule
-\end{tabular}
-\end{table}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--approx.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact-opt.pgf}}
+\end{figure}
 
 
 % ---------------------------------------------------------------------------- %
-\subsubsection{Niedrige Frequenzen}
-\label{sec:ausw:subsec:hohlz:subsubsec:steel}
+\clearpage
+\subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
+\label{sec:ausw:subsec:hohlz:st:subsubsec:LR}
 % ---------------------------------------------------------------------------- %
 
-\begin{table}
-    \centering
-    \caption{Vollzylinder aus Aluminium, $\SI{30}{\hertz}$}
-    \label{tab:meas:steel}
-    \sisetup{math-rm=\mathtt}
-\begin{tabular}{
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-}
-    \toprule
-    {Radius ($\si{\milli\meter}$)} & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)}  \\
-    \midrule
-                                 0 &                                111    &                            28.6   \\
-                                 5 &                                109    &                            28.5   \\
-                                10 &                                104    &                            28.7   \\
-                                15 &                                 94    &                            29     \\
-                                20 &                                 81    &                            30     \\
-                                25 &                                 65    &                            33     \\
-                                30 &                                 48.5  &                            38     \\
-                                35 &                                 32    &                            45     \\
-                                40 &                                 16    &                            54     \\
-                                45 &                                 2.7   &                            62     \\
-                                50 &                                 0     &                            37     \\
-    \bottomrule
-\end{tabular}
-\end{table}
-
-
-% ---------------------------------------------------------------------------- %
-\subsubsection{Hohe Frequenzen}
-\label{sec:ausw:subsec:vollz:subsubsec:steel}
-% ---------------------------------------------------------------------------- %
-
-\begin{table}
-    \centering
-    \caption{Vollzylinder aus Aluminium, $\SI{450}{\hertz}$}
-    \label{tab:meas:steel}
-    \sisetup{math-rm=\mathtt}
-\begin{tabular}{
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-}
-    \toprule
-    {Radius ($\si{\milli\meter}$)}   & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)}  \\
-    \midrule
-                                25   &                                215    &                           1.5     \\
-                                27.5 &                                183    &                           2.2     \\
-                                30   &                                152    &                           3.6     \\
-                                32.5 &                                125    &                           5.9     \\
-                                35   &                                100    &                           9.5     \\
-                                37.5 &                                73     &                           15.5    \\
-                                40   &                                47     &                           25      \\
-                                42.5 &                                24     &                           39      \\
-                                45   &                                 5.2   &                           55      \\
-                                47.5 &                                0.2    &                           57.5    \\
-                                50   &                                 0     &                           38      \\
-    \bottomrule
-\end{tabular}
-\end{table}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--phi-norm.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--L.pgf}}
+\end{figure}
+\begin{figure}[h!]
+    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--R.pgf}}
+\end{figure}
