@@ -19,6 +19,8 @@ from matplotlib.pyplot import *
 npts              = 19 # careful: number of points is npts + 1 (starts at 0)
 fmin              = 8e1
 fmax              = 5e4
+#fmin              = 5e-4
+#fmax              = 5e-2
 highest_frequency = fmin * exp(log(fmax-fmin))
 freq_max_ratio    = highest_frequency / fmax
 #fmax              = 5e3
