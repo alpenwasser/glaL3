@@ -1,9 +1,3 @@
-% **************************************************************************** %
-\subsection{Vollzylinder}
-\label{sec:ausw:subsec:hohlz}
-% **************************************************************************** %
-
-
 \emph{Anmerkung  zu den  Messprotokollen}: S\"amtliche  Messwerte wurden  nach
 bestem  Wissen  und  Gewissen  zeitlich gef\"uhlsm\"assig  gemittelt  von  den
 Messinstrumenten  abgelesen. Daher ist  die Anzahl  angegebener Stellen  nicht
@@ -11,19 +5,21 @@ immer konsistent.
 
 
 % ---------------------------------------------------------------------------- %
-\subsubsection{Methodik}
+\subsection{Methodik}
 \label{sec:ausw:subsec:methodik}
 % ---------------------------------------------------------------------------- %
 
 Wie im Abschnitt zu den Arbeitsgrundlagen ersichtlich, werden die betrachteten
 Gr\"ossen durch  komplexwertige Funktionen beschrieben (bzw.  deren Betrag und
 Phase). Da \emph{QtiPlot}  f\"ur solche Funktionen keine  Fits erstellen kann,
-ist  hier  eine  alternative  Vorgehensweise gefragt,  n\"amlich  m\"ussen die
+ist  hier  eine alternative  Vorgehensweise  gefragt,  n\"amlich m\"ussen  die
 Funktionen von Hand programmiert und gefittet werden (sowohl an die Messpunkte
-f\"ur Phase und Betrag des B-Feldes).
+f\"ur Phase  und Betrag des  B-Feldes). Die Fitfunktion wird dabei  optisch an
+die Messpunkte angepasst, nicht mit strikten mathematischen Methoden.
 
-Zur Umsetzung dieses Vorgehens bieten sich diverse L\"osungen an, der Autor hat
-sich hier f\"ur Python entschieden (Matlab w\"are auch eine Variante).
+Zur  Umsetzung  dieses Vorgehens  bieten  sich  diverse  Tools an;  der  Autor
+hat  sich  hier aus  Gr\"unden  der  pers\"onlichen Pr\"aferenz  f\"ur  Python
+entschieden (Matlab w\"are auch eine Variante).
 
 Im Allgemeinen wurde dabei folgendermassen vorgegangen:
 
@@ -40,23 +36,31 @@ Im Allgemeinen wurde dabei folgendermassen vorgegangen:
         \end{itemize}
     \item
         Da   die   Phase   des   B-Felds   im   Leiter   nicht   von   $|B_0|$
-        abh\"angt     (siehe    Gleichung     \ref{eq:vollzylinder:bFeldExact}
+        abh\"angt (ersichtlich  aus Gleichung \ref{eq:vollzylinder:bFeldExact}
         auf       Seite       \pageref{eq:vollzylinder:bFeldExact}       sowie
         Gleichung        \ref{eq:hohlzylinder:BExact}         auf        Seite
-        \pageref{eq:hohlzylinder:BExact}), bietet  es  sich an,  zuerst  durch
+        \pageref{eq:hohlzylinder:BExact}),  bietet es  sich  an, zuerst  durch
         Anpassen  von $\sigma$  einen Fit  f\"ur die  Messpunkte der  Phase zu
         erstellen.
     \item
         Ist dies gelungen, kann man mittels  Tunen von $|B_0|$ die Kurve f\"ur
         die Messpunkte von $|\hat{B}|$ anpassen.
     \item
-        Anschliessend kann  man noch iterativ optimieren,  bis die Fitfunktion
-        den Verlauf der Messpunkte zufriedenstellend repr\"asentiert.
+        Abschliessend kann  man noch iterativ optimieren,  bis die Fitfunktion
+        den Verlauf der Messpunkte optisch zufriedenstellend repr\"asentiert.
 \end{itemize}
 
 
 F\"ur   die   genaue  algorithmische   Implementierung   sei   hier  auf   den
 Python-Quellcode verwiesen. % TODO siehe dropbox github und example im Anhang
+
+
+% **************************************************************************** %
+\clearpage
+\subsection{Vollzylinder}
+\label{sec:ausw:subsec:hohlz}
+% **************************************************************************** %
+
 
 % ---------------------------------------------------------------------------- %
 \subsubsection{Frequenzgang}
@@ -76,40 +80,49 @@ Tabelle \ref{tab:meas:aluFreq} zu sehen.
     S[table-number-alignment=right]
     S[table-number-alignment=right]
     S[table-number-alignment=right]
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
 }
     \toprule
-    {Frequenz ($\si{\hertz}$)} & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)}  \\
+    {Frequenz ($\si{\hertz}$)} & {Phase ($\si{\degree}$)}              & {Amplitude ($\si{\milli\volt}$)} & {Frequenz ($\si{\hertz}$)} & {Phasen ($\si{\degree}$)}             & {Amplitude ($\si{\milli\volt}$)}\\
     \midrule
-                             1 &                                  5.4  &                             69    \\
-                             5 &                                 26    &                             65    \\
-                            10 &                                 50    &                             57    \\
-                            15 &                                 69    &                             48    \\
-                            20 &                                 85    &                             40    \\
-                            30 &                                111    &                             28.5  \\
-                            40 &                                132    &                             21    \\
-                            60 &                                166    &                             12.5  \\
-                            80 &                                196    &                              8    \\
-                           100 &                                220    &                              5.4  \\
-                           120 &                                243    &                              3.6  \\
-                           160 &                                283    &                              1.9  \\
-                           200 &                                320    &                              1    \\
-                           250 &                                350    &                              0.6  \\
+                             1 &                                  5.4  &                             69   &                         60 &                                166    &                             12.5  \\
+                             5 &                                 26    &                             65   &                         80 &                                196    &                              8    \\
+                            10 &                                 50    &                             57   &                        100 &                                220    &                              5.4  \\
+                            15 &                                 69    &                             48   &                        120 &                                243    &                              3.6  \\
+                            20 &                                 85    &                             40   &                        160 &                                283    &                              1.9  \\
+                            30 &                                111    &                             28.5 &                        200 &                                320    &                              1    \\
+                            40 &                                132    &                             21   &                        250 &                                350    &                              0.6  \\
     \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--freq.pgf}}
+    \caption{Frequenzgang Zylinderspule mit eingef\"uhrtem Aluminium-Vollzylinder}
 \end{figure}
 
 
 % ---------------------------------------------------------------------------- %
 \clearpage
-\subsubsection{Niedrige Frequenzen}
+\subsubsection{Positionsbezogener Verlauf, niedrige Frequenz}
 \label{sec:ausw:subsec:hohlz:subsubsec:steel}
 % ---------------------------------------------------------------------------- %
 
-\begin{table}
+In    dieser    Messreihe    wurde     die    Frequenz    konstant    gehalten
+($\SI{30}{\hertz}$),     und    die     Position    der     Messsonde    wurde
+radial    variiert    zwischen     Zylinderachse    und    Aussenrand.     Der
+Skineffekt   ist    hierbei   sichtbar,   aber   verglichen    mit   h\"oheren
+Frequenzen  (siehe  Abschnitt  \ref{sec:ausw:subsec:vollz:subsubsec:highfreq},
+p.\pageref{sec:ausw:subsec:vollz:subsubsec:highfreq})   merklich   schw\"acher
+ausgepr\"agt.
+
+Der letzte Messpunkt war nicht mehr  innerhalb des Zylinders und wurde deshalb
+nicht im  Plot ber\"ucksichtigt,  da er f\"ur  die Fitfunktion  nicht relevant
+ist.
+
+\begin{table}[!htb]
     \centering
     \caption{Vollzylinder aus Aluminium, $\SI{30}{\hertz}$}
     \label{tab:meas:steel}
@@ -118,36 +131,50 @@ Tabelle \ref{tab:meas:aluFreq} zu sehen.
     S[table-number-alignment=right]
     S[table-number-alignment=right]
     S[table-number-alignment=right]
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
+    S[table-number-alignment=right]
 }
     \toprule
-    {Radius ($\si{\milli\meter}$)} & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)}  \\
+    {Radius ($\si{\milli\meter}$)} & {Phase ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)} & {Radius ($\si{\milli\meter}$)} & {Phase ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)} \\
     \midrule
-                                 0 &                                111    &                            28.6   \\
-                                 5 &                                109    &                            28.5   \\
-                                10 &                                104    &                            28.7   \\
-                                15 &                                 94    &                            29     \\
-                                20 &                                 81    &                            30     \\
-                                25 &                                 65    &                            33     \\
-                                30 &                                 48.5  &                            38     \\
-                                35 &                                 32    &                            45     \\
-                                40 &                                 16    &                            54     \\
-                                45 &                                 2.7   &                            62     \\
-                                50 &                                 0     &                            37     \\
+                                 0 &                                111    &              28.6   &                             30 &                    48.5  &                            38    \\
+                                 5 &                                109    &              28.5   &                             35 &                    32    &                            45    \\
+                                10 &                                104    &              28.7   &                             40 &                    16    &                            54    \\
+                                15 &                                 94    &              29     &                             45 &                    2.7   &                            62    \\
+                                20 &                                 81    &              30     &                             50 &                    0     &                            37    \\
+                                25 &                                 65    &              33     &  \\
     \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--low-freq--exact.pgf}}
+    \caption{Radialer Verlauf des B-Feldes bei einer Frequenz von $\SI{30}{\hertz}$}
 \end{figure}
+
+Aus Neugier wurde  ebenfalls noch die Hochfrequenzn\"aherung  auf den radialen
+Verlauf bei $\SI{30}{\hertz}$ angewandt, und wenig \"uberraschend stellte sich
+die Methode in  der Tat als ungeeignet dar  f\"ur diesen Frequenzbereich. Aber
+es darf in den  Augen des Autors ruhig auch mal  verifiziert werden, dass eine
+Herangewensweise tats\"achlich  nicht funktioniert,  statt stets  nur positive
+Resultate zu verifizieren.
+
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq-approx--low.pgf}}
+    \caption{%
+        Hochfrequenzn\"aherung  f\"ur  den   radialen  Verlauf  des  Be-Feldes
+        angewandt  auf   $\SI{30}{\hertz}$. Wie  an  der   starken  Abweichung
+        zwischen Fit und  Messpunkten erkennt werden kann,  ist diese Funktion
+        in der  Tat f\"ur diesen  Frequenzbereich ungeeignet, um  den radialen
+        Verlauf des B-Feldes darzustellent.
+    }
 \end{figure}
 
 % ---------------------------------------------------------------------------- %
 \clearpage
 \subsubsection{Hohe Frequenzen}
-\label{sec:ausw:subsec:vollz:subsubsec:steel}
+\label{sec:ausw:subsec:vollz:subsubsec:highfreq}
 % ---------------------------------------------------------------------------- %
 
 \begin{table}
@@ -191,15 +218,22 @@ Tabelle \ref{tab:meas:aluFreq} zu sehen.
 \label{sec:ausw:subsec:vollz:subsubsec:LR}
 % ---------------------------------------------------------------------------- %
 
+Wie  erw\"ahnt, wurden  keine direkten  Messungen von  $L_{Spule +  Zylinder}$
+und  $R_{Spule  + Zylinder}$  durchgef\"uhrt. Mit  den  Informationen aus  den
+Fits  k\"onnen  jedoch   trotztem  Plots  erstellt  und   aus  diesen  gewisse
+R\"uckschl\"usse gezogen werden.
 
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--L.pgf}}
+    \caption{\"Anderung des Selbstinduktionskoeffizienten von Spule mit eingef\"uhrten Aluminium-Vollzylinder}
 \end{figure}
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--R.pgf}}
+    \caption{\"Anderung des Ohm'schen Widerstandes von Spule mit eingef\"uhrtem Aluminium-Vollzylinder}
 \end{figure}
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--freq--phi-norm.pgf}}
+    \caption{\"Anderung des auf den Spulenstrom normierten magnetischen Flusses innerhalb des Zylinders von Spule mit eingef\"uhrten Aluminium-Vollzylinder}
 \end{figure}
 
 
