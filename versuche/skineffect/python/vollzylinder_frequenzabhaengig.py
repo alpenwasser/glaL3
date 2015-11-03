@@ -16,15 +16,17 @@ from matplotlib.pyplot import *
 # ---------------------------------------------------------#
 # Define Variables and Constants                           #
 # ---------------------------------------------------------#
-mu0   = 4*pi*1e-7
 #sigma = 37.7e6                 # conductivity of aluminium (de.wikipedia.org)
-sigma = 23.75e6
-r     = 0
-r0    = 45e-3
-B0    = 6.9e-2                             # adjust this as needed for scaling
-npts  = 1e3
-fmin  = 1
-fmax  = 250
+params = {
+    'mu0'   : 4*pi*1e-7,
+    'sigma' : 23.75e6,
+    'r'     : 0,
+    'r0'    : 45e-3,
+    'B0'    : 6.9e-2,
+    'npts'  : 1e1,
+    'fmin'  : 1,
+    'fmax'  : 250,
+    }
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -50,15 +52,13 @@ plot_2_title            = r"Phase Magnetfeld, Spule mit Vollzylinder"
 # ---------------------------------------------------------#
 # See formula 21 on p.11 of script for experiment.
 
-var('f')
-
-k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
+k = lambda f: sqrt((2*np.pi*f*params['mu0']*params['sigma'])/2)*(mpc(1,-1))
 
 # Enumerator:
-enum  = lambda f: besselj(0,k(f)*r)
-denom = lambda f: besselj(0,k(f)*r0)
+enum  = lambda f: besselj(0,k(f)*params['r'])
+denom = lambda f: besselj(0,k(f)*params['r0'])
 
-B = lambda f: enum(f) / denom(f) * B0
+B = lambda f: enum(f) / denom(f) * params['B0']
 
 B_abs = lambda f: abs(B(f))
 B_arg = lambda f: arg(B(f))
@@ -66,9 +66,9 @@ B_arg = lambda f: arg(B(f))
 # ---------------------------------------------------------#
 # Generate points for frequency axis                       #
 # ---------------------------------------------------------#
-n                = np.linspace(0,npts,npts)
+n                = np.linspace(0,params['npts'],params['npts'])
 expufunc         = np.frompyfunc(exp,1,1)
-frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
+frequency_vector = params['fmin']*expufunc(n*log(params['fmax']-params['fmin'])/params['npts'])
 
 
 # ---------------------------------------------------------#
@@ -121,7 +121,7 @@ axes1.scatter(frequencies_measured,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes1.set_xlim([fmin*0.9,fmax*1.1])
+axes1.set_xlim([params['fmin']*0.9,params['fmax']*1.1])
 axes1.set_xscale(plot_scale_x)
 axes1.set_xlabel(plot_label_x,fontdict=font)
 axes1.set_ylabel(plot_1_label_y,fontdict=font)
@@ -136,7 +136,7 @@ axes2.scatter(frequencies_measured,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes2.set_xlim([fmin*0.9,fmax*1.1])
+axes2.set_xlim([params['fmin']*0.9,params['fmax']*1.1])
 axes2.set_xscale(plot_scale_x)
 axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
@@ -147,3 +147,12 @@ fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/massive--alu--freq.pgf')
 fig.savefig('plots-pdf/massive--alu--freq.pdf')
+
+
+# ---------------------------------------------------------#
+# Save Listing to File                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/massive--alu--freq.txt', 'w')
+for key,value in params.items():
+    dumpfile.writelines(key + ": " + str(value) + "\n")
+dumpfile.close()
