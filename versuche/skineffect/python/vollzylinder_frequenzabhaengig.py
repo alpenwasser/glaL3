@@ -23,7 +23,7 @@ params = {
     'r'     : 0,
     'r0'    : 45e-3,
     'B0'    : 6.9e-2,
-    'npts'  : 1e1,
+    'npts'  : 1e3,
     'fmin'  : 1,
     'fmax'  : 250,
     }
@@ -48,9 +48,14 @@ plot_2_title            = r"Phase Magnetfeld, Spule mit Vollzylinder"
 
 
 # ---------------------------------------------------------#
-# Function for magnetic Field B                            #
+# Functions                                                #
+#                                                          #
+# See formula 21 on p.11 of script for experiment.         #
+#                                                          #
+# NOTE: We use  frequency f  instead of  angular frequency #
+# omega since that is what we actually set on the function #
+# generator.                                               #
 # ---------------------------------------------------------#
-# See formula 21 on p.11 of script for experiment.
 
 k = lambda f: sqrt((2*np.pi*f*params['mu0']*params['sigma'])/2)*(mpc(1,-1))
 
@@ -150,7 +155,7 @@ fig.savefig('plots-pdf/massive--alu--freq.pdf')
 
 
 # ---------------------------------------------------------#
-# Save Listing to File                                     #
+# save listing to file                                     #
 # ---------------------------------------------------------#
 dumpfile = open('listings/massive--alu--freq.txt', 'w')
 for key,value in params.items():

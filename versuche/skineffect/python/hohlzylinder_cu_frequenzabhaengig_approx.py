@@ -18,17 +18,15 @@ from matplotlib.pyplot import *
 # precision.   One  can  increase the  number  of  decimal #
 # places or bits, where the number of bits places is ~3.33 #
 # times the number of decimal places.                      #
-# The highest calculable  frequency with default precision #
-# was determined to be 1943 Hz                             #
 # -------------------------------------------------------- #
 #mp.dps=25  # decimal places
-mp.prec=80 # precision in bits
+mp.prec=80  # precision in bits
 
 # ---------------------------------------------------------#
 # Init, Define Variables and Constants                     #
 # ---------------------------------------------------------#
+#sigma = 52e6                           # de.wikipedia.org/wiki/Kupfer: 58.1e6
 mu0   = 4*pi*1e-7                                        # vacuum permeability
-#sigma = 52e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
 sigma = 52e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
 dsp   = 98e-3                                               # diameter of coil
 rsp   = dsp / 2                                               # radius of coil
@@ -41,6 +39,26 @@ l     = 500e-3                                         # length of copper coil
 npts  = 1e3
 fmin  = 1
 fmax  = 2500
+
+    # ---------------------------------------------------- #
+    # Can't  self-reference  elements   while  creating  a #
+    # dictionary,  hence  this   approach  for  convenient #
+    # printing of parameters at the end.                   #
+    # ---------------------------------------------------- #
+params = {
+    'mu0'    : mu0,
+    'sigma'  : sigma,
+    'rsp'    : rsp,
+    'r1'     : r1,
+    'r2'     : r2,
+    'r_avg'  : r_avg,
+    'd_rohr' : d_rohr,
+    'N0'     : N0,
+    'l'      : l,
+    'npts'   : npts,
+    'fmin'   : fmin,
+    'fmax'   : fmax,
+    }
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -52,7 +70,7 @@ plot_color_fit          = 'blue'
 plot_color_ratio        = 'magenta'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 32
+plot_size_measurements  = 16
 plot_scale_x            = 'log'
 plot_label_fit          = r"Fitfunktion (N\"aherung)"
 plot_label_ratio        = r"$\displaystyle \frac{d_{Rohr}}{s_{skin}}$"
@@ -64,7 +82,7 @@ plot_1_title            = r"N\"aherungsl\"osung: Betrag Magnetfeld, Spule mit Ku
 plot_2_title            = r"N\"aherungsl\"osung: Phase Magnetfeld, Spule mit Kupferrohr"
 
     # ---------------------------------------------------- #
-    # current in copper coil. This is a scaling parameter, #
+    # Current in copper coil. This is a scaling parameter, #
     # not the  measured value. measured value  was: 200 mA #
     # This is due to the  fact that the measurement values #
     # are  voltages  representing  the  B-Field,  not  the #
@@ -81,8 +99,6 @@ I0    = 48.5
 # omega since that is what we actually set on the function #
 # generator.                                               #
 # ---------------------------------------------------------#
-var('f')
-
 enum1  = mu0*N0*I0
 denom1 = l
 enum2  = 2
@@ -191,3 +207,12 @@ fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/hollow--cu--freq--approx.pgf')
 fig.savefig('plots-pdf/hollow--cu--freq--approx.pdf')
+
+
+# ---------------------------------------------------------#
+# Save listing to file                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/hollow--cu--freq--approx.txt', 'w')
+for key,value in params.items():
+    dumpfile.writelines(key + ": " + str(value) + "\n")
+dumpfile.close()
