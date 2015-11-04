@@ -17,28 +17,44 @@ from matplotlib.pyplot import *
 # precision.   One  can  increase the  number  of  decimal #
 # places or bits, where the number of bits places is ~3.33 #
 # times the number of decimal places.                      #
-# The highest calculable  frequency with default precision #
-# was determined to be 1943 Hz                             #
 # -------------------------------------------------------- #
 #mp.dps=25  # decimal places
 mp.prec=80 # precision in bits
 
 # ---------------------------------------------------------#
-# Init, Define Variables and Constants                     #
+# Define Variables and Constants                           #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7                                        # vacuum permeability
 sigma = 52e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
-r     = 0             # radial position of measurement probe. Centered on axis
-dsp   = 98e-3                                               # diameter of coil
-rsp   = dsp / 2                                               # radius of coil
 r1    = 30e-3                                # inner radius of copper cylinder
 r2    = 35e-3                                # outer radius of copper cylinder
 B0    = 6.9e-2                             # adjust this as needed for scaling
-N0    = 574                                   # number of turns of copper coil
-l     = 500e-3                                         # length of copper coil
 npts  = 1e3
 fmin  = 1
 fmax  = 2500
+    # -----------------------------------------------------#
+    # NOTE: According to  formula 26 on p.14,  the B-Field #
+    # inside the  cylinder (r<r1) is equal  to the B-Field #
+    # at  the  inner  boundary   of  the  copper  cylinder #
+    # (B(r1)),  therefore  we  set  r to  r1  for  further #
+    # calculations.                                        #
+    # -----------------------------------------------------#
+r     = r1
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '$\mu_0'   + '$&$' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '$\sigma'  + '$&$' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '$r'       + '$&$' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '$r_1'     + '$&$' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '$r_2'     + '$&$' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '$B_0'     + '$&$' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
+        '$NPTS'    + '$&$' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '$f_{min}' + '$&$' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '$f_{max}' + '$&$' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -58,14 +74,6 @@ plot_2_label_y          = 'Phase (Grad)'
 plot_1_title            = r"Exakte L\"osung: Betrag Magnetfeld, Spule mit Kupferrohr"
 plot_2_title            = r"Exakte L\"osung: Phase Magnetfeld, Spule mit Kupferrohr"
 
-    # -----------------------------------------------------#
-    # NOTE: According to  formula 26 on p.14,  the B-Field #
-    # inside the  cylinder (r<r1) is equal  to the B-Field #
-    # at  the  inner  boundary   of  the  copper  cylinder #
-    # (B(r1)),  therefore  we  set  r to  r1  for  further #
-    # calculations.                                        #
-    # -----------------------------------------------------#
-r     = 30e-3
 
 
 # ---------------------------------------------------------#
@@ -184,3 +192,45 @@ fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/hollow--cu--freq--exact.pgf')
 fig.savefig('plots-pdf/hollow--cu--freq--exact.pdf')
+
+
+# ---------------------------------------------------------#
+# Save listing to file                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/hollow--cu--freq--exact.tex', 'w')
+
+table_opening = r"""
+\begin{table}
+    \centering
+    \caption{Kupferrohr: Paramterwerte f\"ur Fitfunktion, Direktimport aus Python-Script, gerundet (die Pr\"azision von Python ist nat\"urlich h\"oher).}
+    \label{tab:fitparams:cu:freq:exact}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{%
+        l
+        r
+    }
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+#for key,value in params.items():
+#    line = "        $" + key + "$ & $" + value + r"$ \\" + "\n"
+#    dumpfile.writelines(line)
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
+dumpfile.close()

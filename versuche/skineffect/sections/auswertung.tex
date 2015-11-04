@@ -248,7 +248,7 @@ R\"uckschl\"usse gezogen werden.
 \subsubsection{Kupfer}
 \label{sec:ausw:subsec:hohlz:subsubsec:copper}
 % ---------------------------------------------------------------------------- %
-\begin{table}
+\begin{table}[!htb]
     \centering
     \caption{Kupferrohr}
     \label{tab:meas:copper}
@@ -282,12 +282,48 @@ R\"uckschl\"usse gezogen werden.
 
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
+    \caption{N\"aherungsl\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
 \end{figure}
+
+%\lstinputlisting[basicstyle=\ttfamily]{listings/hollow--cu--freq--exact.txt}
+
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--exact.pgf}}
+    \caption{Exakte L\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
 \end{figure}
 
+%\begin{minipage}[c][][b]{0.33\textwidth}
+%\begin{minipage}[c][][b]{0.55\textwidth} % stuff is at bottom
+%\begin{minipage}[c][][b]{0.56\textwidth} % default
+\begin{minipage}[t][][t]{0.43\textwidth}
+    \input{listings/hollow--cu--freq--exact.tex}
+\end{minipage}
+\begin{minipage}[t][][t]{0.56\textwidth}
 
+    Als  Fitfunktion   wurde  die  Formel  f\"ur   $r_1<r<r_2$  aus  Gleichung
+    \ref{eq:hohlzylinder:BExact}    (Seite   \pageref{eq:hohlzylinder:BExact})
+    verwendet, mit $r  = r_1$. F\"ur genauere Informationen  \"uber den Aufbau
+    der Formel und die Verwendung der in Tabelle \ref{tab:cu:params:fit:exact}
+    gelisteten Parameter siehe das entsprechende Kapitel.
+
+    \begin{equation*}
+        \hat{B} (r_1) = \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \cdot \hat{B}_0 \\
+    \end{equation*}
+\end{minipage}
+
+%\begin{sidewaysfigure}[!htb]
+%    \begin{minipage}{0.77\textwidth}
+%    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--exact.pgf}}
+%    \caption{Frequenzverlauf, exakte L\"osung}
+%    \end{minipage}
+%    \begin{minipage}{0.2\textwidth}
+%        \begin{equation*}
+%            %\label{eq:hohlzylinder:BExactApplied}
+%            \hat{B} (r_1) = \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \cdot \hat{B}_0 \\
+%        \end{equation*}
+%        \input{listings/hollow--cu--freq--exact.tex}
+%    \end{minipage}
+%\end{sidewaysfigure}
 % ---------------------------------------------------------------------------- %
 \clearpage
 \subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
