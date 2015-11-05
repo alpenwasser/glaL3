@@ -25,11 +25,8 @@ mp.prec=80  # precision in bits
 # ---------------------------------------------------------#
 # Init, Define Variables and Constants                     #
 # ---------------------------------------------------------#
-#sigma = 52e6                           # de.wikipedia.org/wiki/Kupfer: 58.1e6
 mu0   = 4*pi*1e-7                                        # vacuum permeability
 sigma = 52e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
-dsp   = 98e-3                                               # diameter of coil
-rsp   = dsp / 2                                               # radius of coil
 r1    = 30e-3                                # inner radius of copper cylinder
 r2    = 35e-3                                # outer radius of copper cylinder
 r_avg = (r1+r2)/2                                 # average radius of cylinder
@@ -39,26 +36,24 @@ l     = 500e-3                                         # length of copper coil
 npts  = 1e3
 fmin  = 1
 fmax  = 2500
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '        ' + '$\mu_0'    + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'   + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$r_1'      + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_2'      + '$ & $' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{avg}'  + '$ & $' +  '\SI{'   + str(r_avg)  + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$d_{Rohr}' + '$ & $' +  '\SI{'   + str(d_rohr) + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$N_0'      + '$ & $' +  r'\num{' + str(N0)     + r'}'                             + r'$\\' + "\n",
+        '        ' + '$l'        + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'     + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}'  + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}'  + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 
-    # ---------------------------------------------------- #
-    # Can't  self-reference  elements   while  creating  a #
-    # dictionary,  hence  this   approach  for  convenient #
-    # printing of parameters at the end.                   #
-    # ---------------------------------------------------- #
-params = {
-    'mu0'    : mu0,
-    'sigma'  : sigma,
-    'rsp'    : rsp,
-    'r1'     : r1,
-    'r2'     : r2,
-    'r_avg'  : r_avg,
-    'd_rohr' : d_rohr,
-    'N0'     : N0,
-    'l'      : l,
-    'npts'   : npts,
-    'fmin'   : fmin,
-    'fmax'   : fmax,
-    }
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -212,7 +207,40 @@ fig.savefig('plots-pdf/hollow--cu--freq--approx.pdf')
 # ---------------------------------------------------------#
 # Save listing to file                                     #
 # ---------------------------------------------------------#
-dumpfile = open('listings/hollow--cu--freq--approx.txt', 'w')
-for key,value in params.items():
-    dumpfile.writelines(key + ": " + str(value) + "\n")
+dumpfile = open('listings/hollow--cu--freq--approx.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramterwerte  f\"ur  Fitfunktion,   Direktimport  aus  Python-Script,
+        gerundet  (die Pr\"azision  von Python  ist nat\"urlich  h\"oher). Die
+        ungerundeten Zahlen  k\"onnen bei  Interesse auch  im \LaTeX-Quelltext
+        gefunden werden.
+    }
+    \label{tab:fitparams:cu:freq:approx}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
 dumpfile.close()

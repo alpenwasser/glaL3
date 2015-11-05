@@ -45,15 +45,15 @@ r     = r1
     # file, add LaTeX where necessary.                     #
     # -----------------------------------------------------#
 params = [
-        '$\mu_0'   + '$&$' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
-        '$\sigma'  + '$&$' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
-        '$r'       + '$&$' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
-        '$r_1'     + '$&$' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
-        '$r_2'     + '$&$' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
-        '$B_0'     + '$&$' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
-        '$NPTS'    + '$&$' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
-        '$f_{min}' + '$&$' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
-        '$f_{max}' + '$&$' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$\mu_0'   + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'  + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$r'       + '$ & $' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_1'     + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_2'     + '$ & $' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$B_0'     + '$ & $' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'    + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}' + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}' + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
         ]
 font = {
         'family' : 'serif',
@@ -65,7 +65,7 @@ plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 32
+plot_size_measurements  = 16
 plot_scale_x            = 'log'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'Frequenz (Hz)'
@@ -200,9 +200,14 @@ fig.savefig('plots-pdf/hollow--cu--freq--exact.pdf')
 dumpfile = open('listings/hollow--cu--freq--exact.tex', 'w')
 
 table_opening = r"""
-\begin{table}
-    \centering
-    \caption{Kupferrohr: Paramterwerte f\"ur Fitfunktion, Direktimport aus Python-Script, gerundet (die Pr\"azision von Python ist nat\"urlich h\"oher).}
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramterwerte  f\"ur  Fitfunktion,   Direktimport  aus  Python-Script,
+        gerundet  (die Pr\"azision  von Python  ist nat\"urlich  h\"oher). Die
+        ungerundeten Zahlen  k\"onnen bei  Interesse auch  im \LaTeX-Quelltext
+        gefunden werden.
+    }
     \label{tab:fitparams:cu:freq:exact}
     \sisetup{%
         %math-rm=\mathtt,
@@ -211,24 +216,19 @@ table_opening = r"""
         round-precision = 2,
         round-mode = figures,
     }
-    \begin{tabular}{%
-        l
-        r
-    }
+    \begin{tabular}{lr}
     \toprule
 """
 table_closing = r"""
     \bottomrule
     \end{tabular}
-\end{table}
+    \end{center}
+}
 
 """
 
 dumpfile.writelines(table_opening)
 
-#for key,value in params.items():
-#    line = "        $" + key + "$ & $" + value + r"$ \\" + "\n"
-#    dumpfile.writelines(line)
 for line in params:
     dumpfile.writelines(line)
 
