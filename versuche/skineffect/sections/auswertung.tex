@@ -125,7 +125,9 @@ Tabelle \ref{tab:meas:aluFreq} zu sehen.
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--freq.pgf}}
     \caption{Frequenzgang Zylinderspule mit eingef\"uhrtem Aluminium-Vollzylinder}
+    \label{fig:alu:freq:exact}
 \end{figure}
+\input{listings/massive--alu--freq.tex}
 
 
 % ---------------------------------------------------------------------------- %
@@ -175,7 +177,9 @@ ist.
 \begin{figure}[!htb]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--low-freq--exact.pgf}}
     \caption{Radialer Verlauf des B-Feldes bei einer Frequenz von $\SI{30}{\hertz}$}
+    \label{fig:alu:rad:exact:low}
 \end{figure}
+\input{listings/massive--alu--low-freq--exact.tex}
 
 Aus Neugier wurde  ebenfalls noch die Hochfrequenzn\"aherung  auf den radialen
 Verlauf bei $\SI{30}{\hertz}$ angewandt, und wenig \"uberraschend stellte sich
@@ -193,7 +197,9 @@ Resultate zu verifizieren.
         in der  Tat f\"ur diesen  Frequenzbereich ungeeignet, um  den radialen
         Verlauf des B-Feldes darzustellent.
     }
+    \label{fig:alu:rad:approx:low}
 \end{figure}
+\input{listings/massive--alu--high-freq-approx--low.tex}
 
 % ---------------------------------------------------------------------------- %
 \clearpage
@@ -231,10 +237,14 @@ Resultate zu verifizieren.
 
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq--exact.pgf}}
+    \label{fig:alu:rad:exact:high}
 \end{figure}
+\input{listings/massive--alu--high-freq--exact.tex}
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq-approx--high.pgf}}
+    \label{fig:alu:rad:approx:high}
 \end{figure}
+\input{listings/massive--alu--high-freq-approx--high.tex}
 
 
 % ---------------------------------------------------------------------------- %
@@ -252,15 +262,21 @@ Plots erstellt werden.
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--L.pgf}}
     \caption{\"Anderung des Selbstinduktionskoeffizienten von Spule mit eingef\"uhrten Aluminium-Vollzylinder}
+    \label{fig:alu:freq:L}
 \end{figure}
+\input{listings/massive--alu--L.tex}
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--R.pgf}}
     \caption{\"Anderung des Ohm'schen Widerstandes von Spule mit eingef\"uhrtem Aluminium-Vollzylinder}
+    \label{fig:alu:freq:R}
 \end{figure}
+\input{listings/massive--alu--R.tex}
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--freq--phi-norm.pgf}}
     \caption{\"Anderung des auf den Spulenstrom normierten magnetischen Flusses innerhalb des Zylinders von Spule mit eingef\"uhrten Aluminium-Vollzylinder}
+    \label{fig:alu:freq:phi}
 \end{figure}
+\input{listings/massive--alu--phi-norm.tex}
 
 
 % **************************************************************************** %

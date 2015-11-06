@@ -30,6 +30,20 @@ npts = 1e3
 rmin=0
 #rmax=50e-3
 rmax=45e-3
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '        ' + '$\mu_0'   + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'  + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$r_0'     + '$ & $' +  '\SI{'   + str(r0)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{max}' + '$ & $' +  '\SI{'   + str(rmax)   + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{min}' + '$ & $' +  '\SI{'   + str(rmin)   + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$B_0'     + '$ & $' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'    + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$f'       + '$ & $' +  '\SI{'   + str(freq)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -158,3 +172,46 @@ fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/massive--alu--low-freq--exact.pgf')
 fig.savefig('plots-pdf/massive--alu--low-freq--exact.pdf')
+
+
+# ---------------------------------------------------------#
+# Save listing to file                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/massive--alu--low-freq--exact.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Fitfunktion  basierend   auf  exakter  L\"osung  f\"ur   die  radialen
+        Verl\"aufe  von   Betrag  und  Phase  des   B-Feldes  innerhalb  eines
+        Vollzylinders  (Aluminium)  eingef\"uhrt  in  eine  Zylinderspule  bei
+        $\SI{30}{\hertz}$   (niedriger   Frequenzbereich).    Direktimport   aus
+        Python-Script, gerundet.
+    }
+    \label{tab:fitparams:alu:freq:high:exact}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
+dumpfile.close()

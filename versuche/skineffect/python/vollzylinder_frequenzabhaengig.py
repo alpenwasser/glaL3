@@ -17,16 +17,28 @@ from matplotlib.pyplot import *
 # Define Variables and Constants                           #
 # ---------------------------------------------------------#
 #sigma = 37.7e6                 # conductivity of aluminium (de.wikipedia.org)
-params = {
-    'mu0'   : 4*pi*1e-7,
-    'sigma' : 23.75e6,
-    'r'     : 0,
-    'r0'    : 45e-3,
-    'B0'    : 6.9e-2,
-    'npts'  : 1e3,
-    'fmin'  : 1,
-    'fmax'  : 250,
-    }
+mu0   = 4*pi*1e-7
+sigma = 23.75e6
+r     = 0
+r0    = 45e-3
+B0    = 6.9e-2
+npts  = 1e3
+fmin  = 1
+fmax  = 250
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '        ' + '$\mu_0'   + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'  + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$r'       + '$ & $' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_0'     + '$ & $' +  '\SI{'   + str(r0)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$B_0'     + '$ & $' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'    + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}' + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}' + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -57,13 +69,13 @@ plot_2_title            = r"Phase Magnetfeld, Spule mit Vollzylinder"
 # generator.                                               #
 # ---------------------------------------------------------#
 
-k = lambda f: sqrt((2*np.pi*f*params['mu0']*params['sigma'])/2)*(mpc(1,-1))
+k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
 
 # Enumerator:
-enum  = lambda f: besselj(0,k(f)*params['r'])
-denom = lambda f: besselj(0,k(f)*params['r0'])
+enum  = lambda f: besselj(0,k(f)*r)
+denom = lambda f: besselj(0,k(f)*r0)
 
-B = lambda f: enum(f) / denom(f) * params['B0']
+B = lambda f: enum(f) / denom(f) * B0
 
 B_abs = lambda f: abs(B(f))
 B_arg = lambda f: arg(B(f))
@@ -71,9 +83,9 @@ B_arg = lambda f: arg(B(f))
 # ---------------------------------------------------------#
 # Generate points for frequency axis                       #
 # ---------------------------------------------------------#
-n                = np.linspace(0,params['npts'],params['npts'])
+n                = np.linspace(0,npts,npts)
 expufunc         = np.frompyfunc(exp,1,1)
-frequency_vector = params['fmin']*expufunc(n*log(params['fmax']-params['fmin'])/params['npts'])
+frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
 
 
 # ---------------------------------------------------------#
@@ -126,7 +138,7 @@ axes1.scatter(frequencies_measured,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes1.set_xlim([params['fmin']*0.9,params['fmax']*1.1])
+axes1.set_xlim([fmin*0.9,fmax*1.1])
 axes1.set_xscale(plot_scale_x)
 axes1.set_xlabel(plot_label_x,fontdict=font)
 axes1.set_ylabel(plot_1_label_y,fontdict=font)
@@ -141,7 +153,7 @@ axes2.scatter(frequencies_measured,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes2.set_xlim([params['fmin']*0.9,params['fmax']*1.1])
+axes2.set_xlim([fmin*0.9,fmax*1.1])
 axes2.set_xscale(plot_scale_x)
 axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
@@ -155,9 +167,41 @@ fig.savefig('plots-pdf/massive--alu--freq.pdf')
 
 
 # ---------------------------------------------------------#
-# save listing to file                                     #
+# Save listing to file                                     #
 # ---------------------------------------------------------#
-dumpfile = open('listings/massive--alu--freq.txt', 'w')
-for key,value in params.items():
-    dumpfile.writelines(key + ": " + str(value) + "\n")
+dumpfile = open('listings/massive--alu--freq.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramaterwerte f\"ur  Fitfunktion des  Frequenzgangs (Betrag und Phase
+        des  B-Feldes)   f\"ur  Spule  mit  eingef\"uhrtem   Vollzylinder  aus
+        Aluminum. Direktimport aus Python-Script, gerundet.
+    }
+    \label{tab:fitparams:alu:freq}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
 dumpfile.close()

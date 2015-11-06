@@ -28,6 +28,24 @@ l     = 500e-3                                         # length of copper coil
 npts  = 1e3
 fmin  = 1
 fmax  = 250
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '        ' + '$\mu_0'    + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'   + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$d_{Sp}'   + '$ & $' +  '\SI{'   + str(dsp)    + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{Sp}'   + '$ & $' +  '\SI{'   + str(rsp)    + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r'        + '$ & $' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{0}'    + '$ & $' +  '\SI{'   + str(r0)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$B_0'      + '$ & $' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
+        '        ' + '$l'        + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'     + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$N_0'      + '$ & $' +  r'\num{' + str(N0)     + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}'  + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}'  + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -41,8 +59,8 @@ plot_scale_x   = 'log'
 plot_label_x   = 'Frequenz (Hz)'
 plot_1_label_y = r"$\displaystyle \biggl| \frac{\Phi}{I} \biggr|$ $\biggl( \displaystyle \frac{Vs}{A} \biggr)$"
 plot_2_label_y = r"$\displaystyle arg\biggl( \frac{\Phi}{I} \biggr)$ (Grad)"
-plot_1_title   = r"Betrag Magn. Fluss normiert auf Spulenstrom, Spule mit Kupferrohr"
-plot_2_title   = r"Phase Magn. Fluss normiert auf Spulenstrom, Spule mit Kupferrohr"
+plot_1_title   = r"Betrag Magn. Fluss normiert auf Spulenstrom, Spule mit Vollzylinder aus Aluminium"
+plot_2_title   = r"Phase Magn. Fluss normiert auf Spulenstrom, Spule mit Vollzylinder aus Aluminium"
 
 
 # ---------------------------------------------------------#
@@ -127,3 +145,43 @@ fig.subplots_adjust(bottom=0.1,left=0.125,right=0.925,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/massive--alu--freq--phi-norm.pgf')
 fig.savefig('plots-pdf/massive--alu--freq--phi-norm.pdf')
+
+
+# ---------------------------------------------------------#
+# Save listing to file                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/massive--alu--phi-norm.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:alu:freq:phi},
+        gerundet.
+    }
+    \label{tab:fitparams:alu:phi}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
+dumpfile.close()

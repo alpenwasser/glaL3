@@ -28,6 +28,24 @@ l     = 500e-3                                         # length of copper coil
 npts  = 1e3
 fmin  = 1
 fmax  = 250
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '        ' + '$\mu_0'    + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'   + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$d_{Sp}'   + '$ & $' +  '\SI{'   + str(dsp)    + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{Sp}'   + '$ & $' +  '\SI{'   + str(rsp)    + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r'        + '$ & $' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{0}'    + '$ & $' +  '\SI{'   + str(r0)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$B_0'      + '$ & $' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
+        '        ' + '$l'        + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'     + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$N_0'      + '$ & $' +  r'\num{' + str(N0)     + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}'  + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}'  + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -112,3 +130,43 @@ fig.subplots_adjust(bottom=0.15,left=0.1,right=0.9,top=0.9,hspace=0.5)
 
 fig.savefig('plots-pgf/massive--alu--R.pgf')
 fig.savefig('plots-pdf/massive--alu--R.pdf')
+
+
+# ---------------------------------------------------------#
+# Save listing to file                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/massive--alu--R.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:alu:freq:R},
+        gerundet.
+    }
+    \label{tab:fitparams:alu:R}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
+dumpfile.close()
