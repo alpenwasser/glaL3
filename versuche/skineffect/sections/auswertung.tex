@@ -242,10 +242,12 @@ Resultate zu verifizieren.
 \label{sec:ausw:subsec:vollz:subsubsec:LR}
 % ---------------------------------------------------------------------------- %
 
-Wie  erw\"ahnt, wurden  keine direkten  Messungen von  $L_{Spule +  Zylinder}$
-und  $R_{Spule  + Zylinder}$  durchgef\"uhrt. Mit  den  Informationen aus  den
-Fits  k\"onnen  jedoch   trotztem  Plots  erstellt  und   aus  diesen  gewisse
-R\"uckschl\"usse gezogen werden.
+Wie erw\"ahnt, wurden keine direkten  Messungen von $L_{Spule + Zylinder}$ und
+$R_{Spule  + Zylinder}$  durchgef\"uhrt. Mit  den Informationen  aus den  Fits
+(also prim\"ar  der dort  bestimmten Leitf\"ahgiekt) k\"onnen  jedoch trotztem
+Plots erstellt werden.
+
+%TODO reference formulas
 
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--L.pgf}}
@@ -329,24 +331,26 @@ Wie man  erkennen kann,  funktionierte das Justieren  dieses Wertes  sehr gut,
 weshalb bei den \"ubrigen Messungen auf seine Erfassung verzichtet wurde.
 
 \clearpage
-{\pdfpagewidth=2\pdfpagewidth
-	\textwidth=2\textwidth
-    \addtolength{\textwidth}{40mm}
-	\begin{minipage}[c][][t]{0.77\textwidth}
-		\resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
-		\captionof{figure}{N\"aherungsl\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
-		\label{fig:cu:freq:approx}
-	\end{minipage}%
-	\begin{minipage}[c][][t]{0.23\textwidth}
-		\input{listings/hollow--cu--freq--approx.tex}
-
-		Als  Fitfunktion  wurde   Gleichung  \ref{eq:hohlzylinder:BApprox}  (Seite
-		\pageref{eq:hohlzylinder:BApprox}) verwendet.
-
-		\begin{equation*}
-			B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
-		\end{equation*}
-	\end{minipage}
+% START USEFUL
+%{\pdfpagewidth=2\pdfpagewidth
+%	\textwidth=2\textwidth
+%    \addtolength{\textwidth}{40mm}
+%	\begin{minipage}[c][][t]{0.77\textwidth}
+%		\resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
+%		\captionof{figure}{N\"aherungsl\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
+%		\label{fig:cu:freq:approx}
+%	\end{minipage}%
+%	\begin{minipage}[c][][t]{0.23\textwidth}
+%		\input{listings/hollow--cu--freq--approx.tex}
+%
+%		Als  Fitfunktion  wurde   Gleichung  \ref{eq:hohlzylinder:BApprox}  (Seite
+%		\pageref{eq:hohlzylinder:BApprox}) verwendet.
+%
+%		\begin{equation*}
+%			B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
+%		\end{equation*}
+%	\end{minipage}
+%%%%%%%%% END USEFUL
 	%\vspace*{-2cm}
     %\noindent\kern.5\pdfpagewidth\rlap{\parbox{\textwidth}{%
     %\noindent\kern.25\pdfpagewidth
@@ -364,8 +368,8 @@ weshalb bei den \"ubrigen Messungen auf seine Erfassung verzichtet wurde.
 %	\captionof{figure}{Right side image A3.}}
 %	\par
 %	\vspace*{-5cm}
-\clearpage
-}
+%\clearpage % ADDENDUM USEFUL
+%}
 
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
@@ -429,11 +433,13 @@ weshalb bei den \"ubrigen Messungen auf seine Erfassung verzichtet wurde.
 \label{sec:ausw:subsec:hohlz:cu:subsubsec:LR}
 % ---------------------------------------------------------------------------- %
 
-Die    Kurven     f\"ur    $L$,    $R$     und    $\frac{\hat{\Phi}}{\hat{I}}$
-basieren    nicht   direkt    auf   Messwerten,    sondern   wurden    mittels
-den    Formeln    \ref{eq:hohlzylinder:phiNormExact}   (siehe    auch    Seite
-\pageref{eq:hohlzylinder:phiNormExact})  und  den  aus   den  Fits  f\"ur  die
-Messungen ermittelten Parametersn erstellt.
+Wie  in  Abschnitt \ref{sec:ausw:subsec:vollz:subsubsec:LR}  zum  Vollzylinder
+erw\"ahnt, wurden hier keine Messungen  durchgef\"uhrt und die Kurven basieren
+auf den mittels der Fits ermittelten Parameter.
+
+Als Funktionen f\"ur  die Plots von $L$,  $R$ und $\frac{\hat{\Phi}}{\hat{I}}$
+wurden  die  Formeln   \ref{eq:hohlzylinder:phiNormExact}  (siehe  auch  Seite
+\pageref{eq:hohlzylinder:phiNormExact}) benutzt:
 
 \begin{align*}
     \tag{\ref{eq:hohlzylinder:phiNormExact}}
@@ -555,12 +561,19 @@ noch weiter h\"atte gehen k\"onnen.
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--approx.pgf}}
 \end{figure}
+\input{listings/hollow--st--freq--approx.tex}
+
+
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact.pgf}}
 \end{figure}
+\input{listings/hollow--st--freq--exact.tex}
+
+
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact-opt.pgf}}
 \end{figure}
+\input{listings/hollow--st--freq--exact-opt.tex}
 
 
 % ---------------------------------------------------------------------------- %
@@ -569,12 +582,35 @@ noch weiter h\"atte gehen k\"onnen.
 \label{sec:ausw:subsec:hohlz:st:subsubsec:LR}
 % ---------------------------------------------------------------------------- %
 
+Wie  in  Abschnitt \ref{sec:ausw:subsec:vollz:subsubsec:LR}  zum  Vollzylinder
+erw\"ahnt, wurden hier keine Messungen  durchgef\"uhrt und die Kurven basieren
+auf den mittels der Fits ermittelten Parameter.
+
+Als Funktionen f\"ur  die Plots von $L$,  $R$ und $\frac{\hat{\Phi}}{\hat{I}}$
+wurden  die  Formeln   \ref{eq:hohlzylinder:phiNormExact}  (siehe  auch  Seite
+\pageref{eq:hohlzylinder:phiNormExact}) benutzt:
+
+\begin{align*}
+    \tag{\ref{eq:hohlzylinder:phiNormExact}}
+    \begin{split}
+    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
+                               & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+                               & + (r_{Sp}^2 - r_2^2) \Biggr)
+    \end{split} \\
+    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
+    R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
+\end{align*}
+
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--phi-norm.pgf}}
 \end{figure}
+\input{listings/hollow--st--phi-norm.tex}
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--L.pgf}}
 \end{figure}
+\input{listings/hollow--st--L.tex}
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--R.pgf}}
 \end{figure}
+\input{listings/hollow--st--R.tex}

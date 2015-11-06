@@ -214,9 +214,7 @@ table_opening = r"""
     \begin{center}
     \captionof{table}{%
         Paramterwerte  f\"ur  Fitfunktion,   Direktimport  aus  Python-Script,
-        gerundet  (die Pr\"azision  von Python  ist nat\"urlich  h\"oher). Die
-        ungerundeten Zahlen  k\"onnen bei  Interesse auch  im \LaTeX-Quelltext
-        gefunden werden.
+        gerundet.
     }
     \label{tab:fitparams:cu:freq:approx}
     \sisetup{%

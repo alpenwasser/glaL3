@@ -30,6 +30,23 @@ l     = 500e-3                                         # length of copper coil
 npts  = 1e3
 fmin  = 8e1
 fmax  = 5e4
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '        ' + '$\mu_0'        + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'       + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$d_{Sp}'       + '$ & $' +  '\SI{'   + str(dsp)    + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{Sp}'       + '$ & $' +  '\SI{'   + str(rsp)    + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_1'          + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_2'          + '$ & $' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$l'            + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$l'            + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'         + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}'      + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}'      + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -174,3 +191,47 @@ fig.subplots_adjust(bottom=0.1,left=0.125,right=0.925,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/hollow--st--freq--phi-norm.pgf')
 fig.savefig('plots-pdf/hollow--st--freq--phi-norm.pdf')
+
+
+# ---------------------------------------------------------#
+# Save listing to file                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/hollow--st--phi-norm.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramterwerte f\"ur  Frequenzgang des  auf den  Spulenstrom normierten
+        magnetischen Flusses  der Konfiguration  aus Spule  und Stahlzylinder,
+        innerhalb   des    Stahlzylinders. Direktimport   aus   Python-Script,
+        gerundet.   Der dargestellte  Frequenzbereicht wurde  so ausgew\"ahlt,
+        um  einen  ``sinnvollen'' Kurvenverlauf  zu  erhalten,  und ist  somit
+        bedeutend gr\"osser als der Messbereich.
+    }
+    \label{tab:fitparams:st:phi}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
+dumpfile.close()

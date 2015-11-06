@@ -24,13 +24,37 @@ rsp   = dsp / 2                                               # radius of coil
 r1    = 30e-3                                # inner radius of copper cylinder
 r2    = 35e-3                                # outer radius of copper cylinder
 B0    = 6.9e-2                             # adjust this as needed for scaling
-N0    = 574                                   # number of turns of copper coil
-l     = 500e-3                                         # length of copper coil
 npts  = 1e3                                  # number of points for plot curve
 fmin  = 1                   # minimum frequency, adjusted to measurement range
 fmax  = 7.5e3               # maximum frequency, adjusted to measurement range
 fmin_opt = 8e1                # minimum frequency, adjusted to get a nice plot
 fmax_opt = 5e4                # maximum frequency, adjusted to get a nice plot
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '        ' + '$\mu_0'         + '$ & $' +  '\SI{'   + str(mu0)        + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'        + '$ & $' +  '\SI{'   + str(sigma)      + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$r'             + '$ & $' +  '\SI{'   + str(r)          + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_1'           + '$ & $' +  '\SI{'   + str(r1)         + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_2'           + '$ & $' +  '\SI{'   + str(r2)         + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$B_0'           + '$ & $' +  '\SI{'   + str(B0)         + r'}{\tesla}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'          + '$ & $' +  r'\num{' + str(npts)       + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}'       + '$ & $' +  '\SI{'   + str(fmin)       + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}'       + '$ & $' +  '\SI{'   + str(fmax)       + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
+params_opt = [
+        '        ' + '$\mu_0'         + '$ & $' +  '\SI{'   + str(mu0)        + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'        + '$ & $' +  '\SI{'   + str(sigma)      + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$r'             + '$ & $' +  '\SI{'   + str(r)          + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_1'           + '$ & $' +  '\SI{'   + str(r1)         + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_2'           + '$ & $' +  '\SI{'   + str(r2)         + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$B_0'           + '$ & $' +  '\SI{'   + str(B0)         + r'}{\tesla}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'          + '$ & $' +  r'\num{' + str(npts)       + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min_{opt}}' + '$ & $' +  '\SI{'   + str(fmin_opt)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max_{opt}}' + '$ & $' +  '\SI{'   + str(fmax_opt)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -224,3 +248,86 @@ fig2.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
 
 fig2.savefig('plots-pgf/hollow--st--freq--exact-opt.pgf')
 fig2.savefig('plots-pdf/hollow--st--freq--exact-opt.pdf')
+
+
+# ---------------------------------------------------------#
+# Save listing to file                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/hollow--st--freq--exact.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramterwerte  f\"ur  exakte  Fitfunktion  des  Frequenzgangs  (Betrag
+        und  Phase des  B-Feldes)  f\"ur Spule  mit eingef\"uhrtem  Stahlrohr,
+        Frequenzbereich  deckt   nur  den  Messbereich   ab. Direktimport  aus
+        Python-Script, gerundet.
+    }
+    \label{tab:fitparams:cu:freq:exact}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
+dumpfile.close()
+
+dumpfile_opt = open('listings/hollow--st--freq--exact-opt.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramterwerte  f\"ur  exakte  Fitfunktion  des  Frequenzgangs  (Betrag
+        und  Phase des  B-Feldes), Direktimport  aus Python-Script,  gerundet,
+        f\"ur  optimierten Frequenzbereich.   Paramterwerte f\"ur  Fitfunktion
+        des  Frequenzgangs (Betrag  und Phase  des B-Feldes)  f\"ur Spule  mit
+        eingef\"uhrtem Stahlrohr. Der Frequenzbereich  wurde f\"ur diesen Plot
+        weit \"uber den Messbereicht geschoben, um die ''typische`` Form einer
+        solchen Kurve abzubilden. Direktimport aus Python-Script, gerundet.
+    }
+    \label{tab:fitparams:cu:freq:exact:opt}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile_opt.writelines(table_opening)
+
+for line in params_opt:
+    dumpfile_opt.writelines(line)
+
+dumpfile_opt.writelines(table_closing)
+dumpfile_opt.close()

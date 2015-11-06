@@ -18,17 +18,32 @@ from matplotlib.pyplot import *
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7                                        # vacuum permeability
 sigma = 1.25e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
-dsp   = 98e-3                                               # diameter of coil
-rsp   = dsp / 2                                               # radius of coil
 r1    = 30e-3                                # inner radius of copper cylinder
 r2    = 35e-3                                # outer radius of copper cylinder
 r_avg = (r1+r2)/2                                 # average radius of cylinder
 d_rohr = r2 - r1                           # wall thickness of copper cylinder
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
-npts  = 1e3
+npts  = 1e1
 fmin  = 1
 fmax  = 7500
+    # -----------------------------------------------------#
+    # Create  a list  for convenient  printing of  vars to #
+    # file, add LaTeX where necessary.                     #
+    # -----------------------------------------------------#
+params = [
+        '        ' + '$\mu_0'    + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'   + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$r_1'      + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_2'      + '$ & $' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{avg}'  + '$ & $' +  '\SI{'   + str(r_avg)  + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$d_{Rohr}' + '$ & $' +  '\SI{'   + str(d_rohr) + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$N_0'      + '$ & $' +  r'\num{' + str(N0)     + r'}'                             + r'$\\' + "\n",
+        '        ' + '$l'        + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$NPTS'     + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}'  + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}'  + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        ]
 font = {
         'family' : 'serif',
         'color'  : 'black',
@@ -179,3 +194,43 @@ fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/hollow--st--freq--approx.pgf')
 fig.savefig('plots-pdf/hollow--st--freq--approx.pdf')
+
+
+# ---------------------------------------------------------#
+# Save listing to file                                     #
+# ---------------------------------------------------------#
+dumpfile = open('listings/hollow--st--freq--approx.tex', 'w')
+
+table_opening = r"""
+{%
+    \begin{center}
+    \captionof{table}{%
+        Paramterwerte  f\"ur die  approximative Fitfunktion,  Direktimport aus
+        Python-Script, gerundet.
+    }
+    \label{tab:fitparams:st:freq:approx}
+    \sisetup{%
+        %math-rm=\mathtt,
+        scientific-notation=engineering,
+        table-format = +3.2e+2,
+        round-precision = 2,
+        round-mode = figures,
+    }
+    \begin{tabular}{lr}
+    \toprule
+"""
+table_closing = r"""
+    \bottomrule
+    \end{tabular}
+    \end{center}
+}
+
+"""
+
+dumpfile.writelines(table_opening)
+
+for line in params:
+    dumpfile.writelines(line)
+
+dumpfile.writelines(table_closing)
+dumpfile.close()
