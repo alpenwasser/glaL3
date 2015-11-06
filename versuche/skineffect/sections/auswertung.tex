@@ -329,6 +329,43 @@ Wie man  erkennen kann,  funktionierte das Justieren  dieses Wertes  sehr gut,
 weshalb bei den \"ubrigen Messungen auf seine Erfassung verzichtet wurde.
 
 \clearpage
+{\pdfpagewidth=2\pdfpagewidth
+	\textwidth=2\textwidth
+    \addtolength{\textwidth}{40mm}
+	\begin{minipage}[c][][t]{0.77\textwidth}
+		\resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
+		\captionof{figure}{N\"aherungsl\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
+		\label{fig:cu:freq:approx}
+	\end{minipage}%
+	\begin{minipage}[c][][t]{0.23\textwidth}
+		\input{listings/hollow--cu--freq--approx.tex}
+
+		Als  Fitfunktion  wurde   Gleichung  \ref{eq:hohlzylinder:BApprox}  (Seite
+		\pageref{eq:hohlzylinder:BApprox}) verwendet.
+
+		\begin{equation*}
+			B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
+		\end{equation*}
+	\end{minipage}
+	%\vspace*{-2cm}
+    %\noindent\kern.5\pdfpagewidth\rlap{\parbox{\textwidth}{%
+    %\noindent\kern.25\pdfpagewidth
+	%	\llap{\includegraphics[width=308mm,height=229mm,page=1]{figures/aaa.pdf}}\endgraf
+	%\vspace{2ex}%
+	%\captionof{figure}{Left side image A3.}}}\kern-.5\pdfpagewidth
+	%\par
+	%\vspace*{-5cm}
+%\clearpage
+%\thispagestyle{empty}
+%	\vspace*{-2cm}
+%	\noindent\parbox{\textwidth}{%
+%	\noindent\rlap{\includegraphics[width=308mm,height=229mm,page=2]{figures/aaa.pdf}}\endgraf
+%	\vspace{2ex}%
+%	\captionof{figure}{Right side image A3.}}
+%	\par
+%	\vspace*{-5cm}
+\clearpage
+}
 
 \begin{figure}[h!]
     \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
