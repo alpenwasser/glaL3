@@ -175,9 +175,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramaterwerte f\"ur  Fitfunktion des  Frequenzgangs (Betrag und Phase
-        des  B-Feldes)   f\"ur  Spule  mit  eingef\"uhrtem   Vollzylinder  aus
-        Aluminum. Direktimport aus Python-Script, gerundet.
+        Paramaterwerte f\"ur  Fitfunktion des  Frequenzgangs
     }
     \label{tab:fitparams:alu:freq}
     \sisetup{%

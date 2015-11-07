@@ -54,7 +54,7 @@ plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 32
+plot_size_measurements  = 16
 plot_scale_x            = 'linear'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'radiale Position bezogen auf Zylinderachse (mm)'
@@ -183,11 +183,8 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Fitfunktion  basierend   auf  exakter  L\"osung  f\"ur   die  radialen
-        Verl\"aufe  von   Betrag  und  Phase  des   B-Feldes  innerhalb  eines
-        Vollzylinders  (Aluminium)  eingef\"uhrt  in  eine  Zylinderspule  bei
-        $\SI{30}{\hertz}$   (niedriger   Frequenzbereich).    Direktimport   aus
-        Python-Script, gerundet.
+        Paramaterwerte f\"ur  Fitfunktion des  radialen Verlaufs  des B-Feldes
+        bei $\SI{30}{\hertz}$
     }
     \label{tab:fitparams:alu:freq:high:exact}
     \sisetup{%

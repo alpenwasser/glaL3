@@ -79,17 +79,56 @@ mit viel  mehr Dezimalstellen. Die Werte  sind in ihrer vollen  Pr\"azision im
 \LaTeX-Quellcode zu finden \cite{ref:aw:github}.
 
 
-{%
+% **************************************************************************** %
+\subsection{Vollzylinder}
+\label{sec:ausw:subsec:hohlz}
+% **************************************************************************** %
+
+Mit   eingef\"uhrtem   Aluminium-Vollzylinder   wurden   drei   Messreihen
+durchgef\"uhrt:
+\begin{itemize}
+    \item
+        Frequenzgang des B-Feldes,
+    \item
+        radialer    Verlauf    des    B-Feldes    bei    niedriger    Frequenz
+        ($\SI{30}{\hertz}$),
+    \item
+        und    radialer   Verlauf    des   B-Feldes    bei   hoher    Frequenz
+        ($\SI{450}{\hertz}$).
+\end{itemize}
+
+Dabei wurden  jeweils Betrag  und Phase  des Magnetfeldes  ausgemessen. Zu den
+Messwerten wurden anschliessend folgende Fitkurven erstellt:
+\begin{itemize}
+    \item
+        Frequenzgang, exakte L\"osung,
+    \item
+        radialer Verlauf bei tiefer Frequenz, exakte L\"osung,
+    \item
+        Hochfrequenzn\"aherung  f\"ur  den  radialen  Verlauf,  angewandt  auf
+        niedrige Frequenz  (\"Uberpr\"ufung, dass  es auch  tats\"achlich eine
+        Hochfrequenzn\"aherung ist),
+    \item
+        radialer Verlauf bei hoher Frequenz, exakte L\"osung,
+    \item
+        sowie die Hochfrequenzn\"aherung f\"ur den radialen Verlauf, angewandt
+        auf hohe Frequenz.
+\end{itemize}
+
+Zudem  wurden als  Erg\"anzung noch  Plots f\"ur  den magnetischen  Fluss, den
+Ohm'schen Widerstand  und den Selbstinduktionskoeffizienten  der Konfiguration
+aus  Spule und  Vollzylinder  erstellt,  basierend auf  den  Werten f\"ur  die
+Leitf\"ahigkeit  und  das externe  Magnetfeld,  welche  aus den  Fitfunktionen
+ermittelt worden waren.
+
+% TODO: reference sections and equations
+
+
+{% START A3 PAGES
     \clearpage
     \pdfpagewidth=2\pdfpagewidth
 	\textwidth=2\textwidth
     \addtolength{\textwidth}{70mm}
-
-
-    % ************************************************************************ %
-    \subsection{Vollzylinder}
-    \label{sec:ausw:subsec:hohlz}
-    % ************************************************************************ %
 
 
     % ------------------------------------------------------------------------ %
@@ -99,9 +138,13 @@ mit viel  mehr Dezimalstellen. Die Werte  sind in ihrer vollen  Pr\"azision im
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0pt}
-        Es  wurde  die  St\"arke  des  B-Feldes  in  Abh\"angigkeit  der  Frequenz
-        des   \"ausseren  B-Feldes   gemessen. Die  Messwerte   sind  in   Tabelle
-        \ref{tab:meas:alu:freq} zu finden.
+        Es  wurde  die  St\"arke  des  B-Feldes  im  Innern  des  Aluzylinders
+        in    Abh\"angigkeit   der    Frequenz    des   \"ausseren    B-Feldes
+        gemessen. Die   Messwerte   sind  in   Tabelle~\ref{tab:meas:alu:freq}
+        zu  finden,   die  Platzierung   der  Sonde   war  axial   und  radial
+        zentriert    fixiert   (siehe    Abbildung~\ref{fig:alu:freq:sensor}).
+        Tabelle~\ref{tab:fitparams:alu:freq}  enth\"ahlt  die Parameter  f\"ur
+        den Fit aus Abbildung~\ref{fig:alu:freq:exact}.
 
         \begin{center}
             \captionof{table}{Vollzylinder aus Aluminium, frequenzabh\"angig}
@@ -134,9 +177,17 @@ mit viel  mehr Dezimalstellen. Die Werte  sind in ihrer vollen  Pr\"azision im
                 \bottomrule
             \end{tabular}%
         \end{center}
-        \input{listings/massive--alu--freq.tex}
+        \vspace{1em}
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/massive--alu--freq.tex}
+        \end{minipage}%
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
+            \captionof{figure}{Sensorplatzierung w\"ahrend Messung}
+            \label{fig:alu:freq:sensor}
+        \end{minipage}
 	\end{minipage}%
-	%\begin{minipage}[c][][t]{0.77\textwidth}
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0pt}\raggedright
         \hfill
@@ -193,7 +244,16 @@ mit viel  mehr Dezimalstellen. Die Werte  sind in ihrer vollen  Pr\"azision im
                 \bottomrule
             \end{tabular}
         \end{center}
-        \input{listings/massive--alu--low-freq--exact.tex}
+        \vspace{1em}
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/massive--alu--low-freq--exact.tex}
+        \end{minipage}%
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \resizebox{\textwidth}{!}{\input{images/sensor-radial-complete.tex}}
+            \captionof{figure}{Sensorplatzierung w\"ahrend Messung}
+            \label{fig:alu:rad:low:sensor}
+        \end{minipage}
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0mm}
@@ -238,24 +298,32 @@ mit viel  mehr Dezimalstellen. Die Werte  sind in ihrer vollen  Pr\"azision im
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0mm}
-        Auch in dieser Messreiehe wurde die Frequenz konstant gehalten, jedoch
-        bei einer bedeutend h\"oheren Frequenz ($\SI{450}{\hertz}$). Ebenfalls
-        wurde nicht  der gleiche radiale Bereich  ausgemessen: Die Sonde wurde
-        auf halbem Radius positioniert,  ansschliessend wurde die Frequenz des
-        externen  B-Feldes  so  weit  erh\"oht,  bis  gerade  noch  brauchbare
-        Messwerte abgelesen werden konnten.
+        Auch  in  dieser  Messreiehe  wurde die  Frequenz  konstant  gehalten,
+        jedoch  $\SI{450}{\hertz}$. Zudem  wurde  nicht  der  gleiche  radiale
+        Bereich ausgemessen: Die  Sonde wurde auf halbem  Radius positioniert,
+        ansschliessend  wurde  die  Frequenz  des externen  B-Feldes  so  weit
+        erh\"oht,  bis  gerade  noch  brauchbare  Messwerte  abgelesen  werden
+        konnten.
 
-        Bei  der  so  ermittelten  Frequenz wurde  dann  der  radiale  Verlauf
-        des  B-Feldes auf  der restlichen  H\"alfte gegen  den Aussenrand  des
-        Vollzylinders ausgemessen.
+        Bei    der     so    ermittelten     Frequenz    wurde     dann    der
+        radiale   Verlauf   des   B-Feldes   auf   der   restlichen   H\"alfte
+        gegen   den   Aussenrand    des   Vollzylinders   ausgemessen   (siehe
+        Abbildung~\ref{fig:alu:rad:low:sensor}).
 
-        Die   Messwerte   sind   in  Tabelle  ~\ref{tab:meas:alu:rad:450}   zu
-        finden. Wie man erkennen  kann, fallen sie viel st\"arker  ab, als bei
-        $\SI{30}{\hertz}$ (siehe Tabelle ~\ref{tab:meas:alu:rad:30}).
+        Die   Messwerte  sind   in   Tabelle  ~\ref{tab:meas:alu:rad:450}   zu
+        finden.
+
+        % TODO: put this in discussion with combined plot
+        %Wie  man  erkennen  kann,  fallen sie  gegen  das  Innere  des
+        %Zylinders viel st\"arker ab,  als bei $\SI{30}{\hertz}$ (siehe Tabelle
+        %~\ref{tab:meas:alu:rad:30}). Die  Wirbelstr\"ome   in  den  \"ausseren
+        %Bereichen des  Zylinders schirmen also dessen  Inneres st\"arker gegen
+        %das \"aussere B-Feld ab; der Skineffekt ist ausgepr\"agter.
+
         \begin{center}
-            \sisetup{math-rm=\mathtt}
             \captionof{table}{Messwerte Vollzylinder aus Aluminium, $\SI{450}{\hertz}$}
             \label{tab:meas:alu:rad:450}
+            \sisetup{math-rm=\mathtt}
             \begin{tabular}{%
                 S[table-number-alignment=right]
                 S[table-number-alignment=right]
@@ -280,7 +348,16 @@ mit viel  mehr Dezimalstellen. Die Werte  sind in ihrer vollen  Pr\"azision im
                 \bottomrule
             \end{tabular}
         \end{center}
-        \input{listings/massive--alu--high-freq--exact.tex}
+        \vspace{1em}
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/massive--alu--high-freq--exact.tex}
+        \end{minipage}%
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \resizebox{\textwidth}{!}{\input{images/sensor-radial-partial.tex}}
+            \captionof{figure}{Sensorplatzierung w\"ahrend Messung}
+            \label{fig:alu:rad:low:sensor}
+        \end{minipage}
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0mm}
@@ -305,40 +382,62 @@ mit viel  mehr Dezimalstellen. Die Werte  sind in ihrer vollen  Pr\"azision im
         \label{fig:alu:rad:approx:high}
 	\end{minipage}
 
+    % ------------------------------------------------------------------------ %
+    \subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
+    \label{sec:ausw:subsec:vollz:subsubsec:LR}
+    % ------------------------------------------------------------------------ %
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0mm}
+        Wie  erw\"ahnt,  wurden  keine  direkten  Messungen  von  $L_{Spule  +
+        Zylinder}$   und  $R_{Spule   +  Zylinder}$   durchgef\"uhrt. Mit  den
+        Informationen  aus  den  Fits   (also  prim\"ar  der  dort  bestimmten
+        Leitf\"ahgiekt) k\"onnen jedoch trotztem Plots erstellt werden.
+
+        \vspace{2em}
+        %TODO reference formulas
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/massive--alu--L.tex}
+        \end{minipage}%
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/massive--alu--R.tex}
+        \end{minipage}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0mm}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--L.pgf}}
+        \captionof{figure}{%
+            \"Anderung des  Selbstinduktionskoeffizienten \"uber  Frequenz von
+            Spule mit eingef\"uhrtem Aluminium-Vollzylinder}
+        \label{fig:alu:freq:L}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--R.pgf}}
+        \captionof{figure}{%
+            \"Anderung des Ohm'schen Widerstandes von Spule mit eingef\"uhrtem
+            Aluminium-Vollzylinder}
+        \label{fig:alu:freq:R}
+	\end{minipage}
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0mm}
+        \input{listings/massive--alu--phi-norm.tex}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0mm}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--freq--phi-norm.pgf}}
+        \captionof{figure}{%
+            \"Anderung  des   auf  den  Spulenstrom   normierten  magnetischen
+            Flusses  innerhalb  des  Zylinders von  Spule  mit  eingef\"uhrten
+            Aluminium-Vollzylinder}
+        \label{fig:alu:freq:phi}
+	\end{minipage}
+
+
 \clearpage
-}
+} %END OF A3 PAGES
 
 
-% ---------------------------------------------------------------------------- %
-\subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
-\label{sec:ausw:subsec:vollz:subsubsec:LR}
-% ---------------------------------------------------------------------------- %
-
-Wie erw\"ahnt, wurden keine direkten  Messungen von $L_{Spule + Zylinder}$ und
-$R_{Spule  + Zylinder}$  durchgef\"uhrt. Mit  den Informationen  aus den  Fits
-(also prim\"ar  der dort  bestimmten Leitf\"ahgiekt) k\"onnen  jedoch trotztem
-Plots erstellt werden.
-
-%TODO reference formulas
-
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--L.pgf}}
-    \caption{\"Anderung des Selbstinduktionskoeffizienten von Spule mit eingef\"uhrten Aluminium-Vollzylinder}
-    \label{fig:alu:freq:L}
-\end{figure}
-\input{listings/massive--alu--L.tex}
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--R.pgf}}
-    \caption{\"Anderung des Ohm'schen Widerstandes von Spule mit eingef\"uhrtem Aluminium-Vollzylinder}
-    \label{fig:alu:freq:R}
-\end{figure}
-\input{listings/massive--alu--R.tex}
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/massive--alu--freq--phi-norm.pgf}}
-    \caption{\"Anderung des auf den Spulenstrom normierten magnetischen Flusses innerhalb des Zylinders von Spule mit eingef\"uhrten Aluminium-Vollzylinder}
-    \label{fig:alu:freq:phi}
-\end{figure}
-\input{listings/massive--alu--phi-norm.tex}
 
 
 % **************************************************************************** %

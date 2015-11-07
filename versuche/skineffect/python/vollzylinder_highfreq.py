@@ -181,11 +181,8 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Fitfunktion  basierend   auf  exakter  L\"osung  f\"ur   die  radialen
-        Verl\"aufe  von   Betrag  und  Phase  des   B-Feldes  innerhalb  eines
-        Vollzylinders  (Aluminium)  eingef\"uhrt  in  eine  Zylinderspule  bei
-        $\SI{450}{\hertz}$   (hoher   Frequenzbereich).     Direktimport   aus
-        Python-Script, gerundet.
+        Parameter        f\"ur         Fitfunktion        aus        Abbildung
+        \ref{fig:alu:rad:exact:high}.
     }
     \label{tab:fitparams:alu:freq:high:exact}
     \sisetup{%

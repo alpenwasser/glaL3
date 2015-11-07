@@ -117,7 +117,7 @@ matplotlib.pyplot.rc('text', usetex=True)
 matplotlib.pyplot.rc('font', family='serif')
 
 figwidth = 8.27 # in inches
-fig  = figure(1,figsize=(figwidth,figwidth*0.4))
+fig  = figure(1,figsize=(figwidth,figwidth*0.36))
 axes = fig.add_subplot(111)
 axes.plot(frequency_vector,R_num,linewidth=plot_linewidth,color=plot_color_fit)
 axes.set_xscale(plot_scale_x)
@@ -126,7 +126,7 @@ axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
 
-fig.subplots_adjust(bottom=0.15,left=0.1,right=0.9,top=0.9,hspace=0.5)
+fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.95)
 
 fig.savefig('plots-pgf/massive--alu--R.pgf')
 fig.savefig('plots-pdf/massive--alu--R.pdf')
