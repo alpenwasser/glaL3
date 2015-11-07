@@ -676,71 +676,99 @@ Fits ermittelten Parametern.
         %F\"ur  die exakte  L\"osung  konnte ein  sehr zufriedenstellender  Fit
         %erstellt werden (Abbildung \ref{fig:cu:freq:exact}).
 
-        Da dies die  erste durchgef\"uhrte Messreihe war,  wurde als Kontrolle
-        die Spannung \"uber dem Shunt-Widerstand gemessem.  Um den Strom durch
-        die Spule von  Messung zu Messung m\"oglichst konstant  zu halten (und
-        somit  auch das  externe  Magnetfeld $B_0$),  wurde angestrebt,  diese
-        Spannung m\"oglichst  bei $\SI{200}{\milli\volt}$  zu halten,  was mit
-        dem  Widerstandswert von  $\SI{1}{\ohm}$ einen  Spulenstrom $I_0$  von
-        $\SI{200}{\milli\ampere}$ ergab.  Wie man erkennen kann, funktionierte
-        das  Justieren  dieses Wertes  sehr  gut,  weshalb bei  den  \"ubrigen
-        Messungen auf seine Erfassung verzichtet wurde.
+        Es wurde das B-Feld in Abh\"angigkeit der Frequenz gemessen, wobei die
+        Messsonde axial und  radial zentriert im Innern  des Hohlzylinders war
+        (siehe Abbildung~\ref{fig:cu:freq:sensor}).
 
-        \begin{center}
-            \captionof{table}{Messwerte Kupferrohr}
-            \label{tab:meas:copper}
-            \sisetup{math-rm=\mathtt}
-            \begin{tabular}{
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                }
-                \toprule
-                {Frequenz ($\si{\hertz}$)}            &
-                {Phase ($\si{\degree}$)} &
-                {Amplitude ($\si{\milli\volt}$)}      &
-                {$V_{R_{Shunt}}$ ($\si{\milli\volt}$)} \\
-                \midrule
-                   1 &   2   & 70.0 & 195.3 \\
-                  10 &  19.2 & 66.0 & 200.0 \\
-                  20 &  35.5 & 57.8 & 200.0 \\
-                  40 &  56.7 & 41.8 & 200.3 \\
-                  80 &  76.7 & 24.4 & 200.0 \\
-                 120 &  87   & 16.9 & 200.1 \\
-                 160 &  94   & 12.7 & 200.1 \\
-                 200 & 100   & 10.0 & 200.0 \\
-                 400 & 121   &  4.8 & 200.0 \\
-                 600 & 140   &  2.9 & 199.7 \\
-                 800 & 155   &  1.9 & 200.5 \\
-                1000 & 170   &  1.4 & 200.2 \\
-                1200 & 180   &  1.0 & 200.0 \\
-                1500 & 200   &  0.7 & 199.9 \\
-                \bottomrule
-            \end{tabular}
-        \end{center}
+        Als       Formel       f\"ur        die       Fit-Funktion       wurde
+        Gleichung        \ref{eq:hohlzylinder:BExact}         von        Seite
+        \pageref{eq:hohlzylinder:BExact} benutzt:
+
+        \begin{equation}
+            \tag{\ref{eq:hohlzylinder:BExact}}
+            \hat{B}~(r = 0) = \hat{B}~(r = r_1) = \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \cdot \hat{B}_0 \\
+        \end{equation}
+
+        Tabelle  \ref{tab:fitparams:cu:freq:exact}   beinhaltet  die   in  die
+        Gleichung  eingesetzten Parameter,  zusammen  mit einem  Literaturwert
+        f\"ur   die   Leitf\"ahigkeit   von   Kupfer   aus   Horst   Kuchlings
+        \emph{Taschenbuch der Physik} ~\cite{ref:kuchling:resistivityTable}.
+
         \vspace{1em}
-        \begin{minipage}[c][][b]{0.5\textwidth}
-            \vspace{0pt}
-            \input{listings/hollow--cu--freq--exact.tex}
+
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            \begin{center}
+                \captionof{table}{Messwerte Kupferrohr}
+                \label{tab:meas:copper}
+                \sisetup{math-rm=\mathtt}
+                \begin{tabular}{
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    }
+                    \toprule
+                    {\rotatebox{60}{$f$ ($\si{\hertz}$)}}                  &
+                    {\rotatebox{60}{$\angle\hat{B}~(f)$ ($\si{\degree}$)}} &
+                    {\rotatebox{60}{$|\hat{B}~(f)|$ ($\si{\milli\volt}$)}} \\
+                    \midrule
+                       1 &   2   & 70.0 \\
+                      10 &  19.2 & 66.0 \\
+                      20 &  35.5 & 57.8 \\
+                      40 &  56.7 & 41.8 \\
+                      80 &  76.7 & 24.4 \\
+                     120 &  87   & 16.9 \\
+                     160 &  94   & 12.7 \\
+                     200 & 100   & 10.0 \\
+                     400 & 121   &  4.8 \\
+                     600 & 140   &  2.9 \\
+                     800 & 155   &  1.9 \\
+                    1000 & 170   &  1.4 \\
+                    1200 & 180   &  1.0 \\
+                    1500 & 200   &  0.7 \\
+                    \bottomrule
+                \end{tabular}
+            \end{center}
         \end{minipage}%
-        \begin{minipage}[c][][b]{0.5\textwidth}
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            \input{listings/hollow--cu--freq--exact.tex}
+
+            \vspace{1em}
             \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
             \captionof{figure}{Sensorposition w\"ahrend Messung}
             \label{fig:cu:freq:sensor}
+
         \end{minipage}
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0pt}\raggedright
         \hfill
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--exact.pgf}}
-        \captionof{figure}{Exakte L\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
+        \captionof{figure}{%
+            Exakte  L\"osung   f\"ur  den  Frequenzverlauf  des   B-Feldes  im
+            Hohlzylinder  (Kupfer). Es wurde  f\"ur den  Betrag und  die Phase
+            jeweils  ein  Fit  durchgef\"uhrt,  wobei sich  die  beiden  Werte
+            $\sigma_{Fit,|\hat{B}|}$  und  $\sigma_{Fit,\angle\hat{B}}$  nicht
+            stark  unterscheiden  und  beide  auch nicht  besonders  weit  vom
+            Literaturwert  $\sigma_{Kuch}$ entfernt  liegen (insb.  verglichen
+            mit dem Aluminium-Vollzylinder).
+        }
         \label{fig:cu:freq:exact}
 	\end{minipage}
 
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0pt}
+
+        F\"ur  die N\"aherung  eines  d\"unnwandigen Rohres  (also bei  tiefen
+        Frequenzen)  wurde Gleichung  \ref{eq:hohlzylinder:BApprox} von  Seite
+        \pageref{eq:hohlzylinder:BApprox} benutzt:
+
+        \begin{equation}
+            \tag{\ref{eq:hohlzylinder:BApprox}}
+            B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
+        \end{equation}
 
         Bei  der  gen\"aherten  Fit-Funktion  f\"allt  auf,  dass  der  Betrag
         der N\"aherungsl\"osung  \"uber den gesamten  Frequenzbereich ziemlich
@@ -758,7 +786,10 @@ Fits ermittelten Parametern.
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
         \captionof{figure}{%
             N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
-            Hohlzylinder (Kupfer)}
+            Hohlzylinder (Kupfer). Es wurde nur  auf den Betrag gefittet wegen
+            der  starken  Abweichung  der  Phase  von  den  Messwerten,  daher
+            lieferte diese N\"aherung ledliglich einen Wert f\"ur $\sigma$.
+        }
         \label{fig:cu:freq:approx}
 	\end{minipage}
 
@@ -773,12 +804,27 @@ Fits ermittelten Parametern.
 
         Wie   in    Abschnitt   \ref{sec:ausw:subsec:vollz:subsubsec:LR}   zum
         Vollzylinder erw\"ahnt, wurden hier keine Messungen durchgef\"uhrt und
-        die Kurven basieren auf den mittels der Fits ermittelten Parameter.
+        die Kurven basieren auf den mittels der Fits ermittelten Parameter. Es
+        gelten auch  hier die dort  bereits erw\"ahnten \"Uberlegungen  zu der
+        Wahl von $\sigma$ und $B_0$,  und die Wichtigkeit der Kurvenformen vor
+        absoluten Werten.
 
         Als     Funktionen     f\"ur     die    Plots     von     $L$,     $R$
         und      $\frac{\hat{\Phi}}{\hat{I}}$      wurden     die      Formeln
         \ref{eq:hohlzylinder:phiNormExact}       (siehe       auch       Seite
         \pageref{eq:hohlzylinder:phiNormExact}) benutzt:
+
+        \begin{align}
+            \tag{\ref{eq:hohlzylinder:phiNormExact}}
+            \begin{split}
+            \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
+                                       & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+                                       & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+                                       & + (r_{Sp}^2 - r_2^2) \Biggr)
+            \end{split} \\
+            L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
+            R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
+        \end{align}
 
         \vspace{2em}
         %TODO reference formulas
@@ -1050,16 +1096,5 @@ Fits ermittelten Parametern.
 %    \end{minipage}
 %\end{sidewaysfigure}
 
-%\begin{align*}
-%    \tag{\ref{eq:hohlzylinder:phiNormExact}}
-%    \begin{split}
-%    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
-%                               & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-%                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-%                               & + (r_{Sp}^2 - r_2^2) \Biggr)
-%    \end{split} \\
-%    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
-%    R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
-%\end{align*}
 
 

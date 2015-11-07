@@ -25,7 +25,10 @@ mp.prec=80 # precision in bits
 # Define Variables and Constants                           #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7                                        # vacuum permeability
-sigma = 52e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
+rho_kuchling   = 0.0172e-6 # resistivity Kuchling 17th edition, p.649, tab. 45
+sigma_kuchling = 1/rho_kuchling
+sigma_abs = 53e6                        # de.wikipedia.org/wiki/Kupfer: 58.1e6
+sigma_arg = 52e6                        # de.wikipedia.org/wiki/Kupfer: 58.1e6
 r1    = 30e-3                                # inner radius of copper cylinder
 r2    = 35e-3                                # outer radius of copper cylinder
 B0    = 6.9e-2                             # adjust this as needed for scaling
@@ -45,8 +48,10 @@ r     = r1
     # file, add LaTeX where necessary.                     #
     # -----------------------------------------------------#
 params = [
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,|\hat{B}|}'      + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_abs)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,\angle\hat{B}}'  + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_arg)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Kuch}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_kuchling)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + '$\mu_0'   + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
-        '        ' + '$\sigma'  + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
         '        ' + '$r'       + '$ & $' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_1'     + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_2'     + '$ & $' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
@@ -84,28 +89,41 @@ plot_2_title            = r"Exakte L\"osung: Phase Magnetfeld, Spule mit Kupferr
 # NOTE: We use  frequency f  instead of  angular frequency #
 # omega since that is what we actually set on the function #
 # generator.                                               #
+# NOTE: We evaluate B_abs and B_arg based on two different #
+# values for sigma, which allows to fit each of the curves #
+# more accurately.                                         #
 # ---------------------------------------------------------#
-var('f')
 
-k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
+k_abs = lambda f: sqrt((2*np.pi*f*mu0*sigma_abs)/2)*(mpc(1,-1))
+k_arg = lambda f: sqrt((2*np.pi*f*mu0*sigma_arg)/2)*(mpc(1,-1))
 
-enum  = lambda f:(
-          besselj(0,k(f)*r)
-        * bessely(2,k(f)*r1)
-        - besselj(2,k(f)*r1)
-        * bessely(0,k(f)*r)
+enum_abs  = lambda f:(
+          besselj(0,k_abs(f)*r)
+        * bessely(2,k_abs(f)*r1)
+        - besselj(2,k_abs(f)*r1)
+        * bessely(0,k_abs(f)*r)
     )
-denom = lambda f:(
-          besselj(0,k(f)*r2)
-        * bessely(2,k(f)*r1)
-        - besselj(2,k(f)*r1)
-        * bessely(0,k(f)*r2)
+denom_abs = lambda f:(
+          besselj(0,k_abs(f)*r2)
+        * bessely(2,k_abs(f)*r1)
+        - besselj(2,k_abs(f)*r1)
+        * bessely(0,k_abs(f)*r2)
+    )
+enum_arg  = lambda f:(
+          besselj(0,k_arg(f)*r)
+        * bessely(2,k_arg(f)*r1)
+        - besselj(2,k_arg(f)*r1)
+        * bessely(0,k_arg(f)*r)
+    )
+denom_arg = lambda f:(
+          besselj(0,k_arg(f)*r2)
+        * bessely(2,k_arg(f)*r1)
+        - besselj(2,k_arg(f)*r1)
+        * bessely(0,k_arg(f)*r2)
     )
 
-B = lambda f: enum(f) / denom(f) * B0
-
-B_abs = lambda f: abs(B(f))
-B_arg = lambda f: arg(B(f))
+B_abs = lambda f: abs(enum_abs(f) / denom_abs(f) * B0)
+B_arg = lambda f: arg(enum_arg(f) / denom_arg(f) * B0)
 
 
 # ---------------------------------------------------------#
