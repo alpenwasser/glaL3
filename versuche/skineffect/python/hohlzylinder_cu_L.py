@@ -160,7 +160,7 @@ axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
 
-fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.95)
+fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.90)
 
 fig.savefig('plots-pgf/hollow--cu--L.pgf')
 fig.savefig('plots-pdf/hollow--cu--L.pdf')

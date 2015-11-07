@@ -21,6 +21,8 @@ import matplotlib.ticker as plticker
 # Define Variables and Constants                           #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7
+rho_kuchling   = 0.027e-6  # resistivity Kuchling 17th edition, p.649, tab. 45
+sigma_kuchling = 1/rho_kuchling
 #sigma = 37.7e6                 # conductivity of aluminium (de.wikipedia.org)
 #sigma = 18e6                                                   # affects phase
 sigma = 17e6                                                   # affects phase
@@ -35,6 +37,8 @@ rmax=45e-3
     # file, add LaTeX where necessary.                     #
     # -----------------------------------------------------#
 params = [
+        '        ' + r'\textcolor{red}{$\sigma_{Fit}'  + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma)           + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Kuch}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_kuchling)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + '$\mu_0'   + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
         '        ' + '$\sigma'  + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
         '        ' + '$r_{max}' + '$ & $' +  '\SI{'   + str(rmax)   + r'}{\meter}'                     + r'$\\' + "\n",
@@ -180,10 +184,7 @@ table_opening = r"""
     \begin{center}
     \captionof{table}{%
         Paramaterwerte       f\"ur       Fitfunktion       aus       Abbildung
-        \ref{fig:alu:rad:approx:low},  basierend  auf der  N\"aherungsl\"osung
-        f\"ur hohe Frequenzen, ausgewertet  f\"ur $\SI{30}{\hertz}$ (also eine
-        tiefe Frequenz).
-
+        \ref{fig:alu:rad:approx:low}
     }
     \label{tab:fitparams:alu:rad:approx:low}
     \sisetup{%

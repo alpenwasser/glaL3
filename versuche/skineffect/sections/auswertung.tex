@@ -1,4 +1,4 @@
-\emph{Anmerkung  zu den  Messprotokollen}: S\"amtliche  Messwerte wurden  nach
+\textbf{Anmerkung  zu den  Messprotokollen}: S\"amtliche  Messwerte wurden  nach
 bestem  Wissen  und  Gewissen  zeitlich gef\"uhlsm\"assig  gemittelt  von  den
 Messinstrumenten  abgelesen. Daher ist  die Anzahl  angegebener Stellen  nicht
 immer konsistent.
@@ -76,7 +76,7 @@ der Werte werden vermieden (und es erspart Arbeit).
 
 Die Werte in  den Tabellen sind jeweils gerundet,  Python arbeitet nat\"urlich
 mit viel  mehr Dezimalstellen. Die Werte  sind in ihrer vollen  Pr\"azision im
-\LaTeX-Quellcode zu finden \cite{ref:aw:github}.
+\LaTeX-Quellcode zu finden~\cite{ref:aw:github}.
 
 
 % **************************************************************************** %
@@ -138,51 +138,80 @@ ermittelt worden waren.
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0pt}
-        Es  wurde  die  St\"arke  des  B-Feldes  im  Innern  des  Aluzylinders
-        in    Abh\"angigkeit   der    Frequenz    des   \"ausseren    B-Feldes
-        gemessen. Die   Messwerte   sind  in   Tabelle~\ref{tab:meas:alu:freq}
-        zu  finden,   die  Platzierung   der  Sonde   war  axial   und  radial
-        zentriert    fixiert   (siehe    Abbildung~\ref{fig:alu:freq:sensor}).
-        Tabelle~\ref{tab:fitparams:alu:freq}  enth\"ahlt  die Parameter  f\"ur
-        den Fit aus Abbildung~\ref{fig:alu:freq:exact}.
+        Die       Sonde       war        fix       positioniert       gem\"ass
+        Abbildung~\ref{fig:alu:freq:sensor}. Gemessen   wurden    Betrag   und
+        Phase  des  B-Feldes  an  dieser Position  bei  ansteigender  Frequenz
+        (Tabelle~\ref{tab:meas:alu:freq}).
 
-        \begin{center}
-            \captionof{table}{Vollzylinder aus Aluminium, frequenzabh\"angig}
-            \label{tab:meas:alu:freq}
-            \sisetup{math-rm=\mathtt}
-            \begin{tabular}{%
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                }
-                \toprule
-                  {Frequenz ($\si{\hertz}$)}
-                & {Phase ($\si{\degree}$)}
-                & {Amplitude ($\si{\milli\volt}$)} \\
-                \midrule
-                  1 &   5.4  &  69    \\
-                  5 &  26    &  65    \\
-                 10 &  50    &  57    \\
-                 15 &  69    &  48    \\
-                 20 &  85    &  40    \\
-                 30 & 111    &  28.5  \\
-                 40 & 132    &  21    \\
-                 60 & 166    &  12.5  \\
-                 80 & 196    &   8    \\
-                100 & 220    &   5.4  \\
-                120 & 243    &   3.6  \\
-                160 & 283    &   1.9  \\
-                200 & 320    &   1    \\
-                250 & 350    &   0.6  \\
-                \bottomrule
-            \end{tabular}%
-        \end{center}
-        \vspace{1em}
+        %\vspace{0.5em}
+
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            \begin{center}
+                \captionof{table}{Messwerte Frequenzganz Vollzylinder}
+                \label{tab:meas:alu:freq}
+                \sisetup{math-rm=\mathtt}
+                \begin{tabular}{%
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    }
+                    \toprule
+                    {\rotatebox{60}{$f$ ($\si{\hertz}$)}}                  &
+                    {\rotatebox{60}{$\angle\hat{B}~(f)$ ($\si{\degree}$)}} &
+                    {\rotatebox{60}{$|\hat{B}~(f)|$ ($\si{\milli\volt}$)}} \\
+                    \midrule
+                      1 &   5.4  &  69    \\
+                      5 &  26    &  65    \\
+                     10 &  50    &  57    \\
+                     15 &  69    &  48    \\
+                     20 &  85    &  40    \\
+                     30 & 111    &  28.5  \\
+                     40 & 132    &  21    \\
+                     60 & 166    &  12.5  \\
+                     80 & 196    &   8    \\
+                    100 & 220    &   5.4  \\
+                    120 & 243    &   3.6  \\
+                    160 & 283    &   1.9  \\
+                    200 & 320    &   1    \\
+                    250 & 350    &   0.6  \\
+                    \bottomrule
+                \end{tabular}%
+            \end{center}
+        \end{minipage}%
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            Als Fit-Funktion  wurde Gleichung~\ref{eq:vollzylinder:bFeldExact}
+            benutzt,   jedoch    mit   der    Frequenz   statt    des   Radius
+            variierend. F\"ur mehr Informationen  siehe Kapitel
+            \emph{Arbeitsgrundlagen} ab Seite~\ref{eq:vollzylinder:bFeldExact}
+            sowie  der  Python-Code  der  Implementation~\cite{ref:aw:github}.
+            Tabelle~\ref{tab:fitparams:alu:freq}   listet   die   eingesetzten
+            Parameter  und  einen  Referenzwert aus  der  Literatur  (Kuchling
+            ~\cite{ref:kuchling:resistivityTable}) auf.
+
+            \begin{equation}
+                \tag{\ref{eq:vollzylinder:bFeldExact}}
+                \hat{B} (f) = \frac{J_0 (k~(f) \cdot r)}{J_0 (k~(f) \cdot r_0)} \cdot \hat{B}_0
+            \end{equation}
+
+            Phase  und  Betrag  des  B-Feldes  wurden  separat  gefittet,  die
+            beiden  ermittelten   Leitf\"ahigkeiten  $\sigma_{Fit,|\hat{B}|}$
+            und  $\sigma_{Fit,\angle\hat{B}}$ liegen  relative nahe  zusammen,
+            weichen jedoch  stark von Kuchlings  Literaturwert $\sigma_{Kuch}$
+            ab.
+            %TODO: relative difference once values finalized
+
+        \end{minipage}
+
+        \vspace{0.25em}
+
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
             \input{listings/massive--alu--freq.tex}
         \end{minipage}%
         \begin{minipage}[c][][b]{0.5\textwidth}
+            \hfill
             \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
             \captionof{figure}{Sensorplatzierung w\"ahrend Messung}
             \label{fig:alu:freq:sensor}
@@ -192,7 +221,11 @@ ermittelt worden waren.
         \vspace{0pt}\raggedright
         \hfill
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--freq.pgf}}
-        \captionof{figure}{Frequenzgang Zylinderspule mit eingef\"uhrtem Aluminium-Vollzylinder}
+        \captionof{figure}{%
+            Frequenzgang        Zylinderspule        mit        eingef\"uhrtem
+            Aluminium-Vollzylinder.  Betrag  und Phase wurden  jeweils separat
+            gefittet,   was  zwei   leicht   verschiedene   Werte  f\"ur   die
+            Leitf\"ahigkeit des verwendeten Aluminiums liefert.}
         \label{fig:alu:freq:exact}
 	\end{minipage}
 
@@ -206,45 +239,64 @@ ermittelt worden waren.
         \vspace{0mm}
         In   dieser   Messreihe   wurde   die   Frequenz   konstant   gehalten
         ($\SI{30}{\hertz}$),  und  die  Position der  Messsonde  wurde  radial
-        variiert  zwischen  Zylinderachse   und  Aussenrand.   Der  Skineffekt
-        ist  hierbei  sichtbar,  aber   verglichen  mit  h\"oheren  Frequenzen
-        (siehe    Abschnitt    \ref{sec:ausw:subsec:vollz:subsubsec:highfreq},
-        p.\pageref{sec:ausw:subsec:vollz:subsubsec:highfreq})         merklich
-        schw\"acher ausgepr\"agt.
+        variiert  zwischen  Zylinderachse   und  Aussenrand (Abbildung~\ref{fig:alu:rad:low:sensor}).
 
-        Der letzte Messpunkt war nicht  mehr innerhalb des Zylinders und wurde
-        deshalb nicht  im Plot ber\"ucksichtigt,  da er f\"ur  die Fitfunktion
-        nicht relevant ist.
+        Der   Skineffekt   ist   merklich  schw\"acher   als   bei   h\"oheren
+        Frequenzen  (Abschnitt~\ref{sec:ausw:subsec:vollz:subsubsec:highfreq},
+        Seite~\pageref{sec:ausw:subsec:vollz:subsubsec:highfreq}).
 
-        \begin{center}
-            \captionof{table}{Vollzylinder aus Aluminium, $\SI{30}{\hertz}$}
-            \label{tab:meas:alu:rad:30}
-            \sisetup{math-rm=\mathtt}
-            \begin{tabular}{
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                }
-                \toprule
-                {Radius ($\si{\milli\meter}$)}   &
-                {Phase ($\si{\degree}$)}         &
-                {Amplitude ($\si{\milli\volt}$)} \\
-                \midrule
-                 0 & 111  & 28.6 \\
-                 5 & 109  & 28.5 \\
-                10 & 104  & 28.7 \\
-                15 &  94  & 29   \\
-                20 &  81  & 30   \\
-                25 &  65  & 33   \\
-                30 & 48.5 & 38   \\
-                35 & 32   & 45   \\
-                40 & 16   & 54   \\
-                45 & 2.7  & 62   \\
-                50 & 0    & 37   \\
-                \bottomrule
-            \end{tabular}
-        \end{center}
-        \vspace{1em}
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            \begin{center}
+                \captionof{table}{Messwerte f\"ur Vollzylinder bei $\SI{30}{\hertz}$}
+                \label{tab:meas:alu:rad:30}
+                \sisetup{math-rm=\mathtt}
+                \begin{tabular}{
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    }
+                    \toprule
+                    {\rotatebox{60}{$r$ ($\si{\milli\meter}$)}}            &
+                    {\rotatebox{60}{$\angle\hat{B}~(f)$ ($\si{\degree}$)}} &
+                    {\rotatebox{60}{$|\hat{B}~(f)|$ ($\si{\milli\volt}$)}} \\
+                    \midrule
+                     0 & 111  & 28.6 \\
+                     5 & 109  & 28.5 \\
+                    10 & 104  & 28.7 \\
+                    15 &  94  & 29   \\
+                    20 &  81  & 30   \\
+                    25 &  65  & 33   \\
+                    30 & 48.5 & 38   \\
+                    35 & 32   & 45   \\
+                    40 & 16   & 54   \\
+                    45 & 2.7  & 62   \\
+                    50 & 0    & 37   \\
+                    \bottomrule
+                \end{tabular}
+            \end{center}
+        \end{minipage}%
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            Als             Fit-Funktion            wurde             wiederum
+            Gleichung~\ref{eq:vollzylinder:bFeldExact}                     von
+            Seite~\ref{eq:vollzylinder:bFeldExact}       benutzt,      diesmal
+            mit           dem          Radius           als          Variable.
+            Tabelle~\ref{tab:fitparams:alu:freq:low:exact}      listet     die
+            eingesetzten Parameter  und einen  Referenzwert aus  der Literatur
+            (Kuchling ~\cite{ref:kuchling:resistivityTable}) auf.
+
+            \begin{equation}
+                \tag{\ref{eq:vollzylinder:bFeldExact}}
+                \hat{B}~(r) = \frac{J_0 (k \cdot r)}{J_0 (k \cdot r_0)} \cdot \hat{B}_0
+            \end{equation}
+
+            Es  konnte eine  sehr  zufriedenstellende  Fit-Funktion f\"ur  die
+            Messwerte  gefunden  werden. Jedoch  weicht die  daraus  bestimmte
+            Leitf\"ahigkeit $\sigma_{Fit}$ recht betr\"achtlich von  Kuchlings
+            Wert $\sigma_{Kuch}$ ab.
+        \end{minipage}%
+
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
             \input{listings/massive--alu--low-freq--exact.tex}
@@ -259,7 +311,15 @@ ermittelt worden waren.
         \vspace{0mm}
         \hfill
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--low-freq--exact.pgf}}
-        \captionof{figure}{Radialer Verlauf des B-Feldes bei einer Frequenz von $\SI{30}{\hertz}$}
+        \captionof{figure}{%
+            Radialer   Verlauf   des   B-Feldes   bei   einer   Frequenz   von
+            $\SI{30}{\hertz}$. Betrag    und    Phase    wurden    wie    beim
+            Frequenzgang  separat gefittet. Der  Radius  des Zylinders  betrug
+            $\SI{45}{\milli\meter}$, womit der Messpunkt an dieser Position in
+            den Augen  des Autors  aufgrund von  Randeffekten mit  Vorsicht zu
+            geniessen ist, und der \"ausserste  Messpunkt wurde f\"ur  den Fit
+            nicht ber\"ucksichtigt.
+        }
         \label{fig:alu:rad:exact:low}
 	\end{minipage}
 
@@ -272,20 +332,40 @@ ermittelt worden waren.
         erwies  sich  die Methode  in  der  Tat  als ungeeignet  f\"ur  diesen
         Frequenzbereich.
 
-        Es konnte keine Kombination f\"ur $B_0$ und $\sigma$ ermittelt werden,
-        welche  einen  zufriedenstellenden  Fit f\"ur  die  Messwerte  ergeben
-        h\"atte  (und  selbst wenn  solche Parameter h\"atten  gefunden werden
+        Es  konnte  keine  Kombination  f\"ur  $B_0$  und  $\sigma$  ermittelt
+        werden,  welche  einen  zufriedenstellenden Fit  f\"ur  die  Messwerte
+        ergeben h\"atte. Selbst wenn solche Parameter h\"atten gefunden werden
         k\"onnen, w\"aren sie  vermutlich so stark von den  mit den restlichen
         Fits  ermittelten  Werten  abgewichen, dass  sie  unbrauchbar  gewesen
-        w\"aren).
+        w\"aren(siehe Tabelle~\ref{tab:fitparams:alu:rad:approx:low}).
+
+        F\"ur               die                Fitfunktion               wurde
+        Gleichung           \ref{eq:vollzylinder:bFeldApprox}           (Seite
+        \pageref{eq:vollzylinder:bFeldApprox}) benutzt.
+
+        \begin{equation}
+            \tag{\ref{eq:vollzylinder:bFeldApprox}}
+            \hat{B} (x) = \hat{B}_0 \cdot exp\Biggl(-\frac{x}{s_{skin}} \Biggr) \cdot exp\Biggl(-i \cdot \frac{x}{s_{skin}} \Biggr)
+        \end{equation}
+
+        \input{listings/massive--alu--high-freq-approx--low.tex}
+
+        \vspace{0.5em}
+
+        Wie  man  feststellen  kann,  weicht der  ermittelte  Wert  f\"ur  die
+        Leitf\"ahigkeit doch  betr\"achtlich von  den bisher  gesehenen Werten
+        ab.
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0mm}
         \hfill
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq-approx--low.pgf}}
         \captionof{figure}{%
-            Hochfrequenzn\"aherung  f\"ur den  radialen Verlauf  des Be-Feldes
-            angewandt auf $\SI{30}{\hertz}$.
+            Hochfrequenzn\"aherung  f\"ur den  radialen Verlauf  des  B-Feldes
+            angewandt  auf $\SI{30}{\hertz}$. Da  mit  keiner Kombination  von
+            $\sigma$ und $B_0$ f\"ur Phase oder Betrag ein zufriedenstellender
+            Fit  erreicht werden  konnte, wurde  auf einen  separaten Fit  von
+            Phase und Betrag verzichtet.
         }
         \label{fig:alu:rad:approx:low}
 	\end{minipage}
@@ -305,14 +385,6 @@ ermittelt worden waren.
         erh\"oht,  bis  gerade  noch  brauchbare  Messwerte  abgelesen  werden
         konnten.
 
-        Bei    der     so    ermittelten     Frequenz    wurde     dann    der
-        radiale   Verlauf   des   B-Feldes   auf   der   restlichen   H\"alfte
-        gegen   den   Aussenrand    des   Vollzylinders   ausgemessen   (siehe
-        Abbildung~\ref{fig:alu:rad:low:sensor}).
-
-        Die   Messwerte  sind   in   Tabelle  ~\ref{tab:meas:alu:rad:450}   zu
-        finden.
-
         % TODO: put this in discussion with combined plot
         %Wie  man  erkennen  kann,  fallen sie  gegen  das  Innere  des
         %Zylinders viel st\"arker ab,  als bei $\SI{30}{\hertz}$ (siehe Tabelle
@@ -320,42 +392,76 @@ ermittelt worden waren.
         %Bereichen des  Zylinders schirmen also dessen  Inneres st\"arker gegen
         %das \"aussere B-Feld ab; der Skineffekt ist ausgepr\"agter.
 
-        \begin{center}
-            \captionof{table}{Messwerte Vollzylinder aus Aluminium, $\SI{450}{\hertz}$}
-            \label{tab:meas:alu:rad:450}
-            \sisetup{math-rm=\mathtt}
-            \begin{tabular}{%
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                }
-                \toprule
-                {Radius ($\si{\milli\meter}$)}        &
-                {Phasenverschiebung ($\si{\degree}$)} &
-                {Amplitude ($\si{\milli\volt}$)}      \\
-                \midrule
-                25   & 215  & 1.5  \\
-                27.5 & 183  & 2.2  \\
-                30   & 152  & 3.6  \\
-                32.5 & 125  & 5.9  \\
-                35   & 100  & 9.5  \\
-                37.5 & 73   & 15.5 \\
-                40   & 47   & 25   \\
-                42.5 & 24   & 39   \\
-                45   &  5.2 & 55   \\
-                47.5 & 0.2  & 57.5 \\
-                50   &  0   & 38   \\
-                \bottomrule
-            \end{tabular}
-        \end{center}
-        \vspace{1em}
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            \begin{center}
+                \captionof{table}{Messwerte Vollzylinder aus Aluminium, $\SI{450}{\hertz}$}
+                \label{tab:meas:alu:rad:450}
+                \sisetup{math-rm=\mathtt}
+                \begin{tabular}{%
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    }
+                    \toprule
+                    {\rotatebox{60}{$r$ ($\si{\milli\meter}$)}}            &
+                    {\rotatebox{60}{$\angle\hat{B}~(f)$ ($\si{\degree}$)}} &
+                    {\rotatebox{60}{$|\hat{B}~(f)|$ ($\si{\milli\volt}$)}} \\
+                    \midrule
+                    25   & 215  & 1.5  \\
+                    27.5 & 183  & 2.2  \\
+                    30   & 152  & 3.6  \\
+                    32.5 & 125  & 5.9  \\
+                    35   & 100  & 9.5  \\
+                    37.5 & 73   & 15.5 \\
+                    40   & 47   & 25   \\
+                    42.5 & 24   & 39   \\
+                    45   &  5.2 & 55   \\
+                    47.5 & 0.2  & 57.5 \\
+                    50   &  0   & 38   \\
+                    \bottomrule
+                \end{tabular}
+            \end{center}
+        \end{minipage}%
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            Bei   der  so   ermittelten  Frequenz   wurde  dann   der  radiale
+            Verlauf   des  B-Feldes   auf   der   restlichen  H\"alfte   gegen
+            den    Aussenrand    des    Vollzylinders    ausgemessen    (siehe
+            Abbildung~\ref{fig:alu:rad:low:sensor}).
+
+            Die      erhaltenen      Messwerte       sind      in      Tabelle
+            ~\ref{tab:meas:alu:rad:450} zu finden.
+
+            Als        Fit-Funktion         wurde        hier        ebenfalls
+            die         Gleichung~\ref{eq:vollzylinder:bFeldExact}         von
+            Seite~\ref{eq:vollzylinder:bFeldExact}  benutzt, wobei  der Radius
+            die Variable war.
+
+
+            %sowie  der  Python-Code  der  Implementation~\cite{ref:aw:github}.
+            %Tabelle~\ref{tab:fitparams:alu:freq}   listet   die   eingesetzten
+            %Parameter  und  einen  Referenzwert aus  der  Literatur  (Kuchling
+            %~\cite{ref:kuchling:resistivityTable}) auf.
+
+            \begin{equation}
+                \tag{\ref{eq:vollzylinder:bFeldExact}}
+                \hat{B} (r) = \frac{J_0 (k \cdot r)}{J_0 (k \cdot r_0)} \cdot \hat{B}_0
+            \end{equation}
+
+
+            \vspace{0.5em}
+
+        \end{minipage}
+
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
             \input{listings/massive--alu--high-freq--exact.tex}
         \end{minipage}%
         \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
             \resizebox{\textwidth}{!}{\input{images/sensor-radial-partial.tex}}
-            \captionof{figure}{Sensorplatzierung w\"ahrend Messung}
+            \captionof{figure}{Sondenposition w\"ahrend Messung}
             \label{fig:alu:rad:low:sensor}
         \end{minipage}
 	\end{minipage}%
@@ -363,7 +469,22 @@ ermittelt worden waren.
         \vspace{0mm}
         \hfill
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq--exact.pgf}}
-        \captionof{figure}{radialer Verlauf des B-Feldes bei $\SI{450}{\hertz}$}
+            % TODO: Put this somewhere
+            %Sie  geben zwar  Anhaltspunkte  f\"ur den  Wert  von $B_0$,  doch
+            %wegen Randeffekten  ist der Autor diesen  Werten gegen\"uber eher
+            %skeptisch eingestellt.  Es ist ebenfalls erkennbar, dass die
+        \captionof{figure}{%
+            Radialer   Verlauf   des   B-Feldes   bei   $\SI{450}{\hertz}$. Es
+            gelten  die  gleichen  \"Uberlegungen   zu  den  Randeffekten  wie
+            bei   $\SI{30}{\hertz}$.   Es   f\"allt   auf,   dass  die   Phase
+            nicht   ganz  optimal   passt,   und  dass   der  erhaltene   Wert
+            $\sigma_{Fit,\angle\hat{B}}$  f\"ur  die  Leitf\"ahigkeit  einiges
+            tiefer  als die  bisher gesehenen  Werte liegt. Der  Autor f\"uhrt
+            dies  darauf  zur\"uck,  dass  bei diesem  Versuch  die  Phase  im
+            Allgemeinen  sehr stark  oszillierte (auch  der Betrag,  wenn auch
+            weniger),  was ein  genaues  Auswerten  erschwerte.  Man  geniesse
+            diese Werte daher mit etwas Vorsicht.
+        }
         \label{fig:alu:rad:exact:high}
 	\end{minipage}
 
@@ -373,12 +494,37 @@ ermittelt worden waren.
         nun   sehr    zufriedenstellende   L\"osungen,   wie    in   Abbildung
         \ref{fig:alu:rad:approx:high} zu sehen ist.
 
+        F\"ur               die                Fitfunktion               wurde
+        Gleichung           \ref{eq:vollzylinder:bFeldApprox}           (Seite
+        \pageref{eq:vollzylinder:bFeldApprox}) benutzt.
+
+        \begin{equation}
+            \tag{\ref{eq:vollzylinder:bFeldApprox}}
+            \hat{B} (x) = \hat{B}_0 \cdot exp\Biggl(-\frac{x}{s_{skin}} \Biggr) \cdot exp\Biggl(-i \cdot \frac{x}{s_{skin}} \Biggr)
+        \end{equation}
+
         \input{listings/massive--alu--high-freq-approx--high.tex}
+
+        \vspace{1em}
+
+        Es f\"allt auf, dass sowohl Phase wie auch Betrag einen etwas tieferen
+        Wert  f\"ur $\sigma$  ergeben als  die beim  Frequenzgang und  bei der
+        radialen Auswertung bei  $\SI{30}{\hertz}$ gefundenen Werte. Der Autor
+        f\"uhrt dies darauf zur\"uck, dass  dies einerseits trotz relativ  gut
+        passendem  Fit  immer  noch  eine N\"aherungsl\"osung  ist,  und  dass
+        wie bei Abbildung~\ref{fig:alu:rad:exact:high}  erw\"ahnt das Auslesen
+        der Messwerte  bei $\SI{450}{\hertz}$  generell etwas  schwieriger war
+        als  bei tieferen  Frequenzen oder  beim Frequenzgang  im Zentrum  des
+        Zylinders.
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0mm}
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq-approx--high.pgf}}
-        \captionof{figure}{mittels Hochfrequenzn\"aherung erstellter Fit f\"ur $\SI{450}{\hertz}$}
+        \captionof{figure}{%
+            Hochfrequenzn\"aherung  f\"ur  $\SI{450}{\hertz}$. Es  gelten  die
+            bereits  erw\"ahnten  \"Uberlegungen betreffend  Randeffekten  und
+            Ableseschwierigkeiten
+        }
         \label{fig:alu:rad:approx:high}
 	\end{minipage}
 
@@ -393,6 +539,27 @@ ermittelt worden waren.
         Zylinder}$   und  $R_{Spule   +  Zylinder}$   durchgef\"uhrt. Mit  den
         Informationen  aus  den  Fits   (also  prim\"ar  der  dort  bestimmten
         Leitf\"ahgiekt) k\"onnen jedoch trotztem Plots erstellt werden.
+
+        Es sei  hier noch  angemerkt, dass die  gew\"ahlten Werte  f\"ur $B_0$
+        und $\sigma$  nicht auf  strikten Berechnungen  begr\"unden. Es wurden
+        anhand  der  auf  die  Messwerte  gepassten  Fits  ``typische''  Werte
+        ausgew\"ahlt. Da  bei $L$,  $R$,  und dem  magnetischen Fluss  sowieso
+        keine Messwerte vorhanden sind, ist bei diesen Kurven auch der Verlauf
+        viel wichtiger als die absoluten  Werte, womit dieses Verfahren in den
+        Augen des Autors gerechtfertigt ist.
+
+        Als         Fit-Funktionen       wurden        die         Gleichungen
+        \ref{eq:vollzylinder:LExact}   und  \ref{eq:vollzylinder:RExact}   von
+        Seite \pageref{eq:vollzylinder:LExact} verwendet:
+
+        \begin{equation}
+            \tag{\ref{eq:vollzylinder:LExact}}
+            L = \frac{\mu_0 \cdot 2\pi \cdot r_0 \cdot N_0^2}{l} \cdot Re \Biggl(\frac{J_1 (k \cdot r_0)}{k \cdot J_0 (k \cdot r_0)} \Biggr) + L_{Rand}
+        \end{equation}
+        \begin{equation}
+            \tag{\ref{eq:vollzylinder:RExact}}
+            R_{\Omega,tot} = - \frac{\mu_0 \cdot 2\pi \cdot r_0 \cdot N_0^2}{l} \cdot Im \Biggl(\frac{J_1 (k \cdot r_0)}{k \cdot J_0 (k \cdot r_0)} \Biggr) + R_{\Omega,0}
+        \end{equation}
 
         \vspace{2em}
         %TODO reference formulas
@@ -422,6 +589,17 @@ ermittelt worden waren.
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0mm}
         \input{listings/massive--alu--phi-norm.tex}
+
+        \vspace{1em}
+
+        Als Fit-Funktion wurde hier  Gleichung \ref{eq:vollzylinder:phiExact}
+        von Seite \pageref{eq:vollzylinder:phiExact} verwendet:
+
+        \begin{equation}
+            \tag{\ref{eq:vollzylinder:phiExact}}
+            \frac{\hat{\Phi}}{\hat{I}} = \frac{\mu_0 \cdot 2\pi \cdot r_0 \cdot N_0^2}{l} \cdot \Biggl(\frac{J_1 (k \cdot r_0)}{k \cdot J_0 (k \cdot r_0)} + r_{Sp} - r_0 \Biggr)
+        \end{equation}
+
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0mm}
@@ -885,14 +1063,3 @@ Fits ermittelten Parametern.
 %\end{align*}
 
 
-%\begin{align*}
-%    \tag{\ref{eq:hohlzylinder:phiNormExact}}
-%    \begin{split}
-%    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
-%                               & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-%                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-%                               & + (r_{Sp}^2 - r_2^2) \Biggr)
-%    \end{split} \\
-%    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
-%    R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
-%\end{align*}

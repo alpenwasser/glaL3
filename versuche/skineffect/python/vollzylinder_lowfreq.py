@@ -19,12 +19,14 @@ import matplotlib.ticker as plticker
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7
 #sigma = 37.7e6                 # conductivity of aluminium (de.wikipedia.org)
-#sigma = 24e6
-sigma = 21.5e6
+rho_kuchling   = 0.027e-6  # resistivity Kuchling 17th edition, p.649, tab. 45
+sigma_kuchling = 1/rho_kuchling
+#sigma = 21.5e6
+sigma_abs = 22.5e6 # great fit for phase
+sigma_arg = 23.5e6 # great fit for phase
 r0    = 45e-3
 #B0    = 6.9e-2                               # adjust this as needed for scaling
-B0    = 6.2e-2                               # adjust this as needed for scaling
-#w     = 2*np.pi*30                         # frequency was fixed at 30 Hz
+B0    = 6.6e-2                               # adjust this as needed for scaling
 freq = 30                                     # frequency was fixed at 450 Hz
 npts = 1e3
 rmin=0
@@ -35,8 +37,10 @@ rmax=45e-3
     # file, add LaTeX where necessary.                     #
     # -----------------------------------------------------#
 params = [
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,|\hat{B}|}'      + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_abs)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,\angle\hat{B}}'  + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_arg)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Kuch}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_kuchling)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + '$\mu_0'   + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
-        '        ' + '$\sigma'  + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
         '        ' + '$r_0'     + '$ & $' +  '\SI{'   + str(r0)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_{max}' + '$ & $' +  '\SI{'   + str(rmax)   + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_{min}' + '$ & $' +  '\SI{'   + str(rmin)   + r'}{\meter}'                     + r'$\\' + "\n",
@@ -67,22 +71,29 @@ loc = plticker.MultipleLocator(base=5)
 
 
 # ---------------------------------------------------------#
-# Function for magnetic Field B                            #
+# Functions                                                #
+#                                                          #
+# See formula 21 on p.11 of script for experiment.         #
+#                                                          #
+# NOTE: We use  frequency f  instead of  angular frequency #
+# omega since that is what we actually set on the function #
+# generator.                                               #
+# NOTE: We evaluate B_abs and B_arg based on two different #
+# values for sigma, which allows to fit each of the curves #
+# more accurately.                                         #
 # ---------------------------------------------------------#
-# See formula 21 on p.11 of script for experiment.
 
-#k = lambda w: sqrt((w*mu0*sigma)/2)*(mpc(1,-1))                     # rad/sec
-var('f')
-k = lambda f: sqrt((2*pi*f*mu0*sigma)/2)*(mpc(1,-1))          # degrees/sec
+k_abs = lambda f: sqrt((2*pi*f*mu0*sigma_abs)/2)*(mpc(1,-1))
+k_arg = lambda f: sqrt((2*pi*f*mu0*sigma_arg)/2)*(mpc(1,-1))
 
 # Enumerator:
-enum  = lambda r: besselj(0,k(freq)*r)
-denom =           besselj(0,k(freq)*r0)
+enum_abs  = lambda r: besselj(0,k_abs(freq)*r)
+denom_abs =           besselj(0,k_abs(freq)*r0)
+enum_arg  = lambda r: besselj(0,k_arg(freq)*r)
+denom_arg =           besselj(0,k_arg(freq)*r0)
 
-B = lambda r: enum(r) / denom * B0
-
-B_abs = lambda r: abs(B(r))
-B_arg = lambda r: arg(B(r))
+B_abs = lambda r: abs(enum_abs(r) / denom_abs * B0)
+B_arg = lambda r: arg(enum_arg(r) / denom_arg * B0)
 
 
 # ---------------------------------------------------------#
@@ -144,7 +155,7 @@ axes1.scatter(radii_measured,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes1.set_xlim([rmin-1,rmax*1.1])
+axes1.set_xlim([rmin-1,rmax*1.1+5])
 axes1.set_xscale(plot_scale_x)
 axes1.set_xlabel(plot_label_x,fontdict=font)
 axes1.set_ylabel(plot_1_label_y,fontdict=font)
@@ -160,7 +171,7 @@ axes2.scatter(radii_measured,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes2.set_xlim([rmin-1,rmax*1.1])
+axes2.set_xlim([rmin-1,rmax*1.1+5])
 axes2.set_xscale(plot_scale_x)
 axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
@@ -183,10 +194,9 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramaterwerte f\"ur  Fitfunktion des  radialen Verlaufs  des B-Feldes
-        bei $\SI{30}{\hertz}$
+        Parameter f\"ur Fitfunktion aus Abbildung~\ref{fig:alu:rad:low:sensor}
     }
-    \label{tab:fitparams:alu:freq:high:exact}
+    \label{tab:fitparams:alu:freq:low:exact}
     \sisetup{%
         %math-rm=\mathtt,
         scientific-notation=engineering,

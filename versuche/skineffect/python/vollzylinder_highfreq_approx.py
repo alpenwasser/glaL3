@@ -4,7 +4,6 @@ from sympy import *
 from mpmath import *
 from matplotlib.pyplot import *
 import matplotlib.ticker as plticker
-#init_printing()     # make things prettier when we print stuff for debugging.
 
 
 # ************************************************************************** #
@@ -22,9 +21,12 @@ import matplotlib.ticker as plticker
 # Define Variables and Constants                           #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7
+rho_kuchling   = 0.027e-6  # resistivity Kuchling 17th edition, p.649, tab. 45
+sigma_kuchling = 1/rho_kuchling
 #sigma = 37.7e6                 # conductivity of aluminium (de.wikipedia.org)
-sigma = 18e6                                                   # affects phase
-B0    = 5.5e-2                 # does not affect phase, use for scaling abs(B)
+sigma_abs = 19e6                                                   # affects phase
+sigma_arg = 18e6                                                   # affects phase
+B0    = 6.0e-2                 # does not affect phase, use for scaling abs(B)
 r0    = 45e-3
 freq = 450                                     # frequency was fixed at 450 Hz
 npts = 1e3
@@ -35,8 +37,10 @@ rmax=45e-3
     # file, add LaTeX where necessary.                     #
     # -----------------------------------------------------#
 params = [
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,|\hat{B}|}'      + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_abs)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,\angle\hat{B}}'  + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_arg)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Kuch}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_kuchling)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + '$\mu_0'   + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
-        '        ' + '$\sigma'  + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
         '        ' + '$r_0'     + '$ & $' +  '\SI{'   + str(r0)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_{max}' + '$ & $' +  '\SI{'   + str(rmax)   + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_{min}' + '$ & $' +  '\SI{'   + str(rmin)   + r'}{\meter}'                     + r'$\\' + "\n",
@@ -54,7 +58,7 @@ plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 32
+plot_size_measurements  = 16
 plot_scale_x            = 'linear'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'radiale Position bezogen auf Zylinderachse (mm)'
@@ -69,16 +73,23 @@ loc1 = plticker.MultipleLocator(base=2.5)
 
 
 # ---------------------------------------------------------#
-# Function for magnetic Field B                            #
+# Functions                                                #
+#                                                          #
+# See formula 21 on p.11 of script for experiment.         #
+#                                                          #
+# NOTE: We use  frequency f  instead of  angular frequency #
+# omega since that is what we actually set on the function #
+# generator.                                               #
+# NOTE: We evaluate B_abs and B_arg based on two different #
+# values for sigma, which allows to fit each of the curves #
+# more accurately.                                         #
 # ---------------------------------------------------------#
-# See formula 11 on p.8 of script for experiment.
 
-s_skin = sqrt(2/(2*pi*freq*mu0*sigma))
+s_skin_abs = sqrt(2/(2*pi*freq*mu0*sigma_abs))
+s_skin_arg = sqrt(2/(2*pi*freq*mu0*sigma_arg))
 x = lambda r: r0-r
-B = lambda r: B0 * exp(-x(r)/s_skin) * exp(mpc(0,-x(r)/s_skin))
-
-B_abs = lambda r: abs(B(r))
-B_arg = lambda r: arg(B(r))
+B_abs = lambda r: abs(B0 * exp(-x(r)/s_skin_abs) * exp(mpc(0,-x(r)/s_skin_abs)))
+B_arg = lambda r: arg(B0 * exp(-x(r)/s_skin_arg) * exp(mpc(0,-x(r)/s_skin_arg)))
 
 
 # ---------------------------------------------------------#
@@ -140,7 +151,7 @@ axes11.scatter(radii_measured,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes11.set_xlim([rmin*0.9,rmax*1.1])
+axes11.set_xlim([rmin*0.9,rmax*1.1+2.5])
 axes11.set_xscale(plot_scale_x)
 axes11.set_xlabel(plot_label_x,fontdict=font)
 axes11.set_ylabel(plot_11_label_y,fontdict=font)
@@ -156,7 +167,7 @@ axes12.scatter(radii_measured,
         s=plot_size_measurements,
         label=plot_label_measurements
         )
-axes12.set_xlim([rmin*0.9,rmax*1.1])
+axes12.set_xlim([rmin*0.9,rmax*1.1+2.5])
 axes12.set_xscale(plot_scale_x)
 axes12.set_xlabel(plot_label_x,fontdict=font)
 axes12.set_ylabel(plot_12_label_y,fontdict=font)
@@ -179,8 +190,8 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramaterwerte f\"ur Fitfunktion basierend auf der N\"aherungsl\"osung
-        f\"ur hohe Frequenzen.
+        Parameterwerte            f\"ur             Fitfunktion            aus
+        Abbildung~\ref{fig:alu:rad:approx:high}
     }
     \label{tab:fitparams:alu:freq:approx:high}
     \sisetup{%
