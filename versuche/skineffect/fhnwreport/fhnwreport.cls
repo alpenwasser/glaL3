@@ -28,7 +28,11 @@
 \RequirePackage{times}
 \RequirePackage{graphicx}
 \geometry{a4paper,twoside=false}
-\geometry{width=160mm,height=241mm,top=32mm,outer=25mm}
+%\geometry{width=160mm,height=241mm,top=32mm,outer=25mm}
+% isopage layout from memoir class:
+%\geometry{width=140mm,height=198mm,top=33mm,outer=46.7mm}
+% isopage dimensions of text block, but less off-center for non-duplex
+\geometry{width=140mm,height=198mm,top=33mm,outer=35mm}
 \geometry{footskip=19mm,headsep=13mm}
 \newcommand{\CaptionFont}{\em}
 \newcommand{\SecFont}{\sf\bfseries}
@@ -80,7 +84,8 @@
   \setlength{\unitlength}{1cm}%
   \begin{picture}(0,0)
     \linethickness{0.025mm}
-    \put(-0.85,2.2){\mbox{\includegraphics[height=12mm]{fhnwreport/fhnwlogo.pdf}}}
+    %\put(-0.85,2.2){\mbox{\includegraphics[height=12mm]{fhnwreport/fhnwlogo.pdf}}}
+    \put(-2,2.2){\mbox{\includegraphics[height=12mm]{fhnwreport/fhnwlogo.pdf}}}
   \end{picture}
   \par%
   \vskip 2em%

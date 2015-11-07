@@ -180,10 +180,7 @@ table_opening = r"""
     \begin{center}
     \captionof{table}{%
         Paramaterwerte f\"ur Fitfunktion basierend auf der N\"aherungsl\"osung
-        f\"ur  hohe  Frequenzen. Dargestellt   sind  die  radialen  Verl\"aufe
-        von  Betrag  und  Phase  des B-Feldes  innerhalb  eines  Vollzylinders
-        (Aluminium)  eingef\"uhrt  in  eine Zylinderspule.   Direktimport  aus
-        Python-Script, gerundet.
+        f\"ur hohe Frequenzen.
     }
     \label{tab:fitparams:alu:freq:approx:high}
     \sisetup{%

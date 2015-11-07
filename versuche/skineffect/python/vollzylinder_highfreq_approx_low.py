@@ -179,20 +179,13 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramaterwerte f\"ur Fitfunktion basierend auf der N\"aherungsl\"osung
+        Paramaterwerte       f\"ur       Fitfunktion       aus       Abbildung
+        \ref{fig:alu:rad:approx:low},  basierend  auf der  N\"aherungsl\"osung
         f\"ur hohe Frequenzen, ausgewertet  f\"ur $\SI{30}{\hertz}$ (also eine
-        tiefe Frequenz. Dargestellt  sind die  radialen Verl\"aufe  von Betrag
-        und  Phase  des  B-Feldes innerhalb  eines  Vollzylinders  (Aluminium)
-        eingef\"uhrt in  eine Zylinderspule. Es ist gut  ersichtlich, dass die
-        Hochfrequenzl\"osung hier in der Tat kein zufriedenstellendes Resultat
-        liefert. Die  Leitf\"ahigkeit  $\sigma$  wurde f\"ur  diesen  Plot  so
-        angepasst,  dass der  \"ausserste  Messpunkt  stimmt. Dies ist  jedoch
-        willk\"urlich,  und  unabh\"angig  von  der  Justierung  von  $\sigma$
-        und  $B_0$  wird  niemals  eine  zufriedenstellende  \"Ubereinstimmung
-        zwischen Fitkurve und Messwerten festgestellt (was ja auch zu erwarten
-        ist). Direktimport aus Python-Script, gerundet.
+        tiefe Frequenz).
+
     }
-    \label{tab:fitparams:alu:freq:approx:low}
+    \label{tab:fitparams:alu:rad:approx:low}
     \sisetup{%
         %math-rm=\mathtt,
         scientific-notation=engineering,
