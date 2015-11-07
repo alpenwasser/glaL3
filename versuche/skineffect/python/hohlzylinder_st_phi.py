@@ -55,9 +55,6 @@ font = {
         }
 plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
-plot_color_measurements = 'black'
-plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 32
 plot_scale_x            = 'log'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'Frequenz (Hz)'
@@ -187,7 +184,7 @@ axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
 axes2.set_title(plot_2_title,fontdict=font)
 
-fig.subplots_adjust(bottom=0.1,left=0.125,right=0.925,top=0.95,hspace=0.5)
+fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/hollow--st--freq--phi-norm.pgf')
 fig.savefig('plots-pdf/hollow--st--freq--phi-norm.pdf')
@@ -202,12 +199,8 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte f\"ur  Frequenzgang des  auf den  Spulenstrom normierten
-        magnetischen Flusses  der Konfiguration  aus Spule  und Stahlzylinder,
-        innerhalb   des    Stahlzylinders. Direktimport   aus   Python-Script,
-        gerundet.   Der dargestellte  Frequenzbereicht wurde  so ausgew\"ahlt,
-        um  einen  ``sinnvollen'' Kurvenverlauf  zu  erhalten,  und ist  somit
-        bedeutend gr\"osser als der Messbereich.
+        Parameterwerte f\"ur  Fitfunktion in  Abbildung  \ref{fig:cu:freq:phi}
+        gerundet.
     }
     \label{tab:fitparams:st:phi}
     \sisetup{%

@@ -167,7 +167,7 @@ axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
 
-fig.subplots_adjust(bottom=0.15,left=0.1,right=0.9,top=0.9,hspace=0.5)
+fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.95)
 
 fig.savefig('plots-pgf/hollow--st--R.pgf')
 fig.savefig('plots-pdf/hollow--st--R.pdf')
@@ -182,11 +182,8 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte  f\"ur  Frequenzgang   des  Ohm'schen  Widerstandes  der
-        Konfiguration   aus   Spule    und   Stahlzylinder. Direktimport   aus
-        Python-Script,  gerundet.   F\"ur   den  abgedeckten  Frequenzbereicht
-        gelten    die     gleichen    \"Uberlegungen    wie     bei    Tabelle
-        \ref{tab:fitparams:st:phi} erw\"ahnt.
+        Paramterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:st:freq:R},
+        gerundet.
     }
     \label{tab:fitparams:st:R}
     \sisetup{%

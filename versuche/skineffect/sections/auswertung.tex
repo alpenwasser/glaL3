@@ -606,11 +606,11 @@ Fits ermittelten Parametern.
         %TODO reference formulas
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
-            \input{listings/massive--alu--L.tex}
+            \input{listings/hollow--cu--L.tex}
         \end{minipage}%
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
-            \input{listings/massive--alu--R.tex}
+            \input{listings/hollow--cu--R.tex}
         \end{minipage}
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
@@ -755,6 +755,7 @@ Fits ermittelten Parametern.
 	\end{minipage}
 
 	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
         Bei  der   N\"aherungsl\"osung  ist   wie  auch  beim   Kupferrohr  zu
         erkennen,  dass   die  Phase  der  Fit-Funktion   von  den  Messwerten
         zu  divergieren  beginnt   wenn  die Wanddicke  des  Rohres  gr\"osser
@@ -762,7 +763,7 @@ Fits ermittelten Parametern.
         Abbildung~\ref{fig:st:freq:approx}). Der  Frequenzbereich  wurde  auch
         hier   ein  wenig   \"uber  den   Messbereich  erweitert,   um  dieses
         divergierende Verhalten besser erkennbar zu machen.
-        \vspace{0pt}
+        \vspace{1em}
         \input{listings/hollow--st--freq--approx.tex}
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
@@ -778,9 +779,60 @@ Fits ermittelten Parametern.
 %\begin{figure}[h!]
 %\end{figure}
 
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
+        % -------------------------------------------------------------------- %
+        \subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
+        \label{sec:ausw:subsec:hohlz:st:subsubsec:LR}
+        % -------------------------------------------------------------------- %
 
+        Wie   in    Abschnitt   \ref{sec:ausw:subsec:vollz:subsubsec:LR}   zum
+        Vollzylinder erw\"ahnt, wurden hier keine Messungen durchgef\"uhrt und
+        die Kurven basieren auf den mittels der Fits ermittelten Parameter.
 
+        Als     Funktionen     f\"ur     die    Plots     von     $L$,     $R$
+        und      $\frac{\hat{\Phi}}{\hat{I}}$      wurden     die      Formeln
+        \ref{eq:hohlzylinder:phiNormExact}       (siehe       auch       Seite
+        \pageref{eq:hohlzylinder:phiNormExact}) benutzt:
 
+        \vspace{1em}
+
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/hollow--st--L.tex}
+        \end{minipage}%
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/hollow--st--R.tex}
+        \end{minipage}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--L.pgf}}
+        \captionof{figure}{%
+            \"Anderung des  Selbstinduktionskoeffizienten \"uber  Frequenz von
+            Spule mit eingef\"uhrtem rostfreiem Stahl-Hohlzylinder}
+        \label{fig:st:freq:L}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--R.pgf}}
+        \captionof{figure}{%
+            \"Anderung des  Ohm'schen Widerstandes \"uber  Frequenz von
+            Spule mit eingef\"uhrtem rostfreiem Stahl-Hohlzylinder}
+        \label{fig:st:freq:R}
+	\end{minipage}
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
+        \input{listings/hollow--st--phi-norm.tex}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--phi-norm.pgf}}
+        \captionof{figure}{%
+            \"Anderung  des   auf  den  Spulenstrom   normierten  magnetischen
+            Flusses  innerhalb  des  Zylinders von  Spule  mit  eingef\"uhrten
+            rostfreiem Stahl-Hohlzylinder}
+        \label{fig:cu:freq:phi}
+	\end{minipage}
 
     \clearpage
 } %END OF A3 PAGES
@@ -833,46 +885,14 @@ Fits ermittelten Parametern.
 %\end{align*}
 
 
-
-
-
-
-
-% ---------------------------------------------------------------------------- %
-\clearpage
-\subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
-\label{sec:ausw:subsec:hohlz:st:subsubsec:LR}
-% ---------------------------------------------------------------------------- %
-
-Wie  in  Abschnitt \ref{sec:ausw:subsec:vollz:subsubsec:LR}  zum  Vollzylinder
-erw\"ahnt, wurden hier keine Messungen  durchgef\"uhrt und die Kurven basieren
-auf den mittels der Fits ermittelten Parameter.
-
-Als Funktionen f\"ur  die Plots von $L$,  $R$ und $\frac{\hat{\Phi}}{\hat{I}}$
-wurden  die  Formeln   \ref{eq:hohlzylinder:phiNormExact}  (siehe  auch  Seite
-\pageref{eq:hohlzylinder:phiNormExact}) benutzt:
-
-\begin{align*}
-    \tag{\ref{eq:hohlzylinder:phiNormExact}}
-    \begin{split}
-    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
-                               & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                               & + (r_{Sp}^2 - r_2^2) \Biggr)
-    \end{split} \\
-    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
-    R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
-\end{align*}
-
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--phi-norm.pgf}}
-\end{figure}
-\input{listings/hollow--st--phi-norm.tex}
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--L.pgf}}
-\end{figure}
-\input{listings/hollow--st--L.tex}
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--R.pgf}}
-\end{figure}
-\input{listings/hollow--st--R.tex}
+%\begin{align*}
+%    \tag{\ref{eq:hohlzylinder:phiNormExact}}
+%    \begin{split}
+%    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
+%                               & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+%                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+%                               & + (r_{Sp}^2 - r_2^2) \Biggr)
+%    \end{split} \\
+%    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
+%    R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
+%\end{align*}
