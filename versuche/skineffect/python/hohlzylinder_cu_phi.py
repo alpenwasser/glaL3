@@ -193,7 +193,7 @@ axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
 axes2.set_title(plot_2_title,fontdict=font)
 
-fig.subplots_adjust(bottom=0.1,left=0.125,right=0.925,top=0.95,hspace=0.5)
+fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.95,hspace=0.5)
 
 fig.savefig('plots-pgf/hollow--cu--freq--phi-norm.pgf')
 fig.savefig('plots-pdf/hollow--cu--freq--phi-norm.pdf')

@@ -434,7 +434,7 @@ ermittelt worden waren.
 	\end{minipage}
 
 
-\clearpage
+    \clearpage
 } %END OF A3 PAGES
 
 
@@ -447,110 +447,364 @@ ermittelt worden waren.
 % **************************************************************************** %
 
 
-% ---------------------------------------------------------------------------- %
-\subsubsection{Kupfer}
-\label{sec:ausw:subsec:hohlz:subsubsec:copper}
-% ---------------------------------------------------------------------------- %
-\begin{table}[!htb]
-    \centering
-    \caption{Messwerte Kupferrohr}
-    \label{tab:meas:copper}
-    \sisetup{math-rm=\mathtt}
-\begin{tabular}{
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-}
-    \toprule
-    {Frequenz ($\si{\hertz}$)} & {Phasenverschiebung ($\si{\degree}$)} & {Amplitude ($\si{\milli\volt}$)} & {Shunt-Spannung ($\si{\milli\volt}$)} \\
-    \midrule
-                             1 &                                   2   &                             70.0 &                                 195.3 \\
-                            10 &                                  19.2 &                             66.0 &                                 200.0 \\
-                            20 &                                  35.5 &                             57.8 &                                 200.0 \\
-                            40 &                                  56.7 &                             41.8 &                                 200.3 \\
-                            80 &                                  76.7 &                             24.4 &                                 200.0 \\
-                           120 &                                  87   &                             16.9 &                                 200.1 \\
-                           160 &                                  94   &                             12.7 &                                 200.1 \\
-                           200 &                                 100   &                             10.0 &                                 200.0 \\
-                           400 &                                 121   &                              4.8 &                                 200.0 \\
-                           600 &                                 140   &                              2.9 &                                 199.7 \\
-                           800 &                                 155   &                              1.9 &                                 200.5 \\
-                          1000 &                                 170   &                              1.4 &                                 200.2 \\
-                          1200 &                                 180   &                              1.0 &                                 200.0 \\
-                          1500 &                                 200   &                              0.7 &                                 199.9 \\
-    \bottomrule
-\end{tabular}
-\end{table}
+Es  wurde  die  Konfiguration   aus  Zylinderspule  mit  einem  eingef\"uhrten
+Hohlzylinder ausgemessen, und  zwar f\"ur zwei Zylinder, einen  aus Kupfer und
+einen aus rostfreiem Stahl.
 
-Es wurde eine Messreihe durchgef\"uhrt  und zwei Fits erstellt: Einmal mit der
-N\"aherungsl\"osung, und  einmal mit der exakten  L\"osung. Dabei f\"allt auf,
-dass der  Betrag der  N\"aherungsl\"osung \"uber den  gesamten Frequenzbereich
-ziemlich  genau ist  und  nicht  bedeutend von  den  Messwerten abweicht.  Der
-Phasenverlauf divergiert jedoch stark von den Messwerten, sobald die Wanddicke
-des Zylinderrohrs gr\"osser als die Eindringtiefe $s_{skin}$ wird.
+Da  das  Magnetfeld  im  Innenraum   des  Hohlzylinders  konstant  ist  (siehe
+Abschnitt~\ref{sec:arbgru:subsec:hohlzyliner}),  macht  es  nicht  viel  Sinn,
+radiale  Messungen  vorzunehmen. Man  k\"onnte zwar  das  variierende  radiale
+Feld innerhalb  der Zylinderwand  ausmessen, jedoch  ist die  hier verwendeted
+Versuchsanordnung nicht  dazu geeignet. Die Wandst\"arke ist  im Vergleich zur
+Sondengr\"osse  nicht dick  genug  und die  Messung  der Sondenposition  nicht
+pr\"azise  genug,  um  eine  vern\"unftige Anzahl  Messungen  mit  akzeptabler
+Genauigkeit in der Sondenposition vorzunehmen.
 
-In   Abbildung~\ref{fig:cu:freq:approx}  ist   daher   das  Verh\"altnis   von
-Wandst\"arke und Eindringtiefe ebenfalls dargestellt.
+Deshalb wurden  bei diesen  zwei Versuchsreihen lediglich  die Frequenzg\"ange
+des B-Feldes im Innenraum der Hohlzylinder gemessen.
 
-% TODO: Reference appendix protocols
+Folgende Fitkurven wurden anschliessend  erstellt (je f\"ur den Kupferzylinder
+und den Stahlzylinder):
+\begin{itemize}
+    \item
+        Frequenzgang, exakte L\"osung,
+    \item
+        und Frequenzgang, N\"aherungsl\"osung.
+\end{itemize}
 
-F\"ur die  exakte L\"osung  konnte ein  sehr zufriedenstellender  Fit erstellt
-werden (Abbildung \ref{fig:cu:freq:exact}).
+Wie  beim Vollzylinder  wurden auch  hier  noch Plots  f\"ur den  magnetischen
+Fluss,  den Ohm'schen  Widerstand  und  den Selbstinduktionskoeffizienten  der
+Konfiguration aus Spule  und Hohlzylinder erstellt, basierend  auf den mittels
+Fits ermittelten Parametern.
 
-Da dies die erste durchgef\"uhrte Messreihe  war, wurde als Kontrolle noch die
-Spannung \"uber dem  Shunt-Widerstand gemessem.  Um den Strom  durch die Spule
-von Messung  zu Messung  m\"oglichst konstant  zu halten  (und somit  auch das
-externe  Magnetfeld  $B_0$),  wurde  angestrebt,  diese  Spannung  m\"oglichst
-bei  $\SI{200}{\milli\volt}$  zu  halten,  was  mit  dem  Widerstandswert  von
-$\SI{1}{\ohm}$  einen Spulenstrom  $I_0$ von  $\SI{200}{\milli\ampere}$ ergab.
-Wie man  erkennen kann,  funktionierte das Justieren  dieses Wertes  sehr gut,
-weshalb bei den \"ubrigen Messungen auf seine Erfassung verzichtet wurde.
+% TODO: reference equations
 
-\clearpage
+{% START A3 PAGES
+    \clearpage
+    \pdfpagewidth=2\pdfpagewidth
+	\textwidth=2\textwidth
+    \addtolength{\textwidth}{70mm}
 
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
-    \caption{N\"aherungsl\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
-    \label{fig:cu:freq:approx}
-\end{figure}
+    % ------------------------------------------------------------------------ %
+    \subsubsection{Kupfer}
+    \label{sec:ausw:subsec:hohlz:subsubsec:copper}
+    % ------------------------------------------------------------------------ %
 
-\begin{minipage}[t][][t]{0.43\textwidth}
-    \input{listings/hollow--cu--freq--approx.tex}
-\end{minipage}
-\begin{minipage}[t][][t]{0.56\textwidth}
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
 
-    Als  Fitfunktion  wurde   Gleichung  \ref{eq:hohlzylinder:BApprox}  (Seite
-    \pageref{eq:hohlzylinder:BApprox}) verwendet.
+        % TODO: Reference appendix protocols
 
-    \begin{equation*}
-        B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
-    \end{equation*}
+        %F\"ur  die exakte  L\"osung  konnte ein  sehr zufriedenstellender  Fit
+        %erstellt werden (Abbildung \ref{fig:cu:freq:exact}).
 
-\end{minipage}
+        Da dies die  erste durchgef\"uhrte Messreihe war,  wurde als Kontrolle
+        die Spannung \"uber dem Shunt-Widerstand gemessem.  Um den Strom durch
+        die Spule von  Messung zu Messung m\"oglichst konstant  zu halten (und
+        somit  auch das  externe  Magnetfeld $B_0$),  wurde angestrebt,  diese
+        Spannung m\"oglichst  bei $\SI{200}{\milli\volt}$  zu halten,  was mit
+        dem  Widerstandswert von  $\SI{1}{\ohm}$ einen  Spulenstrom $I_0$  von
+        $\SI{200}{\milli\ampere}$ ergab.  Wie man erkennen kann, funktionierte
+        das  Justieren  dieses Wertes  sehr  gut,  weshalb bei  den  \"ubrigen
+        Messungen auf seine Erfassung verzichtet wurde.
 
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--exact.pgf}}
-    \caption{Exakte L\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
-    \label{fig:cu:freq:exact}
-\end{figure}
+        \begin{center}
+            \captionof{table}{Messwerte Kupferrohr}
+            \label{tab:meas:copper}
+            \sisetup{math-rm=\mathtt}
+            \begin{tabular}{
+                S[table-number-alignment=right]
+                S[table-number-alignment=right]
+                S[table-number-alignment=right]
+                S[table-number-alignment=right]
+                }
+                \toprule
+                {Frequenz ($\si{\hertz}$)}            &
+                {Phase ($\si{\degree}$)} &
+                {Amplitude ($\si{\milli\volt}$)}      &
+                {$V_{R_{Shunt}}$ ($\si{\milli\volt}$)} \\
+                \midrule
+                   1 &   2   & 70.0 & 195.3 \\
+                  10 &  19.2 & 66.0 & 200.0 \\
+                  20 &  35.5 & 57.8 & 200.0 \\
+                  40 &  56.7 & 41.8 & 200.3 \\
+                  80 &  76.7 & 24.4 & 200.0 \\
+                 120 &  87   & 16.9 & 200.1 \\
+                 160 &  94   & 12.7 & 200.1 \\
+                 200 & 100   & 10.0 & 200.0 \\
+                 400 & 121   &  4.8 & 200.0 \\
+                 600 & 140   &  2.9 & 199.7 \\
+                 800 & 155   &  1.9 & 200.5 \\
+                1000 & 170   &  1.4 & 200.2 \\
+                1200 & 180   &  1.0 & 200.0 \\
+                1500 & 200   &  0.7 & 199.9 \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        \vspace{1em}
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/hollow--cu--freq--exact.tex}
+        \end{minipage}%
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
+            \captionof{figure}{Sensorposition w\"ahrend Messung}
+            \label{fig:cu:freq:sensor}
+        \end{minipage}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}\raggedright
+        \hfill
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--exact.pgf}}
+        \captionof{figure}{Exakte L\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (Kupfer)}
+        \label{fig:cu:freq:exact}
+	\end{minipage}
 
-\begin{minipage}[t][][t]{0.43\textwidth}
-    \input{listings/hollow--cu--freq--exact.tex}
-\end{minipage}
-\begin{minipage}[t][][t]{0.56\textwidth}
 
-    Als  Fitfunktion   wurde  die  Formel  f\"ur   $r_1<r<r_2$  aus  Gleichung
-    \ref{eq:hohlzylinder:BExact}    (Seite   \pageref{eq:hohlzylinder:BExact})
-    verwendet,   mit   $r   =  r_1$. F\"ur   genauere   Informationen   \"uber
-    den   Aufbau   der   Formel   und    die   Verwendung   der   in   Tabelle
-    \ref{tab:fitparams:cu:freq:exact}    gelisteten   Parameter    siehe   das
-    entsprechende Kapitel.
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
 
-    \begin{equation*}
-        \hat{B} (r_1) = \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \cdot \hat{B}_0 \\
-    \end{equation*}
-\end{minipage}
+        Bei  der  gen\"aherten  Fit-Funktion  f\"allt  auf,  dass  der  Betrag
+        der N\"aherungsl\"osung  \"uber den gesamten  Frequenzbereich ziemlich
+        genau  ist  und nicht  bedeutend  von  den Messwerten  abweicht.   Der
+        Phasenverlauf divergiert  jedoch stark von den  Messwerten, sobald die
+        Wanddicke des Zylinderrohrs gr\"osser als die Eindringtiefe $s_{skin}$
+        wird (was sich auch mit der Theorie deckt).
+
+        In Abbildung~\ref{fig:cu:freq:approx}  ist daher das  Verh\"altnis von
+        Wandst\"arke und Eindringtiefe ebenfalls dargestellt.
+        \input{listings/hollow--cu--freq--approx.tex}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}\raggedright
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx.pgf}}
+        \captionof{figure}{%
+            N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
+            Hohlzylinder (Kupfer)}
+        \label{fig:cu:freq:approx}
+	\end{minipage}
+
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
+        % -------------------------------------------------------------------- %
+        \subsubsection{%
+            Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
+        \label{sec:ausw:subsec:hohlz:cu:subsubsec:LR}
+        % -------------------------------------------------------------------- %
+
+        Wie   in    Abschnitt   \ref{sec:ausw:subsec:vollz:subsubsec:LR}   zum
+        Vollzylinder erw\"ahnt, wurden hier keine Messungen durchgef\"uhrt und
+        die Kurven basieren auf den mittels der Fits ermittelten Parameter.
+
+        Als     Funktionen     f\"ur     die    Plots     von     $L$,     $R$
+        und      $\frac{\hat{\Phi}}{\hat{I}}$      wurden     die      Formeln
+        \ref{eq:hohlzylinder:phiNormExact}       (siehe       auch       Seite
+        \pageref{eq:hohlzylinder:phiNormExact}) benutzt:
+
+        \vspace{2em}
+        %TODO reference formulas
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/massive--alu--L.tex}
+        \end{minipage}%
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/massive--alu--R.tex}
+        \end{minipage}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0mm}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--L.pgf}}
+        \captionof{figure}{%
+            \"Anderung des  Selbstinduktionskoeffizienten \"uber  Frequenz von
+            Spule mit eingef\"uhrtem Kupfer-Hohlzylinder}
+        \label{fig:cu:freq:L}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--R.pgf}}
+        \captionof{figure}{%
+            \"Anderung des  Ohm'schen Widerstandes \"uber  Frequenz von
+            Spule mit eingef\"uhrtem Kupfer-Hohlzylinder}
+        \label{fig:cu:freq:R}
+	\end{minipage}
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
+        \input{listings/hollow--cu--phi-norm.tex}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--phi-norm.pgf}}
+        \captionof{figure}{%
+            \"Anderung  des   auf  den  Spulenstrom   normierten  magnetischen
+            Flusses  innerhalb  des  Zylinders von  Spule  mit  eingef\"uhrten
+            Kupfer-Hohlzylinder}
+        \label{fig:cu:freq:phi}
+	\end{minipage}
+
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
+        % -------------------------------------------------------------------- %
+        \subsubsection{Rostfreier Stahl}
+        \label{sec:ausw:subsec:hohlz:subsubsec:steel}
+        % -------------------------------------------------------------------- %
+
+        Das Vorgehen beim Stahlrohr war  identisch zum Kupferrohr, und auch in
+        diesem  Fall wurde  ein Fit  mittels  der N\"aherung  und mittels  der
+        exakten Funktion erstellt.
+
+        Ein  wichtiger  Unterschied zum  Kupferrohr  bestand  darin, dass  die
+        Frequenz,  ab  welcher  der  Skineffekt  wirklich  zum  Tragen  kommt,
+        bedeutend h\"oher lag, weshalb der Messbereicht entsprechend angepasst
+        wurde. Bei   $\SI{7.5}{\kilo\hertz}$  war   jedoch  Schluss,   da  der
+        Funktionsgenerator nicht  mehr gen\"ugend  Spannung liefern konnte, um
+        die  Shunt-Spannung  auf  den geforderten  $\SI{200}{\milli\volt}$  zu
+        halten.
+
+        Zus\"atzlich  schwankten die  Messwerte (insbesondere  die Phase)  bei
+        den  h\"oheren  Frequenzen  sehr   stark. Ein  genaues  Ablesen  durch
+        \emph{Mitteln  durch Augenmass}  war nicht  mehr m\"oglich,  sodass es
+        keinen grossen Sinn  machte, die Frequenz weiter  zu erh\"ohen, selbst
+        wenn der Funktionsgenerator noch weiter h\"atte gehen k\"onnen.
+
+        Die    Messwerte    sind     in    Tabelle~\ref{tab:meas:steel}    auf
+        Seite~\pageref{tab:meas:steel} zu finden.
+
+        \vspace{2em}
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \vspace{0pt}
+            \input{listings/hollow--st--freq--exact.tex}
+        \end{minipage}%
+        \begin{minipage}[c][][b]{0.5\textwidth}
+            \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
+            \captionof{figure}{Sensorposition w\"ahrend Messung}
+            \label{fig:st:freq:sensor}
+        \end{minipage}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact.pgf}}
+        \captionof{figure}{Exakte L\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (rostfreier Stahl)}
+        \label{fig:st:freq:exact}
+	\end{minipage}
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
+
+        \begin{center}
+            \captionof{table}{Messwerte Rohr aus rostfreiem Stahl}
+            \label{tab:meas:steel}
+            \sisetup{math-rm=\mathtt}
+            \begin{tabular}{
+                S[table-number-alignment=right]
+                S[table-number-alignment=right]
+                S[table-number-alignment=right]
+            }
+                \toprule
+                  {Frequenz ($\si{\hertz}$)}
+                & {Phase ($\si{\degree}$)}
+                & {Amplitude ($\si{\milli\volt}$)} \\
+                  %{\rotatebox{15}{Freq. ($\si{\hertz}$)}}
+                %& {\rotatebox{15}{Phase ($\si{\degree}$)}}
+                %& {\rotatebox{15}{Ampl. ($\si{\milli\volt}$)}}
+                %& {\rotatebox{15}{Freq. ($\si{\hertz}$)}}
+                %& {\rotatebox{15}{Phase ($\si{\degree}$)}}
+                %& {\rotatebox{15}{Ampl. ($\si{\milli\volt}$)}}
+                  \\
+                \midrule
+                   40 &  1.8  &  68.7  \\
+                  120 &  5.4  &  69.1  \\
+                  200 &  9    &  68.7  \\
+                  400 &  17.5 &  66.2  \\
+                  600 &  25.4 &  62.7  \\
+                  800 &  32.4 &  59    \\
+                 1000 &  38.4 &  54.5  \\
+                 1200 &  43.5 &  50.5  \\
+                 1500 &  50   &  45    \\
+                 1750 &  54   &  41    \\
+                 2000 &  58   &  37.2  \\
+                 2500 &  64   &  32    \\
+                 3500 &  71   &  24    \\
+                 5000 &  78   &  18    \\
+                 7500 &  88   &  12    \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        \vspace{1em}
+
+        Weil  der  in  den  Messungen abgedeckte  Frequenzbereich  nicht  ganz
+        genug hoch  ging, um  den   typischen    Kurvenverlauf mit  dem Abfall
+        des  Betrags in  der  optischen Mitte  des  Plots darzustellen,  wurde
+        auch  die   Fit-Funktion  \"uber  einen   erweiterten  Frequenzbereich
+        geplottet. Nat\"urlich ist der nicht  mit Messungen abgedeckte Bereich
+        der  Kurve  nicht  ganz  so  aussagekr\"aftig  wie  das  messtechnisch
+        erfasste Frequenzsprektrum, da die experimentelle Best\"atigung fehlt.
+
+        % TODO:  abfall bei stahl  erforder viel hoehere frequenz  als kupfer,
+        %schlechtere Leitf\"ahigkeit als Cu etc. blabla
+        \vspace{1em}
+        \input{listings/hollow--st--freq--exact-opt.tex}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact-opt.pgf}}
+        \captionof{figure}{%
+            Exakte  L\"osung   f\"ur  den  Frequenzverlauf  des   B-Feldes  im
+            Hohlzylinder, erweiterter Frequenzbereich (rostfreier Stahl)}
+        \label{fig:st:freq:exact:opt}
+	\end{minipage}
+
+	\begin{minipage}[t]{0.33\textwidth}
+        Bei  der   N\"aherungsl\"osung  ist   wie  auch  beim   Kupferrohr  zu
+        erkennen,  dass   die  Phase  der  Fit-Funktion   von  den  Messwerten
+        zu  divergieren  beginnt   wenn  die Wanddicke  des  Rohres  gr\"osser
+        wird    als   die   Eindringtiefe   $s_{skin}$   (magenta   Kurve   in
+        Abbildung~\ref{fig:st:freq:approx}). Der  Frequenzbereich  wurde  auch
+        hier   ein  wenig   \"uber  den   Messbereich  erweitert,   um  dieses
+        divergierende Verhalten besser erkennbar zu machen.
+        \vspace{0pt}
+        \input{listings/hollow--st--freq--approx.tex}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--approx.pgf}}
+        \captionof{figure}{%
+            N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
+            Hohlzylinder (rostfreier Stahl)}
+        \label{fig:st:freq:approx}
+	\end{minipage}
+
+    % TODO: frequenzbereich, divergenz naeherung, zwei ausreisser bei Betrag
+%\begin{figure}[h!]
+%\end{figure}
+
+
+
+
+
+    \clearpage
+} %END OF A3 PAGES
+
+
+    %Als  Fitfunktion  wurde   Gleichung  \ref{eq:hohlzylinder:BApprox}  (Seite
+    %\pageref{eq:hohlzylinder:BApprox}) verwendet.
+
+    %\begin{equation*}
+    %    B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
+    %\end{equation*}
+
+    % TODO: This shit
+
+    %Als  Fitfunktion   wurde  die  Formel  f\"ur   $r_1<r<r_2$  aus  Gleichung
+    %\ref{eq:hohlzylinder:BExact}    (Seite   \pageref{eq:hohlzylinder:BExact})
+    %verwendet,   mit   $r   =  r_1$. F\"ur   genauere   Informationen   \"uber
+    %den   Aufbau   der   Formel   und    die   Verwendung   der   in   Tabelle
+    %\ref{tab:fitparams:cu:freq:exact}    gelisteten   Parameter    siehe   das
+    %entsprechende Kapitel.
+
+    %\begin{equation*}
+    %    \hat{B} (r_1) = \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \cdot \hat{B}_0 \\
+    %\end{equation*}
 
 %\begin{sidewaysfigure}[!htb]
 %    \begin{minipage}{0.77\textwidth}
@@ -565,153 +819,23 @@ weshalb bei den \"ubrigen Messungen auf seine Erfassung verzichtet wurde.
 %        \input{listings/hollow--cu--freq--exact.tex}
 %    \end{minipage}
 %\end{sidewaysfigure}
-% ---------------------------------------------------------------------------- %
-\clearpage
-\subsubsection{Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
-\label{sec:ausw:subsec:hohlz:cu:subsubsec:LR}
-% ---------------------------------------------------------------------------- %
 
-Wie  in  Abschnitt \ref{sec:ausw:subsec:vollz:subsubsec:LR}  zum  Vollzylinder
-erw\"ahnt, wurden hier keine Messungen  durchgef\"uhrt und die Kurven basieren
-auf den mittels der Fits ermittelten Parameter.
-
-Als Funktionen f\"ur  die Plots von $L$,  $R$ und $\frac{\hat{\Phi}}{\hat{I}}$
-wurden  die  Formeln   \ref{eq:hohlzylinder:phiNormExact}  (siehe  auch  Seite
-\pageref{eq:hohlzylinder:phiNormExact}) benutzt:
-
-\begin{align*}
-    \tag{\ref{eq:hohlzylinder:phiNormExact}}
-    \begin{split}
-    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
-                               & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                               & + (r_{Sp}^2 - r_2^2) \Biggr)
-    \end{split} \\
-    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
-    R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
-\end{align*}
-
-\clearpage
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--L.pgf}}
-    \caption{
-        Frequenzverlauf  des Selbstinduktionskoeffizienten;  die zugeh\"origen
-        Parameter f\"ur  den Fit  sind in Tabelle  \ref{tab:fitparams:cu:L} zu
-        finden.
-    }
-    \label{fig:cu:freq:L}
-\end{figure}
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--R.pgf}}
-    \caption{
-        Frequenzverlauf   des   Ohm'schen  Widerstandes;   die   zugeh\"origen
-        Parameter f\"ur  den Fit  sind in Tabelle  \ref{tab:fitparams:cu:R} zu
-        finden.
-    }
-    \label{fig:cu:freq:R}
-\end{figure}
-
-\begin{minipage}[t][][t]{0.48\textwidth}
-    \input{listings/hollow--cu--L.tex}
-\end{minipage}
-\begin{minipage}[t][][t]{0.48\textwidth}
-    \input{listings/hollow--cu--R.tex}
-\end{minipage}
-
-\clearpage
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--phi-norm.pgf}}
-    \caption{
-        Frequenzverlauf  des auf  den  Strom  genormten magnetischen  Flusses;
-        die   zugeh\"origen  Parameter   f\"ur   den  Fit   sind  in   Tabelle
-        \ref{tab:fitparams:cu:phi} zu finden.
-    }
-    \label{fig:cu:freq:phi}
-\end{figure}
-
-\input{listings/hollow--cu--phi-norm.tex}
+%\begin{align*}
+%    \tag{\ref{eq:hohlzylinder:phiNormExact}}
+%    \begin{split}
+%    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
+%                               & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+%                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+%                               & + (r_{Sp}^2 - r_2^2) \Biggr)
+%    \end{split} \\
+%    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
+%    R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
+%\end{align*}
 
 
-% ---------------------------------------------------------------------------- %
-\clearpage
-\subsubsection{Rostfreier Stahl}
-\label{sec:ausw:subsec:hohlz:subsubsec:steel}
-% ---------------------------------------------------------------------------- %
-
-\begin{table}[!htb]
-    \centering
-    \caption{Messwerte Rohr aus rostfreiem Stahl}
-    \label{tab:meas:steel}
-    \sisetup{math-rm=\mathtt}
-\begin{tabular}{
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-    S[table-number-alignment=right]
-}
-    \toprule
-      {Freq. ($\si{\hertz}$)}
-    & {Phase ($\si{\degree}$)}
-    & {Ampl. ($\si{\milli\volt}$)}
-    & {Freq. ($\si{\hertz}$)}
-    & {Phase ($\si{\degree}$)}
-    & {Ampl. ($\si{\milli\volt}$)}
-      %{\rotatebox{15}{Freq. ($\si{\hertz}$)}}
-    %& {\rotatebox{15}{Phase ($\si{\degree}$)}}
-    %& {\rotatebox{15}{Ampl. ($\si{\milli\volt}$)}}
-    %& {\rotatebox{15}{Freq. ($\si{\hertz}$)}}
-    %& {\rotatebox{15}{Phase ($\si{\degree}$)}}
-    %& {\rotatebox{15}{Ampl. ($\si{\milli\volt}$)}}
-      \\
-    \midrule
-       40 &  1.8  &  68.7 & 1500 &  50   &  45    \\
-      120 &  5.4  &  69.1 & 1750 &  54   &  41    \\
-      200 &  9    &  68.7 & 2000 &  58   &  37.2  \\
-      400 &  17.5 &  66.2 & 2500 &  64   &  32    \\
-      600 &  25.4 &  62.7 & 3500 &  71   &  24    \\
-      800 &  32.4 &  59   & 5000 &  78   &  18    \\
-     1000 &  38.4 &  54.5 & 7500 &  88   &  12    \\
-     1200 &  43.5 &  50.5  \\
-    \bottomrule
-\end{tabular}
-\end{table}
-
-Das Vorgehen beim  Stahlrohr war identisch zum Kupferrohr, und  auch in diesem
-Fall wurde  ein Fit mittels  der N\"aherung  und mittels der  exakten Funktion
-erstellt.
-
-Ein   wichtiger   Unterschied  zum   Kupferrohr   bestand   darin,  dass   die
-Frequenz,  ab welcher  der  Skineffekt wirklich  zum  Tragen kommt,  bedeutend
-h\"oher  lag,  weshalb  der  Messbereicht  entsprechend  angepasst  wurde. Bei
-$\SI{7.5}{\kilo\hertz}$ war  jedoch Schluss,  da der  Funktionsgenerator nicht
-mer  gen\"ugend  Spannung  liefern  konnte,  um  die  Shunt-Spannung  auf  den
-geforderten $\SI{200}{\milli\volt}$ zu halten.
-
-Zus\"atzlich  schwankten  die  Messwerte  (insbesondere  die  Phase)  bei  den
-h\"oheren  Frequenzen sehr  stark. Ein genaues  Ablesen mittels  \emph{Mitteln
-durch  Augenmass} war  nicht mehr  m\"oglich,  sodass es  keinen grossen  Sinn
-machte, die Frequenz  weiter zu erh\"ohen, selbst  wenn der Funktionsgenerator
-noch weiter h\"atte gehen k\"onnen.
 
 
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--approx.pgf}}
-\end{figure}
-\input{listings/hollow--st--freq--approx.tex}
 
-
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact.pgf}}
-\end{figure}
-\input{listings/hollow--st--freq--exact.tex}
-
-
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact-opt.pgf}}
-\end{figure}
-\input{listings/hollow--st--freq--exact-opt.tex}
 
 
 % ---------------------------------------------------------------------------- %

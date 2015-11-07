@@ -203,9 +203,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte f\"ur  Fitfunktion des  Frequenzgangs (Betrag  und Phase
-        des B-Feldes) f\"ur Spule  mit eingef\"uhrtem Kupferrohr. Direktimport
-        aus Python-Script, gerundet.
+        Parameter f\"ur Fitfunktion in Abbildung~\ref{fig:cu:freq:exact}
     }
     \label{tab:fitparams:cu:freq:exact}
     \sisetup{%

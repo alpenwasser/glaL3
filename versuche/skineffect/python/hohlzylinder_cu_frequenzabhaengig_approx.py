@@ -213,8 +213,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte  f\"ur  Fitfunktion,   Direktimport  aus  Python-Script,
-        gerundet.
+        Parameterwerte  f\"ur  Fitfunktion in Abbildung~\ref{fig:cu:freq:approx}
     }
     \label{tab:fitparams:cu:freq:approx}
     \sisetup{%

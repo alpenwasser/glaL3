@@ -24,9 +24,10 @@ r_avg = (r1+r2)/2                                 # average radius of cylinder
 d_rohr = r2 - r1                           # wall thickness of copper cylinder
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
-npts  = 1e1
+npts  = 1e3
 fmin  = 1
-fmax  = 7500
+#fmax  = 7500
+fmax  = 25e3
     # -----------------------------------------------------#
     # Create  a list  for convenient  printing of  vars to #
     # file, add LaTeX where necessary.                     #
@@ -55,7 +56,7 @@ plot_color_fit          = 'blue'
 plot_color_ratio        = 'magenta'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 32
+plot_size_measurements  = 16
 plot_scale_x            = 'log'
 plot_label_fit          = r"Fitfunktion (N\"aherung)"
 plot_label_ratio        = r"$\displaystyle \frac{d_{Rohr}}{s_{skin}}$"
@@ -103,7 +104,8 @@ s_skin = lambda f: sqrt(2/(2*pi*f*mu0*sigma))
 # ---------------------------------------------------------#
 n = np.linspace(1,npts,npts)
 expufunc = np.frompyfunc(exp,1,1)
-frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
+#frequency_vector = fmin*expufunc(n*log(fmax-fmin)/npts)
+frequency_vector = expufunc((1-n/npts)*log(fmin)) * expufunc(n*log(fmax)/npts)
 
 
 # ---------------------------------------------------------#
@@ -205,8 +207,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte  f\"ur die  approximative Fitfunktion,  Direktimport aus
-        Python-Script, gerundet.
+        Parameterwerte  f\"ur  Fitfunktion in Abbildung~\ref{fig:st:freq:approx}
     }
     \label{tab:fitparams:st:freq:approx}
     \sisetup{%
