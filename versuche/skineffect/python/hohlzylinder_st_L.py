@@ -150,7 +150,7 @@ phi_norm_approx = lambda f: (
         mu0 * pi * N0**2/l * (2 * r1**2 /denom_approx(f) - 2/k(f)**2 * enum_approx(f) / denom_approx(f) + (rsp**2 - r2**2))
         )
 
-L_approx = lambda f: re(phi_norm(f))
+L_approx = lambda f: re(phi_norm_approx(f))
 
 
 # ---------------------------------------------------------#

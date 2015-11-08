@@ -796,6 +796,42 @@ Fits ermittelten Parametern.
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0pt}
+
+        %F\"ur  die N\"aherung  eines  d\"unnwandigen Rohres  (also bei  tiefen
+        %Frequenzen)  wurde Gleichung  \ref{eq:hohlzylinder:BApprox} von  Seite
+        %\pageref{eq:hohlzylinder:BApprox} benutzt:
+
+        %\begin{equation}
+        %    \tag{\ref{eq:hohlzylinder:BApprox}}
+        %    B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
+        %\end{equation}
+
+        %Bei  der  gen\"aherten  Fit-Funktion  f\"allt  auf,  dass  der  Betrag
+        %der N\"aherungsl\"osung  \"uber den gesamten  Frequenzbereich ziemlich
+        %genau  ist  und nicht  bedeutend  von  den Messwerten  abweicht.   Der
+        %Phasenverlauf divergiert  jedoch stark von den  Messwerten, sobald die
+        %Wanddicke des Zylinderrohrs gr\"osser als die Eindringtiefe $s_{skin}$
+        %wird (was sich auch mit der Theorie deckt).
+
+        %In Abbildung~\ref{fig:cu:freq:approx}  ist daher das  Verh\"altnis von
+        %Wandst\"arke und Eindringtiefe ebenfalls dargestellt.
+        \input{listings/hollow--cu--freq--approx2.tex}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}\raggedright
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx2.pgf}}
+        \captionof{figure}{%
+            N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
+            Hohlzylinder (Kupfer). Es wurde nur  auf den Betrag gefittet wegen
+            der  starken  Abweichung  der  Phase  von  den  Messwerten,  daher
+            lieferte diese N\"aherung ledliglich einen Wert f\"ur $\sigma$.
+        }
+        \label{fig:cu:freq:approx2}
+	\end{minipage}
+
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
         % -------------------------------------------------------------------- %
         \subsubsection{%
             Erg\"anzung: Selbstinduktionskoeffizient und Ohm'scher Widerstand}
@@ -1034,9 +1070,30 @@ Fits ermittelten Parametern.
         \label{fig:st:freq:approx}
 	\end{minipage}
 
-    % TODO: frequenzbereich, divergenz naeherung, zwei ausreisser bei Betrag
-%\begin{figure}[h!]
-%\end{figure}
+
+	\begin{minipage}[t]{0.33\textwidth}
+        \vspace{0pt}
+        %Bei  der   N\"aherungsl\"osung  ist   wie  auch  beim   Kupferrohr  zu
+        %erkennen,  dass   die  Phase  der  Fit-Funktion   von  den  Messwerten
+        %zu  divergieren  beginnt   wenn  die Wanddicke  des  Rohres  gr\"osser
+        %wird    als   die   Eindringtiefe   $s_{skin}$   (magenta   Kurve   in
+        %Abbildung~\ref{fig:st:freq:approx}). Der  Frequenzbereich  wurde  auch
+        %hier   ein  wenig   \"uber  den   Messbereich  erweitert,   um  dieses
+        %divergierende Verhalten besser erkennbar zu machen.
+        %\vspace{1em}
+        \input{listings/hollow--st--freq--approx2.tex}
+	\end{minipage}%
+	\begin{minipage}[t]{0.67\textwidth}
+        \vspace{0pt}
+        \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--approx2.pgf}}
+        \captionof{figure}{%
+            N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
+            Hohlzylinder  (rostfreier  Stahl). Wie   auch  beim  Kupfer  wurde
+            lediglich auf den Betrag gefittet.
+        }
+        \label{fig:st:freq:approx2}
+	\end{minipage}
+
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0pt}
