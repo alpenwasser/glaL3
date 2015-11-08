@@ -847,19 +847,9 @@ Fits ermittelten Parametern.
 
         Als    Funktionen    f\"ur    die    Plots   von    $L$,    $R$    und
         $\frac{\hat{\Phi}}{\hat{I}}$    wurden   die    Formeln   von    Seite
-        \pageref{eq:hohlzylinder:phiNormExact} verwendet:
-
-        \begin{align}
-            \tag{\ref{eq:hohlzylinder:phiNormExact}}
-            \begin{split}
-            \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
-                                       & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                                       & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                                       & + (r_{Sp}^2 - r_2^2) \Biggr)
-            \end{split} \\
-            L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
-            R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
-        \end{align}
+        \pageref{eq:hohlzylinder:phiNormExact}  verwendet,   sowohl  f\"ur die
+        exakte wie  auch die gen\"aherte L\"osung. Es  soll aus Platzgr\"unden
+        an dieser Stelle nicht der ganze Formelberg nochmals notiert werden.
 
         \vspace{2em}
         %TODO reference formulas
@@ -1105,22 +1095,9 @@ Fits ermittelten Parametern.
         Es   gelten  die   bereits   erw\"ahnten   \"Uberlegungen  zu   diesen
         Plots.    Als  Funktionen   f\"ur   die  Plots   von   $L$,  $R$   und
         $\frac{\hat{\Phi}}{\hat{I}}$  wurden wiederum  die  Formeln von  Seite
-        \pageref{eq:hohlzylinder:phiNormExact} verwented:
-
-        \begin{align}
-            \tag{\ref{eq:hohlzylinder:phiNormExact}}
-            \begin{split}
-            \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
-                                       & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                                       & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                                       & + (r_{Sp}^2 - r_2^2) \Biggr)
-            \end{split} \\
-            L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
-            R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
-        \end{align}
+        \pageref{eq:hohlzylinder:phiNormExact} verwendet.
 
         \vspace{1em}
-
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
             \input{listings/hollow--st--L.tex}
@@ -1160,41 +1137,3 @@ Fits ermittelten Parametern.
 
     \clearpage
 } %END OF A3 PAGES
-
-
-    %Als  Fitfunktion  wurde   Gleichung  \ref{eq:hohlzylinder:BApprox}  (Seite
-    %\pageref{eq:hohlzylinder:BApprox}) verwendet.
-
-    %\begin{equation*}
-    %    B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
-    %\end{equation*}
-
-    % TODO: This shit
-
-    %Als  Fitfunktion   wurde  die  Formel  f\"ur   $r_1<r<r_2$  aus  Gleichung
-    %\ref{eq:hohlzylinder:BExact}    (Seite   \pageref{eq:hohlzylinder:BExact})
-    %verwendet,   mit   $r   =  r_1$. F\"ur   genauere   Informationen   \"uber
-    %den   Aufbau   der   Formel   und    die   Verwendung   der   in   Tabelle
-    %\ref{tab:fitparams:cu:freq:exact}    gelisteten   Parameter    siehe   das
-    %entsprechende Kapitel.
-
-    %\begin{equation*}
-    %    \hat{B} (r_1) = \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \cdot \hat{B}_0 \\
-    %\end{equation*}
-
-%\begin{sidewaysfigure}[!htb]
-%    \begin{minipage}{0.77\textwidth}
-%    \resizebox{\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--exact.pgf}}
-%    \caption{Frequenzverlauf, exakte L\"osung}
-%    \end{minipage}
-%    \begin{minipage}{0.2\textwidth}
-%        \begin{equation*}
-%            %\label{eq:hohlzylinder:BExactApplied}
-%            \hat{B} (r_1) = \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \cdot \hat{B}_0 \\
-%        \end{equation*}
-%        \input{listings/hollow--cu--freq--exact.tex}
-%    \end{minipage}
-%\end{sidewaysfigure}
-
-
-

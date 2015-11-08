@@ -2,31 +2,31 @@ Dieses Kapitel  behandelt in Kurzform  die wichtigsten Grundlagen,  welche zum
 Verst\"andnis des Versuches erforderlich sind. Die detaillierten Herleitungen
 sind in der Versuchsanleitung zu finden~\cite{ref:looser:skineffekt}.
 
-% **************************************************************************** %
-\subsection{Grundidee}
-\label{sec:arbgru:subsec:grundidee}
-% **************************************************************************** %
-
-Hochfrequente  Wechselstr\"ome  haben  die   Eigenschaft,  dass  sie  v.a.  an
-der  Oberfl\"ache  eines  Leiters  fliessen  und  nicht  tief  in  den  Leiter
-eindringen. Dieses als  \emph{Skineffekt} bekannte  Ph\"anomen soll  in diesem
-Versuch experimentell nachgewiesen werden.
-
-Wird  ein  Leiter  in  ein  wechselndes  Magnetfeld  eingef\"uhrt,  werden  in
-ihm  Wirbelstr\"ome  induziert. Ist  die  Frequenz  des  externen  Magnetfelds
-niedrig,  verteilen  sich  diese  Wirbelstr\"ome  (ungleichm\"assig)  auf  den
-gesamten  Querschnitt.  Bei  h\"oheren  Frequenzen  des externen  Magnetfeldes
-verlagern   sich   die   Wirbelstr\"ome  in   den   Oberfl\"achenbereich   des
-Leiters. Da sie  der \"Anderung  des externen  Feldes gem\"ass  der Lenz'schen
-Regel~\cite{ref:wikipedia:lenzscheRegel}  entgegenwirken,  schw\"achen sie  im
-Innern  des  Leiters  das  externe  Feld  ab. Ebenfalls  werden  der  Ohm'sche
-Widerstand und der Selbstinduktionskoeffizient der Konfiguration von Spule und
-Zylinder ge\"andert, sowie der magnetische Fluss im Innern des Zylinders.
-
-Als Versuchsf\"alle dienen die  F\"alle eines eingef\"uhrten Hohlzylinders und
-eines  eingef\"uhrten Vollzylinders. Es werden  sowohl g\"angige  N\"aherungen
-wie  auch die  exakten  L\"osungen  aus der  Theorie  mit den  Messergebnissen
-verglichen.
+%% **************************************************************************** %
+%\subsection{Grundidee}
+%\label{sec:arbgru:subsec:grundidee}
+%% **************************************************************************** %
+%
+%Hochfrequente  Wechselstr\"ome  haben  die   Eigenschaft,  dass  sie  v.a.  an
+%der  Oberfl\"ache  eines  Leiters  fliessen  und  nicht  tief  in  den  Leiter
+%eindringen. Dieses als  \emph{Skineffekt} bekannte  Ph\"anomen soll  in diesem
+%Versuch experimentell nachgewiesen werden.
+%
+%Wird  ein  Leiter  in  ein  wechselndes  Magnetfeld  eingef\"uhrt,  werden  in
+%ihm  Wirbelstr\"ome  induziert. Ist  die  Frequenz  des  externen  Magnetfelds
+%niedrig,  verteilen  sich  diese  Wirbelstr\"ome  (ungleichm\"assig)  auf  den
+%gesamten  Querschnitt.  Bei  h\"oheren  Frequenzen  des externen  Magnetfeldes
+%verlagern   sich   die   Wirbelstr\"ome  in   den   Oberfl\"achenbereich   des
+%Leiters. Da sie  der \"Anderung  des externen  Feldes gem\"ass  der Lenz'schen
+%Regel~\cite{ref:wikipedia:lenzscheRegel}  entgegenwirken,  schw\"achen sie  im
+%Innern  des  Leiters  das  externe  Feld  ab. Ebenfalls  werden  der  Ohm'sche
+%Widerstand und der Selbstinduktionskoeffizient der Konfiguration von Spule und
+%Zylinder ge\"andert, sowie der magnetische Fluss im Innern des Zylinders.
+%
+%Als Versuchsf\"alle dienen die  F\"alle eines eingef\"uhrten Hohlzylinders und
+%eines  eingef\"uhrten Vollzylinders. Es werden  sowohl g\"angige  N\"aherungen
+%wie  auch die  exakten  L\"osungen  aus der  Theorie  mit den  Messergebnissen
+%verglichen.
 
 
 % **************************************************************************** %
@@ -36,7 +36,7 @@ verglichen.
 
 \begin{figure}[th!]
     \centering
-    \includegraphics[width=.5\textwidth]{images/spule-vollzylinder.png}
+    \includegraphics[width=.33\textwidth]{images/spule-vollzylinder.png}
     \caption{Spule mit Vollzylinder \emph{Quelle:} Skript zum Versuch~\cite{ref:looser:skineffekt}}
 \end{figure}
 
@@ -207,19 +207,63 @@ wobei:
 \end{itemize}
 
 % ---------------------------------------------------------------------------- %
-\subsubsection{Selbstinduktionskoeffizient und Ohm'scher Widerstand, exakte L\"osung}
+\subsubsection{B-Feld, N\"aherungsl\"osung f\"ur numerische Probleme}
+\label{sec:arbgru:subsec:hohlzylinder:BApprox2}
+% ---------------------------------------------------------------------------- %
+
+Bei hohen Frequenzen k\"onnen sich f\"ur numerische Software Probleme ergeben,
+wenn ihre Rechenpr\"azision nicht ausreicht. Da hier Python benutzt wurde, war
+dies zwar  kein Problem, aber die  folgenden Formeln wurden zum  Vergleich mit
+der exakten L\"osung trotzdem implementiert:
+\vspace{-0.5em}
+\begin{align}
+    \label{eq:hohlzylinder:BExact}
+    0 \leq r \leq r_1:      \hat{B} (r) & = \hat{B} (r_1) = konst. \\
+    r_1 \leq r \leq r_2:    \hat{B} (r) & = \frac{(\frac{u_1}{2} + 1 ) \cdot exp(u - u_1) - (\frac{u_1}{2} - 1 ) \cdot exp(-u+u_1)}{(\frac{u_1}{2} + 1 ) \cdot exp(u_2 - u_1) - (\frac{u_1}{2} - 1 ) \cdot exp(-u_2+u_1)} \cdot B_0  \\
+    r_2 \leq r \leq r_{Sp}: \hat{B} (r) & = \hat{B}_0 = konst.
+\end{align}
+
+wobei:
+
+\begin{itemize}
+    \item[]
+        $u_{1,2} = i \cdot k \cdot r_{1,2}$
+    \item[]
+        $u = i \cdot k \cdot r$
+\end{itemize}
+
+
+% ---------------------------------------------------------------------------- %
+\subsubsection{Selbstinduktionskoeffizient und Ohm'scher Widerstand}
 \label{sec:arbgru:subsec:hohlzylinder:LRexakt}
 % ---------------------------------------------------------------------------- %
 
-
+Die exakten Gleichungen:
+\vspace{-0.5em}
 \begin{align}
     \label{eq:hohlzylinder:phiNormExact}
     \begin{split}
-    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
-                               & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
-                               & + (r_{Sp}^2 - r_2^2) \Biggr)
-    \end{split} \\
-    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
-    R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
+    \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l}
+                                \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} + (r_{Sp}^2 - r_2^2) \\
+                               & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \Biggr)
+    \end{split}
 \end{align}
+\vspace{-1em}
+\begin{align}
+    \label{eq:hohlzylinder:LRExact}
+    L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr)  & R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0} \\
+\end{align}
+N\"aherungen f\"ur numerische Problemf\"alle:
+\vspace{-0.5em}
+\begin{align}
+    \label{eq:hohlzylinder:phiNormApprox}
+    \begin{split}
+    enum & = \biggl(\frac{u_1}{2}+1\biggr) \cdot \biggl((u_2 - 1) \cdot exp(u_2-u_1) - (u_1-1)\biggr) \\
+        & + \biggl(\frac{u_1}{2}-1\biggr) \cdot \biggl((u_2 + 1) \cdot exp(-u_2+u_1) - (u_1+1)\biggr)
+    \end{split} \\
+    denom & = \biggl(\frac{u_1}{2}+1\biggr) \cdot \exp(u_2 - u_1) - \biggl(\frac{u_1}{2} - 1\biggr) \cdot exp(-u_2+u_1) \\
+    \frac{\hat{\Phi}}{\hat{I}}
+    & = \frac{\mu_0 \cdot 2\pi \cdot N_0^2}{l} \cdot \Biggl(2 \cdot \frac{r_1^2}{denom} - \frac{2}{k^2} \cdot \frac{enum}{denom} + (r_{Sp}^2 - r_2^2) \Biggr) \\
+\end{align}
+Die Beziehung zwischen dem normierten Fluss  und $L$ und $R$ ist identisch wie
+bei der exakten L\"osung.
