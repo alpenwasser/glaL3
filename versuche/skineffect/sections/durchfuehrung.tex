@@ -1,4 +1,23 @@
-In diesem Kapitel wird die Durchf\"uhrung des Versuches beschrieben.
+Das  Herzst\"uck des  Versuches  bildet eine  zylindrische Kupferspule  (Draht
+aufgewickelt  auf  einen  Acrylglas-Zylinder),  in  deren  Mitte  eine  kleine
+\"Offnung eingelassen ist, durch die eine Messsonde eingef\"uhrt werden kann.
+
+In  diese Zylinderspule  werden  die Versuchsproben  eingef\"uhrt (Hohl-  oder
+Vollzylinder), wobei  diese ebenfalls  Aussparungen f\"ur das  Einf\"uhren der
+Messsonde aufweisen. Der Vollzylinder ist dabei in zwei H\"alften (geschnitten
+im Querschnitt) ausgew\"uhrt.
+
+Der  Messbereich  ist axial  zentriert,  um  Randeffekte beim  Magnetfeld  der
+Zylinderspule vernachl\"assigen zu k\"onnen.
+
+Der  Messsensor  ist  an  einer Schublehre  (auch  bekannt  als  Messschieber)
+angebracht, womit seine radiale Position gemessen werden kann.
+
+Die Einheit der Messwerte, welche das Oszilloskop an den Benutzer ausgibt, ist
+Volt, daher wird diese auch auf s\"amtlichen Tabellen und Plots benutzt. Da es
+beim Versuch  um das Fitten von  Kurven in ihrer \emph{Form}  an Messwerte und
+nicht  um  die absoluten  Werte  des  B-Feldes  geht,  ist dies  nicht  weiter
+tragisch.
 
 
 % **************************************************************************** %
@@ -6,77 +25,237 @@ In diesem Kapitel wird die Durchf\"uhrung des Versuches beschrieben.
 \label{sec:durchf:subsec:anordn}
 % **************************************************************************** %
 
-%\begin{figure}[th!]
-%    \centering
-%    \includegraphics[width=.5\textwidth]{images/versuchsanordnung.jpeg}
-%    \caption{Die Versuchsanordnung}
-%\end{figure}
-%\begin{figure}[th!]
-%    \centering
-%    \includegraphics[width=.5\textwidth]{images/blockschaltbild.jpeg}
-%    \caption{Die Versuchsanordnung}
-%\end{figure}
+\begin{figure}[!htb]
+    \resizebox{\textwidth}{!}{\input{images/schematic.tex}}
+    \caption{Versuchsanordnung, schematisch}
+    \label{fig:versuch:schematic}
+\end{figure}
 
-% Picture and Tools
+Im  Vergleich   zur  Versuchsanleitung   wurde  die   Versuchsapparatur  etwas
+aktualisiert (insbesondere wurde das  Oszilloskop durch ein moderneres Ger\"at
+ersetzt),  daher  ist  das  dortige  Schema  des  Versuchsaufbaus  nicht  mehr
+ganz  aktuell. Abbildung  \ref{fig:versuch:schematic} enth\"ahlt  deshalb  ein
+aktualisiertes  Schema,  das  dem  Aufbau   am  Tag  des  Versuchs  entspricht
+(Abbildungen \ref{fig:versuch:1} und \ref{fig:versuch:2}).
+
+Die Nummerierung der Ger\"ate  in den Abbildungen \ref{fig:versuch:schematic},
+\ref{fig:versuch:1} und  \ref{fig:versuch:2} und  in der  folgenden Auflistung
+ist konsistent.
+
+\begin{figure}[!htb]
+    \resizebox{\textwidth}{!}{\input{images/versuchsanordnung-1.tex}}
+    \caption{Versuchsanordnung}
+    \label{fig:versuch:1}
+\end{figure}
+\begin{figure}[!htb]
+    \resizebox{\textwidth}{!}{\input{images/versuchsanordnung-2.tex}}
+    \caption{Versuchsanordnung}
+    \label{fig:versuch:2}
+\end{figure}
+
+Die verwendeten Ger\"ate waren:
+\begin{enumerate}
+    \item
+        Signalgenerator: Hewlett-Packard 33120A
+    \item
+        Verst\"arker: Kepco
+    \item
+        Zylinderspule aus Kupferdraht:
+        \begin{itemize}
+            \item
+               $\SI{98}{\milli\meter}$ Innendurchmesser
+           \item
+               $\SI{0.8}{\milli\meter}$ Drahtdurchmesser
+           \item
+               $\SI{500}{\milli\meter}$ L\"ange
+           \item
+               $\num{574}$ Windungen
+        \end{itemize}
+    \item
+        Shunt-Widerstand: $\SI{1}{\ohm}$, $\SI{50}{\watt}$
+    \item
+        GMR-Sonde Honeywell SS94A1F
+    \item
+        GMR-Speisebox zugeh\"orig zu Sonde Honeywell SS94A1F
+    \item
+        Oszilloskop: Teledyne Lecroy HD06054
+\end{enumerate}
+
 
 % **************************************************************************** %
-\subsection{Versuchsablauf}
+\clearpage
+\subsection{Messvorgang/Messmethoden}
+\label{sec:durchf:subsec:messmethoden}
+% **************************************************************************** %
+
+
+Bei  der Messung  wurde jeweils  eine Messprobe  ins Innere  der Zylinderspule
+eingef\"uhrt   wie  in   den  Abbildungen   \ref{fig:looser:vollzylinder}  und
+\ref{fig:looser:hohlzylinder3d}  auf  Seite  \pageref{fig:looser:vollzylinder}
+respektive \pageref{fig:looser:hohlzylinder3d} dargestellt.
+
+Anschliessend   wurden  folgende   Messungen   zur   Erfassung  des   B-Feldes
+durchgef\"uhrt:
+
+\begin{itemize}
+    \item
+        Vollzylinder Aluminium:
+        \begin{itemize}
+            \item
+                Frequenzgang,   GMR-Sonde    axial   und    radial   zentriert
+                (Abbildung~\ref{fig:sensor:fixed})
+            \item
+                \"uber   den  ganzen   Radius   variierende  Position,   axial
+                zentriert, bei  fixierter tiefer  Frequenz ($\SI{30}{\hertz}$)
+                (Abbildung~\ref{fig:sensor:radial:full}) und
+            \item
+                \"uber     die      \"aussere     H\"alfte      des     Radius
+                variierende      Position,      axial      zentriert,      bei
+                fixierter       hoher      Frequenz       ($\SI{450}{\hertz}$)
+                (Abbildung~\ref{fig:sensor:radial:partial}).
+        \end{itemize}
+    \item
+        Hohlzylinder Kupfer:
+        \begin{itemize}
+            \item
+                Frequenzgang,   GMR-Sonde    axial   und    radial   zentriert
+                (Abbildung~\ref{fig:sensor:fixed})
+        \end{itemize}
+    \item
+        Hohlzylinder rostfreier Stahl:
+        \begin{itemize}
+            \item
+                Frequenzgang,   GMR-Sonde    axial   und    radial   zentriert
+                (Abbildung~\ref{fig:sensor:fixed})
+        \end{itemize}
+\end{itemize}
+
+\begin{minipage}[t]{.33\textwidth}
+    \vspace{0mm}
+    \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
+    \captionof{figure}{Sonde ist axial und radial zentriert fixiert.}
+    \label{fig:sensor:fixed}
+\end{minipage}%
+\begin{minipage}[t]{.33\textwidth}
+    \vspace{0mm}
+    \resizebox{\textwidth}{!}{\input{images/sensor-radial-complete.tex}}
+    \captionof{figure}{Sonde l\"auft den gesamten Radius ab, axial zentriert.}
+    \label{fig:sensor:radial:full}
+\end{minipage}%
+\begin{minipage}[t]{.33\textwidth}
+    \vspace{0mm}
+    \resizebox{\textwidth}{!}{\input{images/sensor-radial-partial.tex}}
+    \captionof{figure}{Sonde l\"auft den halben Radius ab, axial zentriert.}
+    \label{fig:sensor:radial:partial}
+\end{minipage}
+
+
+% **************************************************************************** %
+\subsection{Proben}
+\label{sec:durchf:subsec:proben}
+% **************************************************************************** %
+
+
+Es wurden drei Versuchsobjekte benutzt:
+\begin{itemize}
+    \item
+        Hohlzylinder aus Kupfer:
+        \begin{itemize}
+            \item
+                $\SI{70}{\milli\meter}$ Aussendurchmesser
+            \item
+                $\SI{60}{\milli\meter}$ Innendurchmesser
+            \item
+                $\SI{500}{\milli\meter}$ L\"ange
+        \end{itemize}
+    \item
+        Hohlzylinder aus rostfreiem Stahl:
+        \begin{itemize}
+            \item
+                $\SI{70}{\milli\meter}$ Aussendurchmesser
+            \item
+                $\SI{60}{\milli\meter}$ Innendurchmesser
+            \item
+                $\SI{500}{\milli\meter}$ L\"ange
+        \end{itemize}
+    \item
+        Vollzylinder aus Aluminium:
+        \begin{itemize}
+            \item
+                $\SI{90}{\milli\meter}$ Durchmesser
+            \item
+                $\SI{500}{\milli\meter}$ L\"ange (verteilt auf zwei H\"alften)
+        \end{itemize}
+\end{itemize}
+
+
+Die  Leitwerte  der Proben  sind  nicht  bekannt und  sollen  via  Fit an  die
+Messpunkte  bestimmt werden. Dabei  ist zu  beachten, dass  die Literaturwerte
+und die  experimentell bestimmten  Werte betr\"achtlich  voneinander abweichen
+k\"onnen   (je  nach   Herstellungsprozess   k\"onnen  Metalle,   insbesondere
+Aluminium, stark variierende elektrische Leitf\"ahigkeiten aufweisen).
+
+
+% **************************************************************************** %
+\subsection{Messungen}
 \label{sec:durchf:subsec:ablauf}
 % **************************************************************************** %
 
 
-% ---------------------------------------------------------------------------- %
-\subsubsection{Hohlzylinder}
-% ---------------------------------------------------------------------------- %
+Die Messwerte wurden auf dem  Oszilloskop mit einer vom Dozenten geschriebenen
+Spezialsoftware ausgelesen. Diese wertet dabei die rohen Messpunkte (Spannung,
+welche von der GMR-Sonde via  Speiseger\"at an das Oszilloskop geliefert wird)
+aus und errechnet einen passenden Fit an diese Spannungswerte.
 
-% TODO: Anmerkung shunt-spannung
+Die Amplitude  dieses Fits  sowie die Phasenverschiebung  zwischen dem  Fit an
+die  GMR-Messwerte  und dem  Fit  an  die  zum \"ausseren  B-Feld geh\"orenden
+Messwerte (repr\"asentiert  durch die Shunt-Spannung) werden  anschliessend an
+den Benutzer  ausgegeben. Es sind diese  Werte, welche in  den Messprotokollen
+erfasst sind.
 
-        \begin{center}
-            \captionof{table}{Messwerte Kupferrohr}
-            \label{tab:meas:copper}
-            \sisetup{math-rm=\mathtt}
-            \begin{tabular}{%
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                }
-                \toprule
-                {Frequenz ($\si{\hertz}$)}            &
-                {Phase ($\si{\degree}$)} &
-                {Amplitude ($\si{\milli\volt}$)}      &
-                {$V_{R_{Shunt}}$ ($\si{\milli\volt}$)} \\
-                \midrule
-                   1 &   2   & 70.0 & 195.3 \\
-                  10 &  19.2 & 66.0 & 200.0 \\
-                  20 &  35.5 & 57.8 & 200.0 \\
-                  40 &  56.7 & 41.8 & 200.3 \\
-                  80 &  76.7 & 24.4 & 200.0 \\
-                 120 &  87   & 16.9 & 200.1 \\
-                 160 &  94   & 12.7 & 200.1 \\
-                 200 & 100   & 10.0 & 200.0 \\
-                 400 & 121   &  4.8 & 200.0 \\
-                 600 & 140   &  2.9 & 199.7 \\
-                 800 & 155   &  1.9 & 200.5 \\
-                1000 & 170   &  1.4 & 200.2 \\
-                1200 & 180   &  1.0 & 200.0 \\
-                1500 & 200   &  0.7 & 199.9 \\
-                \bottomrule
-            \end{tabular}
-        \end{center}
-\begin{figure}[th!]
-    \centering
-    \includegraphics[width=.5\textwidth]{images/spule-vollzylinder.png}
-    \caption{Spule mit Vollzylinder \emph{Quelle:} Skript zum Versuch}
-\end{figure}
+Die Shunt-Spannung wurde konstant  bei $\SI{200}{\milli\volt}$ gehalten (somit
+der  Spulen-Strom  bei  $\SI{200}{\milli\ampere}$. Bei  der  ersten  Messreihe
+wurde sie  zur Kontrolle erfasst,  anschliessend nicht mehr.   Die ermittelten
+Messwerte sind in Tabelle \ref{tab:meas:copper:shunt} zu finden.
 
+\begin{center}
+    \captionof{table}{%
+        Frequenz und  Shunt-Spannung beim  Frequenzgang von  Zylinderspule mit
+        Kupferrohr
+    }
+    \label{tab:meas:copper:shunt}
+    \sisetup{math-rm=\mathtt}
+    \begin{tabular}{%
+        S[table-number-alignment=right]
+        S[table-number-alignment=right]
+        S[table-number-alignment=right]
+        S[table-number-alignment=right]
+        }
+        \toprule
+        {Frequenz ($\si{\hertz}$)}             &
+        {$V_{R_{Shunt}}$ ($\si{\milli\volt}$)} &
+        {Frequenz ($\si{\hertz}$)}             &
+        {$V_{R_{Shunt}}$ ($\si{\milli\volt}$)} \\
+        \midrule
+           1 & 195.3 & 200 & 200.0 \\
+          10 & 200.0 & 400 & 200.0 \\
+          20 & 200.0 & 600 & 199.7 \\
+          40 & 200.3 & 800 & 200.5 \\
+          80 & 200.0 &1000 & 200.2 \\
+         120 & 200.1 &1200 & 200.0 \\
+         160 & 200.1 &1500 & 199.9 \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+Bei gewissen  Versuchen die  schwankten die  ausgegebenen Werte  merklich (die
+Phase war davon st\"arker betroffen als die Amplitude), was ein gutes Auslesen
+zeitweise  erschwerte. Bei  den  betroffenen  Messungen ist  dies  im  Kapitel
+\emph{Auswertung} jeweils angemerkt.
 
-% ---------------------------------------------------------------------------- %
-\subsubsection{Vollzylinder}
-% ---------------------------------------------------------------------------- %
+Im Allgemeinen  war das Durchf\"uhren  des Versuches dank der  Software jedoch
+eine  komfortable  Angelegenheit, und  wie  man  im Kapitel  \emph{Auswertung}
+sehen  wird, decken  sich  die  ermittelten Messwerte  im  Grossen und  Ganzen
+zufriedenstellend mit der Theorie und sind anscheinend von guter Qualit\"at.
 
-\begin{figure}[th!]
-    \centering
-    \includegraphics[width=.5\textwidth]{images/spule-hohlzylinder.png}
-    \caption{Spule mit Hohlzylinder \emph{Quelle:} Skript zum Versuch}
-\end{figure}
+Die Messprotokolle sind in Anhang %TODO
+zu finden.
