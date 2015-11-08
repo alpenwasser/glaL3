@@ -809,10 +809,9 @@ Fits ermittelten Parametern.
         Wahl von $\sigma$ und $B_0$,  und die Wichtigkeit der Kurvenformen vor
         absoluten Werten.
 
-        Als     Funktionen     f\"ur     die    Plots     von     $L$,     $R$
-        und      $\frac{\hat{\Phi}}{\hat{I}}$      wurden     die      Formeln
-        \ref{eq:hohlzylinder:phiNormExact}       (siehe       auch       Seite
-        \pageref{eq:hohlzylinder:phiNormExact}) benutzt:
+        Als    Funktionen    f\"ur    die    Plots   von    $L$,    $R$    und
+        $\frac{\hat{\Phi}}{\hat{I}}$    wurden   die    Formeln   von    Seite
+        \pageref{eq:hohlzylinder:phiNormExact} verwendet:
 
         \begin{align}
             \tag{\ref{eq:hohlzylinder:phiNormExact}}
@@ -873,26 +872,39 @@ Fits ermittelten Parametern.
         \label{sec:ausw:subsec:hohlz:subsubsec:steel}
         % -------------------------------------------------------------------- %
 
-        Das Vorgehen beim Stahlrohr war  identisch zum Kupferrohr, und auch in
-        diesem  Fall wurde  ein Fit  mittels  der N\"aherung  und mittels  der
-        exakten Funktion erstellt.
+        Das Vorgehen beim Stahlrohr war identisch zum Kupferrohr. Aufgrund der
+        schlechteren  Leitf\"ahigkeit von  Stahl kommt  der Skineffekt  jedoch
+        hier  erst  bei  bedeutend  h\"oheren Frequenzen  richtig  zum  Tragen
+        (die zum  Induzieren der Wirbelstr\"ome ben\"otigte  Ver\"anderung des
+        magnetischen Flusses muss schneller erfolgen).
 
-        Ein  wichtiger  Unterschied zum  Kupferrohr  bestand  darin, dass  die
-        Frequenz,  ab  welcher  der  Skineffekt  wirklich  zum  Tragen  kommt,
-        bedeutend h\"oher lag, weshalb der Messbereicht entsprechend angepasst
-        wurde. Bei   $\SI{7.5}{\kilo\hertz}$  war   jedoch  Schluss,   da  der
-        Funktionsgenerator nicht  mehr gen\"ugend  Spannung liefern konnte, um
-        die  Shunt-Spannung  auf  den geforderten  $\SI{200}{\milli\volt}$  zu
-        halten.
+        Der Messbereich wurde daher entsprechend angepasst, wie im Kapitel zur
+        Durchf\"uhrung angemerkt.
+        %TODO reference, remark, explanation in "Durchfuehrung"
+        %Bei   $\SI{7.5}{\kilo\hertz}$  war   jedoch  Schluss,   da  der
+        %Funktionsgenerator nicht  mehr gen\"ugend  Spannung liefern konnte, um
+        %die  Shunt-Spannung  auf  den geforderten  $\SI{200}{\milli\volt}$  zu
+        %halten.
 
-        Zus\"atzlich  schwankten die  Messwerte (insbesondere  die Phase)  bei
-        den  h\"oheren  Frequenzen  sehr   stark. Ein  genaues  Ablesen  durch
-        \emph{Mitteln  durch Augenmass}  war nicht  mehr m\"oglich,  sodass es
-        keinen grossen Sinn  machte, die Frequenz weiter  zu erh\"ohen, selbst
-        wenn der Funktionsgenerator noch weiter h\"atte gehen k\"onnen.
+        Bei  h\"oheren  Frequenzen   schwankten  die  Messwerte  (insbesondere
+        die  Phase)  recht  stark,  was ein  genaues  Ablesen  erschwerte. Die
+        Abweichung zwischen  dem Fit  der Phase und  den Messwerten  im oberen
+        Frequenzbereich ist m\"oglicherweise darauf zur\"uckzuf\"uhren.
 
         Die    Messwerte    sind     in    Tabelle~\ref{tab:meas:steel}    auf
         Seite~\pageref{tab:meas:steel} zu finden.
+
+        F\"ur     den     Literaturwert    $\sigma_{Ref}$     wurden     Werte
+        aus     den    drei    Quellen     \cite{ref:stainless:hypertextbook},
+        \cite{ref:stainless:aksteel} und       \cite{ref:stainless:stahlwerke}
+        miteinander   verrechnet. Da  es   sehr  viele   Stahllegierungen  mit
+        unterschiedlichen   Eigenschaften  auf   dem  Markt   gibt,  existiert
+        \emph{ein}  Literaturwert   per  se  nat\"urlich  nicht,   aber  diese
+        Vorgehensweise  sollte  einen  gen\"ugend  guten  Wert  zum  Vergleich
+        liefern,  anhand   dessen  das  experimentelle  Resultat   auf  seine
+        Plausibilit\"at \"uberpr\"uft werden kann.
+
+        % TODO: Appendix calculation sigma_ref
 
         \vspace{2em}
         \begin{minipage}[c][][b]{0.5\textwidth}
@@ -908,52 +920,73 @@ Fits ermittelten Parametern.
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0pt}
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--exact.pgf}}
-        \captionof{figure}{Exakte L\"osung f\"ur den Frequenzverlauf des B-Feldes im Hohlzylinder (rostfreier Stahl)}
+        \captionof{figure}{%
+            Exakte   L\"osung   f\"ur   den   Frequenzverlauf   des   B-Feldes
+            im   Hohlzylinder    (rostfreier   Stahl). Die    Messpunkte   bei
+            $\SI{200}{\hertz}$   und   bei   $\SI{400}{\hertz}$   wurden   als
+            Ausreisser (vermutlich aufgrund  von Ablesefehlern) betrachtet und
+            nicht in  den Verlauf  der Fit-Funktion mit  einbezogen. Phase und
+            Betrag  wurden  individuell  gefittet, daher  erh\"ahlt  man  auch
+            zwei  (leicht)  unterschiedliche  Leitwerte  $\sigma$  in  Tabelle
+            \ref{tab:fitparams:cu:freq:exact}.
+        }
         \label{fig:st:freq:exact}
 	\end{minipage}
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0pt}
+        Die      f\"ur       Abbildungen      \ref{fig:st:freq:exact}      und
+        \ref{fig:st:freq:exact:opt}        benutzte        Funktion        ist
+        Gleichung        \ref{eq:hohlzylinder:BExact}         von        Seite
+        \pageref{eq:hohlzylinder:BExact}:
 
-        \begin{center}
-            \captionof{table}{Messwerte Rohr aus rostfreiem Stahl}
-            \label{tab:meas:steel}
-            \sisetup{math-rm=\mathtt}
-            \begin{tabular}{
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-                S[table-number-alignment=right]
-            }
-                \toprule
-                  {Frequenz ($\si{\hertz}$)}
-                & {Phase ($\si{\degree}$)}
-                & {Amplitude ($\si{\milli\volt}$)} \\
-                  %{\rotatebox{15}{Freq. ($\si{\hertz}$)}}
-                %& {\rotatebox{15}{Phase ($\si{\degree}$)}}
-                %& {\rotatebox{15}{Ampl. ($\si{\milli\volt}$)}}
-                %& {\rotatebox{15}{Freq. ($\si{\hertz}$)}}
-                %& {\rotatebox{15}{Phase ($\si{\degree}$)}}
-                %& {\rotatebox{15}{Ampl. ($\si{\milli\volt}$)}}
-                  \\
-                \midrule
-                   40 &  1.8  &  68.7  \\
-                  120 &  5.4  &  69.1  \\
-                  200 &  9    &  68.7  \\
-                  400 &  17.5 &  66.2  \\
-                  600 &  25.4 &  62.7  \\
-                  800 &  32.4 &  59    \\
-                 1000 &  38.4 &  54.5  \\
-                 1200 &  43.5 &  50.5  \\
-                 1500 &  50   &  45    \\
-                 1750 &  54   &  41    \\
-                 2000 &  58   &  37.2  \\
-                 2500 &  64   &  32    \\
-                 3500 &  71   &  24    \\
-                 5000 &  78   &  18    \\
-                 7500 &  88   &  12    \\
-                \bottomrule
-            \end{tabular}
-        \end{center}
+        \begin{equation}
+            \tag{\ref{eq:hohlzylinder:BExact}}
+            \hat{B}~(r = 0) = \hat{B}~(r = r_1) = \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \cdot \hat{B}_0 \\
+        \end{equation}
+
+        \vspace{0.5em}
+
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            \begin{center}
+                \captionof{table}{Messwerte Rohr aus rostfreiem Stahl}
+                \label{tab:meas:steel}
+                \sisetup{math-rm=\mathtt}
+                \begin{tabular}{
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    S[table-number-alignment=right]
+                    }
+                    \toprule
+                    {\rotatebox{60}{$f$ ($\si{\hertz}$)}}                  &
+                    {\rotatebox{60}{$\angle\hat{B}~(f)$ ($\si{\degree}$)}} &
+                    {\rotatebox{60}{$|\hat{B}~(f)|$ ($\si{\milli\volt}$)}} \\
+                    \midrule
+                       40 &  1.8  &  68.7  \\
+                      120 &  5.4  &  69.1  \\
+                      200 &  9    &  68.7  \\
+                      400 &  17.5 &  66.2  \\
+                      600 &  25.4 &  62.7  \\
+                      800 &  32.4 &  59    \\
+                     1000 &  38.4 &  54.5  \\
+                     1200 &  43.5 &  50.5  \\
+                     1500 &  50   &  45    \\
+                     1750 &  54   &  41    \\
+                     2000 &  58   &  37.2  \\
+                     2500 &  64   &  32    \\
+                     3500 &  71   &  24    \\
+                     5000 &  78   &  18    \\
+                     7500 &  88   &  12    \\
+                    \bottomrule
+                \end{tabular}
+            \end{center}
+        \end{minipage}%
+        \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0mm}
+            \input{listings/hollow--st--freq--exact-opt.tex}
+        \end{minipage}
+
         \vspace{1em}
 
         Weil  der  in  den  Messungen abgedeckte  Frequenzbereich  nicht  ganz
@@ -964,10 +997,10 @@ Fits ermittelten Parametern.
         der  Kurve  nicht  ganz  so  aussagekr\"aftig  wie  das  messtechnisch
         erfasste Frequenzsprektrum, da die experimentelle Best\"atigung fehlt.
 
-        % TODO:  abfall bei stahl  erforder viel hoehere frequenz  als kupfer,
-        %schlechtere Leitf\"ahigkeit als Cu etc. blabla
-        \vspace{1em}
-        \input{listings/hollow--st--freq--exact-opt.tex}
+        Die    Resultate    f\"ur   $\sigma$    aus    den    Fits   in    den
+        Abbildungen  \ref{fig:st:freq:exact}  und  \ref{fig:st:freq:exact:opt}
+        sind nat\"urlich identisch, da es die gleiche Kurve ist, lediglich der
+        dargestellte Frequenzbereich variiert.
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0pt}
@@ -995,7 +1028,9 @@ Fits ermittelten Parametern.
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--approx.pgf}}
         \captionof{figure}{%
             N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
-            Hohlzylinder (rostfreier Stahl)}
+            Hohlzylinder  (rostfreier  Stahl). Wie   auch  beim  Kupfer  wurde
+            lediglich auf den Betrag gefittet.
+        }
         \label{fig:st:freq:approx}
 	\end{minipage}
 
@@ -1010,14 +1045,22 @@ Fits ermittelten Parametern.
         \label{sec:ausw:subsec:hohlz:st:subsubsec:LR}
         % -------------------------------------------------------------------- %
 
-        Wie   in    Abschnitt   \ref{sec:ausw:subsec:vollz:subsubsec:LR}   zum
-        Vollzylinder erw\"ahnt, wurden hier keine Messungen durchgef\"uhrt und
-        die Kurven basieren auf den mittels der Fits ermittelten Parameter.
+        Es   gelten  die   bereits   erw\"ahnten   \"Uberlegungen  zu   diesen
+        Plots.    Als  Funktionen   f\"ur   die  Plots   von   $L$,  $R$   und
+        $\frac{\hat{\Phi}}{\hat{I}}$  wurden wiederum  die  Formeln von  Seite
+        \pageref{eq:hohlzylinder:phiNormExact} verwented:
 
-        Als     Funktionen     f\"ur     die    Plots     von     $L$,     $R$
-        und      $\frac{\hat{\Phi}}{\hat{I}}$      wurden     die      Formeln
-        \ref{eq:hohlzylinder:phiNormExact}       (siehe       auch       Seite
-        \pageref{eq:hohlzylinder:phiNormExact}) benutzt:
+        \begin{align}
+            \tag{\ref{eq:hohlzylinder:phiNormExact}}
+            \begin{split}
+            \frac{\hat{\Phi}}{\hat{I}} & = \frac{\mu_0 \cdot N_0^2}{l} \\
+                                       & \cdot \Biggl( r_1^2 \cdot \frac{J_{0,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_1}}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+                                       & + \frac{2}{k} \frac{r_2 \cdot (J_{1,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_2}) - r_1 \cdot (J_{1,r_1} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{1,r_1})}{J_{0,r_2} \cdot Y_{2,r_1} - J_{2,r_1} \cdot Y_{0,r_2}} \\
+                                       & + (r_{Sp}^2 - r_2^2) \Biggr)
+            \end{split} \\
+            L & = Re \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) \\
+            R & = - \omega \cdot Im \Biggl(\frac{\hat{\Phi}}{\hat{I}} \Biggr) + R_{\Omega,0}
+        \end{align}
 
         \vspace{1em}
 

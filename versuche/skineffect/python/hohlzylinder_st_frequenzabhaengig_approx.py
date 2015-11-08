@@ -17,7 +17,27 @@ from matplotlib.pyplot import *
 # Init, Define Variables and Constants                     #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7                                        # vacuum permeability
-sigma = 1.25e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
+
+# http://www.aksteel.com/pdf/markets_products/stainless/austenitic/304_304L_Data_Sheet.pdf
+# Converting from microOhm / inch to standard SI
+rho_aksteel = 28.4 * 25.4 * 1e-3 * 1e-6
+sigma_aksteel = 1/rho_aksteel
+
+# http://hypertextbook.com/facts/2006/UmranUgur.shtml
+sigma_glenEbert304 = 1.450e6
+sigma_glenEbert347 = 1.392e6
+sigma_glenEbert316 = 1.334e6
+sigma_glenEbert = (sigma_glenEbert304+sigma_glenEbert347+sigma_glenEbert316) / 3
+
+# http://www.dew-stahl.com/fileadmin/files/dew-stahl.com/documents/Publikationen/Werkstoffdatenblaetter/RSH/1.4301_de.pdf
+rho_stahlwerke = 0.73e-6
+sigma_stahlwerke = 1 / rho_stahlwerke
+
+sigma_ref = ( sigma_aksteel + sigma_glenEbert + sigma_stahlwerke) / 3
+
+sigma = 1.25e6
+
+mu0   = 4*pi*1e-7                                        # vacuum permeability
 r1    = 30e-3                                # inner radius of copper cylinder
 r2    = 35e-3                                # outer radius of copper cylinder
 r_avg = (r1+r2)/2                                 # average radius of cylinder
@@ -33,8 +53,9 @@ fmax  = 25e3
     # file, add LaTeX where necessary.                     #
     # -----------------------------------------------------#
 params = [
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,|\hat{B}|}'      + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Ref}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_ref)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + '$\mu_0'    + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
-        '        ' + '$\sigma'   + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
         '        ' + '$r_1'      + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_2'      + '$ & $' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_{avg}'  + '$ & $' +  '\SI{'   + str(r_avg)  + r'}{\meter}'                     + r'$\\' + "\n",

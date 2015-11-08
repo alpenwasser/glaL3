@@ -17,7 +17,26 @@ from matplotlib.pyplot import *
 # Init, Define Variables and Constants                     #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7                                        # vacuum permeability
-sigma = 1.25e6  # adjust as needed until function plot fits measurement values
+
+# http://www.aksteel.com/pdf/markets_products/stainless/austenitic/304_304L_Data_Sheet.pdf
+# Converting from microOhm / inch to standard SI
+rho_aksteel = 28.4 * 25.4 * 1e-3 * 1e-6
+sigma_aksteel = 1/rho_aksteel
+
+# http://hypertextbook.com/facts/2006/UmranUgur.shtml
+sigma_glenEbert304 = 1.450e6
+sigma_glenEbert347 = 1.392e6
+sigma_glenEbert316 = 1.334e6
+sigma_glenEbert = (sigma_glenEbert304+sigma_glenEbert347+sigma_glenEbert316) / 3
+
+# http://www.dew-stahl.com/fileadmin/files/dew-stahl.com/documents/Publikationen/Werkstoffdatenblaetter/RSH/1.4301_de.pdf
+rho_stahlwerke = 0.73e-6
+sigma_stahlwerke = 1 / rho_stahlwerke
+
+sigma_ref = ( sigma_aksteel + sigma_glenEbert + sigma_stahlwerke) / 3
+
+sigma_abs = 1.25e6  # adjust as needed until function plot fits measurement values
+sigma_arg = 1.18e6  # adjust as needed until function plot fits measurement values
 r     = 0             # radial position of measurement probe. Centered on axis
 dsp   = 98e-3                                               # diameter of coil
 rsp   = dsp / 2                                               # radius of coil
@@ -34,8 +53,10 @@ fmax_opt = 5e4                # maximum frequency, adjusted to get a nice plot
     # file, add LaTeX where necessary.                     #
     # -----------------------------------------------------#
 params = [
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,|\hat{B}|}'      + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_abs)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,\angle\hat{B}}'  + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_arg)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Ref}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_ref)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + '$\mu_0'         + '$ & $' +  '\SI{'   + str(mu0)        + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
-        '        ' + '$\sigma'        + '$ & $' +  '\SI{'   + str(sigma)      + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
         '        ' + '$r'             + '$ & $' +  '\SI{'   + str(r)          + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_1'           + '$ & $' +  '\SI{'   + str(r1)         + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_2'           + '$ & $' +  '\SI{'   + str(r2)         + r'}{\meter}'                     + r'$\\' + "\n",
@@ -45,8 +66,10 @@ params = [
         '        ' + '$f_{max}'       + '$ & $' +  '\SI{'   + str(fmax)       + r'}{\hertz}'                     + r'$\\' + "\n",
         ]
 params_opt = [
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,|\hat{B}|}'      + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_abs)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Fit,\angle\hat{B}}'  + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_arg)       + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Ref}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_ref)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + '$\mu_0'         + '$ & $' +  '\SI{'   + str(mu0)        + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
-        '        ' + '$\sigma'        + '$ & $' +  '\SI{'   + str(sigma)      + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
         '        ' + '$r'             + '$ & $' +  '\SI{'   + str(r)          + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_1'           + '$ & $' +  '\SI{'   + str(r1)         + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_2'           + '$ & $' +  '\SI{'   + str(r2)         + r'}{\meter}'                     + r'$\\' + "\n",
@@ -65,7 +88,7 @@ plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
-plot_size_measurements  = 32
+plot_size_measurements  = 16
 plot_scale_x            = 'log'
 plot_label_fit          = 'Fitfunktion'
 plot_label_x            = 'Frequenz (Hz)'
@@ -92,28 +115,41 @@ r     = 30e-3
 # NOTE: We use  frequency f  instead of  angular frequency #
 # omega since that is what we actually set on the function #
 # generator.                                               #
+# NOTE: We evaluate B_abs and B_arg based on two different #
+# values for sigma, which allows to fit each of the curves #
+# more accurately.                                         #
 # ---------------------------------------------------------#
-var('f')
 
-k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
+k_abs = lambda f: sqrt((2*np.pi*f*mu0*sigma_abs)/2)*(mpc(1,-1))
+k_arg = lambda f: sqrt((2*np.pi*f*mu0*sigma_arg)/2)*(mpc(1,-1))
 
-enum  = lambda f:(
-          besselj(0,k(f)*r)
-        * bessely(2,k(f)*r1)
-        - besselj(2,k(f)*r1)
-        * bessely(0,k(f)*r)
+enum_abs  = lambda f:(
+          besselj(0,k_abs(f)*r)
+        * bessely(2,k_abs(f)*r1)
+        - besselj(2,k_abs(f)*r1)
+        * bessely(0,k_abs(f)*r)
     )
-denom = lambda f:(
-          besselj(0,k(f)*r2)
-        * bessely(2,k(f)*r1)
-        - besselj(2,k(f)*r1)
-        * bessely(0,k(f)*r2)
+denom_abs = lambda f:(
+          besselj(0,k_abs(f)*r2)
+        * bessely(2,k_abs(f)*r1)
+        - besselj(2,k_abs(f)*r1)
+        * bessely(0,k_abs(f)*r2)
+    )
+enum_arg  = lambda f:(
+          besselj(0,k_arg(f)*r)
+        * bessely(2,k_arg(f)*r1)
+        - besselj(2,k_arg(f)*r1)
+        * bessely(0,k_arg(f)*r)
+    )
+denom_arg = lambda f:(
+          besselj(0,k_arg(f)*r2)
+        * bessely(2,k_arg(f)*r1)
+        - besselj(2,k_arg(f)*r1)
+        * bessely(0,k_arg(f)*r2)
     )
 
-B = lambda f: enum(f) / denom(f) * B0
-
-B_abs = lambda f: abs(B(f))
-B_arg = lambda f: arg(B(f))
+B_abs = lambda f: abs(enum_abs(f) / denom_abs(f) * B0)
+B_arg = lambda f: arg(enum_arg(f) / denom_arg(f) * B0)
 
 
 # ---------------------------------------------------------#
