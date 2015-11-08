@@ -42,7 +42,6 @@ params = [
         '        ' + '$r_1'          + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_2'          + '$ & $' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$l'            + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
-        '        ' + '$l'            + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$NPTS'         + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
         '        ' + '$f_{min}'      + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
         '        ' + '$f_{max}'      + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
@@ -55,8 +54,10 @@ font = {
         }
 plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
+plot_color_fit_approx   = 'magenta'
 plot_scale_x            = 'log'
 plot_label_fit          = 'Fitfunktion'
+plot_label_fit_approx   = r'Fit-Funktion, N\"aherungsl\"osung'
 plot_label_x            = 'Frequenz (Hz)'
 plot_1_label_y          = r"$\displaystyle \biggl| \frac{\Phi}{I} \biggr|$ $\biggl( \displaystyle \frac{Vs}{A} \biggr)$"
 plot_2_label_y          = r"$\displaystyle arg\biggl( \frac{\Phi}{I} \biggr)$ (Grad)"
@@ -67,17 +68,18 @@ plot_2_title            = r"Phase Magn. Fluss normiert auf Spulenstrom, Spule mi
 # ---------------------------------------------------------#
 # Functions                                                #
 #                                                          #
-# See formula 28 on p.15 of script for experiment.         #
+# For  the  exact formulas,  see  formula  28 on  p.15  of #
+# script, for the approximations see formula 30 on p.16 of #
+# script.                                                  #
 #                                                          #
 # NOTE: We use  frequency f  instead of  angular frequency #
 # omega since that is what we actually set on the function #
 # generator.                                               #
 # ---------------------------------------------------------#
 
-var('f')
-
 k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
 
+# exact solution:
 enum1 = lambda f:(
           besselj(0,k(f)*r1)
         * bessely(2,k(f)*r1)
@@ -124,6 +126,25 @@ phi_norm = lambda f:(
 phi_norm_abs = lambda f: abs(phi_norm(f))
 phi_norm_arg = lambda f: arg(phi_norm(f))
 
+# Approx. solution:
+u1 = lambda f: mpc(0,1) * k(f) * r1
+u2 = lambda f: mpc(0,1) * k(f) * r2
+
+enum_approx = lambda f: (
+          (u1(f) / 2 + 1) * ((u2(f) - 1) * exp( u2(f) - u1(f)) - (u1(f) - 1))
+        + (u1(f) / 2 - 1) * ((u2(f) + 1) * exp(-u2(f) + u1(f)) - (u1(f) + 1))
+        )
+denom_approx = lambda f: (
+        (u1(f) / 2) * exp(u2(f) - u1(f)) - (u1(f) / 2 - 1) * exp( - u2(f) + u1(f))
+        )
+
+phi_norm_approx = lambda f: (
+        mu0 * pi * N0**2/l * (2 * r1**2 /denom_approx(f) - 2/k(f)**2 * enum_approx(f) / denom_approx(f) + (rsp**2 - r2**2))
+        )
+
+phi_norm_approx_abs = lambda f: abs(phi_norm_approx(f))
+phi_norm_approx_arg = lambda f: arg(phi_norm_approx(f))
+
 
 # ---------------------------------------------------------#
 # Generate points for omega axis                           #
@@ -142,6 +163,10 @@ phi_norm_abs_num   = phi_norm_abs_ufunc(frequency_vector)
 phi_norm_arg_ufunc = np.frompyfunc(phi_norm_arg,1,1)
 phi_norm_arg_num   = phi_norm_arg_ufunc(frequency_vector)
 
+phi_norm_approx_abs_ufunc = np.frompyfunc(phi_norm_approx_abs,1,1)
+phi_norm_approx_abs_num   = phi_norm_approx_abs_ufunc(frequency_vector)
+phi_norm_approx_arg_ufunc = np.frompyfunc(phi_norm_approx_arg,1,1)
+phi_norm_approx_arg_num   = phi_norm_approx_arg_ufunc(frequency_vector)
 
 # ---------------------------------------------------------#
 # Unfortunately, the  arg() function only  delivers values #
@@ -151,6 +176,7 @@ phi_norm_arg_num   = phi_norm_arg_ufunc(frequency_vector)
 # accordingly for a continuous curve.                      #
 # ---------------------------------------------------------#
 phi_norm_arg_num   = np.unwrap(phi_norm_arg_num)
+phi_norm_approx_arg_num = np.unwrap(phi_norm_approx_arg_num)
 
 
 # ---------------------------------------------------------#
@@ -159,6 +185,10 @@ phi_norm_arg_num   = np.unwrap(phi_norm_arg_num)
 phi_norm_abs_num   = phi_norm_abs_ufunc(frequency_vector)
 phi_norm_abs_num   = 1e3 * phi_norm_abs_num
 phi_norm_arg_num   = 180 / pi * phi_norm_arg_num
+
+phi_norm_approx_arg_num = 180 / pi * phi_norm_approx_arg_num
+phi_norm_approx_abs_num = phi_norm_approx_abs_ufunc(frequency_vector)
+phi_norm_approx_abs_num = 1e3 * phi_norm_approx_abs_num
 
 
 # ---------------------------------------------------------#
@@ -170,19 +200,23 @@ matplotlib.pyplot.rc('font', family='serif')
 fig   = figure(1)
 axes1 = fig.add_subplot(211)
 axes1.plot(frequency_vector,phi_norm_abs_num,color=plot_color_fit,label=plot_label_fit)
+axes1.plot(frequency_vector,phi_norm_approx_abs_num,color=plot_color_fit_approx,label=plot_label_fit_approx)
 axes1.set_xlim([fmin*0.9,fmax*1.1])
 axes1.set_xscale(plot_scale_x)
 axes1.set_xlabel(plot_label_x,fontdict=font)
 axes1.set_ylabel(plot_1_label_y,fontdict=font)
 axes1.set_title(plot_1_title,fontdict=font)
+axes1.legend(fontsize=plot_legend_fontsize)
 
 axes2 = fig.add_subplot(212)
 axes2.plot(frequency_vector,phi_norm_arg_num,color=plot_color_fit,label=plot_label_fit)
+axes2.plot(frequency_vector,phi_norm_arg_num,color=plot_color_fit_approx,label=plot_label_fit_approx)
 axes2.set_xlim([fmin*0.9,fmax*1.1])
 axes2.set_xscale(plot_scale_x)
 axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
 axes2.set_title(plot_2_title,fontdict=font)
+axes2.legend(fontsize=plot_legend_fontsize)
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.95,hspace=0.5)
 

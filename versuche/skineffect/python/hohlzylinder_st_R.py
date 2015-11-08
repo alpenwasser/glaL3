@@ -17,12 +17,6 @@ from matplotlib.pyplot import *
 # precision.   One  can  increase the  number  of  decimal #
 # places or bits, where the number of bits places is ~3.33 #
 # times the number of decimal places.                      #
-# For a maximum  frequency of 50 KHz,  a minimum precision #
-# of  273 bits  is required,  otherwise there  will be  an #
-# error regarding division by  zero. We therefore set this #
-# to 320 bits for  a comfortable margin, without incurring #
-# a gigantic  penalty in  execution speed (although  it is #
-# already significant at this precision).                  #
 # -------------------------------------------------------- #
 #mp.dps=25  # decimal places
 #mp.prec=320 # precision in bits
@@ -37,7 +31,6 @@ dsp   = 98e-3                                               # diameter of coil
 rsp   = dsp / 2                                               # radius of coil
 r1    = 30e-3                                # inner radius of copper cylinder
 r2    = 35e-3                                # outer radius of copper cylinder
-B0    = 6.9e-2                             # adjust this as needed for scaling
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
 R_0   = 5                                  # resistance of coil, assumed value
@@ -56,7 +49,6 @@ params = [
         '        ' + '$r_1'          + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_2'          + '$ & $' +  '\SI{'   + str(r2)     + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$l'            + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
-        '        ' + '$l'            + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$R_{\Omega,0}' + '$ & $' +  '\SI{'   + str(R_0)    + '}{\ohm}'                        + r'$\\' + "\n",
         '        ' + '$NPTS'         + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
         '        ' + '$f_{min}'      + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
@@ -68,9 +60,12 @@ font = {
         'weight' : 'normal',
         'size'   : 11,
         }
+plot_legend_fontsize    = 11
 plot_color_fit = 'blue'
-plot_linewidth = 1
 plot_scale_x   = 'log'
+plot_color_fit_approx   = 'magenta'
+plot_label_fit          = 'Fit-Funktion'
+plot_label_fit_approx   = r'Fit-Funktion, N\"aherungsl\"osung'
 plot_label_x   = 'Frequenz (Hz)'
 plot_label_y   = 'Widerstand (Ohm)'
 plot_title     = r"Ohm'scher Widerstand, Spule mit Stahlrohr"
@@ -79,16 +74,18 @@ plot_title     = r"Ohm'scher Widerstand, Spule mit Stahlrohr"
 # ---------------------------------------------------------#
 # Functions                                                #
 #                                                          #
-# See formula 28 on p.15 of script for experiment.         #
+# For  the  exact formulas,  see  formula  28 on  p.15  of #
+# script, for the approximations see formula 30 on p.16 of #
+# script.                                                  #
 #                                                          #
 # NOTE: We use  frequency f  instead of  angular frequency #
 # omega since that is what we actually set on the function #
 # generator.                                               #
 # ---------------------------------------------------------#
-var('f')
 
 k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
 
+# exact solution:
 enum1 = lambda f:(
           besselj(0,k(f)*r1)
         * bessely(2,k(f)*r1)
@@ -134,6 +131,24 @@ phi_norm = lambda f:(
 
 R = lambda f: -2 * pi * f * im(phi_norm(f)) + R_0
 
+# approx. solution
+u1 = lambda f: mpc(0,1) * k(f) * r1
+u2 = lambda f: mpc(0,1) * k(f) * r2
+
+enum_approx = lambda f: (
+          (u1(f) / 2 + 1) * ((u2(f) - 1) * exp( u2(f) - u1(f)) - (u1(f) - 1))
+        + (u1(f) / 2 - 1) * ((u2(f) + 1) * exp(-u2(f) + u1(f)) - (u1(f) + 1))
+        )
+denom_approx = lambda f: (
+        (u1(f) / 2) * exp(u2(f) - u1(f)) - (u1(f) / 2 - 1) * exp( - u2(f) + u1(f))
+        )
+
+phi_norm_approx = lambda f: (
+        mu0 * pi * N0**2/l * (2 * r1**2 /denom_approx(f) - 2/k(f)**2 * enum_approx(f) / denom_approx(f) + (rsp**2 - r2**2))
+        )
+
+R_approx = lambda f: -2 * pi * f * im(phi_norm(f)) + R_0
+
 
 # ---------------------------------------------------------#
 # Generate points for frequency axis                       #
@@ -150,6 +165,9 @@ frequency_vector = expufunc((1-n/npts)*log(fmin)) * expufunc(n*log(fmax)/npts)
 R_ufunc = np.frompyfunc(R,1,1)
 R_num   = R_ufunc(frequency_vector)
 
+R_approx_ufunc = np.frompyfunc(R_approx,1,1)
+R_approx_num   = R_approx_ufunc(frequency_vector)
+
 
 # ---------------------------------------------------------#
 # Plot the Things                                          #
@@ -160,12 +178,14 @@ matplotlib.pyplot.rc('font', family='serif')
 figwidth = 8.27 # in inches
 fig  = figure(1,figsize=(figwidth,figwidth*0.4))
 axes = fig.add_subplot(111)
-axes.plot(frequency_vector,R_num,linewidth=plot_linewidth,color=plot_color_fit)
+axes.plot(frequency_vector,R_num,color=plot_color_fit,label=plot_label_fit)
+axes.plot(frequency_vector,R_approx_num,color=plot_color_fit_approx,label=plot_label_fit_approx)
 axes.set_xscale(plot_scale_x)
 axes.set_xlim([fmin*0.9,fmax*1.1])
 axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
+axes.legend(fontsize=plot_legend_fontsize,loc='upper left')
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.90)
 

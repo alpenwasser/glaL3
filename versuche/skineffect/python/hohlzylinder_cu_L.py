@@ -31,9 +31,9 @@ dsp   = 98e-3                                               # diameter of coil
 rsp   = dsp / 2                                               # radius of coil
 r1    = 30e-3                                # inner radius of copper cylinder
 r2    = 35e-3                                # outer radius of copper cylinder
+N0    = 574
 l     = 500e-3                                         # length of copper coil
 npts  = 1e3                                  # number of points for plot curve
-N0    = 574
 fmin  = 1
 fmax  = 2500
     # -----------------------------------------------------#
@@ -59,10 +59,12 @@ font = {
         'weight' : 'normal',
         'size'   : 11,
         }
+plot_legend_fontsize    = 11
 plot_color_fit          = 'blue'
-plot_color_measurements = 'black'
-plot_linewidth          = 1
+plot_color_fit_approx   = 'magenta'
 plot_scale_x            = 'log'
+plot_label_fit          = 'Fit-Funktion'
+plot_label_fit_approx   = r'Fit-Funktion, N\"aherungsl\"osung'
 plot_label_x            = 'Frequenz (Hz)'
 plot_label_y            = 'Selbstinduktion L (mH)'
 plot_title              = "Selbstinduktionskoeffizient, Spule mit Kupferrohr"
@@ -71,17 +73,18 @@ plot_title              = "Selbstinduktionskoeffizient, Spule mit Kupferrohr"
 # ---------------------------------------------------------#
 # Functions                                                #
 #                                                          #
-# See formula 28 on p.15 of script for experiment.         #
+# For  the  exact formulas,  see  formula  28 on  p.15  of #
+# script, for the approximations see formula 30 on p.16 of #
+# script.                                                  #
 #                                                          #
 # NOTE: We use  frequency f  instead of  angular frequency #
 # omega since that is what we actually set on the function #
 # generator.                                               #
 # ---------------------------------------------------------#
 
-var('f')
-
 k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
 
+# Exact solution:
 enum1 = lambda f:(
           besselj(0,k(f)*r1)
         * bessely(2,k(f)*r1)
@@ -127,6 +130,24 @@ phi_norm = lambda f:(
 
 L = lambda f: re(phi_norm(f))
 
+# Approx. solution:
+u1 = lambda f: mpc(0,1) * k(f) * r1
+u2 = lambda f: mpc(0,1) * k(f) * r2
+
+enum_approx = lambda f: (
+          (u1(f) / 2 + 1) * ((u2(f) - 1) * exp( u2(f) - u1(f)) - (u1(f) - 1))
+        + (u1(f) / 2 - 1) * ((u2(f) + 1) * exp(-u2(f) + u1(f)) - (u1(f) + 1))
+        )
+denom_approx = lambda f: (
+        (u1(f) / 2) * exp(u2(f) - u1(f)) - (u1(f) / 2 - 1) * exp( - u2(f) + u1(f))
+        )
+
+phi_norm_approx = lambda f: (
+        mu0 * pi * N0**2/l * (2 * r1**2 /denom_approx(f) - 2/k(f)**2 * enum_approx(f) / denom_approx(f) + (rsp**2 - r2**2))
+        )
+
+L_approx = lambda f: re(phi_norm(f))
+
 
 # ---------------------------------------------------------#
 # Generate points for frequency axis                       #
@@ -143,6 +164,10 @@ L_ufunc = np.frompyfunc(L,1,1)
 L_num   = L_ufunc(frequency_vector)
 L_num = 1e3 * L_num                     # improve legibility
 
+L_approx_ufunc = np.frompyfunc(L_approx,1,1)
+L_approx_num   = L_approx_ufunc(frequency_vector)
+L_approx_num = 1e3 * L_approx_num
+
 
 # ---------------------------------------------------------#
 # Plot the Things                                          #
@@ -153,12 +178,14 @@ matplotlib.pyplot.rc('font', family='serif')
 figwidth = 8.27 # in inches
 fig  = figure(1,figsize=(figwidth,figwidth*0.4))
 axes = fig.add_subplot(111)
-axes.plot(frequency_vector,L_num,linewidth=plot_linewidth,color=plot_color_fit)
+axes.plot(frequency_vector,L_num,color=plot_color_fit,label=plot_label_fit)
+axes.plot(frequency_vector,L_approx_num,color=plot_color_fit_approx,label=plot_label_fit_approx)
 axes.set_xscale(plot_scale_x)
 axes.set_xlim([fmin*0.9,fmax*1.1])
 axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
+axes.legend(fontsize=plot_legend_fontsize)
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.90)
 
@@ -175,7 +202,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:cu:freq:L},
+        Parameterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:cu:freq:L},
         gerundet.
     }
     \label{tab:fitparams:cu:L}
