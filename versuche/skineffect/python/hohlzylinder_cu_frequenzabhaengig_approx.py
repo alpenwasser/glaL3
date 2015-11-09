@@ -3,6 +3,7 @@
 from sympy import *
 from mpmath import *
 from matplotlib.pyplot import *
+import numpy as np
 #init_printing()     # make things prettier when we print stuff for debugging.
 
 
@@ -253,3 +254,10 @@ for line in params:
 
 dumpfile.writelines(table_closing)
 dumpfile.close()
+
+
+# ---------------------------------------------------------#
+# Save Value of sigma to file for error analysis           #
+# ---------------------------------------------------------#
+
+np.savetxt('numpy-txt/hollow--cu--freq--approx.txt',([sigma]))

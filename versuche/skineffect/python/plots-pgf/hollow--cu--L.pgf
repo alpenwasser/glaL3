@@ -205,7 +205,7 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.033750in}{0.496200in}}%
-\pgfpathlineto{\pgfqpoint{7.649750in}{0.496200in}}%
+\pgfpathlineto{\pgfqpoint{1.033750in}{2.977200in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
@@ -227,7 +227,7 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{1.033750in}{0.496200in}}%
-\pgfpathlineto{\pgfqpoint{1.033750in}{2.977200in}}%
+\pgfpathlineto{\pgfqpoint{7.649750in}{0.496200in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%

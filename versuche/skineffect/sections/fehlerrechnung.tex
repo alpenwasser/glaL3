@@ -1,1 +1,52 @@
-Auf die Fehlerrechnung wurde in Absprache mit dem Dozenten verzichtet.
+Auf eine  Ausf\"uhrliche Fehlerrechnung  wurde in  Absprache mit  dem Dozenten
+verzichtet, die  Messtoleranzen des  experimentellen Aufbaus und  der Ger\"ate
+wurden daher auch nicht erfasst.
+
+Aus den unterschiedlichen Werten  der Leitf\"ahigkeiten k\"onnen aber trotzdem
+Mittelwerte, Fehler und Standardabweichungen bestimmt werden.
+
+Dazu  wurden die  g\"angigen Formeln  benutzt; Tabelle~\ref{tab:errorAnalysis}
+enth\"ahlt eine Auflistung der Resultate. Es wurden s\"amtliche gemachten Fits
+ber\"ucksichtigt  (also N\"aherungen  und exakte  L\"osungen), bie  Berechnung
+erfolgte in  einem Python-Script, das  seine Werte  aus den Scripts  f\"ur die
+Fits erh\"ahlt. Somit  ist sichergestellt,  dass zur Berechnung  auch wirklich
+die Werte  verwendet werden, mit  welchen die Plots erstellt  worden sind. Der
+\LaTeX-Code f\"ur die Ergebnisse wurde  ebenfalls aus diesem Script generiert,
+wie auch bei den Listings f\"ur die Fits.
+
+\begin{align*}
+    \text{Mittelwert:~}             \overline{x} & = \frac{1}{N} \sum_{i=1}^{N}{x_i} \\
+    \text{absoluter Fehler:~}   s_{\overline{x}} & = \sqrt{ \frac{\sum_{1}^{N}{(x_i-\overline{x})^2}}{N \cdot (N-1)}} \\
+    \text{relativer Fehler:~}   r                & = \frac{s_{\overline{x}}}{\overline{x}} \\
+    \text{Standardabweichung:~} s_{\overline{x}} & = \sqrt{ \frac{\sum_{1}^{N}{(x_i-\overline{x})^2}}{N-1}} \\
+\end{align*}
+
+\input{listings/error-analysis.tex}
+
+Man   k\"onnte    jetzt   nat\"urlich    noch   evaluieren,    inwiefern   die
+Ber\"ucksichtigung der Werte  aus den N\"aherungen und  den exakten L\"osungen
+gerechtfertigt  ist,  oder  ob  allenfalls  nur  die  Werte  aus  den  exakten
+L\"osungen  zu ber\"ucksichtigen  w\"aren,  oder ob  beide  jeweils mit  einer
+Gewichtung  ber\"ucksichtigt  werden   sollten.
+
+Aus  Zeitgr\"unden  wird  hier  auf diese  Ausf\"uhrungen  verzichtet. Es  sei
+jedoch  angemerkt,  dass keine  der  N\"aherungen  extrem dramatisch  von  den
+Werten  der exakten  L\"osungen  abweicht. Wollte man  wirklich penibel  sein,
+w\"are  in  den Augen  des  Autors  sowieso eine  ``richtige''  Fehlerrechnung
+mit  Ber\"ucksichtigung der  Unsicherheiten  in  Ger\"aten und  Versuchsaufbau
+durchzuf\"uhren.
+
+Schlussendlich  ist   nicht  das  Erlangen  exaktest-m\"oglicher   Zahlen  das
+prim\"are Ziel  dieses Versuches,  sondern die Demonstration  des Skineffektes
+und die experimentelle Best\"atigung, dass Leitwerte f\"ur Materialien aus der
+Literatur nicht als absolut gegeben  betrachtet werden sollten, oder zumindest
+ist dies die  Ansicht des Autors. Beides ist in seinen  Augen gut demonstriert
+worden.
+
+%\input{equations/resultCu.tex}
+%\input{equations/resultSt.tex}
+%\input{equations/resultAlu.tex}
+
+%\input{plots-pgf/finalResultsCu.tex}
+%\input{plots-pgf/finalResultsSt.tex}
+%\input{plots-pgf/finalResultsAlu.tex}

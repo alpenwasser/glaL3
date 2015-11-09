@@ -3,6 +3,7 @@
 from sympy import *
 from mpmath import *
 from matplotlib.pyplot import *
+import numpy as np
 #init_printing()     # make things prettier when we print stuff for debugging.
 
 
@@ -368,3 +369,10 @@ for line in params_opt:
 
 dumpfile_opt.writelines(table_closing)
 dumpfile_opt.close()
+
+
+# ---------------------------------------------------------#
+# Save Value of sigma to file for error analysis           #
+# ---------------------------------------------------------#
+
+np.savetxt('numpy-txt/hollow--st--freq--exact.txt',([sigma_abs,sigma_arg]))

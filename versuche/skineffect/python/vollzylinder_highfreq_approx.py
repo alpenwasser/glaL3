@@ -3,6 +3,7 @@
 from sympy import *
 from mpmath import *
 from matplotlib.pyplot import *
+import numpy as np
 import matplotlib.ticker as plticker
 
 
@@ -227,3 +228,9 @@ for line in params:
 
 dumpfile.writelines(table_closing)
 dumpfile.close()
+
+
+# ---------------------------------------------------------#
+# Save Value of sigma to file for error analysis           #
+# ---------------------------------------------------------#
+np.savetxt('numpy-txt/massive--alu--high-freq-approx--high.txt',([sigma_abs,sigma_arg]))
