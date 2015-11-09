@@ -26,7 +26,7 @@ mp.prec=80 # precision in bits
 # Init, Define Variables and Constants                     #
 # ---------------------------------------------------------#
 mu0   = 4*pi*1e-7                                        # vacuum permeability
-sigma = 52e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
+sigma = 53e6                            # de.wikipedia.org/wiki/Kupfer: 58.1e6
 dsp   = 98e-3                                               # diameter of coil
 rsp   = dsp / 2                                               # radius of coil
 r1    = 30e-3                                # inner radius of copper cylinder
