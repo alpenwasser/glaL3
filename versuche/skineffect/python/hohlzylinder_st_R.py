@@ -58,17 +58,23 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
         }
-plot_legend_fontsize    = 11
-plot_color_fit = 'blue'
-plot_scale_x   = 'log'
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
+        }
+plot_legend_fontsize    = 9
+plot_color_fit          = 'blue'
+plot_scale_x            = 'log'
 plot_color_fit_approx   = 'magenta'
 plot_label_fit          = 'Fit-Funktion'
 plot_label_fit_approx   = r'Fit-Funktion, N\"aherungsl\"osung'
-plot_label_x   = 'Frequenz (Hz)'
-plot_label_y   = 'Widerstand (Ohm)'
-plot_title     = r"Ohm'scher Widerstand, Spule mit Stahlrohr"
+plot_label_x            = 'Frequenz (Hz)'
+plot_label_y            = 'Widerstand (Ohm)'
+plot_title              = r"Ohm'scher Widerstand, Spule mit Stahlrohr"
 
 
 # ---------------------------------------------------------#
@@ -184,8 +190,9 @@ axes.set_xscale(plot_scale_x)
 axes.set_xlim([fmin*0.9,fmax*1.1])
 axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
-axes.set_title(plot_title,fontdict=font)
+axes.set_title(plot_title,fontdict=titlefont)
 axes.legend(fontsize=plot_legend_fontsize,loc='upper left')
+axes.tick_params(labelsize=9)
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.90)
 
@@ -202,7 +209,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:st:freq:R},
+        Parameterwerte  f\"ur  Fit-Funktion  in  Abbildung  \ref{fig:st:freq:R},
         gerundet.
     }
     \label{tab:fitparams:st:R}

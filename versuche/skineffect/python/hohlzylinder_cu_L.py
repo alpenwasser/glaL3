@@ -57,9 +57,15 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
         }
-plot_legend_fontsize    = 11
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
+        }
+plot_legend_fontsize    = 9
 plot_color_fit          = 'blue'
 plot_color_fit_approx   = 'magenta'
 plot_scale_x            = 'log'
@@ -184,8 +190,9 @@ axes.set_xscale(plot_scale_x)
 axes.set_xlim([fmin*0.9,fmax*1.1])
 axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
-axes.set_title(plot_title,fontdict=font)
+axes.set_title(plot_title,fontdict=titlefont)
 axes.legend(fontsize=plot_legend_fontsize)
+axes.tick_params(labelsize=9)
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.90)
 
@@ -202,7 +209,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Parameterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:cu:freq:L},
+        Parameterwerte  f\"ur  Fit-Funktion  in  Abbildung  \ref{fig:cu:freq:L},
         gerundet.
     }
     \label{tab:fitparams:cu:L}

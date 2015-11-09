@@ -70,16 +70,22 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
         }
-plot_legend_fontsize    = 11
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
+        }
+plot_legend_fontsize    = 9
 plot_color_fit          = 'blue'
 plot_color_ratio        = 'magenta'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
 plot_size_measurements  = 16
 plot_scale_x            = 'log'
-plot_label_fit          = r"Fitfunktion (N\"aherung)"
+plot_label_fit          = r"Fit-Funktion (N\"aherung)"
 plot_label_ratio        = r"$\displaystyle \frac{d_{Rohr}}{s_{skin}}$"
 plot_label_x            = 'Frequenz (Hz)'
 plot_label_ratio_y      = r"$\displaystyle d_{Rohr} \div s_{skin}$"
@@ -106,8 +112,6 @@ I0    = 48.5
 # omega since that is what we actually set on the function #
 # generator.                                               #
 # ---------------------------------------------------------#
-var('f')
-
 enum1  = mu0*N0*I0
 denom1 = l
 enum2  = 2
@@ -189,8 +193,9 @@ axes1.set_xlim([fmin*0.9,fmax*1.1])
 axes1.set_xscale(plot_scale_x)
 axes1.set_xlabel(plot_label_x,fontdict=font)
 axes1.set_ylabel(plot_1_label_y,fontdict=font)
-axes1.set_title(plot_1_title,fontdict=font)
+axes1.set_title(plot_1_title,fontdict=titlefont)
 axes1.legend(fontsize=plot_legend_fontsize,loc='lower left')
+axes1.tick_params(labelsize=9)
 
 axes2 = fig.add_subplot(212)
 axes2.plot(frequency_vector,B_arg_num,color=plot_color_fit,label=plot_label_fit)
@@ -204,14 +209,16 @@ axes2.set_xlim([fmin*0.9,fmax*1.1])
 axes2.set_xscale(plot_scale_x)
 axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
-axes2.set_title(plot_2_title,fontdict=font)
+axes2.set_title(plot_2_title,fontdict=titlefont)
 axes2.legend(fontsize=plot_legend_fontsize,loc='center left')
+axes2.tick_params(labelsize=9)
 
 axes3 = axes2.twinx()
 axes3.plot(frequency_vector,s_skin_ratio_num,color=plot_color_ratio,label=plot_label_ratio)
 axes3.legend(fontsize=plot_legend_fontsize,loc='upper right')
 axes3.set_xlim([fmin*0.9,fmax*1.1])
 axes3.set_ylabel(plot_label_ratio_y,fontdict=font)
+axes3.tick_params(labelsize=9)
 
 fig.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
 
@@ -228,7 +235,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Parameterwerte  f\"ur  Fitfunktion in Abbildung~\ref{fig:st:freq:approx}
+        Parameterwerte  f\"ur  Fit-Funktion in Abbildung~\ref{fig:st:freq:approx}
     }
     \label{tab:fitparams:st:freq:approx}
     \sisetup{%

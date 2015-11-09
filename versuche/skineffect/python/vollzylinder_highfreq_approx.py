@@ -52,15 +52,21 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
         }
-plot_legend_fontsize    = 11
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
+        }
+plot_legend_fontsize    = 9
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
 plot_size_measurements  = 16
 plot_scale_x            = 'linear'
-plot_label_fit          = 'Fitfunktion'
+plot_label_fit          = 'Fit-Funktion'
 plot_label_x            = 'radiale Position bezogen auf Zylinderachse (mm)'
 plot_11_label_y          = 'gemessene Spannung (mV)'
 plot_21_label_y          = 'gemessene Spannung (mV)'
@@ -155,9 +161,10 @@ axes11.set_xlim([rmin*0.9,rmax*1.1+2.5])
 axes11.set_xscale(plot_scale_x)
 axes11.set_xlabel(plot_label_x,fontdict=font)
 axes11.set_ylabel(plot_11_label_y,fontdict=font)
-axes11.set_title(plot_11_title,fontdict=font)
+axes11.set_title(plot_11_title,fontdict=titlefont)
 axes11.legend(fontsize=plot_legend_fontsize,loc='upper left')
 axes11.xaxis.set_major_locator(loc1)
+axes11.tick_params(labelsize=9)
 
 axes12 = fig1.add_subplot(212)
 axes12.plot(radii,B_arg_num,color=plot_color_fit,label=plot_label_fit)
@@ -171,9 +178,10 @@ axes12.set_xlim([rmin*0.9,rmax*1.1+2.5])
 axes12.set_xscale(plot_scale_x)
 axes12.set_xlabel(plot_label_x,fontdict=font)
 axes12.set_ylabel(plot_12_label_y,fontdict=font)
-axes12.set_title(plot_12_title,fontdict=font)
+axes12.set_title(plot_12_title,fontdict=titlefont)
 axes12.legend(fontsize=plot_legend_fontsize,loc='upper left')
 axes12.xaxis.set_major_locator(loc1)
+axes12.tick_params(labelsize=9)
 
 fig1.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
 
@@ -190,7 +198,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Parameterwerte            f\"ur             Fitfunktion            aus
+        Parameterwerte            f\"ur             Fit-Funktion            aus
         Abbildung~\ref{fig:alu:rad:approx:high}
     }
     \label{tab:fitparams:alu:freq:approx:high}

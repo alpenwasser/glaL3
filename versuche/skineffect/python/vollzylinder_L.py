@@ -50,7 +50,13 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
+        }
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
         }
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
@@ -70,8 +76,6 @@ plot_title              = "Selbstinduktionskoeffizient, Spule mit Vollzylinder"
 # omega since that is what we actually set on the function #
 # generator.                                               #
 # ---------------------------------------------------------#
-var('f')
-
 k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
 
 LRand = (mu0 * 2 * pi * r0 * (rsp - r0) * N0**2) / l
@@ -114,7 +118,8 @@ axes.set_xscale(plot_scale_x)
 axes.set_xlim([fmin*0.9,fmax*1.1])
 axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
-axes.set_title(plot_title,fontdict=font)
+axes.set_title(plot_title,fontdict=titlefont)
+axes.tick_params(labelsize=9)
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.90)
 
@@ -131,7 +136,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:alu:freq:L},
+        Parameterwerte  f\"ur  Fit-Funktion  in  Abbildung  \ref{fig:alu:freq:L},
         gerundet.
     }
     \label{tab:fitparams:alu:L}

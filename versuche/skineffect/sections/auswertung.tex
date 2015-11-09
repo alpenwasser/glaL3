@@ -796,25 +796,26 @@ Fits ermittelten Parametern.
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0pt}
+        Bei  hohen  Frequenzen  k\"onnen  numerische  Probleme  f\"ur  gewisse
+        Softwarepakete auftreten (Division durch  die Differenz zweier beinahe
+        gleicher  Zahlen f\"uhrt  zu Stellenausl\"oschung  und Division  durch
+        null).
 
-        %F\"ur  die N\"aherung  eines  d\"unnwandigen Rohres  (also bei  tiefen
-        %Frequenzen)  wurde Gleichung  \ref{eq:hohlzylinder:BApprox} von  Seite
-        %\pageref{eq:hohlzylinder:BApprox} benutzt:
+        F\"ur    solche    F\"alle    kann   man    die    N\"aherungen    aus
+        den     Gleichungen    \ref{eq:hohlzylinder:BApprox2}     von    Seite
+        \pageref{eq:hohlzylinder:BApprox2} verwenden.
 
-        %\begin{equation}
-        %    \tag{\ref{eq:hohlzylinder:BApprox}}
-        %    B_{tot} = \frac{\mu_0 \cdot N_0 \cdot I_0}{l} \cdot \Biggl( \frac{2}{i \cdot \omega \cdot \mu_0 \cdot r_1 \cdot d \cdot \sigma + 2} \Biggr)
-        %\end{equation}
+        F\"ur Python ist  dies grunds\"atzlich nicht wirklich  ein Problem, da
+        man  die Pr\"azision  ohne  Probleme auf  tausende von  Dezimalstellen
+        hinaufschrauben  kann  (nat\"urlich  mit  entsprechend  verl\"angerter
+        Berechnungszeit),  aber   der  Vollst\"andigkeit  halber   wurden  die
+        N\"aherungsfunktionen trotzdem ausgewertet,  um zu \"uberpr\"ufen, wie
+        nahe sie an die exakte L\"osung kommen.
 
-        %Bei  der  gen\"aherten  Fit-Funktion  f\"allt  auf,  dass  der  Betrag
-        %der N\"aherungsl\"osung  \"uber den gesamten  Frequenzbereich ziemlich
-        %genau  ist  und nicht  bedeutend  von  den Messwerten  abweicht.   Der
-        %Phasenverlauf divergiert  jedoch stark von den  Messwerten, sobald die
-        %Wanddicke des Zylinderrohrs gr\"osser als die Eindringtiefe $s_{skin}$
-        %wird (was sich auch mit der Theorie deckt).
+        Siehe  auch  die   magenta-farbenen  Kurvenverl\"aufe  in  Abbildungen
+        \ref{fig:cu:freq:L}, \ref{fig:cu:freq:R} und \ref{fig:cu:freq:phi} auf
+        den Seiten \pageref{fig:cu:freq:L} und \pageref{fig:cu:freq:phi}.
 
-        %In Abbildung~\ref{fig:cu:freq:approx}  ist daher das  Verh\"altnis von
-        %Wandst\"arke und Eindringtiefe ebenfalls dargestellt.
         \input{listings/hollow--cu--freq--approx2.tex}
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
@@ -822,9 +823,7 @@ Fits ermittelten Parametern.
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx2.pgf}}
         \captionof{figure}{%
             N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
-            Hohlzylinder (Kupfer). Es wurde nur  auf den Betrag gefittet wegen
-            der  starken  Abweichung  der  Phase  von  den  Messwerten,  daher
-            lieferte diese N\"aherung ledliglich einen Wert f\"ur $\sigma$.
+            Hohlzylinder (Kupfer). Betrag und Phase wurden separat gefittet.
         }
         \label{fig:cu:freq:approx2}
 	\end{minipage}
@@ -1078,8 +1077,9 @@ Fits ermittelten Parametern.
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--approx2.pgf}}
         \captionof{figure}{%
             N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
-            Hohlzylinder  (rostfreier  Stahl). Wie   auch  beim  Kupfer  wurde
-            lediglich auf den Betrag gefittet.
+            Hohlzylinder  (rostfreier  Stahl). Betrag  und Phase  wurden  zwar
+            separat  getifittet, allerdings  resultierte aus  beiden Fits  der
+            gleich Wert f\"ur $\sigma$
         }
         \label{fig:st:freq:approx2}
 	\end{minipage}
@@ -1132,7 +1132,7 @@ Fits ermittelten Parametern.
             \"Anderung  des   auf  den  Spulenstrom   normierten  magnetischen
             Flusses  innerhalb  des  Zylinders von  Spule  mit  eingef\"uhrten
             rostfreiem Stahl-Hohlzylinder}
-        \label{fig:cu:freq:phi}
+        \label{fig:st:freq:phi}
 	\end{minipage}
 
     \clearpage

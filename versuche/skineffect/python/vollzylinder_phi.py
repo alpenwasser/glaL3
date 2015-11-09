@@ -50,11 +50,17 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
+        }
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
         }
 plot_color_fit = 'blue'
 plot_linewidth = 1
-plot_label_fit = 'Fitfunktion'
+plot_label_fit = 'Fit-Funktion'
 plot_scale_x   = 'log'
 plot_label_x   = 'Frequenz (Hz)'
 plot_1_label_y = r"$\displaystyle \biggl| \frac{\Phi}{I} \biggr|$ $\biggl( \displaystyle \frac{Vs}{A} \biggr)$"
@@ -72,8 +78,6 @@ plot_2_title   = r"Phase Magn. Fluss normiert auf Spulenstrom, Spule mit Vollzyl
 # omega since that is what we actually set on the function #
 # generator.                                               #
 # ---------------------------------------------------------#
-var('f')
-
 k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
 
 phi_norm = lambda f:(
@@ -131,7 +135,8 @@ axes1.set_xlim([fmin*0.9,fmax*1.1])
 axes1.set_xscale(plot_scale_x)
 axes1.set_xlabel(plot_label_x,fontdict=font)
 axes1.set_ylabel(plot_1_label_y,fontdict=font)
-axes1.set_title(plot_1_title,fontdict=font)
+axes1.set_title(plot_1_title,fontdict=titlefont)
+axes1.tick_params(labelsize=9)
 
 axes2 = fig.add_subplot(212)
 axes2.plot(frequency_vector,phi_norm_arg_num,color=plot_color_fit,label=plot_label_fit)
@@ -139,7 +144,8 @@ axes2.set_xlim([fmin*0.9,fmax*1.1])
 axes2.set_xscale(plot_scale_x)
 axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
-axes2.set_title(plot_2_title,fontdict=font)
+axes2.set_title(plot_2_title,fontdict=titlefont)
+axes2.tick_params(labelsize=9)
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.95,hspace=0.5)
 
@@ -156,7 +162,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:alu:freq:phi},
+        Parameterwerte  f\"ur  Fit-Funktion  in  Abbildung  \ref{fig:alu:freq:phi},
         gerundet.
     }
     \label{tab:fitparams:alu:phi}

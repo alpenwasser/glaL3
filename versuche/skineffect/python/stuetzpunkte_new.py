@@ -28,9 +28,15 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
         }
-plot_legend_fontsize       = 11
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
+        }
+plot_legend_fontsize       = 9
 plot_color_old             = 'magenta'
 plot_color_new             = 'blue'
 plot_color_common          = 'black'
@@ -114,7 +120,8 @@ axes1.set_ylim([y_lim_low,y_lim_high])
 axes1.set_xlim([x_lim_low,x_lim_high])
 axes1.set_xlabel(plot_label_x,fontdict=font)
 axes1.set_ylabel(plot_1_label_y,fontdict=font)
-axes1.set_title(plot_1_title,fontdict=font)
+axes1.set_title(plot_1_title,fontdict=titlefont)
+axes1.tick_params(labelsize=9)
 
     # ---------------------------------------------------- #
     # Work some  magic to append  the fraction of  the two #

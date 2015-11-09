@@ -82,15 +82,21 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
         }
-plot_legend_fontsize    = 11
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
+        }
+plot_legend_fontsize    = 9
 plot_color_fit          = 'blue'
 plot_color_measurements = 'black'
 plot_label_measurements = 'Messwerte'
 plot_size_measurements  = 16
 plot_scale_x            = 'log'
-plot_label_fit          = 'Fitfunktion'
+plot_label_fit          = 'Fit-Funktion'
 plot_label_x            = 'Frequenz (Hz)'
 plot_1_label_y          = 'gemessene Spannung (mV)'
 plot_2_label_y          = 'Phase (Grad)'
@@ -223,8 +229,9 @@ axes11.set_xlim([0.9*fmin,1.1*fmax])
 axes11.set_xscale(plot_scale_x)
 axes11.set_xlabel(plot_label_x,fontdict=font)
 axes11.set_ylabel(plot_1_label_y,fontdict=font)
-axes11.set_title(plot_1_title,fontdict=font)
+axes11.set_title(plot_1_title,fontdict=titlefont)
 axes11.legend(fontsize=plot_legend_fontsize)
+axes11.tick_params(labelsize=9)
 
 axes12 = fig1.add_subplot(212)
 axes12.plot(frequency_vector,B_arg_num,color=plot_color_fit,label=plot_label_fit)
@@ -238,8 +245,9 @@ axes12.set_xlim([0.9*fmin,1.1*fmax])
 axes12.set_xscale(plot_scale_x)
 axes12.set_xlabel(plot_label_x,fontdict=font)
 axes12.set_ylabel(plot_2_label_y,fontdict=font)
-axes12.set_title(plot_2_title,fontdict=font)
+axes12.set_title(plot_2_title,fontdict=titlefont)
 axes12.legend(fontsize=plot_legend_fontsize)
+axes12.tick_params(labelsize=9)
 
 # Figure 2: Optimized range for a more interesting plot.
 fig2 = figure(2)
@@ -255,8 +263,9 @@ axes21.set_xlim([0.9*fmin_opt,fmax_opt*1.1])
 axes21.set_xscale(plot_scale_x)
 axes21.set_xlabel(plot_label_x,fontdict=font)
 axes21.set_ylabel(plot_1_label_y,fontdict=font)
-axes21.set_title(plot_1_title,fontdict=font)
+axes21.set_title(plot_1_title,fontdict=titlefont)
 axes21.legend(fontsize=plot_legend_fontsize)
+axes21.tick_params(labelsize=9)
 
 axes22 = fig2.add_subplot(2,1,2)
 axes22.plot(frequency_vector_opt,B_arg_num_opt,color=plot_color_fit,label=plot_label_fit)
@@ -270,8 +279,9 @@ axes22.set_xlim([0.9*fmin_opt,fmax_opt*1.1])
 axes22.set_xscale(plot_scale_x)
 axes22.set_xlabel(plot_label_x,fontdict=font)
 axes22.set_ylabel(plot_2_label_y,fontdict=font)
-axes22.set_title(plot_2_title,fontdict=font)
+axes22.set_title(plot_2_title,fontdict=titlefont)
 axes22.legend(fontsize=plot_legend_fontsize)
+axes22.tick_params(labelsize=9)
 
 
 fig1.subplots_adjust(bottom=0.1,left=0.1,right=0.9,top=0.95,hspace=0.5)
@@ -295,7 +305,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Parameter f\"ur Fitfunktion in Abbildung~\ref{fig:st:freq:exact}
+        Parameter f\"ur Fit-Funktion in Abbildung~\ref{fig:st:freq:exact}
     }
     \label{tab:fitparams:cu:freq:exact}
     \sisetup{%
@@ -330,7 +340,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Parameter f\"ur Fitfunktion in Abbildung~\ref{fig:st:freq:exact:opt}
+        Parameter f\"ur Fit-Funktion in Abbildung~\ref{fig:st:freq:exact:opt}
     }
     \label{tab:fitparams:st:freq:exact:opt}
     \sisetup{%

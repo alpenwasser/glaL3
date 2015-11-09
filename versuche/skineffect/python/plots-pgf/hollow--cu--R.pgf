@@ -207,7 +207,18 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{1.033750in}{2.977200in}}%
+\pgfpathmoveto{\pgfqpoint{1.033750in}{0.496200in}}%
+\pgfpathlineto{\pgfqpoint{1.033750in}{2.977200in}}%
+\pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetrectcap%
+\pgfsetmiterjoin%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{7.649750in}{0.496200in}}%
 \pgfpathlineto{\pgfqpoint{7.649750in}{2.977200in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
@@ -229,18 +240,7 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{1.033750in}{0.496200in}}%
-\pgfpathlineto{\pgfqpoint{1.033750in}{2.977200in}}%
-\pgfusepath{stroke}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\pgfsetrectcap%
-\pgfsetmiterjoin%
-\pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{currentstroke}%
-\pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{7.649750in}{0.496200in}}%
+\pgfpathmoveto{\pgfqpoint{1.033750in}{2.977200in}}%
 \pgfpathlineto{\pgfqpoint{7.649750in}{2.977200in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
@@ -283,7 +283,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=1.120615in,y=0.440644in,,top]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 10^{0}\)}%
+\pgftext[x=1.120615in,y=0.440644in,,top]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 10^{0}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -324,7 +324,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=3.018987in,y=0.440644in,,top]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 10^{1}\)}%
+\pgftext[x=3.018987in,y=0.440644in,,top]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 10^{1}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -365,7 +365,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=4.917360in,y=0.440644in,,top]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 10^{2}\)}%
+\pgftext[x=4.917360in,y=0.440644in,,top]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 10^{2}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -406,7 +406,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=6.815733in,y=0.440644in,,top]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 10^{3}\)}%
+\pgftext[x=6.815733in,y=0.440644in,,top]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 10^{3}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1397,7 +1397,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=4.341750in,y=0.209905in,,top]{\rmfamily\fontsize{11.000000}{13.200000}\selectfont Frequenz (Hz)}%
+\pgftext[x=4.341750in,y=0.250228in,,top]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont Frequenz (Hz)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1438,7 +1438,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.978194in,y=0.496200in,right,]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 5.5\)}%
+\pgftext[x=0.978194in,y=0.496200in,right,]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 5.5\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1479,7 +1479,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.978194in,y=0.909700in,right,]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 6.0\)}%
+\pgftext[x=0.978194in,y=0.909700in,right,]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 6.0\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1520,7 +1520,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.978194in,y=1.323200in,right,]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 6.5\)}%
+\pgftext[x=0.978194in,y=1.323200in,right,]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 6.5\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1561,7 +1561,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.978194in,y=1.736700in,right,]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 7.0\)}%
+\pgftext[x=0.978194in,y=1.736700in,right,]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 7.0\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1602,7 +1602,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.978194in,y=2.150200in,right,]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 7.5\)}%
+\pgftext[x=0.978194in,y=2.150200in,right,]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 7.5\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1643,7 +1643,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.978194in,y=2.563700in,right,]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 8.0\)}%
+\pgftext[x=0.978194in,y=2.563700in,right,]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 8.0\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1684,13 +1684,13 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.978194in,y=2.977200in,right,]{\rmfamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle 8.5\)}%
+\pgftext[x=0.978194in,y=2.977200in,right,]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont \(\displaystyle 8.5\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.700226in,y=1.736700in,,bottom,rotate=90.000000]{\rmfamily\fontsize{11.000000}{13.200000}\selectfont Widerstand (Ohm)}%
+\pgftext[x=0.744592in,y=1.736700in,,bottom,rotate=90.000000]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont Widerstand (Ohm)}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=4.341750in,y=3.046644in,,base]{\rmfamily\fontsize{11.000000}{13.200000}\selectfont Ohm'scher Widerstand, Spule mit Kupferrohr}%
+\pgftext[x=4.341750in,y=3.046644in,,base]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont Ohm'scher Widerstand, Spule mit Kupferrohr}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1701,10 +1701,10 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{1.110139in}{2.403359in}}%
-\pgfpathlineto{\pgfqpoint{4.094587in}{2.403359in}}%
-\pgfpathlineto{\pgfqpoint{4.094587in}{2.900811in}}%
-\pgfpathlineto{\pgfqpoint{1.110139in}{2.900811in}}%
+\pgfpathmoveto{\pgfqpoint{1.096250in}{2.507693in}}%
+\pgfpathlineto{\pgfqpoint{3.538071in}{2.507693in}}%
+\pgfpathlineto{\pgfqpoint{3.538071in}{2.914700in}}%
+\pgfpathlineto{\pgfqpoint{1.096250in}{2.914700in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -1715,12 +1715,12 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,1.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{1.217083in}{2.777097in}}%
-\pgfpathlineto{\pgfqpoint{1.430972in}{2.777097in}}%
+\pgfpathmoveto{\pgfqpoint{1.183750in}{2.813479in}}%
+\pgfpathlineto{\pgfqpoint{1.358750in}{2.813479in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=1.599028in,y=2.723625in,left,base]{\rmfamily\fontsize{11.000000}{13.200000}\selectfont Fit-Funktion}%
+\pgftext[x=1.496250in,y=2.769729in,left,base]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont Fit-Funktion}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -1729,12 +1729,12 @@
 \definecolor{currentstroke}{rgb}{1.000000,0.000000,1.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{1.217083in}{2.551884in}}%
-\pgfpathlineto{\pgfqpoint{1.430972in}{2.551884in}}%
+\pgfpathmoveto{\pgfqpoint{1.183750in}{2.629214in}}%
+\pgfpathlineto{\pgfqpoint{1.358750in}{2.629214in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=1.599028in,y=2.498412in,left,base]{\rmfamily\fontsize{11.000000}{13.200000}\selectfont Fit-Funktion, N\"aherungsl\"osung}%
+\pgftext[x=1.496250in,y=2.585464in,left,base]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont Fit-Funktion, N\"aherungsl\"osung}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

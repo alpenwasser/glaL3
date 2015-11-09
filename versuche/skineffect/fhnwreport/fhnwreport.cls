@@ -49,7 +49,8 @@
   \begingroup
     \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
     \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
-    \long\def\@makefntext##1{\parindent 1em\noindent
+    %\long\def\@makefntext##1{\parindent 1em\noindent
+    \long\def\@makefntext##1{\parindent 1.5em
             \hb@xt@1.8em{%
                 \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
     \if@twocolumn
@@ -106,10 +107,12 @@
 \newcommand{\noparskip}{\parskip=\z@ \@plus\z@ \@minus\z@}
 \ifx\TextAlignment\undefined
   \newcommand{\TextAlignment}{\relax}
-  \parindent=0pt
+  %\parindent=0pt
+  \parindent=1.5em
 \else\fi
 \AtBeginDocument{\TextAlignment}
-\parskip=1.6ex \@plus 0.4ex \@minus 0.4ex
+%\parskip=1.6ex \@plus 0.4ex \@minus 0.4ex
+\parskip=0.75ex \@plus 0.4ex \@minus 0.4ex
 \widowpenalty 10000
 \clubpenalty 10000
 \@clubpenalty 10000

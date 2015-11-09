@@ -57,9 +57,15 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
         }
-plot_legend_fontsize    = 11
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
+        }
+plot_legend_fontsize    = 9
 plot_color_fit          = 'blue'
 plot_color_fit_approx   = 'magenta'
 plot_scale_x            = 'log'
@@ -212,8 +218,9 @@ axes1.set_xlim([fmin*0.9,fmax*1.1])
 axes1.set_xscale(plot_scale_x)
 axes1.set_xlabel(plot_label_x,fontdict=font)
 axes1.set_ylabel(plot_1_label_y,fontdict=font)
-axes1.set_title(plot_1_title,fontdict=font)
+axes1.set_title(plot_1_title,fontdict=titlefont)
 axes1.legend(fontsize=plot_legend_fontsize)
+axes1.tick_params(labelsize=9)
 
 axes2 = fig.add_subplot(212)
 axes2.plot(frequency_vector,phi_norm_arg_num,color=plot_color_fit,label=plot_label_fit)
@@ -222,8 +229,9 @@ axes2.set_xlim([fmin*0.9,fmax*1.1])
 axes2.set_xscale(plot_scale_x)
 axes2.set_xlabel(plot_label_x,fontdict=font)
 axes2.set_ylabel(plot_2_label_y,fontdict=font)
-axes2.set_title(plot_2_title,fontdict=font)
+axes2.set_title(plot_2_title,fontdict=titlefont)
 axes2.legend(fontsize=plot_legend_fontsize)
+axes2.tick_params(labelsize=9)
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.95,hspace=0.5)
 
@@ -240,7 +248,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Parameterwerte f\"ur  Fitfunktion in  Abbildung  \ref{fig:cu:freq:phi}
+        Parameterwerte f\"ur  Fit-Funktion in  Abbildung  \ref{fig:cu:freq:phi}
         gerundet.
     }
     \label{tab:fitparams:cu:phi}

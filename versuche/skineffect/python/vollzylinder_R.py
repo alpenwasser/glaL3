@@ -50,7 +50,13 @@ font = {
         'family' : 'serif',
         'color'  : 'black',
         'weight' : 'normal',
-        'size'   : 11,
+        'size'   : 9,
+        }
+titlefont = {
+        'family' : 'serif',
+        'color'  : 'black',
+        'weight' : 'normal',
+        'size'   : 10,
         }
 plot_color_fit = 'blue'
 plot_linewidth = 1
@@ -84,8 +90,6 @@ R_0 = wire_length_coil / (A_wire * sigma_copper)
 # omega since that is what we actually set on the function #
 # generator.                                               #
 # ---------------------------------------------------------#
-var('f')
-
 k = lambda f: sqrt((2*np.pi*f*mu0*sigma)/2)*(mpc(1,-1))
 
 R_tot = lambda f:(
@@ -125,6 +129,7 @@ axes.set_xlim([fmin*0.9,fmax*1.1])
 axes.set_xlabel(plot_label_x,fontdict=font)
 axes.set_ylabel(plot_label_y,fontdict=font)
 axes.set_title(plot_title,fontdict=font)
+axes.tick_params(labelsize=9)
 
 fig.subplots_adjust(bottom=0.15,left=0.125,right=0.925,top=0.90)
 
@@ -141,7 +146,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Paramterwerte  f\"ur  Fitfunktion  in  Abbildung  \ref{fig:alu:freq:R},
+        Parameterwerte  f\"ur  Fit-Funktion  in  Abbildung  \ref{fig:alu:freq:R},
         gerundet.
     }
     \label{tab:fitparams:alu:R}
