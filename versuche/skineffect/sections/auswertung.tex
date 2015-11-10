@@ -148,8 +148,6 @@ aus  Spule und  Vollzylinder  erstellt,  basierend auf  den  Werten f\"ur  die
 Leitf\"ahigkeit  und  das externe  Magnetfeld,  welche  aus den  Fitfunktionen
 ermittelt worden waren.
 
-% TODO: reference sections and equations
-
 
 {% START A3 PAGES
     \clearpage
@@ -231,7 +229,7 @@ ermittelt worden waren.
 
         \end{minipage}
 
-        \vspace{0.25em}
+        \vspace{1em}
 
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
@@ -240,7 +238,7 @@ ermittelt worden waren.
         \begin{minipage}[c][][b]{0.5\textwidth}
             \hfill
             \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
-            \captionof{figure}{Sensorplatzierung w\"ahrend Messung}
+            \captionof{figure}{Sondenposition w\"ahrend Messung}
             \label{fig:alu:freq:sensor}
         \end{minipage}
 	\end{minipage}%
@@ -252,13 +250,15 @@ ermittelt worden waren.
             Frequenzgang        Zylinderspule        mit        eingef\"uhrtem
             Aluminium-Vollzylinder.  Betrag  und Phase wurden  jeweils separat
             gefittet,   was  zwei   leicht   verschiedene   Werte  f\"ur   die
-            Leitf\"ahigkeit des verwendeten Aluminiums liefert.}
+            Leitf\"ahigkeit des verwendeten Aluminiums liefert, wie im Listing
+            in Tabelle \ref{tab:fitparams:alu:freq} gesehen werden kann.
+        }
         \label{fig:alu:freq:exact}
 	\end{minipage}
 
 
     % ------------------------------------------------------------------------ %
-    \subsubsection{Positionsbezogener Verlauf, niedrige Frequenz}
+    \subsubsection{Radiales Verlauf, niedrige Frequenz}
     \label{sec:ausw:subsec:hohlz:subsubsec:steel}
     % ------------------------------------------------------------------------ %
 
@@ -324,13 +324,14 @@ ermittelt worden waren.
             Wert $\sigma_{Kuch}$ ab.
         \end{minipage}%
 
+        \vspace{1em}
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
             \input{listings/massive--alu--low-freq--exact.tex}
         \end{minipage}%
         \begin{minipage}[c][][b]{0.5\textwidth}
             \resizebox{\textwidth}{!}{\input{images/sensor-radial-complete.tex}}
-            \captionof{figure}{Sensorplatzierung w\"ahrend Messung}
+            \captionof{figure}{Sondenposition w\"ahrend Messung}
             \label{fig:alu:rad:low:sensor}
         \end{minipage}
 	\end{minipage}%
@@ -364,7 +365,7 @@ ermittelt worden waren.
         ergeben h\"atte. Selbst wenn solche Parameter h\"atten gefunden werden
         k\"onnen, w\"aren sie  vermutlich so stark von den  mit den restlichen
         Fits  ermittelten  Werten  abgewichen, dass  sie  unbrauchbar  gewesen
-        w\"aren(siehe Tabelle~\ref{tab:fitparams:alu:rad:approx:low}).
+        w\"aren (siehe Tabelle~\ref{tab:fitparams:alu:rad:approx:low}).
 
         F\"ur               die                Fitfunktion               wurde
         Gleichung           \ref{eq:vollzylinder:bFeldApprox}           (Seite
@@ -399,7 +400,7 @@ ermittelt worden waren.
 
 
     % ------------------------------------------------------------------------ %
-    \subsubsection{Hohe Frequenzen}
+    \subsubsection{Radiales Verlauf, hohe Frequenz}
     \label{sec:ausw:subsec:vollz:subsubsec:highfreq}
     % ------------------------------------------------------------------------ %
 
@@ -481,6 +482,8 @@ ermittelt worden waren.
 
         \end{minipage}
 
+        \vspace{1em}
+
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
             \input{listings/massive--alu--high-freq--exact.tex}
@@ -496,18 +499,14 @@ ermittelt worden waren.
         \vspace{0mm}
         \hfill
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--high-freq--exact.pgf}}
-            % TODO: Put this somewhere
-            %Sie  geben zwar  Anhaltspunkte  f\"ur den  Wert  von $B_0$,  doch
-            %wegen Randeffekten  ist der Autor diesen  Werten gegen\"uber eher
-            %skeptisch eingestellt.  Es ist ebenfalls erkennbar, dass die
         \captionof{figure}{%
-            Radialer   Verlauf   des   B-Feldes   bei   $\SI{450}{\hertz}$. Es
-            gelten  die  gleichen  \"Uberlegungen   zu  den  Randeffekten  wie
-            bei   $\SI{30}{\hertz}$.   Es   f\"allt   auf,   dass  die   Phase
-            nicht   ganz  optimal   passt,   und  dass   der  erhaltene   Wert
-            $\sigma_{Fit,\angle\hat{B}}$  f\"ur  die  Leitf\"ahigkeit  einiges
-            tiefer  als die  bisher gesehenen  Werte liegt. Der  Autor f\"uhrt
-            dies  darauf  zur\"uck,  dass  bei diesem  Versuch  die  Phase  im
+            Radialer  Verlauf des  B-Feldes bei  $\SI{450}{\hertz}$. Es gelten
+            die   gleichen  \"Uberlegungen   zu  den   Randeffekten  wie   bei
+            $\SI{30}{\hertz}$.   Die  Phase  passt  nicht  ganz  optimal,  und
+            der  erhaltene  Wert f\"ur  $\sigma_{Fit,\angle\hat{B}}$  (Tabelle
+            \ref{tab:fitparams:alu:freq:high:exact}) lieft  einiges tiefer als
+            die  bisher gesehenen  Werte.   M\"oglicherweise  ist dies  darauf
+            zur\"uckzuf\"uhren,  dass   bei  diesem   Versuch  die   Phase  im
             Allgemeinen  sehr stark  oszillierte (auch  der Betrag,  wenn auch
             weniger),  was ein  genaues  Auswerten  erschwerte.  Man  geniesse
             diese Werte daher mit etwas Vorsicht.
@@ -534,15 +533,15 @@ ermittelt worden waren.
 
         \vspace{1em}
 
-        Es f\"allt auf, dass sowohl Phase wie auch Betrag einen etwas tieferen
-        Wert  f\"ur $\sigma$  ergeben als  die beim  Frequenzgang und  bei der
-        radialen Auswertung bei  $\SI{30}{\hertz}$ gefundenen Werte. Der Autor
-        f\"uhrt dies darauf zur\"uck, dass  dies einerseits trotz relativ  gut
-        passendem  Fit  immer  noch  eine N\"aherungsl\"osung  ist,  und  dass
-        wie bei Abbildung~\ref{fig:alu:rad:exact:high}  erw\"ahnt das Auslesen
-        der Messwerte  bei $\SI{450}{\hertz}$  generell etwas  schwieriger war
-        als  bei tieferen  Frequenzen oder  beim Frequenzgang  im Zentrum  des
-        Zylinders.
+        Es  f\"allt  auf,  dass  sowohl  Phase wie  auch  Betrag  einen  etwas
+        tieferen  Wert  f\"ur  $\sigma$  ergeben  als  die  beim  Frequenzgang
+        und  bei  der  radialen Auswertung  bei  $\SI{30}{\hertz}$  gefundenen
+        Werte. Dies  hat  in  den  Augen  des Autors  mit  den  bei  Abbildung
+        \ref{fig:alu:rad:exact:high}   erw\"ahnten  Ableseschwierigkeiten   zu
+        tun. M\"oglicherweise  spielt  aber  auch  die  Tatsache  eine  Rolle,
+        dass man  es hier  schlusssendlich doch mit  einer N\"aherungsl\"osung
+        zu  tun hat. Um  Gewissheit  zu erlangen,  w\"aren  hier noch  weitere
+        Untersuchungen erforderlich.
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0mm}
@@ -605,12 +604,15 @@ ermittelt worden waren.
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--L.pgf}}
         \captionof{figure}{%
             \"Anderung des  Selbstinduktionskoeffizienten \"uber  Frequenz von
-            Spule mit eingef\"uhrtem Aluminium-Vollzylinder}
+            Spule mit eingef\"uhrtem Aluminium-Vollzylinder. F\"ur das Listing
+            mit den Parametern siehe Tabelle \ref{tab:fitparams:alu:L}.
+        }
         \label{fig:alu:freq:L}
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/massive--alu--R.pgf}}
         \captionof{figure}{%
-            \"Anderung des Ohm'schen Widerstandes von Spule mit eingef\"uhrtem
-            Aluminium-Vollzylinder}
+            \"Anderung    des   Ohm'schen    Widerstandes   von    Spule   mit
+            eingef\"uhrtem   Aluminium-Vollzylinder. Listing   siehe   Tabelle
+            \ref{tab:fitparams:alu:R}.}
         \label{fig:alu:freq:R}
 	\end{minipage}
 
@@ -764,7 +766,7 @@ Fits ermittelten Parametern.
 
             \vspace{1em}
             \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
-            \captionof{figure}{Sensorposition w\"ahrend Messung}
+            \captionof{figure}{Sondenposition w\"ahrend Messung}
             \label{fig:cu:freq:sensor}
 
         \end{minipage}
@@ -777,10 +779,10 @@ Fits ermittelten Parametern.
             Exakte  L\"osung   f\"ur  den  Frequenzverlauf  des   B-Feldes  im
             Hohlzylinder  (Kupfer). Es wurde  f\"ur den  Betrag und  die Phase
             jeweils  ein  Fit  durchgef\"uhrt,  wobei sich  die  beiden  Werte
-            $\sigma_{Fit,|\hat{B}|}$  und  $\sigma_{Fit,\angle\hat{B}}$  nicht
-            stark  unterscheiden  und  beide  auch nicht  besonders  weit  vom
-            Literaturwert  $\sigma_{Kuch}$ entfernt  liegen (insb.  verglichen
-            mit dem Aluminium-Vollzylinder).
+            $\sigma_{Fit,|\hat{B}|}$ und $\sigma_{Fit,\angle\hat{B}}$ (Tabelle
+            \ref{tab:fitparams:cu:freq:exact})  nicht stark  unterscheiden und
+            beide auch nicht besonders  weit vom Literaturwert $\sigma_{Kuch}$
+            entfernt liegen (insb. verglichen mit dem Aluminium-Vollzylinder).
         }
         \label{fig:cu:freq:exact}
 	\end{minipage}
@@ -818,7 +820,8 @@ Fits ermittelten Parametern.
             Frequenzen f\"ur den Frequenzverlauf  des B-Feldes im Hohlzylinder
             (Kupfer). Es wurde nur  auf den Betrag gefittet  wegen der starken
             Abweichung  der Phase  von  den Messwerten,  daher lieferte  diese
-            N\"aherung ledliglich einen Wert f\"ur $\sigma$.
+            N\"aherung  ledliglich  einen  Wert   f\"ur  $\sigma$  in  Tabelle
+            \ref{tab:fitparams:cu:freq:approx}.
         }
         \label{fig:cu:freq:approx}
 	\end{minipage}
@@ -853,7 +856,9 @@ Fits ermittelten Parametern.
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--cu--freq--approx2.pgf}}
         \captionof{figure}{%
             N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
-            Hohlzylinder (Kupfer). Betrag und Phase wurden separat gefittet.
+            Hohlzylinder (Kupfer). Betrag  und Phase wurden  separat gefittet,
+            daher   zwei   Werte   f\"ur  die   Leitf\"ahigkeit   in   Tabelle
+            \ref{tab:fitparams:cu:freq:approx2}.
         }
         \label{fig:cu:freq:approx2}
 	\end{minipage}
@@ -918,7 +923,11 @@ Fits ermittelten Parametern.
         \captionof{figure}{%
             \"Anderung  des   auf  den  Spulenstrom   normierten  magnetischen
             Flusses  innerhalb  des  Zylinders von  Spule  mit  eingef\"uhrten
-            Kupfer-Hohlzylinder}
+            Kupfer-Hohlzylinder  \emph{Beachte:} Bei der  Phase wurden  in der
+            Tat sowohl  die exakte wie  auch die gen\"aherte  f\"ur numerische
+            Problemf\"alle  L\"osung  geplottet,  sie  kommen  einfach  direkt
+            \"ubereinander zu liegen.
+        }
         \label{fig:cu:freq:phi}
 	\end{minipage}
 
@@ -953,16 +962,15 @@ Fits ermittelten Parametern.
         Seite~\pageref{tab:meas:steel} zu finden.
 
         F\"ur     den     Literaturwert    $\sigma_{Ref}$     wurden     Werte
-        aus     den    drei    Quellen     \cite{ref:stainless:hypertextbook},
-        \cite{ref:stainless:aksteel} und       \cite{ref:stainless:stahlwerke}
+        aus     den    drei     Quellen    \cite{ref:stainless:hypertextbook},
+        \cite{ref:stainless:aksteel}    und    \cite{ref:stainless:stahlwerke}
         miteinander   verrechnet. Da  es   sehr  viele   Stahllegierungen  mit
         unterschiedlichen   Eigenschaften  auf   dem  Markt   gibt,  existiert
         \emph{ein}  Literaturwert   per  se  nat\"urlich  nicht,   aber  diese
         Vorgehensweise  sollte  einen  gen\"ugend  guten  Wert  zum  Vergleich
-        liefern,  anhand   dessen  das  experimentelle  Resultat   auf  seine
-        Plausibilit\"at \"uberpr\"uft werden kann.
-
-        % TODO: Appendix calculation sigma_ref
+        liefern,  anhand   dessen  das   experimentelle  Resultat   auf  seine
+        Plausibilit\"at  \"uberpr\"uft  werden  kann. Die  Berechnung  ist  in
+        Anhang \ref{app:steel} auf Seite \pageref{app:steel} zu finden.
 
         \vspace{2em}
         \begin{minipage}[c][][b]{0.5\textwidth}
@@ -971,7 +979,7 @@ Fits ermittelten Parametern.
         \end{minipage}%
         \begin{minipage}[c][][b]{0.5\textwidth}
             \resizebox{\textwidth}{!}{\input{images/sensor-fixed.tex}}
-            \captionof{figure}{Sensorposition w\"ahrend Messung}
+            \captionof{figure}{Sondenposition w\"ahrend Messung}
             \label{fig:st:freq:sensor}
         \end{minipage}
 	\end{minipage}%
@@ -1092,8 +1100,10 @@ Fits ermittelten Parametern.
         \captionof{figure}{%
             N\"aherungsl\"osung  basierend  auf  der  N\"aherung  f\"ur  tiefe
             Frequenzen f\"ur den Frequenzverlauf  des B-Feldes im Hohlzylinder
-            (rostfreier Stahl). Wie  auch beim Kupfer wurde  lediglich auf den
-            Betrag gefittet.
+            (rostfreier Stahl). Wie auch  bei der Tieffrequenzn\"aherung f\"ur
+            Kupfer  wurde   lediglich  auf  den  Betrag   gefittet  und  daher
+            ent\"ahlt  Tabelle  \ref{tab:fitparams:st:freq:approx}  nur  einen
+            experimentellen Wert f\"ur $\sigma$.
         }
         \label{fig:st:freq:approx}
 	\end{minipage}
@@ -1116,9 +1126,8 @@ Fits ermittelten Parametern.
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--approx2.pgf}}
         \captionof{figure}{%
             N\"aherungsl\"osung  f\"ur  den  Frequenzverlauf des  B-Feldes  im
-            Hohlzylinder  (rostfreier  Stahl). Betrag  und Phase  wurden  zwar
-            separat  getifittet, allerdings  resultierte aus  beiden Fits  der
-            gleich Wert f\"ur $\sigma$
+            Hohlzylinder  (rostfreier  Stahl). An Betrag und Phase wurde separat
+            gefittet (Tabelle~\ref{tab:fitparams:st:freq:approx2})
         }
         \label{fig:st:freq:approx2}
 	\end{minipage}
@@ -1171,9 +1180,13 @@ Fits ermittelten Parametern.
         \vspace{0pt}
         \resizebox{.95\textwidth}{!}{\input{plots-pgf/hollow--st--freq--phi-norm.pgf}}
         \captionof{figure}{%
-            \"Anderung  des   auf  den  Spulenstrom   normierten  magnetischen
-            Flusses  innerhalb  des  Zylinders von  Spule  mit  eingef\"uhrten
-            rostfreiem Stahl-Hohlzylinder}
+            \"Anderung des auf den Spulenstrom normierten magnetischen Flusses
+            innerhalb des  Zylinders von  Spule mit  eingef\"uhrten rostfreiem
+            Stahl-Hohlzylinder.  \emph{Beachte:} Bei der  Phase wurden  in der
+            Tat sowohl  die exakte wie  auch die gen\"aherte  f\"ur numerische
+            Problemf\"alle  L\"osung  geplottet,  sie  kommen  einfach  direkt
+            \"ubereinander zu liegen.
+        }
         \label{fig:st:freq:phi}
 	\end{minipage}
 

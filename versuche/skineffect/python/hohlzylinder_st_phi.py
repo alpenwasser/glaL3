@@ -241,7 +241,7 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Parameterwerte f\"ur  Fit-Funktion in  Abbildung  \ref{fig:cu:freq:phi}
+        Parameterwerte f\"ur  Fit-Funktion in  Abbildung  \ref{fig:st:freq:phi}
         gerundet.
     }
     \label{tab:fitparams:st:phi}
