@@ -1,8 +1,207 @@
-\clearpage
-\section{St\"utzpunkte}
-\begin{figure}[h!]
-    \resizebox{\textwidth}{!}{\input{plots-pgf/stuetzpunkte.pgf}}
-\end{figure}
+{% START A3 PAGES
+    \clearpage
+    \pdfpagewidth=2\pdfpagewidth
+	\textwidth=2\textwidth
+    \addtolength{\textwidth}{70mm}
+    % **************************************************************************** %
+    \section{St\"utzpunkte}
+    \label{app:points}
+    % **************************************************************************** %
+    \begin{minipage}[t]{.30\textwidth}
+        Wie auf Seite \pageref{tab:meas:steel}  erw\"ahnt, wurden beim Plotten
+        der  Fit-Funktion \"uber  einen erweiterten  Frequenzbereich (genauer:
+        von  $\SI{80}{\hertz}$  bis  $\SI{50}{\kilo\hertz}$) die  Grenzen  der
+        in  der  Versuchsanleitung  gegebenen  Funktion  zur  Generierung  der
+        St\"utzpunkte entdeckt  (\emph{St\"utzpunktfunktion A}  in Abbildungen
+        \ref{fig:stuetzpunkte:high} und \ref{fig:stuetzpunkte:low}).
 
+        Es  fiel auf,  dass die  Funktion bis  in einen  Bereich von  mehreren
+        $\si{\mega\hertz}$ geplottet  wurde, was  nat\"urlich unsinnig  ist in
+        diesem Zusammenhang. Ein  genauerer Blick  auf die  Gleichung lieferte
+        schnell  die  Erkenntnis, dass  bei  $f_{min}  >  1$ und  $f_{max} \gg
+        f_{min}$ f\"ur $k \rightarrow NPTS$ gilt:
+
+        \begin{equation*}
+            f_{k,A} = f_{min} \cdot exp\Biggl( ln(f_{max} - f_{min}) \Biggr) \approx f_{min} \cdot f_{max}
+        \end{equation*}
+
+        Dies  ergibt   mit  den  beiden  gew\"ahlten   Frequenzen  eine  obere
+        Frequenzgrenze, die um ungef\"ahr einen Faktor $\num{80}$ zu hoch ist.
+
+        Durch die Methode des geschickten  Ansatzes wurde nach etwas T\"ufteln
+        eine  Formel gefunden,  welche  dieses  Problem eliminiert  (zumindest
+        soweit der Autor erkennen kann):
+
+        \begin{equation*}
+            \begin{split}
+                f_{k,B} & = exp\Biggl( (1-\frac{k}{NPTS}) \cdot ln(f_{min}) \Biggr) \\
+                & \cdot exp\Biggl( \frac{k}{NPTS} \cdot ln(f_{max}) \Biggr)
+            \end{split}
+        \end{equation*}
+
+        Interessanterweise stellte der Autor beim Vereinfachen dieser Formel fest,
+        dass sie sich in eine beinahe zur urspr\"unglichen Formel identische Form
+        \"uberf\"uhren l\"asst:
+
+        \begin{equation*}
+            f_{k,B} = f_{min} \cdot exp\Biggl(\frac{k}{NPTS} \cdot ln\biggl(\frac{f_{max}}{f_{min}}\biggr) \Biggr)
+        \end{equation*}
+
+        Aus  Gr\"unden  der  Anschauligkeit  bevorzugt der  Autor  jedoch  die
+        l\"angere Variante, da  dort gut erkennbar ist, dass  der Einfluss von
+        $f_{min}$  mit steigendem  $k$ sinkt  und der  Einfluss von  $f_{max}$
+        steigt.
+
+    \end{minipage}%
+    \begin{minipage}[t]{.35\textwidth}
+        \vspace{0em}
+        \resizebox{\textwidth}{!}{\input{plots-pgf/stuetzpunkte.pgf}}
+        \captionof{figure}{%
+            Vergleich  der  beiden  St\"utzpunktgeneratoren  \"uber  den  beim
+            Stahlzylinder benutzten erweiterten Frequenzbereicht. Man beachte,
+            dass die  oberste Frequenz bei  Methode A  ca. um einen  Faktor 80
+            gr\"osser ist, als die eigentlich eingestellte Grenze.
+        }
+        \label{fig:stuetzpunkte:high}
+    \end{minipage}%
+    \begin{minipage}[t]{.35\textwidth}
+        \vspace{0em}
+        \resizebox{\textwidth}{!}{\input{plots-pgf/stuetzpunkte-lowfreq.pgf}}
+        \captionof{figure}{%
+            Vergleich   der   beiden    St\"utzpunktgeneratoren   bei   tiefen
+            Frequenzen. F\"ur den  Versuch nebens\"achlich, ist  aber aufgrund
+            der Kuriosit\"at, dass die  St\"utzpunktfunktion A mit zunehmendem
+            $k$  kleinere  Werte  liefert  (da   $f_{max}  -  f_{min}  <  1$),
+            aufgef\"uhrt.
+        }
+        \label{fig:stuetzpunkte:low}
+    \end{minipage}
+
+    \hspace{-1.5em}
+    \begin{minipage}[t]{\textwidth}
+    Schlussendlich  ist  die  urspr\"ungliche  St\"utzpunktformel  nat\"urlich
+    f\"ur  den  im  Versuch  wirklich  ausgemessenen  Frequenzbereich  absolut
+    ausreichend,   daher  wurde   sie   auch  in   den  meisten   Berechnungen
+    verwendet. Aber  wenn  die  Arbeit  schon   gemacht  wurde,  soll  sie  ja
+    auch  dokumentiert  werden,  daher  diese  Seite  mit  den  entsprechenden
+    Erl\"auterungen. Bei Interesse am Ausprobieren k\"onnen die entsprechenden
+    Python-Scripts benutzt werden, welche  zur Erstellung der obigen Abbildung
+    dienten \cite{ref:aw:github}.
+    \end{minipage}
+
+
+\clearpage
+} % END A3 PAGES
+
+
+% **************************************************************************** %
+\clearpage
+\section{Ohm'scher Widerstand des Drahtes der Spule}
+\label{app:R_Ohm_0}
+% **************************************************************************** %
+
+Zur   Bestimmung   des   Ohm'schen    Widerstandes   der   Konfiguration   aus
+Spule    und    eingef\"uhrtem    Zylinder   (siehe    Formeln    auf    Seite
+\pageref{eq:hohlzylinder:LRExact}     und     \pageref{eq:vollzylinder:RExact}
+in     den     Arbeitsgrundlagen     sowie    die     entsprechenden     Plots
+auf     den     Seiten    \pageref{sec:ausw:subsec:vollz:subsubsec:LR}     und
+\pageref{sec:ausw:subsec:hohlz:st:subsubsec:LR}) muss der  Ohm'sche Widerstand
+des Spulendrahtes bestimmt werden. Dies kann man entweder messen, oder, wie in
+diesem Fall, mit einer kurzen Rechung absch\"atzen.
+
+Als Grundlage wird  dabei der Referenzwert f\"ur  Leitungskupfer aus Kuchlings
+\emph{Taschenbuch der Physik} benutzt \cite{ref:kuchling:resistivityTable}:
+\begin{equation*}
+    \rho_{CuLeitung,Kuchling} = \SI{0.0178}{\ohm\milli\meter\squared\per\meter}
+\end{equation*}
+
+Zur Rekapitulation nochmals die Daten der Spule:
+\begin{itemize}
+   \item
+       $d_{Spule} = \SI{98}{\milli\meter}$ Innendurchmesser
+   \item
+       $d_{Draht} = \SI{0.8}{\milli\meter}$ Drahtdurchmesser
+   \item
+       $l_{Spule} = \SI{500}{\milli\meter}$ L\"ange
+   \item
+       $N_0 = \num{574}$ Windungen
+\end{itemize}
+
+Daraus  kann man  L\"ange  des Spulendrahts  ausrechnen (den  Drahtdurchmesser
+vernach\"assigen wir beim berechnen des Umfangs der Spulenwindung):
+\begin{equation*}
+    l_{Spulendraht} = \pi \cdot d_{Spule} \cdot N_0 \approx \SI{177}{\meter}
+\end{equation*}
+
+Womit man den Widerstand des Drahtes berechnen kann zu:
+\begin{equation*}
+    R_{Spulendraht} = l_{Spulendraht} \cdot \frac{4}{d_{Draht}^2 \cdot \pi} \cdot \rho_{CuLeitung,Kuchling} \approx \SI{6.3}{\ohm}
+\end{equation*}
+
+Dies ist der Wert, welcher in den Berechnungen verwendet wurde.
+
+
+% **************************************************************************** %
+\clearpage
+\section[Widerstand rostfreier Stahl]{Literaturwerte f\"ur Ohm'schen Widerstand von rostfreiem Stahl}
+\label{app:steel}
+% **************************************************************************** %
+
+Wie    im    Abschnitt    zur    Messprobe   aus    rostfreiem    Stahl    auf
+Seite    \pageref{sec:ausw:subsec:hohlz:subsubsec:steel}    erw\"ahnt,    gibt
+es   sehr   viele    verschiedene   Stahllegierungen   mit   unterschiedlichen
+Eigenschaften. Um  den   Referenzwert  f\"ur  diese   Messreihe  einigermassen
+gut   abzust\"utzen, wurden   daher   Leitwerte   aus  verschiedenen   Quellen
+(    \cite{ref:stainless:hypertextbook},   \cite{ref:stainless:aksteel}    und
+\cite{ref:stainless:stahlwerke} ) miteinander verrechnet.
+
+Die dabei benutzten Werte sind:
+\begin{itemize}
+    \item
+        Quelle \cite{ref:stainless:hypertextbook}:
+        $\SI{1.450}{\mega\ampere\per\volt\per\meter}$,
+        $\SI{1.392}{\mega\ampere\per\volt\per\meter}$ und
+        $\SI{1.334}{\mega\ampere\per\volt\per\meter}$.
+        Aus diesen drei Werten wurde der Mittelwert gebildet, was
+        $\SI{1.392}{\mega\ampere\per\volt\per\meter}$ lieferte.
+    \item
+        Quelle    \cite{ref:stainless:aksteel}: Der    gegebene    Wert    ist
+        $\rho_{Steel} =  \SI{72}{\micro\ohm\milli\meter\per\centi\meter}$, was
+        man  umrechnen  kann zu  $\SI{1.389}{\mega\ampere\per\volt\per\meter}$
+        (es  wurde  nat\"urlich   der  Wert  f\"ur  $\SI{20}{\celsius}$
+        benutzt).
+    \item
+        Quelle    \cite{ref:stainless:stahlwerke}):   $\rho_{Stahlwerkte}    =
+        \SI{0.73}{\micro\ohm\milli\meter\per\meter}$,  was umgerechnet  werden
+        kann zu $\SI{1.370}{\mega\ampere\per\volt\per\meter}$.
+\end{itemize}
+
+Aus   diesen   drei   Werten   wurde  dann   der   Mittelwert   gebildet. Dies
+gew\"ahrleistet, dass jede Quelle gleich  gewichtet wird, und nicht jeder Wert
+(eine Quelle mit mehr Werten ist ja nicht unbedingt verl\"asslicher).
+
+Damit erh\"ahlt man:
+
+\begin{equation*}
+    \sigma_{Ref,Steel} = \SI{1.384}{\mega\ampere\per\volt\per\meter}
+\end{equation*}
+
+
+% **************************************************************************** %
+\clearpage
+\section{Python-Code}
+\label{app:python}
+% **************************************************************************** %
+
+Es   folgt   ein   Auszug   aus    dem   Quellcode   eines   der   verwendeten
+Python-Scripts. Die Scripts  sind alle  \"ahnglich aufgebaut, daher  soll hier
+ein  Beispiel ausreichen. F\"ur  den  vollst\"andigen Code  betrachte man  die
+Scripts.
+\lstinputlisting[style=python]{python/example.py}
+
+% **************************************************************************** %
+\clearpage
 \section{Messprotokolle}
-\includepdf[pages=-]{pdf/messprotokolle.pdf}
+\label{app:protocols}
+% **************************************************************************** %
+%\includepdf[pages=-]{pdf/messprotokolle.pdf}

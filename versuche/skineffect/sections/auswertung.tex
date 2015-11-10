@@ -19,14 +19,21 @@ die Messpunkte angepasst, nicht mit strikten mathematischen Methoden.
 
 Zur  Umsetzung  dieses Vorgehens  bieten  sich  diverse  Tools an;  der  Autor
 hat  sich  hier aus  Gr\"unden  der  pers\"onlichen Pr\"aferenz  f\"ur  Python
-entschieden (Matlab w\"are auch eine Variante).
+entschieden (Matlab  w\"are auch  eine Variante). Ein Auszug  mit Beispielcode
+ist im Anhang \ref{app:python} ab Seite \pageref{app:python} zu finden.
 
 
 % ---------------------------------------------------------------------------- %
 \subsubsection{Vorgehen Manuelles Fitting}
 \label{sec:ausw:subsec:methodik:subsubsec:fitting}
 % ---------------------------------------------------------------------------- %
-Im Allgemeinen wurde dabei folgendermassen vorgegangen:
+
+Bei   den  meisten   Plots  wurde   an  Phase   und  Betrag   jeweils  separat
+gefittet. Entsprechende  Angaben sind  jeweils in  den Listings  der Plots  zu
+finden.
+
+
+Im Allgemeinen wurde beim Fitten  folgendermassen vorgegangen:
 
 \begin{itemize}
     \item
@@ -48,16 +55,15 @@ Im Allgemeinen wurde dabei folgendermassen vorgegangen:
         Anpassen  von $\sigma$  einen Fit  f\"ur die  Messpunkte der  Phase zu
         erstellen.
     \item
-        Ist dies gelungen, kann man mittels  Tunen von $|B_0|$ die Kurve f\"ur
-        die Messpunkte von $|\hat{B}|$ anpassen.
+        Ist dies gelungen, \"ubernimmt man  den erhaltenen Wert f\"ur $\sigma$
+        f\"ur den Betrags-Fit und kann man mittels Tunen von $|B_0|$ die Kurve
+        f\"ur die Messpunkte von $|\hat{B}|$ anpassen.
     \item
-        Abschliessend kann  man noch iterativ optimieren,  bis die Fitfunktion
-        den Verlauf der Messpunkte optisch zufriedenstellend repr\"asentiert.
+        Abschliessend  kann  man  noch  iterativ  die  beiden  $\sigma$  f\"ur
+        den  Betrags- und  den Phasenverlauf  individuell optimieren,  bis die
+        Fitfunktion  den  Verlauf  der  Messpunkte  optisch  zufriedenstellend
+        repr\"asentiert.
 \end{itemize}
-
-
-F\"ur   die   genaue  algorithmische   Implementierung   sei   hier  auf   den
-Python-Quellcode verwiesen. % TODO siehe dropbox github und example im Anhang
 
 
 % ---------------------------------------------------------------------------- %
@@ -548,9 +554,11 @@ ermittelt worden waren.
         viel wichtiger als die absoluten  Werte, womit dieses Verfahren in den
         Augen des Autors gerechtfertigt ist.
 
-        Als         Fit-Funktionen       wurden        die         Gleichungen
+        Als        Fit-Funktionen         wurden        die        Gleichungen
         \ref{eq:vollzylinder:LExact}   und  \ref{eq:vollzylinder:RExact}   von
-        Seite \pageref{eq:vollzylinder:LExact} verwendet:
+        Seite  \pageref{eq:vollzylinder:LExact} verwendet. Zur  Bestimmung des
+        Widerstandes  des  Spulendrahtes  siehe Anhang  \ref{app:R_Ohm_0}  auf
+        Seite \pageref{app:R_Ohm_0}.
 
         \begin{equation}
             \tag{\ref{eq:vollzylinder:LExact}}
@@ -562,7 +570,6 @@ ermittelt worden waren.
         \end{equation}
 
         \vspace{2em}
-        %TODO reference formulas
         \begin{minipage}[c][][b]{0.5\textwidth}
             \vspace{0pt}
             \input{listings/massive--alu--L.tex}
@@ -850,6 +857,9 @@ Fits ermittelten Parametern.
         exakte wie  auch die gen\"aherte L\"osung. Es  soll aus Platzgr\"unden
         an dieser Stelle nicht der ganze Formelberg nochmals notiert werden.
 
+        Zur  Bestimmung  des  Widerstandes   des  Spulendrahtes  siehe  Anhang
+        \ref{app:R_Ohm_0} auf Seite \pageref{app:R_Ohm_0}.
+
         \vspace{2em}
         %TODO reference formulas
         \begin{minipage}[c][][b]{0.5\textwidth}
@@ -1015,12 +1025,17 @@ Fits ermittelten Parametern.
         \vspace{1em}
 
         Weil  der  in  den  Messungen abgedeckte  Frequenzbereich  nicht  ganz
-        genug hoch  ging, um  den   typischen    Kurvenverlauf mit  dem Abfall
-        des  Betrags in  der  optischen Mitte  des  Plots darzustellen,  wurde
-        auch  die   Fit-Funktion  \"uber  einen   erweiterten  Frequenzbereich
-        geplottet. Nat\"urlich ist der nicht  mit Messungen abgedeckte Bereich
-        der  Kurve  nicht  ganz  so  aussagekr\"aftig  wie  das  messtechnisch
-        erfasste Frequenzsprektrum, da die experimentelle Best\"atigung fehlt.
+        reicht, um den  typischen Kurvenverlauf mit dem Abfall  des Betrags in
+        der  optischen Mitte  des Plots  darzustellen, wurde  die Fit-Funktion
+        noch \"uber  einen erweiterten  Frequenzbereich geplottet. Nat\"urlich
+        ist der nicht mit Messungen abgedeckte Bereich der Kurve nicht ganz so
+        aussagekr\"aftig wie das  messtechnisch erfasste Frequenzsprektrum, da
+        die experimentelle Best\"atigung fehlt.
+
+        Bei dieser Gelegenheit wurden die Grenzen der in der Versuchsanleitung
+        gegebenen  Funktion zum  Erstellen  der St\"utzpunkte  f\"ur den  Plot
+        entdeckt, Ahnang \ref{app:points}  dokumentiert die gefundene L\"osung
+        genauer auf Seite \pageref{app:points}.
 
         Die    Resultate    f\"ur   $\sigma$    aus    den    Fits   in    den
         Abbildungen  \ref{fig:st:freq:exact}  und  \ref{fig:st:freq:exact:opt}
@@ -1096,6 +1111,9 @@ Fits ermittelten Parametern.
         Plots.    Als  Funktionen   f\"ur   die  Plots   von   $L$,  $R$   und
         $\frac{\hat{\Phi}}{\hat{I}}$  wurden wiederum  die  Formeln von  Seite
         \pageref{eq:hohlzylinder:phiNormExact} verwendet.
+
+        Zur  Bestimmung  des  Widerstandes   des  Spulendrahtes  siehe  Anhang
+        \ref{app:R_Ohm_0} auf Seite \pageref{app:R_Ohm_0}.
 
         \vspace{1em}
         \begin{minipage}[c][][b]{0.5\textwidth}

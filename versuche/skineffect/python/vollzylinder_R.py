@@ -25,6 +25,7 @@ r0    = 45e-3                                         # radius of alu cylinder
 B0    = 6.9e-2                             # adjust this as needed for scaling
 N0    = 574                                   # number of turns of copper coil
 l     = 500e-3                                         # length of copper coil
+R_0   = 6.3             # resistance of copper wire for coil, calculated value
 npts  = 1e3
 fmin  = 1
 fmax  = 250
@@ -33,18 +34,19 @@ fmax  = 250
     # file, add LaTeX where necessary.                     #
     # -----------------------------------------------------#
 params = [
-        '        ' + '$\mu_0'    + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
-        '        ' + '$\sigma'   + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
-        '        ' + '$d_{Sp}'   + '$ & $' +  '\SI{'   + str(dsp)    + r'}{\meter}'                     + r'$\\' + "\n",
-        '        ' + '$r_{Sp}'   + '$ & $' +  '\SI{'   + str(rsp)    + r'}{\meter}'                     + r'$\\' + "\n",
-        '        ' + '$r'        + '$ & $' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
-        '        ' + '$r_{0}'    + '$ & $' +  '\SI{'   + str(r0)     + r'}{\meter}'                     + r'$\\' + "\n",
-        '        ' + '$B_0'      + '$ & $' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
-        '        ' + '$l'        + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
-        '        ' + '$NPTS'     + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
-        '        ' + '$N_0'      + '$ & $' +  r'\num{' + str(N0)     + '}'                              + r'$\\' + "\n",
-        '        ' + '$f_{min}'  + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
-        '        ' + '$f_{max}'  + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$\mu_0'        + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
+        '        ' + '$\sigma'       + '$ & $' +  '\SI{'   + str(sigma)  + r'}{\ampere\per\volt\per\meter}' + r'$\\' + "\n",
+        '        ' + '$d_{Sp}'       + '$ & $' +  '\SI{'   + str(dsp)    + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{Sp}'       + '$ & $' +  '\SI{'   + str(rsp)    + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r'            + '$ & $' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$r_{0}'        + '$ & $' +  '\SI{'   + str(r0)     + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$B_0'          + '$ & $' +  '\SI{'   + str(B0)     + r'}{\tesla}'                     + r'$\\' + "\n",
+        '        ' + '$l'            + '$ & $' +  '\SI{'   + str(l)      + r'}{\meter}'                     + r'$\\' + "\n",
+        '        ' + '$R_{\Omega,0}' + '$ & $' +  '\SI{'   + str(R_0)    + '}{\ohm}'                        + r'$\\' + "\n",
+        '        ' + '$NPTS'         + '$ & $' +  r'\num{' + str(npts)   + '}'                              + r'$\\' + "\n",
+        '        ' + '$N_0'          + '$ & $' +  r'\num{' + str(N0)     + '}'                              + r'$\\' + "\n",
+        '        ' + '$f_{min}'      + '$ & $' +  '\SI{'   + str(fmin)   + r'}{\hertz}'                     + r'$\\' + "\n",
+        '        ' + '$f_{max}'      + '$ & $' +  '\SI{'   + str(fmax)   + r'}{\hertz}'                     + r'$\\' + "\n",
         ]
 font = {
         'family' : 'serif',
@@ -64,21 +66,6 @@ plot_scale_x   = 'log'
 plot_label_x   = 'Frequenz (Hz)'
 plot_label_y   = 'Widerstand (Ohm)'
 plot_title     = r"Ohm'scher Widerstand, Spule mit Vollzylinder"
-
-# ---------------------------------------------------------#
-# Get Estimate for resistance of copper coil               #
-#                                                          #
-# Note: We do  not take into  account the diameter  of the #
-# wire itself  for calculating the total  wire length. The #
-# inaccuracy  in sigma_copper  is likely  larger than  any #
-# uncertainty  introduced   by  disregarding   D_draht  in #
-# wire_length_coil.                                        #
-# ---------------------------------------------------------#
-D_draht = 0.8e-3
-sigma_copper = 58e6
-wire_length_coil = N0 * pi * dsp
-A_wire = D_draht**2/4*pi
-R_0 = wire_length_coil / (A_wire * sigma_copper)
 
 
 # ---------------------------------------------------------#

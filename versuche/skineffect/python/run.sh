@@ -11,7 +11,18 @@
 # -------------------------------------------------------- #
 python3 -c 'print("Running everything!")' || exit 1
 
-for file in *py;do
+for file in hohl*py;do
     echo "Running ${file}"
     python3 "${file}"
 done
+for file in voll*py;do
+    echo "Running ${file}"
+    python3 "${file}"
+done
+for file in stue*py;do
+    echo "Running ${file}"
+    python3 "${file}"
+done
+
+echo "Running Error Analysis"
+python3 error_analysis.py
