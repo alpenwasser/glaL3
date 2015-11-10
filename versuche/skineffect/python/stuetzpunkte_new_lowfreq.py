@@ -45,11 +45,12 @@ plot_label_vertical_common = r"minimale Frequenz St\"utzpunkt: "
 plot_label_vertical_old    = r"maximale Frequenz St\"utzpunkt, Methode A: "
 plot_label_vertical_new    = r"maximale Frequenz St\"utzpunkt, Methode B: "
 plot_added_text            = r"Verh\"altnis der maximalen Frequenzen Methode A -- Methode B: $\displaystyle \frac{f_{kA}}{f_{kB}}\Bigg|_{k=NPTS} \approx " + str(freq_max_ratio) + "$"
+plot_freq_range_label      = r"Eingestellter Frequenzbereich: $f_{min} = " + str(fmin) + r"$Hz bis $f_{max} = " + str(fmax) + r"$Hz"
 plot_size_measurements     = 24
 plot_scale_x               = 'log'
 plot_label_x               = r"Frequenz des St\"utzpunkts (Hz)"
 plot_1_label_y             = 'k (siehe Formel)'
-plot_1_title               = r"Vergleich St\"utzpunktformeln f\"ur den Frequenzbereich von " + str(fmin) + " Hz bis " + str(highest_frequency) + " Hz, " + str(npts+1) + " Punkte"
+plot_1_title               = r"Vergleich St\"utzpunktformeln, effektiv abgedeckter Frequenzbereich:" + str(fmin) + " Hz bis " + str(highest_frequency) + " Hz, " + str(npts+1) + " Punkte"
 y_lim_low                  = -2
 y_lim_high                 = npts + 2
 x_lim_low                  = 0.67 * fmin
@@ -128,8 +129,10 @@ axes1.tick_params(labelsize=9)
     # random piece of text on the plot.                    #
     # ---------------------------------------------------- #
 rect = matplotlib.patches.Rectangle([0,0],0,0,color='white',label=plot_added_text)
+rect2= matplotlib.patches.Rectangle([0,0],0,0,color='white',label=plot_freq_range_label)
 handles,legends = axes1.get_legend_handles_labels()
 handles.append(rect)
+handles.append(rect2)
 axes1.legend(handles=handles,fontsize=plot_legend_fontsize,loc='upper left',bbox_to_anchor=(0.0,-0.075))
 
     # ---------------------------------------------------- #

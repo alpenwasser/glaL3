@@ -328,17 +328,6 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.826000in}{3.000000in}}%
-\pgfpathlineto{\pgfqpoint{7.434000in}{3.000000in}}%
-\pgfusepath{stroke}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\pgfsetrectcap%
-\pgfsetmiterjoin%
-\pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{currentstroke}%
-\pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{7.434000in}{3.000000in}}%
 \pgfpathlineto{\pgfqpoint{7.434000in}{9.500000in}}%
 \pgfusepath{stroke}%
@@ -363,6 +352,17 @@
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.826000in}{3.000000in}}%
 \pgfpathlineto{\pgfqpoint{0.826000in}{9.500000in}}%
+\pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetrectcap%
+\pgfsetmiterjoin%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{0.826000in}{3.000000in}}%
+\pgfpathlineto{\pgfqpoint{7.434000in}{3.000000in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
@@ -1653,7 +1653,7 @@
 \pgftext[x=0.572529in,y=6.250000in,,bottom,rotate=90.000000]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont k (siehe Formel)}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=4.130000in,y=9.569444in,,base]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont Vergleich St\"utzpunktformeln f\"ur den Frequenzbereich von 0.1 Hz bis 0.01 Hz, 20 Punkte}%
+\pgftext[x=4.130000in,y=9.569444in,,base]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont Vergleich St\"utzpunktformeln, effektiv abgedeckter Frequenzbereich:0.1 Hz bis 0.01 Hz, 20 Punkte}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1664,8 +1664,8 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.888500in}{0.404838in}}%
-\pgfpathlineto{\pgfqpoint{6.559505in}{0.404838in}}%
+\pgfpathmoveto{\pgfqpoint{0.888500in}{0.219596in}}%
+\pgfpathlineto{\pgfqpoint{6.559505in}{0.219596in}}%
 \pgfpathlineto{\pgfqpoint{6.559505in}{2.450000in}}%
 \pgfpathlineto{\pgfqpoint{0.888500in}{2.450000in}}%
 \pgfpathclose%
@@ -1863,6 +1863,25 @@
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgftext[x=1.288500in,y=0.638868in,left,base]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont Verh\"altnis der maximalen Frequenzen Methode A -- Methode B: \(\displaystyle \displaystyle \frac{f_{kA}}{f_{kB}}\Bigg|_{k=NPTS} \approx 0.05\)}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{0.938500in}{0.297367in}}%
+\pgfpathlineto{\pgfqpoint{1.188500in}{0.297367in}}%
+\pgfpathlineto{\pgfqpoint{1.188500in}{0.384867in}}%
+\pgfpathlineto{\pgfqpoint{0.938500in}{0.384867in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgftext[x=1.288500in,y=0.297367in,left,base]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont Eingestellter Frequenzbereich: \(\displaystyle f_{min} = 0.1\)Hz bis \(\displaystyle f_{max} = 0.2\)Hz}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
