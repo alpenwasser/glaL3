@@ -348,7 +348,7 @@ table_opening = r"""
         %math-rm=\mathtt,
         scientific-notation=engineering,
         table-format = +3.2e+2,
-        round-precision = 2,
+        round-precision = 3,
         round-mode = figures,
     }
     \begin{tabular}{lr}

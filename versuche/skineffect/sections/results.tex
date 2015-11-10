@@ -1,12 +1,98 @@
-\input{equations/resultCu.tex}
-\input{equations/resultSt.tex}
+Da  die  Plots   wie  erw\"ahnt  der  Hauptteil   dieses  Berichts  ausmachen,
+sind  die  meisten Informationen  und  Schlussfolgerungen  bereits im  Kapitel
+\emph{Auswertung} zu finden.
+
+Es  folgen hier  noch  eine Zusammenfassung  der  ermittelten Leitwerte  sowie
+einige Anmerkungen zum Versuch allgemein.
+
+
+% ---------------------------------------------------------------------------- %
+\subsection{Resultate Leitf\"ahigkeit}
+\label{sec:results:subsec:sigma}
+% ---------------------------------------------------------------------------- %
+
+F\"ur das Material des  Aluminium-Vollzylinders wurde folgende Leitf\"ahigkeit
+ermittelt:
 \input{equations/resultAlu.tex}
 
-\input{plots-pgf/finalResultsCu.tex}
-\input{plots-pgf/finalResultsSt.tex}
-\input{plots-pgf/finalResultsAlu.tex}
+Wie  man  erkennen   kann,  weicht  dieser  Wert  doch   recht  bedeutend  vom
+Literaturwert ab.:
 
-% TODO:
-% langer bericht -> hat gefallen
-% roter faden?
-% chi-quadrat in python
+\vspace{1em}
+\begin{center}
+    \input{plots-pgf/finalResultsAlu.tex}
+\end{center}
+\vspace{1em}
+
+Beim Hohlzylinder aus  Kupfer waren der experimentell ermittelte  Wert und der
+Literaturwert  doch  einiges n\"aher  zusammen,  auch  wenn das  Resultat  des
+Experiments doch ein wenig kleiner ist als der Literaturwert:
+\input{equations/resultCu.tex}
+
+\vspace{1em}
+\begin{center}
+    \input{plots-pgf/finalResultsCu.tex}
+\end{center}
+\vspace{1em}
+
+Auch  beim  rostfreien  Stahl  liegen  das  Resultat  des  Versuches  und  der
+Referenzwert nicht allzu weit auseinander. Wie  bereits bei der Auswertung und
+in Anhang  \ref{app:steel} erl\"autert, wurden f\"ur  den Referenzwert Angaben
+aus verschiedenen Quellen miteinander verrechnet.
+\input{equations/resultSt.tex}
+
+\vspace{1em}
+\begin{center}
+    \input{plots-pgf/finalResultsSt.tex}
+\end{center}
+\vspace{1em}
+
+Man kann also erkennen, dass Leitwerte  aus Tabellen mit Vorsicht zu geniessen
+sind, und dass die effektiven  Leitwerte teilweise bedeutend kleiner ausfallen
+k\"onnen als in der Literatur angegeben.
+
+
+% ---------------------------------------------------------------------------- %
+\subsection{Was man noch machen k\"onnte}
+\label{sec:results:subsec:whatnext}
+% ---------------------------------------------------------------------------- %
+
+Den  Autor  reizt  es  zugegebenermassen   stark,  das  Fitten  in  Python  zu
+automatisieren,  anstatt von  Hand  auszuf\"uhren. Leider hat  aber auch  sein
+Arbeitstag lediglich  24 Stunden  plus die Nacht,  womit ein  solches Vorhaben
+zumindest vorerst eine Tr\"aumerei bleiben muss.
+
+
+Weiter  k\"onnte  man noch  den  mathematischen  Feinheiten nachgehen,  welche
+hinter   den    in   Abschnitten   \ref{sec:ausw:subsec:hohlz:cu:subsubsec:LR}
+ab     Seite    \pageref{sec:ausw:subsec:hohlz:cu:subsubsec:LR}     respektive
+in    Abschnitt     \ref{sec:ausw:subsec:hohlz:st:subsubsec:LR}    ab    Seite
+\pageref{sec:ausw:subsec:hohlz:st:subsubsec:LR}    beobachteten   Abweichungen
+zwischen  den N\"aherungen  f\"ur  numerische Problemf\"alle  und den  exakten
+L\"osungen stehen.
+
+
+% ---------------------------------------------------------------------------- %
+\clearpage
+\subsection{Pers\"onliches Fazit}
+\label{sec:results:subsec:thoughts}
+% ---------------------------------------------------------------------------- %
+
+
+Wie am  Umfang dieses  Berichts zu  erkennen ist, ist  der Autor  diesem Thema
+gegen\"uber sehr interessiert eingestellt, und alles in Allem hat diese Arbeit
+Spass gemacht.
+
+
+Ein  kleiner  Verbesserungsvorschlag  sei   an  dieser  Stelle  trotzdem  noch
+gemacht: Besonders in  der Vorbereitung  hatte der  Autor zeitweise  ein wenig
+M\"uhge, den ``roten Faden'' der  ganzen Geschichte zu sehen (welche Messungen
+sind durchzuf\"uhren,  welche sind nicht durchzuf\"uhren,  welche Auswertungen
+sind zu machen, welche nicht). Vielleicht k\"onnte hier eine kurze \"Ubersicht
+im Sinne  einer TODO-Liste in  der Versuchsanleitung Abhilfe  schaffen, anhand
+derer man auf einen Blick erkennen kann, was zu tun ist, was nicht, und wo man
+mit seiner Arbeit steht.
+
+
+Im Grossen und Ganzen aber wie  gesagt ein interessanter Versuch, der gefallen
+hat.

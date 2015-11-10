@@ -209,15 +209,14 @@ table_opening = r"""
 {%
     \begin{center}
     \captionof{table}{%
-        Parameterwerte  f\"ur  Fit-Funktion  in  Abbildung  \ref{fig:st:freq:R},
-        gerundet.
+        Parameterwerte  f\"ur  Fit-Funktion  in  Abbildung  \ref{fig:st:freq:R}
     }
     \label{tab:fitparams:st:R}
     \sisetup{%
         %math-rm=\mathtt,
         scientific-notation=engineering,
         table-format = +3.2e+2,
-        round-precision = 2,
+        round-precision = 3,
         round-mode = figures,
     }
     \begin{tabular}{lr}

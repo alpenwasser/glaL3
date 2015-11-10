@@ -234,17 +234,6 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.800000in}{5.700000in}}%
-\pgfpathlineto{\pgfqpoint{7.200000in}{5.700000in}}%
-\pgfusepath{stroke}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\pgfsetrectcap%
-\pgfsetmiterjoin%
-\pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{currentstroke}%
-\pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.800000in}{3.660000in}}%
 \pgfpathlineto{\pgfqpoint{0.800000in}{5.700000in}}%
 \pgfusepath{stroke}%
@@ -257,6 +246,17 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{7.200000in}{3.660000in}}%
+\pgfpathlineto{\pgfqpoint{7.200000in}{5.700000in}}%
+\pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetrectcap%
+\pgfsetmiterjoin%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{0.800000in}{5.700000in}}%
 \pgfpathlineto{\pgfqpoint{7.200000in}{5.700000in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
@@ -2144,7 +2144,7 @@
 \pgftext[x=0.546529in,y=4.680000in,,bottom,rotate=90.000000]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont gemessene Spannung (mV)}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=4.000000in,y=5.769444in,,base]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont N\"aherungsl\"osung: Betrag Magnetfeld, Spule mit Stahlrohr}%
+\pgftext[x=4.000000in,y=5.769444in,,base]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont N\"aherungsl\"osung tiefe Frequenzen: Betrag Magnetfeld, Spule mit Stahlrohr}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -2436,17 +2436,6 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.800000in}{2.640000in}}%
-\pgfpathlineto{\pgfqpoint{7.200000in}{2.640000in}}%
-\pgfusepath{stroke}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\pgfsetrectcap%
-\pgfsetmiterjoin%
-\pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{currentstroke}%
-\pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.800000in}{0.600000in}}%
 \pgfpathlineto{\pgfqpoint{0.800000in}{2.640000in}}%
 \pgfusepath{stroke}%
@@ -2459,6 +2448,17 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{7.200000in}{0.600000in}}%
+\pgfpathlineto{\pgfqpoint{7.200000in}{2.640000in}}%
+\pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetrectcap%
+\pgfsetmiterjoin%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{0.800000in}{2.640000in}}%
 \pgfpathlineto{\pgfqpoint{7.200000in}{2.640000in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
@@ -4131,7 +4131,7 @@
 \pgftext[x=0.382371in,y=1.620000in,,bottom,rotate=90.000000]{\rmfamily\fontsize{9.000000}{10.800000}\selectfont Phase (Grad)}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=4.000000in,y=2.709444in,,base]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont N\"aherungsl\"osung: Phase Magnetfeld, Spule mit Stahlrohr}%
+\pgftext[x=4.000000in,y=2.709444in,,base]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont N\"aherungsl\"osung tiefe Frequenzen: Phase Magnetfeld, Spule mit Stahlrohr}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -4300,17 +4300,6 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.800000in}{2.640000in}}%
-\pgfpathlineto{\pgfqpoint{7.200000in}{2.640000in}}%
-\pgfusepath{stroke}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\pgfsetrectcap%
-\pgfsetmiterjoin%
-\pgfsetlinewidth{1.003750pt}%
-\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{currentstroke}%
-\pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.800000in}{0.600000in}}%
 \pgfpathlineto{\pgfqpoint{0.800000in}{2.640000in}}%
 \pgfusepath{stroke}%
@@ -4323,6 +4312,17 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{7.200000in}{0.600000in}}%
+\pgfpathlineto{\pgfqpoint{7.200000in}{2.640000in}}%
+\pgfusepath{stroke}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetrectcap%
+\pgfsetmiterjoin%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{0.800000in}{2.640000in}}%
 \pgfpathlineto{\pgfqpoint{7.200000in}{2.640000in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
