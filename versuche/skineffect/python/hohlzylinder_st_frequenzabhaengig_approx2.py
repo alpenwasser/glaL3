@@ -17,9 +17,25 @@ import numpy as np
 # ---------------------------------------------------------#
 # Init, Define Variables and Constants                     #
 # ---------------------------------------------------------#
+# http://www.aksteel.com/pdf/markets_products/stainless/austenitic/304_304L_Data_Sheet.pdf
+# Converting from microOhm / inch to standard SI
+rho_aksteel = 28.4 * 25.4 * 1e-3 * 1e-6
+sigma_aksteel = 1/rho_aksteel
+
+# http://hypertextbook.com/facts/2006/UmranUgur.shtml
+sigma_glenEbert304 = 1.450e6
+sigma_glenEbert347 = 1.392e6
+sigma_glenEbert316 = 1.334e6
+sigma_glenEbert = (sigma_glenEbert304+sigma_glenEbert347+sigma_glenEbert316) / 3
+
+# http://www.dew-stahl.com/fileadmin/files/dew-stahl.com/documents/Publikationen/Werkstoffdatenblaetter/RSH/1.4301_de.pdf
+rho_stahlwerke = 0.73e-6
+sigma_stahlwerke = 1 / rho_stahlwerke
+
+sigma_ref = ( sigma_aksteel + sigma_glenEbert + sigma_stahlwerke) / 3
+
+
 mu0   = 4*pi*1e-7                                        # vacuum permeability
-rho_kuchling   = 0.0172e-6 # resistivity Kuchling 17th edition, p.649, tab. 45
-sigma_kuchling = 1/rho_kuchling
 sigma_abs = 1.17e6
 sigma_arg = 1.10e6
 r1    = 30e-3                                # inner radius of copper cylinder
@@ -47,7 +63,7 @@ r     = r1
 params = [
         '        ' + r'\textcolor{red}{$\sigma_{Fit,|\hat{B}|}'     + r'$} & \textcolor{red}{$' + '\SI{' + str(sigma_abs) + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + r'\textcolor{red}{$\sigma_{Fit,\angle\hat{B}}' + r'$} & \textcolor{red}{$' + '\SI{' + str(sigma_arg) + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
-        '        ' + r'\textcolor{red}{$\sigma_{Kuch}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_kuchling)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
+        '        ' + r'\textcolor{red}{$\sigma_{Ref}' + r'$} & \textcolor{red}{$' +  '\SI{'   + str(sigma_ref)  + r'}{\ampere\per\volt\per\meter}' + r'$}\\' + "\n",
         '        ' + '$\mu_0'    + '$ & $' +  '\SI{'   + str(mu0)    + r'}{\newton\per\ampere\squared}' + r'$\\' + "\n",
         '        ' + '$r'        + '$ & $' +  '\SI{'   + str(r)      + r'}{\meter}'                     + r'$\\' + "\n",
         '        ' + '$r_1'      + '$ & $' +  '\SI{'   + str(r1)     + r'}{\meter}'                     + r'$\\' + "\n",
@@ -86,8 +102,8 @@ plot_label_ratio_y      = r"$\displaystyle d_{Rohr} \div s_{skin}$"
 plot_label_x            = 'Frequenz (Hz)'
 plot_1_label_y          = 'gemessene Spannung (mV)'
 plot_2_label_y          = 'Phase (Grad)'
-plot_1_title            = r"N\"aherungsl\"osung f\"ur numerische Probleme: Betrag Magnetfeld, Spule mit Kupferrohr"
-plot_2_title            = r"N\"aherungsl\"osung f\"ur numerische Probleme: Phase Magnetfeld, Spule mit Kupferrohr"
+plot_1_title            = r"N\"aherungsl\"osung f\"ur numerische Probleme: Betrag Magnetfeld, Spule mit Stahlrohr"
+plot_2_title            = r"N\"aherungsl\"osung f\"ur numerische Probleme: Phase Magnetfeld, Spule mit Stahlrohr"
 
     # ---------------------------------------------------- #
     # Current in copper coil. This is a scaling parameter, #

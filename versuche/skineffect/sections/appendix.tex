@@ -3,11 +3,11 @@
     \pdfpagewidth=2\pdfpagewidth
 	\textwidth=2\textwidth
     \addtolength{\textwidth}{70mm}
-    % **************************************************************************** %
-    \section{St\"utzpunkte}
-    \label{app:points}
-    % **************************************************************************** %
-    \begin{minipage}[t]{.30\textwidth}
+    \begin{minipage}[t]{.265\textwidth}
+        % ******************************************************************** %
+        \section{St\"utzpunkte}
+        \label{app:points}
+        % ******************************************************************** %
         Wie auf Seite \pageref{tab:meas:steel}  erw\"ahnt, wurden beim Plotten
         der  Fit-Funktion \"uber  einen erweiterten  Frequenzbereich (genauer:
         von  $\SI{80}{\hertz}$  bis  $\SI{50}{\kilo\hertz}$) die  Grenzen  der
@@ -39,21 +39,15 @@
             \end{split}
         \end{equation*}
 
-        Interessanterweise stellte der Autor beim Vereinfachen dieser Formel fest,
-        dass sie sich in eine beinahe zur urspr\"unglichen Formel identische Form
-        \"uberf\"uhren l\"asst:
+        Sie kann auf auf eine Form  vereinfacht werden, die sehr \"ahnlich zur
+        urspr\"unglichen Formel ist:
 
         \begin{equation*}
             f_{k,B} = f_{min} \cdot exp\Biggl(\frac{k}{NPTS} \cdot ln\biggl(\frac{f_{max}}{f_{min}}\biggr) \Biggr)
         \end{equation*}
 
-        Aus  Gr\"unden  der  Anschauligkeit  bevorzugt der  Autor  jedoch  die
-        l\"angere Variante, da  dort gut erkennbar ist, dass  der Einfluss von
-        $f_{min}$  mit steigendem  $k$ sinkt  und der  Einfluss von  $f_{max}$
-        steigt.
-
     \end{minipage}%
-    \begin{minipage}[t]{.35\textwidth}
+    \begin{minipage}[t]{.3675\textwidth}
         \vspace{0em}
         \resizebox{\textwidth}{!}{\input{plots-pgf/stuetzpunkte.pgf}}
         \captionof{figure}{%
@@ -64,7 +58,7 @@
         }
         \label{fig:stuetzpunkte:high}
     \end{minipage}%
-    \begin{minipage}[t]{.35\textwidth}
+    \begin{minipage}[t]{.3675\textwidth}
         \vspace{0em}
         \resizebox{\textwidth}{!}{\input{plots-pgf/stuetzpunkte-lowfreq.pgf}}
         \captionof{figure}{%
@@ -77,16 +71,22 @@
         \label{fig:stuetzpunkte:low}
     \end{minipage}
 
-    \hspace{-1.5em}
+    %\hspace{-1.5em}
+    \vspace{0.3em}
     \begin{minipage}[t]{\textwidth}
+    Aus  Gr\"unden  der  Anschauligkeit  bevorzugt der  Autor  jedoch  die
+    l\"angere Variante, da  dort gut erkennbar ist, dass  der Einfluss von
+    $f_{min}$  mit steigendem  $k$ sinkt  und der  Einfluss von  $f_{max}$
+    steigt.
+
+    \vspace{0.1em}
     Schlussendlich  ist  die  urspr\"ungliche  St\"utzpunktformel  nat\"urlich
     f\"ur  den  im  Versuch  wirklich  ausgemessenen  Frequenzbereich  absolut
     ausreichend,   daher  wurde   sie   auch  in   den  meisten   Berechnungen
     verwendet. Aber  wenn  die  Arbeit  schon   gemacht  wurde,  soll  sie  ja
-    auch  dokumentiert  werden,  daher  diese  Seite  mit  den  entsprechenden
-    Erl\"auterungen. Bei Interesse am Ausprobieren k\"onnen die entsprechenden
-    Python-Scripts benutzt werden, welche  zur Erstellung der obigen Abbildung
-    dienten \cite{ref:aw:github}.
+    auch dokumentiert  werden, daher  diese Erl\"auterungen. Bei  Interesse am
+    Ausprobieren  k\"onnen die  entsprechenden Python-Scripts  benutzt werden,
+    welche zur Erstellung der obigen Abbildungen dienten \cite{ref:aw:github}.
     \end{minipage}
 
 
@@ -128,7 +128,7 @@ Zur Rekapitulation nochmals die Daten der Spule:
 \end{itemize}
 
 Daraus  kann man  L\"ange  des Spulendrahts  ausrechnen (den  Drahtdurchmesser
-vernach\"assigen wir beim berechnen des Umfangs der Spulenwindung):
+vernach\"assigen wir beim Berechnen des Umfangs der Spulenwindung):
 \begin{equation*}
     l_{Spulendraht} = \pi \cdot d_{Spule} \cdot N_0 \approx \SI{177}{\meter}
 \end{equation*}

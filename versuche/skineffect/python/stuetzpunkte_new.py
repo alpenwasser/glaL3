@@ -143,7 +143,7 @@ axes1.legend(handles=handles,fontsize=plot_legend_fontsize,loc='upper left',bbox
     # ---------------------------------------------------- #
 #axes1.add_patch(rect)
 
-fig1.subplots_adjust(bottom=0.3,left=0.1,right=0.9,top=0.95,hspace=0.5)
+fig1.subplots_adjust(bottom=0.29,left=0.05,right=0.99,top=.98,hspace=0.3)
 
 fig1.savefig('plots-pgf/stuetzpunkte.pgf')
 fig1.savefig('plots-pdf/stuetzpunkte.pdf')

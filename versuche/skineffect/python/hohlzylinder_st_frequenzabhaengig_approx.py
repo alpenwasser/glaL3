@@ -92,8 +92,8 @@ plot_label_x            = 'Frequenz (Hz)'
 plot_label_ratio_y      = r"$\displaystyle d_{Rohr} \div s_{skin}$"
 plot_1_label_y          = 'gemessene Spannung (mV)'
 plot_2_label_y          = 'Phase (Grad)'
-plot_1_title            = r"N\"aherungsl\"osung: Betrag Magnetfeld, Spule mit Stahlrohr"
-plot_2_title            = r"N\"aherungsl\"osung: Phase Magnetfeld, Spule mit Stahlrohr"
+plot_1_title            = r"N\"aherungsl\"osung tiefe Frequenzen: Betrag Magnetfeld, Spule mit Stahlrohr"
+plot_2_title            = r"N\"aherungsl\"osung tiefe Frequenzen: Phase Magnetfeld, Spule mit Stahlrohr"
 
     # ---------------------------------------------------- #
     # current in copper coil. This is a scaling parameter, #
