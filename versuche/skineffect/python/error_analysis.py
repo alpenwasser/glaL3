@@ -267,7 +267,7 @@ pictureCloseStringCu = r"""
 \end{tikzpicture}
 \captionof{figure}{%
     Vergleich  der  experimentell   bestimmten  Leitf\"ahigkeit  f\"ur  Kupfer
-    mit  dem   Literaturwert  aus   Kuchlings  \emph{Taschebuch   der  Physik}
+    mit  dem   Literaturwert  aus   Kuchlings  \emph{Taschenbuch  der  Physik}
     \cite{ref:kuchling:resistivityTable}%
     }
 """
@@ -328,7 +328,7 @@ pictureCloseStringAlu = r"""
 \end{tikzpicture}
 \captionof{figure}{%
     Vergleich  der experimentell  bestimmten  Leitf\"ahigkeit f\"ur  Aluminium
-    mit  dem   Literaturwert  aus   Kuchlings  \emph{Taschebuch   der  Physik}
+    mit  dem   Literaturwert  aus   Kuchlings  \emph{Taschenbuch  der  Physik}
     \cite{ref:kuchling:resistivityTable}%
     }
 """

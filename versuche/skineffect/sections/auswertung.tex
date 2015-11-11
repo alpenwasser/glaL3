@@ -20,7 +20,7 @@ k\"onnen (Listings, Formeln, erg\"anzende Anmerkungen), sind die Plots und die
 zugeh\"origen  Informationen daher  auf  A3-Seiten  gedruckt. Es wurde  danach
 gestrebt, dass  jede dieser Seiten  eine gr\"osstenteils in  sich geschlossene
 informative Einheit ist, um das  Hin- und  Herbl\"attern durch das  Journal zu
-minimieren.   Deshalb sint  manchmal  Informationen  allenfalls auch  mehreren
+minimieren.   Deshalb sind  manchmal  Informationen  allenfalls auch  mehreren
 Seiten zu finden.
 
 
@@ -38,17 +38,19 @@ f\"ur Phase  und Betrag des  B-Feldes). Die Fitfunktion wird dabei  optisch an
 die Messpunkte angepasst, nicht mit strikten mathematischen Methoden.
 
 Zur  Umsetzung  dieses Vorgehens  bieten  sich  diverse  Tools an;  der  Autor
-hat  sich  hier aus  Gr\"unden  der  pers\"onlichen Pr\"aferenz  f\"ur  Python
-entschieden (Matlab  w\"are auch  eine Variante). Ein Auszug  mit Beispielcode
-ist im Anhang \ref{app:python} ab Seite \pageref{app:python} zu finden.
+hat  sich   hier  aus   Gr\"unden  der  pers\"onlichen   Pr\"aferenz  (Kosten,
+Lizenzmodell,  Features) f\"ur  Python  entschieden (Matlab  w\"are auch  eine
+Variante). Ein Auszug mit Beispielcode ist im Anhang \ref{app:python} ab Seite
+\pageref{app:python} zu finden.
 
 
 % ---------------------------------------------------------------------------- %
+\clearpage
 \subsubsection{Vorgehen Manuelles Fitting}
 \label{sec:ausw:subsec:methodik:subsubsec:fitting}
 % ---------------------------------------------------------------------------- %
 
-Bei   den  meisten   Plots  wurde   an  Phase   und  Betrag   jeweils  separat
+Bei   vielen   Plots    wurde   an   Phase   und    Betrag   jeweils   separat
 gefittet. Entsprechende  Angaben sind  jeweils in  den Listings  der Plots  zu
 finden.
 
@@ -71,9 +73,9 @@ Im Allgemeinen wurde beim Fitten  folgendermassen vorgegangen:
         abh\"angt (ersichtlich  aus Gleichung \ref{eq:vollzylinder:bFeldExact}
         auf       Seite       \pageref{eq:vollzylinder:bFeldExact}       sowie
         Gleichung        \ref{eq:hohlzylinder:BExact}         auf        Seite
-        \pageref{eq:hohlzylinder:BExact}),  bietet es  sich  an, zuerst  durch
-        Anpassen  von $\sigma$  einen Fit  f\"ur die  Messpunkte der  Phase zu
-        erstellen.
+        \pageref{eq:hohlzylinder:BExact},  oder beim  Herumexperimentieren mit
+        den  Plots), bietet  es sich  an, zuerst  durch Anpassen  von $\sigma$
+        einen Fit f\"ur die Messpunkte der Phase zu erstellen.
     \item
         Ist dies gelungen, \"ubernimmt man  den erhaltenen Wert f\"ur $\sigma$
         f\"ur den Betrags-Fit und kann man mittels Tunen von $|B_0|$ die Kurve
@@ -81,8 +83,8 @@ Im Allgemeinen wurde beim Fitten  folgendermassen vorgegangen:
     \item
         Abschliessend  kann  man  noch  iterativ  die  beiden  $\sigma$  f\"ur
         den  Betrags- und  den Phasenverlauf  individuell optimieren,  bis die
-        Fitfunktion  den  Verlauf  der  Messpunkte  optisch  zufriedenstellend
-        repr\"asentiert.
+        Fitfunktionen  den Verlauf  der  Messpunkte optisch  zufriedenstellend
+        repr\"asentieren.
 \end{itemize}
 
 
@@ -97,7 +99,7 @@ aufgef\"uhrt.
 
 Die  Werte   werden  direkt  von  den   Python-Scripts  in  \code{*.tex}-Files
 geschrieben und in dieses Dokument integriert. Dies garantiert, dass die Plots
-und die aufgesisteten Parameter  \"ubereinstimmen; Tippfehler beim Abschreiben
+und die aufgelisteten Parameter  \"ubereinstimmen; Tippfehler beim Abschreiben
 der Werte werden vermieden (und es erspart Arbeit).
 
 Die Werte in  den Tabellen sind jeweils gerundet,  Python arbeitet nat\"urlich
@@ -125,7 +127,7 @@ durchgef\"uhrt:
 \end{itemize}
 
 Dabei wurden  jeweils Betrag  und Phase  des Magnetfeldes  ausgemessen. Zu den
-Messwerten wurden anschliessend folgende Fitkurven erstellt:
+Messwerten wurden anschliessend folgende Fit-Kurven erstellt:
 \begin{itemize}
     \item
         Frequenzgang, exakte L\"osung,
@@ -222,10 +224,9 @@ ermittelt worden waren.
 
             Phase  und  Betrag  des  B-Feldes  wurden  separat  gefittet,  die
             beiden  ermittelten   Leitf\"ahigkeiten  $\sigma_{Fit,|\hat{B}|}$
-            und  $\sigma_{Fit,\angle\hat{B}}$ liegen  relative nahe  zusammen,
+            und  $\sigma_{Fit,\angle\hat{B}}$ liegen  relativ nahe  zusammen,
             weichen jedoch  stark von Kuchlings  Literaturwert $\sigma_{Kuch}$
             ab.
-            %TODO: relative difference once values finalized
 
         \end{minipage}
 
@@ -265,8 +266,9 @@ ermittelt worden waren.
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0mm}
         In   dieser   Messreihe   wurde   die   Frequenz   konstant   gehalten
-        ($\SI{30}{\hertz}$),  und  die  Position der  Messsonde  wurde  radial
-        variiert  zwischen  Zylinderachse   und  Aussenrand (Abbildung~\ref{fig:alu:rad:low:sensor}).
+        ($\SI{30}{\hertz}$),   und   die    Position   der   Messsonde   wurde
+        radial    variiert     zwischen    Zylinderachse     und    Aussenrand
+        (Abbildung~\ref{fig:alu:rad:low:sensor}).
 
         Der   Skineffekt   ist   merklich  schw\"acher   als   bei   h\"oheren
         Frequenzen  (Abschnitt~\ref{sec:ausw:subsec:vollz:subsubsec:highfreq},
@@ -319,9 +321,9 @@ ermittelt worden waren.
             \end{equation}
 
             Es  konnte eine  sehr  zufriedenstellende  Fit-Funktion f\"ur  die
-            Messwerte  gefunden  werden. Jedoch  weicht die  daraus  bestimmte
-            Leitf\"ahigkeit $\sigma_{Fit}$ recht betr\"achtlich von  Kuchlings
-            Wert $\sigma_{Kuch}$ ab.
+            Messwerte  gefunden werden. Jedoch  weichen die  daraus bestimmten
+            Leitf\"ahigkeiten   recht   betr\"achtlich  von   Kuchlings   Wert
+            $\sigma_{Kuch}$ ab.
         \end{minipage}%
 
         \vspace{1em}
@@ -381,8 +383,7 @@ ermittelt worden waren.
         \vspace{0.5em}
 
         Wie  man  feststellen  kann,  weicht der  ermittelte  Wert  f\"ur  die
-        Leitf\"ahigkeit doch  betr\"achtlich von  den bisher  gesehenen Werten
-        ab.
+        Leitf\"ahigkeit doch recht bedeutend den bisher gesehenen Werten ab.
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
         \vspace{0mm}
@@ -412,13 +413,6 @@ ermittelt worden waren.
         ansschliessend  wurde  die  Frequenz  des externen  B-Feldes  so  weit
         erh\"oht,  bis  gerade  noch  brauchbare  Messwerte  abgelesen  werden
         konnten.
-
-        % TODO: put this in discussion with combined plot
-        %Wie  man  erkennen  kann,  fallen sie  gegen  das  Innere  des
-        %Zylinders viel st\"arker ab,  als bei $\SI{30}{\hertz}$ (siehe Tabelle
-        %~\ref{tab:meas:alu:rad:30}). Die  Wirbelstr\"ome   in  den  \"ausseren
-        %Bereichen des  Zylinders schirmen also dessen  Inneres st\"arker gegen
-        %das \"aussere B-Feld ab; der Skineffekt ist ausgepr\"agter.
 
         \begin{minipage}[t]{0.5\textwidth}
             \vspace{0mm}
@@ -456,7 +450,7 @@ ermittelt worden waren.
             Bei   der  so   ermittelten  Frequenz   wurde  dann   der  radiale
             Verlauf   des  B-Feldes   auf   der   restlichen  H\"alfte   gegen
             den    Aussenrand    des    Vollzylinders    ausgemessen    (siehe
-            Abbildung~\ref{fig:alu:rad:low:sensor}).
+            Abbildung~\ref{fig:alu:rad:high:sensor}).
 
             Die      erhaltenen      Messwerte       sind      in      Tabelle
             ~\ref{tab:meas:alu:rad:450} zu finden.
@@ -492,7 +486,7 @@ ermittelt worden waren.
             \vspace{0pt}
             \resizebox{\textwidth}{!}{\input{images/sensor-radial-partial.tex}}
             \captionof{figure}{Sondenposition w\"ahrend Messung}
-            \label{fig:alu:rad:low:sensor}
+            \label{fig:alu:rad:high:sensor}
         \end{minipage}
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
@@ -504,7 +498,7 @@ ermittelt worden waren.
             die   gleichen  \"Uberlegungen   zu  den   Randeffekten  wie   bei
             $\SI{30}{\hertz}$.   Die  Phase  passt  nicht  ganz  optimal,  und
             der  erhaltene  Wert f\"ur  $\sigma_{Fit,\angle\hat{B}}$  (Tabelle
-            \ref{tab:fitparams:alu:freq:high:exact}) lieft  einiges tiefer als
+            \ref{tab:fitparams:alu:freq:high:exact}) liegt  einiges tiefer als
             die  bisher gesehenen  Werte.   M\"oglicherweise  ist dies  darauf
             zur\"uckzuf\"uhren,  dass   bei  diesem   Versuch  die   Phase  im
             Allgemeinen  sehr stark  oszillierte (auch  der Betrag,  wenn auch
@@ -564,7 +558,7 @@ ermittelt worden waren.
         Wie  erw\"ahnt,  wurden  keine  direkten  Messungen  von  $L_{Spule  +
         Zylinder}$   und  $R_{Spule   +  Zylinder}$   durchgef\"uhrt. Mit  den
         Informationen  aus  den  Fits   (also  prim\"ar  der  dort  bestimmten
-        Leitf\"ahgiekt) k\"onnen jedoch trotztem Plots erstellt werden.
+        Leitf\"ahigkeit) k\"onnen jedoch trotztem Plots erstellt werden.
 
         Es sei  hier noch  angemerkt, dass die  gew\"ahlten Werte  f\"ur $B_0$
         und $\sigma$  nicht auf  strikten Berechnungen  begr\"unden. Es wurden
@@ -671,7 +665,7 @@ Genauigkeit in der Sondenposition vorzunehmen.
 Deshalb wurden  bei diesen  zwei Versuchsreihen lediglich  die Frequenzg\"ange
 des B-Feldes im Innenraum der Hohlzylinder gemessen.
 
-Folgende Fitkurven wurden anschliessend  erstellt (je f\"ur den Kupferzylinder
+Folgende Fit-Kurven wurden anschliessend  erstellt (je f\"ur den Kupferzylinder
 und den Stahlzylinder):
 \begin{itemize}
     \item
@@ -937,8 +931,8 @@ Fits ermittelten Parametern.
             \"Anderung  des   auf  den  Spulenstrom   normierten  magnetischen
             Flusses  innerhalb  des  Zylinders von  Spule  mit  eingef\"uhrten
             Kupfer-Hohlzylinder  \emph{Beachte:} Bei der  Phase wurden  in der
-            Tat sowohl  die exakte wie  auch die gen\"aherte  f\"ur numerische
-            Problemf\"alle  L\"osung  geplottet,  sie  kommen  einfach  direkt
+            Tat  sowohl die  exakte wie  auch die  gen\"aherte L\"osung  f\"ur
+            numerische  Problemf\"alle geplottet,  sie  kommen einfach  direkt
             \"ubereinander zu liegen.
         }
         \label{fig:cu:freq:phi}
@@ -1099,7 +1093,7 @@ Fits ermittelten Parametern.
         \vspace{0pt}
         Bei der N\"aherungsl\"osung  f\"ur tiefe Frequenzen ist  wie auch beim
         Kupferrohr  zu  erkennen, dass  die  Phase  der Fit-Funktion  von  den
-        Messwerten  zu  divergieren  beginnt  wenn die  Wanddicke  des  Rohres
+        Messwerten  zu  divergieren  beginnt, wenn die  Wanddicke  des  Rohres
         gr\"osser  wird  als  die  Eindringtiefe  $s_{skin}$  (magenta-farbene
         Kurve in  Abbildung~\ref{fig:st:freq:approx}). Der Frequenzbereich des
         Plots  wurde ein  wenig \"uber  den Messbereich  erweitert, um  dieses
@@ -1124,14 +1118,10 @@ Fits ermittelten Parametern.
 
 	\begin{minipage}[t]{0.33\textwidth}
         \vspace{0pt}
-        %Bei  der   N\"aherungsl\"osung  ist   wie  auch  beim   Kupferrohr  zu
-        %erkennen,  dass   die  Phase  der  Fit-Funktion   von  den  Messwerten
-        %zu  divergieren  beginnt   wenn  die Wanddicke  des  Rohres  gr\"osser
-        %wird    als   die   Eindringtiefe   $s_{skin}$   (magenta   Kurve   in
-        %Abbildung~\ref{fig:st:freq:approx}). Der  Frequenzbereich  wurde  auch
-        %hier   ein  wenig   \"uber  den   Messbereich  erweitert,   um  dieses
-        %divergierende Verhalten besser erkennbar zu machen.
-        %\vspace{1em}
+        Auch  hier  wurde  die   N\"aherung  f\"ur  numerische  Problemf\"alle
+        ebenfalls    gefittet. Die   bereits    beim   Kupferrohr    gemachten
+        Beobachtungen  betreffend  \"Ubereinstimmung und  Abweichung  zwischen
+        N\"aherungen und exakten L\"osungen wurden auch hier gemacht.
         \input{listings/hollow--st--freq--approx2.tex}
 	\end{minipage}%
 	\begin{minipage}[t]{0.67\textwidth}
