@@ -1,0 +1,102 @@
+\documentclass{fhnwreport/fhnwreport}
+
+\input{preamble/packages.tex}
+\input{preamble/hyperref.tex}
+\input{preamble/title.tex}
+\input{preamble/colfigure.tex}
+\input{preamble/enumerate.tex}
+\input{preamble/code.tex}
+\input{preamble/siunitx.tex}
+
+
+\usepackage{pdfpages}
+
+\begin{document}
+
+\input{titlepage/titlepage.tex}
+
+% **************************************************************************** %
+\pagestyle{empty}
+{
+    \renewcommand{\thispagestyle}[1]{}
+    \tableofcontents
+    \vspace{30mm}
+    \subsection*{Versionsgeschichte}
+    \begin{itemize}
+        \item[]
+            \emph{09.12.2015:} \texttt{Version 1}
+    \end{itemize}
+}
+
+\clearpage
+\setcounter{page}{1}
+\pagestyle{headings}
+% **************************************************************************** %
+
+% **************************************************************************** %
+\clearpage
+\section{Arbeitsgrundlagen}
+\label{sec:arbeitsgrundlagen}
+% **************************************************************************** %
+\input{sections/arbeitsgrundlagen.tex}
+
+
+% **************************************************************************** %
+\clearpage
+\section{Durchf\"uhrung}
+\label{sec:durchfuehrung}
+% **************************************************************************** %
+\input{sections/durchfuehrung.tex}
+
+
+% **************************************************************************** %
+\clearpage
+\section{Auswertung}
+\label{sec:auswertung}
+% **************************************************************************** %
+\input{sections/auswertung.tex}
+
+
+% **************************************************************************** %
+%\clearpage
+%\section{Fehlerrechnung}
+%\label{sec:fehlerrechnung}
+% **************************************************************************** %
+%\input{sections/fehlerrechnung.tex}
+
+
+% **************************************************************************** %
+\clearpage
+\section{Resultate und Diskussion}
+\label{sec:results}
+% **************************************************************************** %
+\input{sections/results.tex}
+
+
+% **************************************************************************** %
+\clearpage
+\section*{Unterschrift}
+\label{sec:signature}
+% **************************************************************************** %
+\input{sections/signature.tex}
+
+
+% **************************************************************************** %
+\clearpage
+\begin{appendices}
+    %\appendixpage
+    %\addappheadtotoc
+    %\appendix
+    %\section{Anhang}
+    \label{sec:appendix}
+    % ************************************************************************ %
+    \input{sections/appendix.tex}
+\end{appendices}
+
+% **************************************************************************** %
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{\bibname}
+\bibliography{bibliography/bibliography}{\bibliographystyle{bibliography/deIEEEtran.bst}}
+% **************************************************************************** %
+\end{document}

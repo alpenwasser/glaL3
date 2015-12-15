@@ -1,0 +1,2686 @@
+QtiPlot 0.9.8 project file
+<scripting-lang>	Python
+<windows>	25
+<table>
+HalterungLeer	4	3	12/9/15 6:32 PM
+geometry	784	767	341	141	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	4.9953	0.0043
+1	150	8.4682	0.0051
+2	200	11.9352	0.0091
+3	250	15.1065	0.0066
+</data>
+</table>
+<table>
+HalterungStandoffsShort	6	3	12/9/15 6:56 PM
+geometry	588	767	341	181	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	4.3954	0.0028
+1	150	7.3568	0.0039
+2	175	8.863	0.004
+3	200	10.4438	0.0044
+4	225	11.625	0.0054
+5	250	13.3554	0.0049
+</data>
+</table>
+<table>
+Table1	30	2	12/9/15 7:03 PM
+geometry	0	0	445	220	hidden
+header	1[X]	2[Y]
+ColWidth	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/4
+ReadOnlyColumn	0	0
+HiddenColumn	0	0
+Comments			
+WindowLabel		2
+<data>
+</data>
+</table>
+<table>
+HalterungStandoffsLong	6	3	12/9/15 7:04 PM
+geometry	392	767	342	181	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/4
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	4.2005	0.0027
+1	150	6.9637	0.0051
+2	175	8.3023	0.007
+3	200	9.767	0.01
+4	225	11.3632	0.009
+5	250	12.888	0.0063
+</data>
+</table>
+<table>
+MediumAxis0deg	6	3	12/9/15 7:07 PM
+geometry	1372	767	344	180	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	1.4506	0.00077
+1	150	2.4367	0.0012
+2	175	2.88852	0.0018
+3	200	3.4164	0.0013
+4	225	3.8235	0.0025
+5	250	4.3376	0.0023
+</data>
+</table>
+<table>
+LongAxis0deg	6	3	12/9/15 7:14 PM
+geometry	0	735	337	178	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	2.3804	0.0021
+1	150	4.7089	0.0023
+2	175	5.6266	0.0024
+3	200	6.5727	0.0032
+4	225	7.5086	0.035
+5	250	8.6193	0.0037
+</data>
+</table>
+<table>
+LongAxis15Deg	6	3	12/15/15 7:26 PM
+geometry	784	735	340	182	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	2.4244	0.0014
+1	150	4.2344	0.0021
+2	175	4.9132	0.0026
+3	200	5.8905	0.0044
+4	225	6.8006	0.0044
+5	250	7.627	0.0046
+</data>
+</table>
+<table>
+LongAxis30Deg	6	3	12/15/15 7:29 PM
+geometry	392	735	346	181	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	1.96144	0.0005
+1	150	3.4873	0.0016
+2	175	4.0589	0.0015
+3	200	4.8028	0.0038
+4	225	5.6012	0.0027
+5	250	6.2832	0.0031
+</data>
+</table>
+<table>
+LongAxis45Degs	6	3	12/15/15 7:33 PM
+geometry	1176	735	341	183	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	1.38569	0.00063
+1	150	2.90073	0.00098
+2	175	3.43895	0.00093
+3	200	4.0755	0.0012
+4	225	4.5412	0.002
+5	250	5.1974	0.0011
+</data>
+</table>
+<table>
+LongAxis60Deg	6	3	12/15/15 7:37 PM
+geometry	1568	735	341	180	minimized	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	1.23233	0.00051
+1	150	2.47027	0.00067
+2	175	2.8541	0.0011
+3	200	3.3746	0.002
+4	225	3.88429	0.0008
+5	250	4.3579	0.0011
+</data>
+</table>
+<table>
+LongAxis75Deg	5	3	12/15/15 7:39 PM
+geometry	1385	188	343	166	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	1.22422	0.00052
+1	150	2.22293	0.00064
+2	200	3.11638	0.00075
+3	225	3.62246	0.0008
+4	250	4.02648	0.00072
+</data>
+</table>
+<table>
+LongAxis90Deg	6	3	12/15/15 7:42 PM
+geometry	9	374	348	184	
+header	1[X]	2[Y]	3[yEr]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/10	0;0/10
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		0
+<data>
+0	100	1.11226	0.00051
+1	150	2.2296	0.00057
+2	175	2.66716	0.00073
+3	200	3.10379	0.00071
+4	225	3.51425	0.00083
+5	250	3.8809	0.0016
+</data>
+</table>
+<table>
+LongAxisAngleVar	11	2	12/15/15 8:08 PM
+geometry	360	374	248	285	
+header	1[X]	2[Y]
+ColWidth	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/4
+ReadOnlyColumn	0	0
+HiddenColumn	0	0
+Comments			
+WindowLabel		0
+<data>
+0	0	0.3
+1	10	1.038
+2	20	2.225
+3	30	2.99
+4	40	3.235
+5	45	3.28
+6	50	3.195
+7	60	2.75
+8	70	2.065
+9	80	0.904
+10	90	0.294
+</data>
+</table>
+<table>
+LongAxisWeights	7	2	12/15/15 8:14 PM
+geometry	609	374	244	205	
+header	1[X]	2[Y]
+ColWidth	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/4
+ReadOnlyColumn	0	0
+HiddenColumn	0	0
+Comments			
+WindowLabel		0
+<data>
+0	12	0.341
+1	22	0.862
+2	32	1.446
+3	42	1.985
+4	0	0.92
+5	32	1.28
+6	42	1.845
+</data>
+</table>
+<table>
+LongAxis45DegForce	6	2	12/15/15 8:17 PM
+geometry	855	373	242	185	
+header	1[X]	2[Y]
+ColWidth	100	100	
+<com>
+</com>
+ColType	0;0/4	0;0/4
+ReadOnlyColumn	0	0
+HiddenColumn	0	0
+Comments			
+WindowLabel		0
+<data>
+0	1	0.377
+1	1.5	0.606
+2	2	0.926
+3	3	2
+4	4	3.305
+5	5	5.25
+</data>
+</table>
+<multiLayer>
+FitHalterungLeer	1	1	12/15/15 8:27 PM
+geometry	196	767	1062	770	minimized	
+WindowLabel		0
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	7	6	1035	693
+<PageGeometry>0.00664137	0.00835655	0.981973	0.965181</PageGeometry>
+PlotTitle	Winkelbeschleunigung, Halterung leer	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	16	75	0	0	0
+ScaleFont1	Sans Serif	16	75	0	0	0
+ScaleFont2	Sans Serif	16	75	0	0	0
+ScaleFont3	Sans Serif	16	75	0	0	0
+AxisFont0	Sans Serif	16	50	0	0	0
+AxisFont1	Sans Serif	16	50	0	0	0
+AxisFont2	Sans Serif	16	50	0	0	0
+AxisFont3	Sans Serif	16	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	HalterungLeer_1	HalterungLeer_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	3	1
+ErrorBars	1	HalterungLeer_1	HalterungLeer_2	HalterungLeer_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>NonLinearFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.00348880279875991</Constant>
+<Constant>M_r	0.00715874447238954</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	4	16	0	7	5	0	0
+scale	1	4	16	0	7	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.615384615385</x>
+<y>15.592128801431</y>
+<right>144.423076923077</right>
+<bottom>12.5652951699463</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+<b>Dataset</b>: HalterungLeer_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 6.1547e-03
+<b>R^2</b> = 0.9998
+<b>I_H</b> = 3.4888e-03 +/- 3.7380e-05
+<b>M_r</b> = 7.1587e-03 +/- 4.0136e-04
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	11	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitHalterungStandoffsShort	1	1	12/15/15 8:49 PM
+geometry	0	767	1069	798	minimized	
+WindowLabel		0
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	7	5	1044	720
+<PageGeometry>0.00659755	0.00670241	0.983977	0.965147</PageGeometry>
+PlotTitle	Winkelbeschleunigung, Halterung mit Montagematerial kurz	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	17	75	0	0	0
+ScaleFont1	Sans Serif	17	75	0	0	0
+ScaleFont2	Sans Serif	17	75	0	0	0
+ScaleFont3	Sans Serif	17	75	0	0	0
+AxisFont0	Sans Serif	17	50	0	0	0
+AxisFont1	Sans Serif	17	50	0	0	0
+AxisFont2	Sans Serif	17	50	0	0	0
+AxisFont3	Sans Serif	17	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	HalterungStandoffsShort_1	HalterungStandoffsShort_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	5	1
+ErrorBars	1	HalterungStandoffsShort_1	HalterungStandoffsShort_2	HalterungStandoffsShort_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.00401475784097003</Constant>
+<Constant>M_r	0.00715731849474477</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	4	14	0	6	5	0	0
+scale	1	4	14	0	6	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.590860786397</x>
+<y>13.659284497445</y>
+<right>152.68862911796</right>
+<bottom>10.9165247018739</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+<b>Dataset</b>: HalterungStandoffsShort_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 1.3398e-02
+<b>R^2</b> = 0.999
+<b>I_H</b> = 4.0148e-03 +/- 6.6742e-05
+<b>M_r</b> = 7.1573e-03 +/- 6.5036e-04
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	12	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitHalterungStandoffsLong	1	1	12/15/15 8:59 PM
+geometry	1176	767	1078	785	minimized	
+WindowLabel		0
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	10	9	1048	706
+<PageGeometry>0.00934579	0.0122783	0.979439	0.963165</PageGeometry>
+PlotTitle	Winkelbeschleunigung, Halterung leer, langes Montagematerial	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	16	75	0	0	0
+ScaleFont1	Sans Serif	16	75	0	0	0
+ScaleFont2	Sans Serif	16	75	0	0	0
+ScaleFont3	Sans Serif	16	75	0	0	0
+AxisFont0	Sans Serif	16	50	0	0	0
+AxisFont1	Sans Serif	16	50	0	0	0
+AxisFont2	Sans Serif	16	50	0	0	0
+AxisFont3	Sans Serif	16	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	HalterungStandoffsLong_1	HalterungStandoffsLong_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	5	1
+ErrorBars	1	HalterungStandoffsLong_1	HalterungStandoffsLong_2	HalterungStandoffsLong_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.0041159932448786</Constant>
+<Constant>M_r	0.008017230916459</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit2</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.0041159932448786</Constant>
+<Constant>M_r	0.008017230916459</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	2	14	0	7	5	0	0
+scale	1	4	14	0	6	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.509803921569</x>
+<y>13.664921465969</y>
+<right>166.470588235294</right>
+<bottom>8.78534031413612</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(4)%(4)
+<b>Dataset</b>: HalterungStandoffsLong_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 2.0426e-02
+<b>R^2</b> = 0.9983
+<b>I_H</b> = 4.1160e-03 +/- 8.6409e-05
+<b>M_r</b> = 8.0172e-03 +/- 8.0536e-04
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	11	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitMediumAxis0Deg	1	1	12/15/15 9:02 PM
+geometry	980	767	1090	796	minimized	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	8	8	1064	717
+<PageGeometry>0.00739372	0.0107527	0.983364	0.96371</PageGeometry>
+PlotTitle	Winkelbeschleunigung, Stahlplatte, mittlere Achse	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	17	75	0	0	0
+ScaleFont1	Sans Serif	17	75	0	0	0
+ScaleFont2	Sans Serif	17	75	0	0	0
+ScaleFont3	Sans Serif	17	75	0	0	0
+AxisFont0	Sans Serif	17	50	0	0	0
+AxisFont1	Sans Serif	17	50	0	0	0
+AxisFont2	Sans Serif	17	50	0	0	0
+AxisFont3	Sans Serif	17	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	MediumAxis0deg_1	MediumAxis0deg_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	5	1
+ErrorBars	1	MediumAxis0deg_1	MediumAxis0deg_2	MediumAxis0deg_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.0128514505816237</Constant>
+<Constant>M_r	0.00615569690367638</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	1	4.5	0	8	5	0	0
+scale	1	1	4.5	0	8	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.353083434099</x>
+<y>4.3859348198971</y>
+<right>157.484885126965</right>
+<bottom>3.45540308747856</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+<b>Dataset</b>: MediumAxis0deg_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 7.3473e-04
+<b>R^2</b> = 0.9995
+<b>I_H</b> = 1.2851e-02 +/- 1.5191e-04
+<b>M_r</b> = 6.1557e-03 +/- 4.8565e-04
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	13	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitLongAxis0Deg	1	1	12/15/15 9:05 PM
+geometry	1568	767	1087	796	minimized	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	9	7	1058	720
+<PageGeometry>0.00834106	0.0094086	0.980538	0.967742</PageGeometry>
+PlotTitle	Title	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	17	75	0	0	0
+ScaleFont1	Sans Serif	17	75	0	0	0
+ScaleFont2	Sans Serif	17	75	0	0	0
+ScaleFont3	Sans Serif	17	75	0	0	0
+AxisFont0	Sans Serif	17	50	0	0	0
+AxisFont1	Sans Serif	17	50	0	0	0
+AxisFont2	Sans Serif	17	50	0	0	0
+AxisFont3	Sans Serif	17	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	LongAxis0deg_1	LongAxis0deg_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	5	1
+ErrorBars	1	LongAxis0deg_1	LongAxis0deg_2	LongAxis0deg_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.00592935765975001</Constant>
+<Constant>M_r	0.0100940740907254</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	2	9	0	8	5	0	0
+scale	1	2	9	0	8	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.518828451883</x>
+<y>8.7614991482112</y>
+<right>187.698744769874</right>
+<bottom>5.7206132879046</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+<b>Dataset</b>: LongAxis0deg_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 1.2201e-02
+<b>R^2</b> = 0.998
+<b>I_H</b> = 5.9294e-03 +/- 1.3535e-04
+<b>M_r</b> = 1.0094e-02 +/- 8.4149e-04
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	12	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitLongAxis30Deg	1	1	12/15/15 9:31 PM
+geometry	196	735	1180	796	minimized	
+WindowLabel		0
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	11	8	1151	719
+<PageGeometry>0.00938567	0.0107527	0.982082	0.966398</PageGeometry>
+PlotTitle	Stahlplatte, Lange Achse, 30 Grad	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)		%(?Y)	
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	17	75	0	0	0
+ScaleFont1	Sans Serif	17	75	0	0	0
+ScaleFont2	Sans Serif	17	75	0	0	0
+ScaleFont3	Sans Serif	17	75	0	0	0
+AxisFont0	Sans Serif	17	50	0	0	0
+AxisFont1	Sans Serif	17	50	0	0	0
+AxisFont2	Sans Serif	17	50	0	0	0
+AxisFont3	Sans Serif	17	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	LongAxis30Deg_1	LongAxis30Deg_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	5	1
+ErrorBars	1	LongAxis30Deg_1	LongAxis30Deg_2	LongAxis30Deg_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.00850436090166863</Constant>
+<Constant>M_r	0.00816753829857785</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	1	7	0	7	5	0	0
+scale	1	1	7	0	7	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.594894561598</x>
+<y>6.7952218430034</y>
+<right>151.720310765816</right>
+<bottom>5.20819112627986</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+<b>Dataset</b>: LongAxis30Deg_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 3.6535e-03
+<b>R^2</b> = 0.9988
+<b>I_H</b> = 8.5044e-03 +/- 1.5012e-04
+<b>M_r</b> = 8.1675e-03 +/- 6.8756e-04
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	11	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitLongAxis15Deg	1	1	12/15/15 9:33 PM
+geometry	588	735	1092	798	minimized	
+WindowLabel		0
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	12	7	1062	721
+<PageGeometry>0.0110701	0.00938338	0.979705	0.966488</PageGeometry>
+PlotTitle	Stahlplatte, Lange Achse, 15 Grad	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	17	75	0	0	0
+ScaleFont1	Sans Serif	17	75	0	0	0
+ScaleFont2	Sans Serif	17	75	0	0	0
+ScaleFont3	Sans Serif	17	75	0	0	0
+AxisFont0	Sans Serif	17	50	0	0	0
+AxisFont1	Sans Serif	17	50	0	0	0
+AxisFont2	Sans Serif	17	50	0	0	0
+AxisFont3	Sans Serif	17	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	LongAxis15Deg_1	LongAxis15Deg_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	5	1
+ErrorBars	1	LongAxis15Deg_1	LongAxis15Deg_2	LongAxis15Deg_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.0070041902791223</Constant>
+<Constant>M_r	0.00794592842919705</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	2	8	0	7	5	0	0
+scale	1	2	8	0	7	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.5</x>
+<y>7.7959183673469</y>
+<right>147.5</right>
+<bottom>6.06122448979592</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+\l(3)%(3)
+<b>Dataset</b>: LongAxis15Deg_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 5.3249e-03
+<b>R^2</b> = 0.9988
+<b>I_H</b> = 7.0042e-03 +/- 1.2390e-04
+<b>M_r</b> = 7.9459e-03 +/- 6.9006e-04
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	12	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitLongAxis45Deg	1	1	12/15/15 9:35 PM
+geometry	980	735	1120	796	minimized	
+WindowLabel		0
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	9	9	1091	721
+<PageGeometry>0.00809353	0.0120968	0.981115	0.969086</PageGeometry>
+PlotTitle	Stahlplatte, Lange Achse, 45 Grad	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	17	75	0	0	0
+ScaleFont1	Sans Serif	17	75	0	0	0
+ScaleFont2	Sans Serif	17	75	0	0	0
+ScaleFont3	Sans Serif	17	75	0	0	0
+AxisFont0	Sans Serif	17	50	0	0	0
+AxisFont1	Sans Serif	17	50	0	0	0
+AxisFont2	Sans Serif	17	50	0	0	0
+AxisFont3	Sans Serif	17	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	LongAxis45Degs_1	LongAxis45Degs_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	5	1
+ErrorBars	1	LongAxis45Degs_1	LongAxis45Degs_2	LongAxis45Degs_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.00984916726828827</Constant>
+<Constant>M_r	0.0100368052313115</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	1	5.5	0	10	5	0	0
+scale	1	1	5.5	0	10	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.561774023231</x>
+<y>5.3469387755102</y>
+<right>198.796198521647</right>
+<bottom>3.30357142857143</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+<b>Dataset</b>: LongAxis45Degs_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 1.2845e-02
+<b>R^2</b> = 0.9943
+<b>I_H</b> = 9.8492e-03 +/- 3.7549e-04
+<b>M_r</b> = 1.0037e-02 +/- 1.4219e-03
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	12	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitLongAxis60Deg	1	1	12/15/15 9:42 PM
+geometry	1372	735	1197	792	minimized	
+WindowLabel		0
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	12	7	1168	713
+<PageGeometry>0.0100925	0.00945946	0.982338	0.963514</PageGeometry>
+PlotTitle	Stahlplatte, Lange Achse, 60 Grad	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	17	75	0	0	0
+ScaleFont1	Sans Serif	17	75	0	0	0
+ScaleFont2	Sans Serif	17	75	0	0	0
+ScaleFont3	Sans Serif	17	75	0	0	0
+AxisFont0	Sans Serif	17	50	0	0	0
+AxisFont1	Sans Serif	17	50	0	0	0
+AxisFont2	Sans Serif	17	50	0	0	0
+AxisFont3	Sans Serif	17	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	LongAxis60Deg_1	LongAxis60Deg_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	5	1
+ErrorBars	1	LongAxis60Deg_1	LongAxis60Deg_2	LongAxis60Deg_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.0119619768493075</Constant>
+<Constant>M_r	0.00923635376394439</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	1	4.5	0	8	5	0	0
+scale	1	1	4.5	0	8	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.5703125</x>
+<y>4.3853448275862</y>
+<right>190.21484375</right>
+<bottom>2.77413793103448</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+<b>Dataset</b>: LongAxis60Deg_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 5.8489e-03
+<b>R^2</b> = 0.9962
+<b>I_H</b> = 1.1962e-02 +/- 3.7176e-04
+<b>M_r</b> = 9.2364e-03 +/- 1.1856e-03
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	12	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<multiLayer>
+FitLongAxis75Deg	1	1	12/15/15 9:44 PM
+geometry	324	-2	1133	801	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	10	10	1105	722
+<PageGeometry>0.00888889	0.0133511	0.982222	0.963952</PageGeometry>
+PlotTitle	Title	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Zugmasse (g)	Winkelbeschleunigung (rad/s^2)			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	20	75	0	0	0
+ScaleFont0	Sans Serif	17	75	0	0	0
+ScaleFont1	Sans Serif	17	75	0	0	0
+ScaleFont2	Sans Serif	17	75	0	0	0
+ScaleFont3	Sans Serif	17	75	0	0	0
+AxisFont0	Sans Serif	17	50	0	0	0
+AxisFont1	Sans Serif	17	50	0	0	0
+AxisFont2	Sans Serif	17	50	0	0	0
+AxisFont3	Sans Serif	17	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	LongAxis75Deg_1	LongAxis75Deg_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	4	1
+ErrorBars	1	LongAxis75Deg_1	LongAxis75Deg_2	LongAxis75Deg_3	1	8	#000000	1	1	1	0
+<Function>
+<Type>0</Type>
+<Title>phi-dot-dotFit1</Title>
+<Expression>(x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)</Expression>
+<Variable>x</Variable>
+<Range>100	250</Range>
+<Points>1000</Points>
+<Constant>I_H	0.0131539565561591</Constant>
+<Constant>M_r	0.0085113776016285</Constant>
+<Constant>g	9.81</Constant>
+<Constant>r_z	0.0255</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<CurveType>0</CurveType>
+<Visible>1</Visible>
+</Function>
+scale	0	1	4.5	0	8	5	0	0
+scale	1	1	4.5	0	8	5	0	0
+scale	2	80	260	0	10	5	0	0
+scale	3	80	260	0	10	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	3	3	3	3
+MinorTicks	3	3	3	3
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	1	1	1
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>84.433497536946</x>
+<y>4.3811544991511</y>
+<right>217.660098522167</right>
+<bottom>2.79456706281834</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)%(1)
+\l(3)%(3)
+<b>Dataset</b>: LongAxis75Deg_2
+<b>Function</b>: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+<b>Chi^2/doF</b> = 1.2259e-03
+<b>R^2</b> = 0.9993
+<b>I_H</b> = 1.3154e-02 +/- 2.0589e-04
+<b>M_r</b> = 8.5114e-03 +/- 6.2003e-04
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+</Text>
+<Font>Sans Serif	11	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<open>1</open>
+<log>
+[12/9/15 6:43 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (mz*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 2.4497e+01 +/- 8.6737e+32
+Mr = -2.2748e+01 +/- 9.8662e+31
+mz = 4.3642e+01 +/- 1.7347e+33
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.7151e+01
+R^2 = 0
+RMSE (Root Mean Squared Error) = 7.56
+RSS (Residual Sum of Squares) = 57.15
+---------------------------------------------------------------------------------------
+Iterations = 7
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:43 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (mz*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 2.4904e+01 +/- 8.6737e+32
+Mr = -2.3066e+01 +/- 1.1100e+32
+mz = 4.3755e+01 +/- 1.7347e+33
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.7151e+01
+R^2 = 0
+RMSE (Root Mean Squared Error) = 7.56
+RSS (Residual Sum of Squares) = 57.15
+---------------------------------------------------------------------------------------
+Iterations = 5
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:43 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (mz*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 2.4840e+01 +/- 4.3369e+32
+Mr = -2.3223e+01 +/- 5.2332e+32
+mz = 4.3347e+01 +/- 1.7347e+33
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.7151e+01
+R^2 = 1.11e-16
+RMSE (Root Mean Squared Error) = 7.56
+RSS (Residual Sum of Squares) = 57.15
+---------------------------------------------------------------------------------------
+Iterations = 5
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:43 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 4.5734e+02 +/- 5.5266e+10
+Mr = -4.3656e+02 +/- 7.9439e+10
+mz = 2.1545e+06 +/- 5.6750e+14
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 19
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:43 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = -9.6903e+04 +/- 1.8672e+13
+Mr = -8.3031e+04 +/- 2.7328e+13
+mz = 6.9258e+08 +/- 1.5710e+17
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 11
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:43 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = -1.4254e+05 +/- 4.6336e+13
+Mr = -2.2872e+05 +/- 5.7379e+13
+mz = 1.7165e+09 +/- 3.4289e+17
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 9
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:43 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 7.5648e+05 +/- 8.2711e+13
+Mr = -4.2275e+05 +/- 9.1253e+13
+mz = 1.6041e+09 +/- 5.6589e+17
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 8
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:43 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = -1.1895e+08 +/- 1.3334e+16
+Mr = -5.0918e+07 +/- 5.2723e+15
+mz = 5.1627e+11 +/- 4.5561e+19
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 9
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.2096e+10 +/- 1.3666e+19
+Mr = -3.1165e+09 +/- 1.1198e+18
+mz = -2.8958e+13 +/- 1.3923e+22
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 10
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 2.8794e+10 +/- 8.1729e+18
+Mr = -1.9555e+09 +/- 3.7868e+17
+mz = -3.1480e+13 +/- 1.0135e+22
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 7
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 4.4512e+10 +/- 2.4005e+19
+Mr = -2.2306e+09 +/- 3.0599e+18
+mz = -5.3851e+13 +/- 1.7409e+22
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 11
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.1283e+11 +/- 1.4304e+19
+Mr = -8.4413e+09 +/- 1.2034e+18
+mz = -1.1825e+14 +/- 2.3469e+22
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 11
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 2.6238e+13 +/- 3.6017e+21
+Mr = -1.4851e+13 +/- 1.5635e+21
+mz = 5.6868e+16 +/- 1.3276e+25
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 12
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = -1.7804e+13 +/- 4.0079e+21
+Mr = -5.5314e+12 +/- 2.2689e+21
+mz = 6.3591e+16 +/- 2.0059e+25
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 8
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.3012e+14 +/- 3.0082e+22
+Mr = -8.9410e+13 +/- 2.7374e+22
+mz = 3.8520e+17 +/- 1.7067e+26
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 9
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 4.0496e+13 +/- 9.9804e+22
+Mr = -7.4258e+13 +/- 1.4153e+23
+mz = 4.2385e+17 +/- 7.7313e+26
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 8
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = -3.8795e+14 +/- 2.0067e+23
+Mr = -2.6243e+13 +/- 4.2390e+21
+mz = 7.6841e+17 +/- 3.3531e+26
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 8
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 8.0473e+16 +/- 2.4506e+25
+Mr = -8.0727e+15 +/- 4.5654e+24
+mz = -7.0910e+19 +/- 6.6145e+28
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 11
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 7.7938e+16 +/- 1.0015e+25
+Mr = -1.1581e+15 +/- 8.2180e+22
+mz = -1.1228e+20 +/- 1.5042e+28
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 13
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = -7.8479e+18 +/- 8.3442e+26
+Mr = -1.9447e+18 +/- 1.8850e+26
+mz = 2.4800e+22 +/- 1.2847e+30
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 11
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.5256e+21 +/- 3.6533e+29
+Mr = -1.9412e+20 +/- 2.3686e+29
+mz = -1.0754e+24 +/- 1.0107e+33
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 8
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+mz*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 8.3707e+20 +/- 2.0611e+30
+Mr = -8.1123e+19 +/- 2.3564e+29
+mz = -7.5625e+23 +/- 1.6292e+33
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.1022e+00
+R^2 = 0.9807
+RMSE (Root Mean Squared Error) = 1.05
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 12
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.8504e+08 +/- 1.1212e+16
+Mr = -4.3469e+07 +/- 2.6339e+15
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 58
+Status = cannot reach the specified tolerance in gradient
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 4.9746e+09 +/- 1.8384e+17
+Mr = -1.1686e+09 +/- 4.3188e+16
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 12
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.8504e+08 +/- 1.1212e+16
+Mr = -4.3469e+07 +/- 2.6339e+15
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 58
+Status = cannot reach the specified tolerance in gradient
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 4.9746e+09 +/- 1.8384e+17
+Mr = -1.1686e+09 +/- 4.3188e+16
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 12
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 2.5000e+12 +/- 2.5075e+21
+Mr = -5.8730e+11 +/- 5.8906e+20
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 14
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.5013e+12 +/- 2.0156e+20
+Mr = -3.5269e+11 +/- 4.7351e+19
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 6
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.1434e+11 +/- 1.2443e+19
+Mr = -7.3843e+10 +/- 2.9231e+18
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 12
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 7.3260e+12 +/- 4.6846e+20
+Mr = -1.7210e+12 +/- 1.1005e+20
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 13
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 8.2424e+12 +/- 4.7129e+20
+Mr = -1.9363e+12 +/- 1.1072e+20
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 8
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.4145e+14 +/- 1.1660e+22
+Mr = -3.3229e+13 +/- 2.7393e+21
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 10
+Status = cannot reach the specified tolerance in gradient
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.4140e+14 +/- 1.5630e+22
+Mr = -3.3218e+13 +/- 3.6719e+21
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 108
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:45 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.5690e+16 +/- 5.3843e+23
+Mr = -3.6860e+15 +/- 1.2649e+23
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 10
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[12/9/15 6:46 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3*-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 1.8504e+08 +/- 1.1212e+16
+Mr = -4.3469e+07 +/- 2.6339e+15
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.5112e-01
+R^2 = 0.9807
+Adjusted R^2 = 0.9421
+RMSE (Root Mean Squared Error) = 0.7424
+RSS (Residual Sum of Squares) = 1.102
+---------------------------------------------------------------------------------------
+Iterations = 58
+Status = cannot reach the specified tolerance in gradient
+---------------------------------------------------------------------------------------
+[12/9/15 6:46 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.4888e+00 +/- 3.7380e-02
+Mr = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 6
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:47 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.4888e+00 +/- 3.7380e-02
+Mr = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 6
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:47 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.4888e+00 +/- 3.7380e-02
+Mr = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:47 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.4888e+00 +/- 3.7380e-02
+Mr = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:47 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.4888e+00 +/- 3.7380e-02
+Mr = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:47 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.4888e+00 +/- 3.7380e-02
+Mr = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:47 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.4888e+00 +/- 3.7380e-02
+Mr = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:48 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*9.81*25.5e-3-Mr)/(IH+x*(25.5e-3)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+IH = 3.4888e+00 +/- 3.7380e-02
+Mr = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 6
+Status = success
+---------------------------------------------------------------------------------------
+[12/9/15 6:53 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*g*r_z-M_r)/(I_H+x*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 3.4888e+00 +/- 3.7380e-02
+M_r = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 6
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/9/15 6:53 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*g*r_z-M_r)/(I_H+x*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 3.4888e+00 +/- 3.7380e-02
+M_r = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/9/15 6:53 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: Table1_2, using function: (x*g*r_z-M_r)/(I_H+x*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 3.4888e+00 +/- 3.7380e-02
+M_r = 7.1587e+00 +/- 4.0136e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+
+[12/15/15 8:27 PM	Plot: ''Graph1'']
+Linear Regression of dataset: HalterungLeer_2, using function: A*x+B
+Weighting Method: Instrumental, using error bars dataset: HalterungLeer_3
+From x = 1.0000e+02 to x = 2.5000e+02
+B (y-intercept) = -1.7382e+00 +/- 8.1252e-03
+A (slope) = 6.7688e-02 +/- 5.0337e-05
+--------------------------------------------------------------------------------------
+Chi^2/doF = 2.6804e+02
+R^2 = 0.9997
+Adjusted R^2 = 0.9992
+RMSE (Root Mean Squared Error) = 16.37
+RSS (Residual Sum of Squares) = 536.1
+---------------------------------------------------------------------------------------
+[12/15/15 8:31 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: HalterungLeer_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 3.4888e-03 +/- 3.7380e-05
+M_r = 7.1588e-03 +/- 4.0136e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 19
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 8:31 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: HalterungLeer_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 3.4888e-03 +/- 3.7380e-05
+M_r = 7.1587e-03 +/- 4.0136e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 8:46 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: HalterungLeer_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 3.4888e-03 +/- 3.7380e-05
+M_r = 7.1588e-03 +/- 4.0136e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 19
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 8:54 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: HalterungStandoffsShort_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 4.0148e-03 +/- 6.6742e-05
+M_r = 7.1573e-03 +/- 6.5036e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.3398e-02
+R^2 = 0.999
+Adjusted R^2 = 0.9983
+RMSE (Root Mean Squared Error) = 0.1157
+RSS (Residual Sum of Squares) = 0.05359
+---------------------------------------------------------------------------------------
+Iterations = 19
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:00 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: HalterungStandoffsLong_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 4.1160e-03 +/- 8.6409e-05
+M_r = 8.0172e-03 +/- 8.0536e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 2.0426e-02
+R^2 = 0.9983
+Adjusted R^2 = 0.9972
+RMSE (Root Mean Squared Error) = 0.1429
+RSS (Residual Sum of Squares) = 0.08171
+---------------------------------------------------------------------------------------
+Iterations = 16
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:00 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: HalterungStandoffsLong_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 4.1160e-03 +/- 8.6409e-05
+M_r = 8.0172e-03 +/- 8.0536e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 2.0426e-02
+R^2 = 0.9983
+Adjusted R^2 = 0.9972
+RMSE (Root Mean Squared Error) = 0.1429
+RSS (Residual Sum of Squares) = 0.08171
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:00 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: HalterungStandoffsLong_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 4.1160e-03 +/- 8.6409e-05
+M_r = 8.0172e-03 +/- 8.0536e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 2.0426e-02
+R^2 = 0.9983
+Adjusted R^2 = 0.9972
+RMSE (Root Mean Squared Error) = 0.1429
+RSS (Residual Sum of Squares) = 0.08171
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:02 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: HalterungLeer_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 3.4888e-03 +/- 3.7380e-05
+M_r = 7.1588e-03 +/- 4.0136e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 6.1547e-03
+R^2 = 0.9998
+Adjusted R^2 = 0.9994
+RMSE (Root Mean Squared Error) = 0.07845
+RSS (Residual Sum of Squares) = 0.01231
+---------------------------------------------------------------------------------------
+Iterations = 19
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:03 PM	Plot: ''FitMediumAxis0Deg'']
+Non-linear Fit of dataset: MediumAxis0deg_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 1.2851e-02 +/- 1.5191e-04
+M_r = 6.1557e-03 +/- 4.8565e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 7.3473e-04
+R^2 = 0.9995
+Adjusted R^2 = 0.9991
+RMSE (Root Mean Squared Error) = 0.02711
+RSS (Residual Sum of Squares) = 0.002939
+---------------------------------------------------------------------------------------
+Iterations = 16
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:05 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: LongAxis0deg_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 5.9294e-03 +/- 1.3535e-04
+M_r = 1.0094e-02 +/- 8.4149e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.2201e-02
+R^2 = 0.998
+Adjusted R^2 = 0.9967
+RMSE (Root Mean Squared Error) = 0.1105
+RSS (Residual Sum of Squares) = 0.0488
+---------------------------------------------------------------------------------------
+Iterations = 14
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:27 PM	Plot: ''FitLongAxis15Deg'']
+Non-linear Fit of dataset: LongAxis15Deg_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 5.2366e-03 +/- 3.1519e+04
+M_r = 5.4701e-03 +/- 3.2925e+04
+g = 1.0385e+03 +/- 3.1058e+09
+r_z = 1.7492e-04 +/- 5.2983e+02
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.0031e-02
+R^2 = 0.9989
+Adjusted R^2 = 0.9943
+RMSE (Root Mean Squared Error) = 0.1002
+RSS (Residual Sum of Squares) = 0.02006
+---------------------------------------------------------------------------------------
+Iterations = 150
+Status = success
+---------------------------------------------------------------------------------------
+[12/15/15 9:31 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: LongAxis30Deg_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 8.5044e-03 +/- 1.5012e-04
+M_r = 8.1675e-03 +/- 6.8756e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 3.6535e-03
+R^2 = 0.9988
+Adjusted R^2 = 0.998
+RMSE (Root Mean Squared Error) = 0.06044
+RSS (Residual Sum of Squares) = 0.01461
+---------------------------------------------------------------------------------------
+Iterations = 13
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:34 PM	Plot: ''FitLongAxis15Deg'']
+Non-linear Fit of dataset: LongAxis15Deg_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 7.0042e-03 +/- 1.2390e-04
+M_r = 7.9459e-03 +/- 6.9006e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.3249e-03
+R^2 = 0.9988
+Adjusted R^2 = 0.998
+RMSE (Root Mean Squared Error) = 0.07297
+RSS (Residual Sum of Squares) = 0.0213
+---------------------------------------------------------------------------------------
+Iterations = 18
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:34 PM	Plot: ''FitLongAxis15Deg'']
+Non-linear Fit of dataset: LongAxis15Deg_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 7.0042e-03 +/- 1.2390e-04
+M_r = 7.9459e-03 +/- 6.9006e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.3249e-03
+R^2 = 0.9988
+Adjusted R^2 = 0.998
+RMSE (Root Mean Squared Error) = 0.07297
+RSS (Residual Sum of Squares) = 0.0213
+---------------------------------------------------------------------------------------
+Iterations = 1
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:36 PM	Plot: ''FitLongAxis45Deg'']
+Non-linear Fit of dataset: LongAxis45Degs_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 9.8492e-03 +/- 3.7549e-04
+M_r = 1.0037e-02 +/- 1.4219e-03
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.2845e-02
+R^2 = 0.9943
+Adjusted R^2 = 0.9906
+RMSE (Root Mean Squared Error) = 0.1133
+RSS (Residual Sum of Squares) = 0.05138
+---------------------------------------------------------------------------------------
+Iterations = 19
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:42 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: LongAxis60Deg_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 1.1962e-02 +/- 3.7176e-04
+M_r = 9.2364e-03 +/- 1.1856e-03
+--------------------------------------------------------------------------------------
+Chi^2/doF = 5.8489e-03
+R^2 = 0.9962
+Adjusted R^2 = 0.9937
+RMSE (Root Mean Squared Error) = 0.07648
+RSS (Residual Sum of Squares) = 0.0234
+---------------------------------------------------------------------------------------
+Iterations = 15
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+[12/15/15 9:44 PM	Plot: ''Graph1'']
+Non-linear Fit of dataset: LongAxis75Deg_2, using function: (x/1000*g*r_z-M_r)/(I_H+x/1000*(r_z)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = 1.0000e+02 to x = 2.5000e+02
+I_H = 1.3154e-02 +/- 2.0589e-04
+M_r = 8.5114e-03 +/- 6.2003e-04
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1.2259e-03
+R^2 = 0.9993
+Adjusted R^2 = 0.9986
+RMSE (Root Mean Squared Error) = 0.03501
+RSS (Residual Sum of Squares) = 0.003678
+---------------------------------------------------------------------------------------
+Iterations = 14
+Status = success
+---------------------------------------------------------------------------------------
+g = 9.81 (constant)
+r_z = 0.0255 (constant)
+---------------------------------------------------------------------------------------
+</log>
